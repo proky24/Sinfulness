@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://sm0ehfuxqfsc"]
 
-[node name="Level1" type="Node2D" unique_id=1169444605]
+[ext_resource type="PackedScene" uid="uid://bp0l14mf66hpg" path="res://Levels/Level1/Floor1/TilesSets/FloorWallTile.tscn" id="1_bee84"]
+
+[node name="Floor1" type="Node2D" unique_id=1169444605]
+
+[node name="FloorWallTile" parent="." unique_id=493347269 instance=ExtResource("1_bee84")]
