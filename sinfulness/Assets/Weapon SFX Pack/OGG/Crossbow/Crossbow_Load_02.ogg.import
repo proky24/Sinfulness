@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://claq7ylxi746y"
+path="res://.godot/imported/Crossbow_Load_02.ogg-89455747466920e1ee3f3099cf80aa96.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Crossbow/Crossbow_Load_02.ogg"
+dest_files=["res://.godot/imported/Crossbow_Load_02.ogg-89455747466920e1ee3f3099cf80aa96.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

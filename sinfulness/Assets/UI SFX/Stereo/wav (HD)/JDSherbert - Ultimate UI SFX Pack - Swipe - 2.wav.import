@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://f4jw50plqi4n"
+path="res://.godot/imported/JDSherbert - Ultimate UI SFX Pack - Swipe - 2.wav-c60c39caff659037079f4e7dd8f01b19.sample"
+
+[deps]
+
+source_file="res://Assets/UI SFX/Stereo/wav (HD)/JDSherbert - Ultimate UI SFX Pack - Swipe - 2.wav"
+dest_files=["res://.godot/imported/JDSherbert - Ultimate UI SFX Pack - Swipe - 2.wav-c60c39caff659037079f4e7dd8f01b19.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

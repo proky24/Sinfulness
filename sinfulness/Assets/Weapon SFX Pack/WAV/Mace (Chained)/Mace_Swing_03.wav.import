@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://co6eath86pxle"
+path="res://.godot/imported/Mace_Swing_03.wav-dc9d050974de9c2cad5ff9a95675ef70.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Mace (Chained)/Mace_Swing_03.wav"
+dest_files=["res://.godot/imported/Mace_Swing_03.wav-dc9d050974de9c2cad5ff9a95675ef70.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

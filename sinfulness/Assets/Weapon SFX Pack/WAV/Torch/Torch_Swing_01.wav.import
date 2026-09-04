@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://qju7ai0scxjd"
+path="res://.godot/imported/Torch_Swing_01.wav-5044ee3f3b50f32390fefe5eff2db807.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Torch/Torch_Swing_01.wav"
+dest_files=["res://.godot/imported/Torch_Swing_01.wav-5044ee3f3b50f32390fefe5eff2db807.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

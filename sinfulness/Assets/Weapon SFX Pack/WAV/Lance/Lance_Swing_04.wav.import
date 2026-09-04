@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b13s7boxo5nkx"
+path="res://.godot/imported/Lance_Swing_04.wav-4dc13738c80f556e512d9f57073a07bf.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Lance/Lance_Swing_04.wav"
+dest_files=["res://.godot/imported/Lance_Swing_04.wav-4dc13738c80f556e512d9f57073a07bf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccg221okvho78"
+path="res://.godot/imported/Katana_Swing_02.ogg-fb7760fea7d2e2f9f997508157def74c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Katana/Katana_Swing_02.ogg"
+dest_files=["res://.godot/imported/Katana_Swing_02.ogg-fb7760fea7d2e2f9f997508157def74c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

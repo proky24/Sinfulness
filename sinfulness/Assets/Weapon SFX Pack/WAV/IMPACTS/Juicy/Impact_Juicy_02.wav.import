@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wqa12fxx4ejt"
+path="res://.godot/imported/Impact_Juicy_02.wav-64e22900194b0068c312f4efaec423c5.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Juicy/Impact_Juicy_02.wav"
+dest_files=["res://.godot/imported/Impact_Juicy_02.wav-64e22900194b0068c312f4efaec423c5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

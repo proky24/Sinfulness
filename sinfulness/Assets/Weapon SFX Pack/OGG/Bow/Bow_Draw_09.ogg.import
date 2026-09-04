@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://beu4tvbrrid28"
+path="res://.godot/imported/Bow_Draw_09.ogg-641efd65081bd4ac3424e168536fb731.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Bow/Bow_Draw_09.ogg"
+dest_files=["res://.godot/imported/Bow_Draw_09.ogg-641efd65081bd4ac3424e168536fb731.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

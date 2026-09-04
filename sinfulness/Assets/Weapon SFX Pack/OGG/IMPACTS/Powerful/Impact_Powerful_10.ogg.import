@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cj071gwixvred"
+path="res://.godot/imported/Impact_Powerful_10.ogg-5cc1f35f9032244b16d96d8d39b1476f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/IMPACTS/Powerful/Impact_Powerful_10.ogg"
+dest_files=["res://.godot/imported/Impact_Powerful_10.ogg-5cc1f35f9032244b16d96d8d39b1476f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

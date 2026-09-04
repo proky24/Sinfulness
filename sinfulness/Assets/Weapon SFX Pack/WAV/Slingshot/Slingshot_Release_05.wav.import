@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6xi2hxj703a1"
+path="res://.godot/imported/Slingshot_Release_05.wav-839308969238dc4ecb631ed3baf5c126.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Slingshot/Slingshot_Release_05.wav"
+dest_files=["res://.godot/imported/Slingshot_Release_05.wav-839308969238dc4ecb631ed3baf5c126.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

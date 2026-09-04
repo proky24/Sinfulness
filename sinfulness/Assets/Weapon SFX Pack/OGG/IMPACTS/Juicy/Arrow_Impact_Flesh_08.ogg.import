@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dku11wjoo4bb8"
+path="res://.godot/imported/Arrow_Impact_Flesh_08.ogg-d2dfcff831db833bcdf072707c115b88.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/IMPACTS/Juicy/Arrow_Impact_Flesh_08.ogg"
+dest_files=["res://.godot/imported/Arrow_Impact_Flesh_08.ogg-d2dfcff831db833bcdf072707c115b88.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bng538uxe807k"
+path="res://.godot/imported/Impact_Clash_Strong_04.ogg-7ac4e5b60c287030e8ac03ea9e2ad7df.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/IMPACTS/Metal/Impact_Clash_Strong_04.ogg"
+dest_files=["res://.godot/imported/Impact_Clash_Strong_04.ogg-7ac4e5b60c287030e8ac03ea9e2ad7df.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

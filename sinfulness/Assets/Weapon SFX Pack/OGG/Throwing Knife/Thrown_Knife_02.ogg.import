@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3a3pmaeumnat"
+path="res://.godot/imported/Thrown_Knife_02.ogg-15bdf3200214c24c5a18712973869c4a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Throwing Knife/Thrown_Knife_02.ogg"
+dest_files=["res://.godot/imported/Thrown_Knife_02.ogg-15bdf3200214c24c5a18712973869c4a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

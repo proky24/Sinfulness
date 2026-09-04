@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnodxgapss85h"
+path="res://.godot/imported/Impact_Clash_Light_01.wav-2bc0422cf4b26d973aece75056cb0c72.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Metal/Impact_Clash_Light_01.wav"
+dest_files=["res://.godot/imported/Impact_Clash_Light_01.wav-2bc0422cf4b26d973aece75056cb0c72.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

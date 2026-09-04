@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cf6hxx21eymo1"
+path="res://.godot/imported/Whip_Crack_03.ogg-c650e419c3b67ee61ad5a5a3103670ee.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Whip/Whip_Crack_03.ogg"
+dest_files=["res://.godot/imported/Whip_Crack_03.ogg-c650e419c3b67ee61ad5a5a3103670ee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

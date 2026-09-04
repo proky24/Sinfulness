@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3pjcw1u26it5"
+path="res://.godot/imported/Impact_Clash_Light_10.wav-c8fb29e5a640452c56fee7ec57b2820d.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Metal/Impact_Clash_Light_10.wav"
+dest_files=["res://.godot/imported/Impact_Clash_Light_10.wav-c8fb29e5a640452c56fee7ec57b2820d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

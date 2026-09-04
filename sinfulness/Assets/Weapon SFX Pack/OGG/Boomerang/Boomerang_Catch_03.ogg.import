@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cs3puhr7k2mi"
+path="res://.godot/imported/Boomerang_Catch_03.ogg-6de8432b7429b1ceb8aa0f8f6210b246.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Boomerang/Boomerang_Catch_03.ogg"
+dest_files=["res://.godot/imported/Boomerang_Catch_03.ogg-6de8432b7429b1ceb8aa0f8f6210b246.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

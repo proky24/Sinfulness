@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://coaj4f36emvpf"
+path="res://.godot/imported/Unsheathe_Long_02.ogg-9cb8cde27275e1f6fdd0f564b48aef88.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Sheathes/Unsheathes/Unsheathe_Long_02.ogg"
+dest_files=["res://.godot/imported/Unsheathe_Long_02.ogg-9cb8cde27275e1f6fdd0f564b48aef88.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

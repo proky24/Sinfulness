@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dwk6ds0l7ac34"
+path="res://.godot/imported/Sheathe_Light_03.ogg-13df2799ac3bb87e4103debb34aee443.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Sheathes/Sheathes/Sheathe_Light_03.ogg"
+dest_files=["res://.godot/imported/Sheathe_Light_03.ogg-13df2799ac3bb87e4103debb34aee443.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c351hdanxwr5"
+path="res://.godot/imported/Impact_Juicy_03.ogg-9d486366218c668d13509332015ea0f2.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/IMPACTS/Juicy/Impact_Juicy_03.ogg"
+dest_files=["res://.godot/imported/Impact_Juicy_03.ogg-9d486366218c668d13509332015ea0f2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

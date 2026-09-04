@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dxwx5yiorc660"
+path="res://.godot/imported/Sword_Swing_Short_04.ogg-fc9f66269203fd9b7beef229cff447c1.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Sword/Sword_Swing_Short_04.ogg"
+dest_files=["res://.godot/imported/Sword_Swing_Short_04.ogg-fc9f66269203fd9b7beef229cff447c1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

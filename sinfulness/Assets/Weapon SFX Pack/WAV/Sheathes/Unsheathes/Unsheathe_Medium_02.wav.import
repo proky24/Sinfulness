@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7bau3puj278g"
+path="res://.godot/imported/Unsheathe_Medium_02.wav-5e0453cd7e41f7ef399a0bcbb8892ee8.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Sheathes/Unsheathes/Unsheathe_Medium_02.wav"
+dest_files=["res://.godot/imported/Unsheathe_Medium_02.wav-5e0453cd7e41f7ef399a0bcbb8892ee8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cj4y4q4qx3fbm"
+path="res://.godot/imported/Bow_Release_09.ogg-c7429680790b58c8c522ed0cca524852.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Bow/Bow_Release_09.ogg"
+dest_files=["res://.godot/imported/Bow_Release_09.ogg-c7429680790b58c8c522ed0cca524852.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

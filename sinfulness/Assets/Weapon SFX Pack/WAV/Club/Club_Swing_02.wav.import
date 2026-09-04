@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://by350hf527qty"
+path="res://.godot/imported/Club_Swing_02.wav-14c52581a03d8446e6110c815022f96a.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Club/Club_Swing_02.wav"
+dest_files=["res://.godot/imported/Club_Swing_02.wav-14c52581a03d8446e6110c815022f96a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

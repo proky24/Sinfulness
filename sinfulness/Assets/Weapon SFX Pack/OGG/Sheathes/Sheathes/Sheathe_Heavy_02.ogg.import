@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c2naaniiha2tt"
+path="res://.godot/imported/Sheathe_Heavy_02.ogg-621e7011354a16914f333b48a16c97ac.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Sheathes/Sheathes/Sheathe_Heavy_02.ogg"
+dest_files=["res://.godot/imported/Sheathe_Heavy_02.ogg-621e7011354a16914f333b48a16c97ac.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

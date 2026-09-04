@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dkr7wvhp8i3db"
+path="res://.godot/imported/Mace_Swing_02.ogg-ab890385b4f4df2af70c5e346883bfb2.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Mace (Chained)/Mace_Swing_02.ogg"
+dest_files=["res://.godot/imported/Mace_Swing_02.ogg-ab890385b4f4df2af70c5e346883bfb2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

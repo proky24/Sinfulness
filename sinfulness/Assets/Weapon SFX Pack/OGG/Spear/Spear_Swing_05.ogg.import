@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cygdbkhqarvdi"
+path="res://.godot/imported/Spear_Swing_05.ogg-fecac13e0511a283f92bf6f87a9a975e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Spear/Spear_Swing_05.ogg"
+dest_files=["res://.godot/imported/Spear_Swing_05.ogg-fecac13e0511a283f92bf6f87a9a975e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

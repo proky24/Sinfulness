@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bw0pdfq2j0i7a"
+path="res://.godot/imported/Torch_Swing_05.ogg-13eae27f9b25442a5988cca4272aa0d0.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Torch/Torch_Swing_05.ogg"
+dest_files=["res://.godot/imported/Torch_Swing_05.ogg-13eae27f9b25442a5988cca4272aa0d0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

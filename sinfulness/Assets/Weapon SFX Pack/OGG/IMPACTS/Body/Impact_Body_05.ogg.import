@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dntiijs3yauqj"
+path="res://.godot/imported/Impact_Body_05.ogg-72d767a01c7fb9f2ee37bc7dd7a4272c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/IMPACTS/Body/Impact_Body_05.ogg"
+dest_files=["res://.godot/imported/Impact_Body_05.ogg-72d767a01c7fb9f2ee37bc7dd7a4272c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

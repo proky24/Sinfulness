@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6llag841act4"
+path="res://.godot/imported/Axe_Swing_03.wav-27df09cacb574eb3e8c065b6aaa2a22d.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Axe/Axe_Swing_03.wav"
+dest_files=["res://.godot/imported/Axe_Swing_03.wav-27df09cacb574eb3e8c065b6aaa2a22d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

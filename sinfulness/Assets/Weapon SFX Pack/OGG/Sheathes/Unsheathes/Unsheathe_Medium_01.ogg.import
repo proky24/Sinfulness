@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://8o1rp0rcxo38"
+path="res://.godot/imported/Unsheathe_Medium_01.ogg-8833ba63cb07fa17052a8e297ac6ad10.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Sheathes/Unsheathes/Unsheathe_Medium_01.ogg"
+dest_files=["res://.godot/imported/Unsheathe_Medium_01.ogg-8833ba63cb07fa17052a8e297ac6ad10.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dufhvqdgg10n8"
+path="res://.godot/imported/Anvil_Strike_Light_03.ogg-5b60e97286528f6484ae707d76bc319c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Anvil/Anvil_Strike_Light_03.ogg"
+dest_files=["res://.godot/imported/Anvil_Strike_Light_03.ogg-5b60e97286528f6484ae707d76bc319c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

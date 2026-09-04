@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cl2qt8fm3wnfm"
+path="res://.godot/imported/Slingshot_Draw_01.wav-9accd6900e17cb7d7018a5b3d9f72947.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Slingshot/Slingshot_Draw_01.wav"
+dest_files=["res://.godot/imported/Slingshot_Draw_01.wav-9accd6900e17cb7d7018a5b3d9f72947.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

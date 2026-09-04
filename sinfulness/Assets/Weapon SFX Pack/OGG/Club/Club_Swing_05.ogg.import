@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c1rvyuexudo6d"
+path="res://.godot/imported/Club_Swing_05.ogg-3349983e9c4c293ea8eee6d698930b2e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Club/Club_Swing_05.ogg"
+dest_files=["res://.godot/imported/Club_Swing_05.ogg-3349983e9c4c293ea8eee6d698930b2e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

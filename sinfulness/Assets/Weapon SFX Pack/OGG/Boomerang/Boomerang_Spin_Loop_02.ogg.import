@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://sbly4bd3qpn1"
+path="res://.godot/imported/Boomerang_Spin_Loop_02.ogg-c3dd2968ef36c865789dadefc392c08e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Boomerang/Boomerang_Spin_Loop_02.ogg"
+dest_files=["res://.godot/imported/Boomerang_Spin_Loop_02.ogg-c3dd2968ef36c865789dadefc392c08e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cywm3dlmaweou"
+path="res://.godot/imported/Boomerang_Throw_01.wav-b80954d2cdbc8f653eb521bab82daebd.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Boomerang/Boomerang_Throw_01.wav"
+dest_files=["res://.godot/imported/Boomerang_Throw_01.wav-b80954d2cdbc8f653eb521bab82daebd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

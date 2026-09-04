@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d1g8eode1dbx8"
+path="res://.godot/imported/Slingshot_Draw_04.ogg-49623fca7a0b15453a9ffbaa0ad05899.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Slingshot/Slingshot_Draw_04.ogg"
+dest_files=["res://.godot/imported/Slingshot_Draw_04.ogg-49623fca7a0b15453a9ffbaa0ad05899.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

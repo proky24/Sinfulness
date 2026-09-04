@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0xdhc53neocg"
+path="res://.godot/imported/Anvil_Strike_Heavy_02.ogg-18951d960003caefe07a40be338ab1f1.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Anvil/Anvil_Strike_Heavy_02.ogg"
+dest_files=["res://.godot/imported/Anvil_Strike_Heavy_02.ogg-18951d960003caefe07a40be338ab1f1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

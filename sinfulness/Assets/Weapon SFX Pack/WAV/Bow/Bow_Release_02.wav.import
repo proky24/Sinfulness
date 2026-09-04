@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwxsri0pant4l"
+path="res://.godot/imported/Bow_Release_02.wav-4b562e69eb148ab6d2a5b6fe34670969.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Bow/Bow_Release_02.wav"
+dest_files=["res://.godot/imported/Bow_Release_02.wav-4b562e69eb148ab6d2a5b6fe34670969.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

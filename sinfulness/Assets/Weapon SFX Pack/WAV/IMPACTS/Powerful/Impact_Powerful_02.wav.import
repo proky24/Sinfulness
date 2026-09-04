@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpvi2mco2jsce"
+path="res://.godot/imported/Impact_Powerful_02.wav-55ba00299ca496c1cde265056e96b0c3.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Powerful/Impact_Powerful_02.wav"
+dest_files=["res://.godot/imported/Impact_Powerful_02.wav-55ba00299ca496c1cde265056e96b0c3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

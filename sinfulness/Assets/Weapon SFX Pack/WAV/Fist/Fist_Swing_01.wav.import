@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://u85aunaron75"
+path="res://.godot/imported/Fist_Swing_01.wav-ececa804d3e6914e318afb1ff8706788.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Fist/Fist_Swing_01.wav"
+dest_files=["res://.godot/imported/Fist_Swing_01.wav-ececa804d3e6914e318afb1ff8706788.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

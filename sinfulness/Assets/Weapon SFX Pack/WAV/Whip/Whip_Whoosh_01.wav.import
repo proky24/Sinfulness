@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pwyfma3bpeqs"
+path="res://.godot/imported/Whip_Whoosh_01.wav-8d4fc050bc8304ddb6ee3e530ec1a265.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Whip/Whip_Whoosh_01.wav"
+dest_files=["res://.godot/imported/Whip_Whoosh_01.wav-8d4fc050bc8304ddb6ee3e530ec1a265.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

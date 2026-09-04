@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://clbxxdr8f6teo"
+path="res://.godot/imported/Arrow_Impact_Wood_10.ogg-3fdf228246e5495179497dfd3fe92063.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/IMPACTS/Wood/Arrow_Impact_Wood_10.ogg"
+dest_files=["res://.godot/imported/Arrow_Impact_Wood_10.ogg-3fdf228246e5495179497dfd3fe92063.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

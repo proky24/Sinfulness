@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ckhyr5eg406f4"
+path="res://.godot/imported/Chain_Whip_Crack_05.ogg-46afc3ad06161adb0d3e9e03eeeabfcf.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Whip Chain/Chain_Whip_Crack_05.ogg"
+dest_files=["res://.godot/imported/Chain_Whip_Crack_05.ogg-46afc3ad06161adb0d3e9e03eeeabfcf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

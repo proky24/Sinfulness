@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dktkl7kxvq4pw"
+path="res://.godot/imported/Fist_Swing_03.ogg-81ba738687349e262c9d5a9622719cf5.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Fist/Fist_Swing_03.ogg"
+dest_files=["res://.godot/imported/Fist_Swing_03.ogg-81ba738687349e262c9d5a9622719cf5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

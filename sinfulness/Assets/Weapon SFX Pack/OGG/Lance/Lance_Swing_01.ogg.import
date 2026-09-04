@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://36hnwk26jqy0"
+path="res://.godot/imported/Lance_Swing_01.ogg-ee142b56ef0c3bedd1273be412f972ed.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Lance/Lance_Swing_01.ogg"
+dest_files=["res://.godot/imported/Lance_Swing_01.ogg-ee142b56ef0c3bedd1273be412f972ed.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

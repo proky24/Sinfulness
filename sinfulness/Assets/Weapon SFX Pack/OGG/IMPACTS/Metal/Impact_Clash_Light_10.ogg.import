@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://xvm5nsshf6ky"
+path="res://.godot/imported/Impact_Clash_Light_10.ogg-cc22e04a2e5b33f9cd49dc2db38bf5c4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/IMPACTS/Metal/Impact_Clash_Light_10.ogg"
+dest_files=["res://.godot/imported/Impact_Clash_Light_10.ogg-cc22e04a2e5b33f9cd49dc2db38bf5c4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

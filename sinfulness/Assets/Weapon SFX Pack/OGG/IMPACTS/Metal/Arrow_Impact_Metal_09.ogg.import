@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cc6u5brmojlps"
+path="res://.godot/imported/Arrow_Impact_Metal_09.ogg-a1ee0b56b26bd10827b24ba4a8391790.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/IMPACTS/Metal/Arrow_Impact_Metal_09.ogg"
+dest_files=["res://.godot/imported/Arrow_Impact_Metal_09.ogg-a1ee0b56b26bd10827b24ba4a8391790.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

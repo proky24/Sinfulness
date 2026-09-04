@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c17uge624218m"
+path="res://.godot/imported/Whip_Whoosh_06.ogg-87d2fc64a64d5dfab1097c8775139cf4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Whip/Whip_Whoosh_06.ogg"
+dest_files=["res://.godot/imported/Whip_Whoosh_06.ogg-87d2fc64a64d5dfab1097c8775139cf4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

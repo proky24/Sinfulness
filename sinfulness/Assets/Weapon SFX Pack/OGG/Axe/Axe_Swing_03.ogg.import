@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccpvkcvnx26og"
+path="res://.godot/imported/Axe_Swing_03.ogg-65da8451cc3ecf5dbe0e10ec71d7927d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Axe/Axe_Swing_03.ogg"
+dest_files=["res://.godot/imported/Axe_Swing_03.ogg-65da8451cc3ecf5dbe0e10ec71d7927d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

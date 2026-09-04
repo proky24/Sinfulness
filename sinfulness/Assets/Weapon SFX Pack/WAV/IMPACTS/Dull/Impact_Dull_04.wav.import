@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dn3mr1db2h5fn"
+path="res://.godot/imported/Impact_Dull_04.wav-28686b0297fd345f2914afa8639c207a.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_04.wav"
+dest_files=["res://.godot/imported/Impact_Dull_04.wav-28686b0297fd345f2914afa8639c207a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

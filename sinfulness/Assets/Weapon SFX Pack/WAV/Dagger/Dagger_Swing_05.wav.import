@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://micn4vau8qxk"
+path="res://.godot/imported/Dagger_Swing_05.wav-649ede8f30d41837d5706fe58033d3a2.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Dagger/Dagger_Swing_05.wav"
+dest_files=["res://.godot/imported/Dagger_Swing_05.wav-649ede8f30d41837d5706fe58033d3a2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ds72gcolffsj4"
+path="res://.godot/imported/Impact_Dull_01.ogg-1091d51f3285e2619c8012e4dbb972dc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/IMPACTS/Dull/Impact_Dull_01.ogg"
+dest_files=["res://.godot/imported/Impact_Dull_01.ogg-1091d51f3285e2619c8012e4dbb972dc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

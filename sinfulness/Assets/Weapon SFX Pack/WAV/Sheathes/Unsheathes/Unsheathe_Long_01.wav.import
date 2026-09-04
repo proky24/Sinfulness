@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djqepntbpb8sp"
+path="res://.godot/imported/Unsheathe_Long_01.wav-11365fc7e2551b68f024baba66e9b704.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Sheathes/Unsheathes/Unsheathe_Long_01.wav"
+dest_files=["res://.godot/imported/Unsheathe_Long_01.wav-11365fc7e2551b68f024baba66e9b704.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

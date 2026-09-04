@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvikh82u2te1t"
+path="res://.godot/imported/Impact_Body_07.wav-9e40b8c93d6ffb9a3de9fcd833ca4b80.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Body/Impact_Body_07.wav"
+dest_files=["res://.godot/imported/Impact_Body_07.wav-9e40b8c93d6ffb9a3de9fcd833ca4b80.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

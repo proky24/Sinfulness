@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dblwm4fklh1hr"
+path="res://.godot/imported/Chain_Whip_Whoosh_09.wav-1251a2cc75b39ef9698e6b7c4902f25e.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Whip Chain/Chain_Whip_Whoosh_09.wav"
+dest_files=["res://.godot/imported/Chain_Whip_Whoosh_09.wav-1251a2cc75b39ef9698e6b7c4902f25e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

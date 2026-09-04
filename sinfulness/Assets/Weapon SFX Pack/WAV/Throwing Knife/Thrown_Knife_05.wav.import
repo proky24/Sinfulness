@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5h0e8mvxgavt"
+path="res://.godot/imported/Thrown_Knife_05.wav-74c6f666903d02e3ad32db0444cb57ba.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Throwing Knife/Thrown_Knife_05.wav"
+dest_files=["res://.godot/imported/Thrown_Knife_05.wav-74c6f666903d02e3ad32db0444cb57ba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

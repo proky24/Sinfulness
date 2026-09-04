@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://chb6kde4m2e6s"
+path="res://.godot/imported/Sword_Swing_Short_01.wav-046ab931375b10b73e63b6d2729059cd.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Short_01.wav"
+dest_files=["res://.godot/imported/Sword_Swing_Short_01.wav-046ab931375b10b73e63b6d2729059cd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

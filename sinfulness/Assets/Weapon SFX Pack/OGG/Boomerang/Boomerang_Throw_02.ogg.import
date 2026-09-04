@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7j6b7mlut8fb"
+path="res://.godot/imported/Boomerang_Throw_02.ogg-4905f318b1ad2693b7a7df5162f5a7b4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/OGG/Boomerang/Boomerang_Throw_02.ogg"
+dest_files=["res://.godot/imported/Boomerang_Throw_02.ogg-4905f318b1ad2693b7a7df5162f5a7b4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dbuq7vpy3cm4c"
+path="res://.godot/imported/Anvil_Strike_Heavy_04.wav-8f40c8969187a8c9804a407d2b173db1.sample"
+
+[deps]
+
+source_file="res://Assets/Weapon SFX Pack/WAV/Anvil/Anvil_Strike_Heavy_04.wav"
+dest_files=["res://.godot/imported/Anvil_Strike_Heavy_04.wav-8f40c8969187a8c9804a407d2b173db1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
