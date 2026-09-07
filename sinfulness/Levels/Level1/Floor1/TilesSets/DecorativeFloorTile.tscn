@@ -128,5 +128,5 @@ texture = ExtResource("1_iim6j")
 [sub_resource type="TileSet" id="TileSet_v2k5x"]
 sources/0 = SubResource("TileSetAtlasSource_e14dk")
 
-[node name="DecorativeFloorTIle" type="TileMapLayer" unique_id=1295417007]
+[node name="DecorativeFloorTile" type="TileMapLayer" unique_id=1295417007]
 tile_set = SubResource("TileSet_v2k5x")
