@@ -1,10 +1,14 @@
 [gd_scene format=4 uid="uid://sm0ehfuxqfsc"]
 
 [ext_resource type="PackedScene" uid="uid://bp0l14mf66hpg" path="res://Levels/TilesSetsNodes/FloorWallTile.tscn" id="1_bee84"]
+[ext_resource type="PackedScene" uid="uid://bs8r353d6afkh" path="res://Levels/Player/Player.tscn" id="1_e56qq"]
 [ext_resource type="PackedScene" uid="uid://cwyk1jdhu4fy6" path="res://Levels/TilesSetsNodes/DecorativeFloorTile.tscn" id="2_x62nr"]
 [ext_resource type="PackedScene" uid="uid://bp0telx6odmbt" path="res://Levels/TilesSetsNodes/DecorativeWallsTile.tscn" id="3_7mx1g"]
 
 [node name="Floor1" type="Node2D" unique_id=1169444605]
+
+[node name="CharacterBody2D" parent="." unique_id=2097391364 instance=ExtResource("1_e56qq")]
+position = Vector2(163, 116)
 
 [node name="Castle" type="Node" parent="." unique_id=1057601490]
 
