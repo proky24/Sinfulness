@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://bs8r353d6afkh"]
 
 [ext_resource type="Script" uid="uid://b8npee4c8r1rr" path="res://Levels/Player/player.gd" id="1_5emw0"]
-[ext_resource type="Texture2D" uid="uid://s75hm85u1kdu" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Knight/Knight with shadows/Knight.png" id="1_ibw8y"]
+[ext_resource type="Texture2D" uid="uid://cfw5xg8jsbqrm" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Knight/Knight/Knight.png" id="2_5emw0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2097391364]
-z_index = 2
+z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_5emw0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1177755175]
-texture = ExtResource("1_ibw8y")
+texture = ExtResource("2_5emw0")
 hframes = 11
 vframes = 8
 
