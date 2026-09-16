@@ -6,7 +6,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2097391364]
-z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_5emw0")
 
@@ -17,6 +16,6 @@ vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1940413948]
 position = Vector2(0, 1)
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.6, 0.6)
 shape = SubResource("CircleShape2D_3gqd7")
 debug_color = Color(0.95603126, 0, 0.54265445, 0.41960785)
