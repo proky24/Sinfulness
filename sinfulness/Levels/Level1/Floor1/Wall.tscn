@@ -2,16 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://cxvivvk3epf6q" path="res://Assets/Dungeon TileSet/Test.png" id="1_hnvb5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqd7"]
-size = Vector2(41, 3)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_at0kr"]
+size = Vector2(40, 1)
 
 [node name="Wall" type="Node2D" unique_id=460950526]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=849550390]
+position = Vector2(0, -24)
 texture = ExtResource("1_hnvb5")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1406896653]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1176256344]
+position = Vector2(0, -24)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1550127500]
-position = Vector2(0.5, 19.5)
-shape = SubResource("RectangleShape2D_3gqd7")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=291322486]
+position = Vector2(0, 21.5)
+shape = SubResource("RectangleShape2D_at0kr")

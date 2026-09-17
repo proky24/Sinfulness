@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dw3f3i4s1gvpr"]
+
+[ext_resource type="Script" uid="uid://4pj6mmnm10xi" path="res://Levels/Behind_Infront/behind.gd" id="1_b0lv5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqd7"]
+
+[node name="Area2D" type="Area2D" unique_id=898743449]
+script = ExtResource("1_b0lv5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2053537340]
+shape = SubResource("RectangleShape2D_3gqd7")
+debug_color = Color(0.8142011, 0.0020236094, 0.9795123, 0.41960785)
