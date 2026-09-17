@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cjwu3kftnct81"]
+
+[ext_resource type="Script" uid="uid://b64eqyf1bu5xq" path="res://Levels/Player/Scripts/silhouette_sprite.gd" id="1_7fqni"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1900918275]
+script = ExtResource("1_7fqni")
+
+[node name="SilhouetteSprite" type="Sprite2D" parent="." unique_id=937783090]
+z_index = 100
