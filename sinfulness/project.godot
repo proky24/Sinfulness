@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Sinfulness"
-run/main_scene="uid://sm0ehfuxqfsc"
+run/main_scene="uid://cvaub2s8xkieb"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
