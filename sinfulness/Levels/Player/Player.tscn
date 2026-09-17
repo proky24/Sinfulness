@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b8npee4c8r1rr" path="res://Levels/Player/Scripts/player.gd" id="1_5emw0"]
 [ext_resource type="Texture2D" uid="uid://bmlvgt7n45kvi" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Knight/Knight/Knight.png" id="2_5emw0"]
 [ext_resource type="Script" uid="uid://j8s7oot3rtny" path="res://Levels/Player/Scripts/state_machine.gd" id="3_oxjk5"]
+[ext_resource type="Script" uid="uid://db0c7qgv7c3kt" path="res://Levels/Player/Scripts/States/state_idle.gd" id="4_yv3ts"]
+[ext_resource type="Script" uid="uid://cxs2vr3jw4fn6" path="res://Levels/Player/Scripts/States/state_walk.gd" id="5_bgrr3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
 
@@ -89,8 +91,10 @@ shape = SubResource("CircleShape2D_at0kr")
 script = ExtResource("3_oxjk5")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1072066924]
+script = ExtResource("4_yv3ts")
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=1127821714]
+script = ExtResource("5_bgrr3")
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=841765378]
 
