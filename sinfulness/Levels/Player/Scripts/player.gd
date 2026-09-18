@@ -3,10 +3,13 @@ class_name Player extends CharacterBody2D
 var direction: Vector2 = Vector2.ZERO
 var cardinal_dir: Vector2 = Vector2.DOWN
 var speed: float = 75.0
+var hp: int = 10
 
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+
+
 
 func _ready() -> void:
 	state_machine.initialize(self)
