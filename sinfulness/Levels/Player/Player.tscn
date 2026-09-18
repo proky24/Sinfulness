@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://j8s7oot3rtny" path="res://Levels/Player/Scripts/state_machine.gd" id="3_oxjk5"]
 [ext_resource type="Script" uid="uid://db0c7qgv7c3kt" path="res://Levels/Player/Scripts/States/state_idle.gd" id="4_yv3ts"]
 [ext_resource type="Script" uid="uid://cxs2vr3jw4fn6" path="res://Levels/Player/Scripts/States/state_walk.gd" id="5_bgrr3"]
+[ext_resource type="Script" uid="uid://b8r1ty2mhxc0p" path="res://Levels/Player/Scripts/States/state_attack.gd" id="6_efe82"]
+[ext_resource type="AudioStream" uid="uid://c0uft223aqre5" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Long_04.wav" id="7_36do4"]
+[ext_resource type="AudioStream" uid="uid://hjw4wjgu7wcv" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Short_02.wav" id="8_ejwh1"]
+[ext_resource type="AudioStream" uid="uid://bf54ai8ewnf1g" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Short_03.wav" id="9_264qk"]
+[ext_resource type="AudioStream" uid="uid://dckhruhfv0dxj" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Long_05.wav" id="10_tor14"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
 
@@ -24,6 +29,103 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+
+[sub_resource type="Animation" id="Animation_bgrr3"]
+resource_name = "attack_1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.20000002, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [23, 24, 25, 26, 27, 28]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_36do4")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_efe82"]
+resource_name = "attack_2"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_ejwh1")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_264qk")
+}],
+"times": PackedFloat32Array(0.033333335, 0.43333334)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_175y7"]
+resource_name = "attack_3"
+length = 0.76666665
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.56666666, 0.6666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_tor14")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_yv3ts"]
 resource_name = "idle"
@@ -61,6 +163,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bgrr3"]
 _data = {
 &"RESET": SubResource("Animation_oxjk5"),
+&"attack_1": SubResource("Animation_bgrr3"),
+&"attack_2": SubResource("Animation_efe82"),
+&"attack_3": SubResource("Animation_175y7"),
 &"idle": SubResource("Animation_yv3ts"),
 &"walk": SubResource("Animation_5emw0")
 }
@@ -71,6 +176,7 @@ motion_mode = 1
 script = ExtResource("1_5emw0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1940413948]
+visible = false
 position = Vector2(0, 1)
 scale = Vector2(0.6, 0.6)
 shape = SubResource("CircleShape2D_3gqd7")
@@ -82,6 +188,7 @@ hframes = 11
 vframes = 8
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1247016745]
+visible = false
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=27164585]
@@ -97,6 +204,22 @@ script = ExtResource("4_yv3ts")
 script = ExtResource("5_bgrr3")
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=841765378]
+script = ExtResource("6_efe82")
+attack_sfx = Array[AudioStream]([ExtResource("7_36do4"), ExtResource("8_ejwh1"), ExtResource("9_264qk"), ExtResource("10_tor14")])
+
+[node name="AttackTimer" type="Timer" parent="StateMachine/Attack" unique_id=1395867200]
+wait_time = 0.5
+one_shot = true
+
+[node name="AttackComboTimer" type="Timer" parent="StateMachine/Attack" unique_id=706227581]
+wait_time = 1.2
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1413032252]
 libraries/ = SubResource("AnimationLibrary_bgrr3")
+
+[node name="Audio" type="Node" parent="." unique_id=12113183]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio" unique_id=798334127]
+volume_db = -2.0
+autoplay = true
