@@ -8,9 +8,6 @@
 
 [node name="Floor1" type="Node2D" unique_id=1169444605]
 
-[node name="CharacterBody2D" parent="." unique_id=2097391364 instance=ExtResource("1_e56qq")]
-position = Vector2(142, 178)
-
 [node name="Castle" type="Node" parent="." unique_id=1057601490]
 
 [node name="Floors" type="Node2D" parent="Castle" unique_id=2145756641]
@@ -58,3 +55,6 @@ tile_map_data = PackedByteArray("AAAHAAQAAAACABoAAAAHAAUAAAACABsAAAAMAAQAAAADABo
 position = Vector2(137, 215)
 scale = Vector2(4.415835, 1.8614452)
 player = NodePath("../../../CharacterBody2D")
+
+[node name="CharacterBody2D" parent="." unique_id=2097391364 instance=ExtResource("1_e56qq")]
+position = Vector2(142, 178)
