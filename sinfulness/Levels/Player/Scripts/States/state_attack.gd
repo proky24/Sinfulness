@@ -9,7 +9,6 @@ class_name StateAttack extends State
 @onready var audio_stream_player: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 
 @export var decalerate_speed: int = 10
-@export var attack_sfx: Array[AudioStream]
 
 var attacking: bool = false
 var attack_combo: int = 1:
@@ -17,6 +16,7 @@ var attack_combo: int = 1:
 		attack_combo = clampi(value, 1, 3)
 
 func enter() -> void:
+	
 	if attack_timer.is_stopped() == false:
 		return
 	

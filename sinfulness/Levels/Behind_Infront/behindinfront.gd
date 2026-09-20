@@ -17,5 +17,5 @@ func _on_area_entered( a: Area2D ) -> void:
 	_on_area_entered(a)
 
 func _on_area_exited( a: Area2D ) -> void:
-	player.z_index = 0
+	player.z_index = 1
 	pass

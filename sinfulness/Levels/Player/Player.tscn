@@ -204,7 +204,6 @@ script = ExtResource("5_bgrr3")
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=841765378]
 script = ExtResource("6_efe82")
-attack_sfx = Array[AudioStream]([ExtResource("7_36do4"), ExtResource("8_ejwh1"), ExtResource("9_264qk"), ExtResource("10_tor14")])
 
 [node name="AttackTimer" type="Timer" parent="StateMachine/Attack" unique_id=1395867200]
 wait_time = 0.5
