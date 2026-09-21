@@ -1,12 +1,12 @@
 class_name StateIdle extends State
 
 @onready var idle: StateIdle = $"."
-@onready var walk: Node = $"../Walk"
-@onready var attack: Node = $"../Attack"
+@onready var walk: StateWalk = $"../Walk"
+@onready var attack: StateAttack = $"../Attack"
+@onready var block: StateBlock = $"../Block"
 
 func enter() -> void:
 	player.update_animation("idle")
-
 	pass
 
 func exit() -> void:
@@ -28,4 +28,6 @@ func physics_process(delta: float) -> State:
 func _handle_input(event: InputEvent) -> State:
 	if event.is_action_pressed("attack"):
 		return attack
+	elif event.is_action_pressed("block"):
+		return block
 	return idle
