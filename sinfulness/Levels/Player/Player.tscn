@@ -171,7 +171,6 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=2097391364]
-z_index = 1
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_5emw0")

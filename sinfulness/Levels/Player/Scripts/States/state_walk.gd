@@ -8,6 +8,7 @@ class_name StateWalk extends State
 
 func enter() -> void:
 	player.update_animation("walk")
+
 	pass
 
 func exit() -> void:

@@ -1,9 +1,9 @@
-class_name PlayerHUD extends CanvasLayer
+extends CanvasLayer
 
 @onready var timer: Timer = $Timer
 @onready var control: Control = $Control
 
-@export var dissapear_time: float = 5.0
+@export var dissapear_time: float = 4.0
 
 var sections = null
 
@@ -20,19 +20,18 @@ func appear() -> void:
 	var tween = create_tween()
 	for s in sections.size():
 		for c in sections[s].get_children():
-			tween.parallel().tween_property(c, "modulate:a", 1.0, 0.3)
+			tween.parallel().tween_property(c, "modulate:a", 1.0, 0.2)
 	tween.tween_callback(func():
 		for s in sections.size():
 			for c in sections[s].get_children():
 				c.visible = true
 	)
-	timer.timeout.disconnect(appear)
 
 func dissapear() -> void:
 	var tween = create_tween()
 	for s in sections.size():
 		for c in sections[s].get_children():
-			tween.parallel().tween_property(c, "modulate:a", 0.0, 0.3)
+			tween.parallel().tween_property(c, "modulate:a", 0.0, 0.5)
 	tween.tween_callback(func():
 		for s in sections.size():
 			for c in sections[s].get_children():
@@ -43,6 +42,7 @@ func dissapear() -> void:
 
 func inactive() -> void:
 	timer.start()
+	timer.timeout.connect(dissapear)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

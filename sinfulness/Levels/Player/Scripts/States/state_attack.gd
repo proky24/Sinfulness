@@ -16,6 +16,7 @@ var attack_combo: int = 1:
 		attack_combo = clampi(value, 1, 3)
 
 func enter() -> void:
+	PlayerHud.appear()
 	
 	if attack_timer.is_stopped() == false:
 		return
@@ -43,6 +44,8 @@ func exit() -> void:
 	animation_player.animation_finished.disconnect(disable_attacking)
 	attack_combo_timer.timeout.disconnect(attack_combo_timeout)
 	attacking = false
+	PlayerHud.inactive()
+	
 	pass
 
 func init() -> void:
