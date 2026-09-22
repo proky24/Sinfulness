@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GlobalLevelManager="*uid://ctf2alot040me"
 PlayerHud="*uid://brdv1a17vqhig"
 
 [display]

@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bf54ai8ewnf1g" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Short_03.wav" id="9_264qk"]
 [ext_resource type="AudioStream" uid="uid://dckhruhfv0dxj" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Long_05.wav" id="10_tor14"]
 [ext_resource type="AudioStream" uid="uid://dq6nl8xgc3jfy" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_03.wav" id="12_264qk"]
+[ext_resource type="Script" uid="uid://dn4loqtigc646" path="res://Levels/Player/camera_2d.gd" id="13_tor14"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
 
@@ -261,5 +262,6 @@ volume_db = -5.0
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=481471833]
-enabled = false
 zoom = Vector2(1.5, 1.5)
+limit_smoothed = true
+script = ExtResource("13_tor14")
