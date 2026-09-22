@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bphn5i5ys53dt"
+path="res://.godot/imported/Ice Throw 2.wav-de36ad8c91be0c68a15cac9e34ad1bda.sample"
+
+[deps]
+
+source_file="res://Assets/Other SFX/Spells/Ice Throw 2.wav"
+dest_files=["res://.godot/imported/Ice Throw 2.wav-de36ad8c91be0c68a15cac9e34ad1bda.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
