@@ -20,7 +20,7 @@ func appear() -> void:
 	var tween = create_tween()
 	for s in sections.size():
 		for c in sections[s].get_children():
-			tween.parallel().tween_property(c, "modulate:a", 1.0, 0.2)
+			tween.parallel().tween_property(c, "modulate:a", 1.0, 0.1)
 	tween.tween_callback(func():
 		for s in sections.size():
 			for c in sections[s].get_children():
