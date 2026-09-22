@@ -3,7 +3,9 @@ class_name Player extends CharacterBody2D
 var direction: Vector2 = Vector2.ZERO
 var cardinal_dir: Vector2 = Vector2.DOWN
 var speed: float = 75.0
-var hp: int = 10
+var hp: int = 10:
+	set(value):
+		hp = clampi(value, 0, 100)
 
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -59,3 +61,6 @@ func update_animation(state : String) -> void:
 	animation_player.play(state)
 	pass
 	
+func take_damage(dmg: int) -> void:
+	
+	pass
