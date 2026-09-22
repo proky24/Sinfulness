@@ -16,9 +16,9 @@
 [ext_resource type="Script" uid="uid://dn4loqtigc646" path="res://Levels/Player/camera_2d.gd" id="13_tor14"]
 [ext_resource type="AudioStream" uid="uid://6br3b71gme5a" path="res://Assets/Other SFX/Spells/Ice Throw 1.wav" id="14_71nre"]
 [ext_resource type="Texture2D" uid="uid://cycjqiyfnsxca" path="res://Assets/Corrupted Abiilities Anim/Rage Overflow/Dark VFX 4 (48x56).png" id="14_iigad"]
+[ext_resource type="AudioStream" uid="uid://cd810vr1rgojp" path="res://Assets/Other SFX/Spells/Fireball 2.wav" id="15_dep70"]
 [ext_resource type="Texture2D" uid="uid://cwc13shjjfxot" path="res://Assets/Purrified Abilities Anim/Cleanse/Holy VFX 02.png" id="16_becua"]
 [ext_resource type="Texture2D" uid="uid://c0vmtvmtd8wv" path="res://Assets/Corrupted Abiilities Anim/Taste your own Hate/Dark VFX 12 (48x48).png" id="16_vi7k6"]
-[ext_resource type="Texture2D" uid="uid://cy7uebirr13gp" path="res://Assets/Purrified Abilities Anim/Sunrise/Holy VFX 01 Repeatable.png" id="17_ds7as"]
 [ext_resource type="Texture2D" uid="uid://dmb0y4tx5gaxi" path="res://Assets/Purrified Abilities Anim/Gods Soldier/Holy VFX 03(64x80).png" id="18_dep70"]
 [ext_resource type="Texture2D" uid="uid://qqiqxug0lrxd" path="res://Assets/Corrupted Abiilities Anim/Meet the End/Dark VFX10 (48x48).png" id="18_r50l2"]
 
@@ -308,7 +308,7 @@ tracks/0/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("14_71nre")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.002)
 }
 tracks/0/use_blend = true
 tracks/1/type = "value"
@@ -333,7 +333,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 2),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -32)]
+"values": [Vector2(0, -32), Vector2(0, -48)]
 }
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_hdfwy"]
@@ -352,11 +352,11 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
+"end_offset": 0.20677903,
+"start_offset": 0.020816684,
 "stream": SubResource("AudioStreamWAV_hdfwy")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.24585)
 }
 tracks/0/use_blend = true
 tracks/1/type = "value"
@@ -437,7 +437,7 @@ tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.93333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [24, 23]
@@ -455,37 +455,6 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 }
 
-[sub_resource type="Animation" id="Animation_qdvrm"]
-resource_name = "purrfied_second_ability"
-length = 0.93333334
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("13_adphd")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [24, 23]
-}
-
 [sub_resource type="Animation" id="Animation_yvrt2"]
 resource_name = "purrfied_third_ability"
 length = 1.1
@@ -499,7 +468,7 @@ tracks/0/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("13_adphd")
+"stream": ExtResource("15_dep70")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -558,7 +527,6 @@ _data = {
 &"corrupt_third_ability": SubResource("Animation_71nre"),
 &"idle": SubResource("Animation_yv3ts"),
 &"purrfied_first_ability": SubResource("Animation_fs2fe"),
-&"purrfied_second_ability": SubResource("Animation_qdvrm"),
 &"purrfied_third_ability": SubResource("Animation_yvrt2"),
 &"walk": SubResource("Animation_5emw0")
 }
@@ -637,10 +605,6 @@ position = Vector2(0, -12)
 texture = ExtResource("16_becua")
 hframes = 16
 
-[node name="Sunrise" type="Sprite2D" parent="AbilitiesSpriteHolder/Purrified" unique_id=2077079288]
-visible = false
-texture = ExtResource("17_ds7as")
-
 [node name="GodsSoldier" type="Sprite2D" parent="AbilitiesSpriteHolder/Purrified" unique_id=690468217]
 visible = false
 position = Vector2(0, -24)
@@ -655,12 +619,12 @@ position = Vector2(0, -11)
 texture = ExtResource("14_iigad")
 hframes = 31
 
-[node name="TasteYourOwnHate" type="Sprite2D" parent="AbilitiesSpriteHolder/Corrupted" unique_id=579647625]
-visible = false
-texture = ExtResource("16_vi7k6")
-hframes = 13
-
 [node name="MeetTheEnd" type="Sprite2D" parent="AbilitiesSpriteHolder/Corrupted" unique_id=1318497873]
 visible = false
 texture = ExtResource("18_r50l2")
 hframes = 26
+
+[node name="TasteYourOwnHate" type="Sprite2D" parent="AbilitiesSpriteHolder/Corrupted" unique_id=579647625]
+visible = false
+texture = ExtResource("16_vi7k6")
+hframes = 13

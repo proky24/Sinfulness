@@ -30,7 +30,6 @@ func _handle_input(event: InputEvent) -> State:
 		return attack
 	elif event.is_action_pressed("block"):
 		return block
-	elif event.is_action_pressed("take_dmg"):
-		player.take_damage(-1)
-		return null
+	elif event.is_action_pressed("first_ability"):
+		player.Sunrise.instantiate()
 	return idle

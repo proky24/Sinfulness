@@ -559,5 +559,4 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_akbew")
 
 [node name="DecorativeWallsTile" type="TileMapLayer" unique_id=788034357]
-visible = false
 tile_set = SubResource("TileSet_pv075")
