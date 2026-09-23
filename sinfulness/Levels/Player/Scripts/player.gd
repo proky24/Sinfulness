@@ -7,7 +7,7 @@ var cardinal_dir: Vector2 = Vector2.DOWN
 var speed: float = 75.0
 var hp: int = 10:
 	set(value):
-		hp = clampi(value, 0, 100)
+		hp = clampi(value, 10, 90)
 
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

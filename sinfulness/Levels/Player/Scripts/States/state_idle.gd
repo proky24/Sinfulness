@@ -4,6 +4,7 @@ class_name StateIdle extends State
 @onready var walk: StateWalk = $"../Walk"
 @onready var attack: StateAttack = $"../Attack"
 @onready var block: StateBlock = $"../Block"
+@onready var taste_your_own_hate: Sprite2D = $"../../AbilitiesSpriteHolder/Corrupted/TasteYourOwnHate"
 
 func enter() -> void:
 	player.update_animation("idle")
@@ -30,6 +31,13 @@ func _handle_input(event: InputEvent) -> State:
 		return attack
 	elif event.is_action_pressed("block"):
 		return block
-	elif event.is_action_pressed("first_ability"):
-		player.Sunrise.instantiate()
 	return idle
+
+#func shoot_radial(origin: Vector2, count: int) -> void:
+			#for i in count:
+				#var angle := (TAU / count) * i
+				#var dir := Vector2.RIGHT.rotated(angle)
+				#var arrow := player.Sunrise.instantiate()
+				#arrow.direction = dir
+				#arrow.position = origin
+				#get_tree().current_scene.add_child(arrow)
