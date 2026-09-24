@@ -2,8 +2,12 @@ extends CanvasLayer
 
 @onready var timer: Timer = $Timer
 @onready var control: Control = $Control
+@onready var hp_bar: TextureProgressBar = $Control/Node/HPBar
+@onready var mana_bar: TextureProgressBar = $Control/Node2/ManaBar
 
 @export var dissapear_time: float = 4.0
+
+var player : Player = null
 
 var sections = null
 
@@ -12,8 +16,9 @@ func _ready() -> void:
 	timer.wait_time = dissapear_time
 	timer.timeout.connect(dissapear)
 	sections = control.get_children()
+
 	
-	timer.start()
+	#timer.start()
 	pass # Replace with function body.
 
 func appear() -> void:
@@ -45,6 +50,16 @@ func inactive() -> void:
 	timer.timeout.connect(dissapear)
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func player_damaged() -> void:
+	player.hit_box.Damaged.connect(update_hp)
+	pass
+
+func update_hp(damage: int) -> void:
+	var tween = create_tween()
+	var new_hp = hp_bar.value - damage
+	tween.tween_property(hp_bar, "value", new_hp, 0.5)
+	
+	if new_hp <= 10:
+		print("you died")
+		get_tree().reload_current_scene()
 	pass

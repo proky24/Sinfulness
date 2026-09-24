@@ -12,11 +12,16 @@ var hp: int = 10:
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var hit_box: HitBox = $Interactions/HitBox
+@onready var hurt_box: HurtBox = $Interactions/HurtBox
 
 signal dir_changed( new_dir: Vector2 )
 
 func _ready() -> void:
 	state_machine.initialize(self)
+	PlayerHud.player = self
+	
+	PlayerHud.player_damaged()
 	pass
 
 func _process(delta: float) -> void:

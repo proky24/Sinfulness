@@ -20,7 +20,7 @@ grow_vertical = 2
 
 [node name="Node" type="Node" parent="Control" unique_id=2098120876]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/Node" unique_id=1571806622]
+[node name="HPBar" type="TextureProgressBar" parent="Control/Node" unique_id=1571806622]
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 80.0
@@ -38,7 +38,7 @@ stretch_mode = 2
 
 [node name="Node2" type="Node" parent="Control" unique_id=1865145900]
 
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="Control/Node2" unique_id=259904812]
+[node name="ManaBar" type="TextureProgressBar" parent="Control/Node2" unique_id=259904812]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5

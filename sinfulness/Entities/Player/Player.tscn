@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://qqiqxug0lrxd" path="res://Assets/Corrupted Abiilities Anim/Meet the End/Dark VFX10 (48x48).png" id="18_r50l2"]
 [ext_resource type="Script" uid="uid://lv2s08u3vadg" path="res://Entities/Player/interactionshost.gd" id="22_l2mqv"]
 [ext_resource type="PackedScene" uid="uid://b62k27aai08u6" path="res://Entities/GeneralNodes/Hurtbox/HurtBox.tscn" id="22_l80rc"]
+[ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="24_mgqku"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
 
@@ -566,8 +567,6 @@ motion_mode = 1
 script = ExtResource("1_5emw0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1940413948]
-visible = false
-position = Vector2(0, 1)
 scale = Vector2(0.6, 0.6)
 shape = SubResource("CircleShape2D_3gqd7")
 debug_color = Color(0.95603126, 0, 0.54265445, 0.41960785)
@@ -669,3 +668,11 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox" unique_id=2127363767]
 shape = SubResource("CircleShape2D_4ixse")
 debug_color = Color(0.99699646, 0.05073563, 1.92523e-07, 0.41960785)
+
+[node name="HitBox" parent="Interactions" unique_id=1245106054 instance=ExtResource("24_mgqku")]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HitBox" unique_id=1707000193]
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CircleShape2D_at0kr")
+debug_color = Color(0.6530085, 0.5187216, 7.70092e-07, 0.41960785)

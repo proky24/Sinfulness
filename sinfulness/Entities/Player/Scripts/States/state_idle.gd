@@ -31,6 +31,8 @@ func _handle_input(event: InputEvent) -> State:
 		return attack
 	elif event.is_action_pressed("block"):
 		return block
+	elif event.is_action_pressed("take_dmg"):
+		player.hit_box.take_damage(15)
 	return idle
 
 #func shoot_radial(origin: Vector2, count: int) -> void:
