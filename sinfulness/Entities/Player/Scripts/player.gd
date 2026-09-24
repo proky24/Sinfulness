@@ -13,7 +13,7 @@ var hp: int = 10:
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
-
+signal dir_changed( new_dir: Vector2 )
 
 func _ready() -> void:
 	state_machine.initialize(self)
@@ -45,6 +45,7 @@ func set_dir() -> bool:
 		return false
 	
 	cardinal_dir = new_dir
+	dir_changed.emit(cardinal_dir)
 	if cardinal_dir == Vector2.LEFT:
 		sprite.scale.x = -1
 	elif cardinal_dir == Vector2.RIGHT:

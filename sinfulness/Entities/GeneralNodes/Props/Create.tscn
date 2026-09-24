@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cm5v7vvnvomdd"]
 
 [ext_resource type="Texture2D" uid="uid://cgu4am86j2v0o" path="res://Assets/Dungeon TileSet/Create.png" id="1_a835k"]
+[ext_resource type="Script" uid="uid://cx0eiummo1an3" path="res://Entities/GeneralNodes/Props/create.gd" id="1_m3x6n"]
 [ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="2_sanpw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqd7"]
@@ -11,6 +12,7 @@ size = Vector2(11, 6)
 
 [node name="Create" type="Node2D" unique_id=1443861933]
 y_sort_enabled = true
+script = ExtResource("1_m3x6n")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=277694149]
 texture = ExtResource("1_a835k")

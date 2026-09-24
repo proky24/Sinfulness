@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://c0vmtvmtd8wv" path="res://Assets/Corrupted Abiilities Anim/Taste your own Hate/Dark VFX 12 (48x48).png" id="16_vi7k6"]
 [ext_resource type="Texture2D" uid="uid://dmb0y4tx5gaxi" path="res://Assets/Purrified Abilities Anim/Gods Soldier/Holy VFX 03(64x80).png" id="18_dep70"]
 [ext_resource type="Texture2D" uid="uid://qqiqxug0lrxd" path="res://Assets/Corrupted Abiilities Anim/Meet the End/Dark VFX10 (48x48).png" id="18_r50l2"]
+[ext_resource type="Script" uid="uid://lv2s08u3vadg" path="res://Entities/Player/interactionshost.gd" id="22_l2mqv"]
+[ext_resource type="PackedScene" uid="uid://b62k27aai08u6" path="res://Entities/GeneralNodes/Hurtbox/HurtBox.tscn" id="22_l80rc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
 
@@ -555,6 +557,8 @@ _data = {
 &"walk": SubResource("Animation_5emw0")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ixse"]
+
 [node name="Player" type="CharacterBody2D" unique_id=2097391364]
 y_sort_enabled = true
 collision_mask = 16
@@ -653,3 +657,15 @@ hframes = 26
 visible = false
 texture = ExtResource("16_vi7k6")
 hframes = 13
+
+[node name="Interactions" type="Node2D" parent="." unique_id=633762763]
+script = ExtResource("22_l2mqv")
+
+[node name="HurtBox" parent="Interactions" unique_id=704887434 instance=ExtResource("22_l80rc")]
+position = Vector2(0, 12)
+collision_mask = 256
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox" unique_id=2127363767]
+shape = SubResource("CircleShape2D_4ixse")
+debug_color = Color(0.99699646, 0.05073563, 1.92523e-07, 0.41960785)

@@ -78,3 +78,15 @@ position = Vector2(301, 181)
 
 [node name="Create" parent="." unique_id=2023025915 instance=ExtResource("6_5b6dc")]
 position = Vector2(207, 171)
+
+[node name="Create2" parent="." unique_id=1443861933 instance=ExtResource("6_5b6dc")]
+position = Vector2(278, 257)
+
+[node name="Create3" parent="." unique_id=848940049 instance=ExtResource("6_5b6dc")]
+position = Vector2(132, 172)
+
+[node name="Create4" parent="." unique_id=1460590863 instance=ExtResource("6_5b6dc")]
+position = Vector2(350, 128)
+
+[node name="Create5" parent="." unique_id=2066450261 instance=ExtResource("6_5b6dc")]
+position = Vector2(474, 191)
