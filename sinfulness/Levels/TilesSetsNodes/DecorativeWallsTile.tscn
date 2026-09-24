@@ -552,7 +552,8 @@ texture = ExtResource("1_omrds")
 7:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -3.0457668, -8, -2.0711212, -6.375804, -0.4467125, -6.2945833, 0.8528137, -8, 3.2082071, -8, 5.4011593, -5.7260404, 5.4823794, -3.451868, 5.726041, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_pv075"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Cracks"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)

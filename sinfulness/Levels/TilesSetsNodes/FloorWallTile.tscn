@@ -575,7 +575,8 @@ texture = ExtResource("1_sros7")
 15:27/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.8991642, 8, -2.9974408, 8, 1.2284594, -8, 1.1301823)
 
 [sub_resource type="TileSet" id="TileSet_r1gac"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Floor"
 terrain_set_0/terrain_0/color = Color(0.31674, 0.4307117, 0.09755697, 1)

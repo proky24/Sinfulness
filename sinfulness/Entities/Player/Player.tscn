@@ -1,19 +1,19 @@
 [gd_scene format=4 uid="uid://bs8r353d6afkh"]
 
-[ext_resource type="Script" uid="uid://b8npee4c8r1rr" path="res://Levels/Player/Scripts/player.gd" id="1_5emw0"]
+[ext_resource type="Script" uid="uid://b8npee4c8r1rr" path="res://Entities/Player/Scripts/player.gd" id="1_5emw0"]
 [ext_resource type="Texture2D" uid="uid://bmlvgt7n45kvi" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Knight/Knight/Knight.png" id="2_5emw0"]
-[ext_resource type="Script" uid="uid://j8s7oot3rtny" path="res://Levels/Player/Scripts/state_machine.gd" id="3_oxjk5"]
-[ext_resource type="Script" uid="uid://db0c7qgv7c3kt" path="res://Levels/Player/Scripts/States/state_idle.gd" id="4_yv3ts"]
-[ext_resource type="Script" uid="uid://cxs2vr3jw4fn6" path="res://Levels/Player/Scripts/States/state_walk.gd" id="5_bgrr3"]
-[ext_resource type="Script" uid="uid://b8r1ty2mhxc0p" path="res://Levels/Player/Scripts/States/state_attack.gd" id="6_efe82"]
+[ext_resource type="Script" uid="uid://j8s7oot3rtny" path="res://Entities/Player/Scripts/state_machine.gd" id="3_oxjk5"]
+[ext_resource type="Script" uid="uid://db0c7qgv7c3kt" path="res://Entities/Player/Scripts/States/state_idle.gd" id="4_yv3ts"]
+[ext_resource type="Script" uid="uid://cxs2vr3jw4fn6" path="res://Entities/Player/Scripts/States/state_walk.gd" id="5_bgrr3"]
+[ext_resource type="Script" uid="uid://b8r1ty2mhxc0p" path="res://Entities/Player/Scripts/States/state_attack.gd" id="6_efe82"]
 [ext_resource type="AudioStream" uid="uid://c0uft223aqre5" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Long_04.wav" id="7_36do4"]
-[ext_resource type="Script" uid="uid://cu3ar6vyq16nb" path="res://Levels/Player/Scripts/States/state_block.gd" id="7_ejwh1"]
+[ext_resource type="Script" uid="uid://cu3ar6vyq16nb" path="res://Entities/Player/Scripts/States/state_block.gd" id="7_ejwh1"]
 [ext_resource type="AudioStream" uid="uid://hjw4wjgu7wcv" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Short_02.wav" id="8_ejwh1"]
 [ext_resource type="AudioStream" uid="uid://bf54ai8ewnf1g" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Short_03.wav" id="9_264qk"]
 [ext_resource type="AudioStream" uid="uid://dckhruhfv0dxj" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Long_05.wav" id="10_tor14"]
 [ext_resource type="AudioStream" uid="uid://dq6nl8xgc3jfy" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_03.wav" id="12_264qk"]
 [ext_resource type="AudioStream" uid="uid://6uoyveoco8ik" path="res://Assets/Other SFX/Spells/Firebuff 1.wav" id="13_adphd"]
-[ext_resource type="Script" uid="uid://dn4loqtigc646" path="res://Levels/Player/camera_2d.gd" id="13_tor14"]
+[ext_resource type="Script" uid="uid://dn4loqtigc646" path="res://Entities/Player/camera_2d.gd" id="13_tor14"]
 [ext_resource type="AudioStream" uid="uid://6br3b71gme5a" path="res://Assets/Other SFX/Spells/Ice Throw 1.wav" id="14_71nre"]
 [ext_resource type="Texture2D" uid="uid://cycjqiyfnsxca" path="res://Assets/Corrupted Abiilities Anim/Rage Overflow/Dark VFX 4 (48x56).png" id="14_iigad"]
 [ext_resource type="AudioStream" uid="uid://cd810vr1rgojp" path="res://Assets/Other SFX/Spells/Fireball 2.wav" id="15_dep70"]
@@ -557,6 +557,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" unique_id=2097391364]
 y_sort_enabled = true
+collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_5emw0")
 
