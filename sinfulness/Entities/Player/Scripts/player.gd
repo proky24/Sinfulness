@@ -24,7 +24,7 @@ func _ready() -> void:
 	PlayerHud.player_damaged()
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	direction = Vector2(
 		Input.get_axis("left", "right"),
 		Input.get_axis("forward", "backwords")
@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 	
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	pass
 

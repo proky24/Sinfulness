@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bp0telx6odmbt" path="res://Levels/TilesSetsNodes/DecorativeWallsTile.tscn" id="3_7mx1g"]
 [ext_resource type="Script" uid="uid://bo44noxegr6k5" path="res://Levels/TilesSetsNodes/Floor1_bounds.gd" id="3_xfiyx"]
 [ext_resource type="PackedScene" uid="uid://cm5v7vvnvomdd" path="res://Entities/GeneralNodes/Props/Create.tscn" id="6_5b6dc"]
+[ext_resource type="PackedScene" uid="uid://gp0k66mebgrm" path="res://Entities/Enemies/Parent/Enemy.tscn" id="7_6h2y8"]
 
 [node name="Floor1" type="Node2D" unique_id=1169444605]
 y_sort_enabled = true
@@ -90,3 +91,6 @@ position = Vector2(350, 128)
 
 [node name="Create5" parent="." unique_id=2066450261 instance=ExtResource("6_5b6dc")]
 position = Vector2(474, 191)
+
+[node name="Enemy" parent="." unique_id=1279872010 instance=ExtResource("7_6h2y8")]
+position = Vector2(208, 136)

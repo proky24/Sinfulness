@@ -86,8 +86,8 @@ func attack_combo_timeout() -> void:
 	attack_combo_timer.timeout.disconnect(attack_combo_timeout)
 	pass
 
-func physics_process(delta: float) -> State:
+func physics_process(_delta: float) -> State:
 	return null
 
-func _handle_input(event: InputEvent) -> State:
+func _handle_input(_event: InputEvent) -> State:
 	return null

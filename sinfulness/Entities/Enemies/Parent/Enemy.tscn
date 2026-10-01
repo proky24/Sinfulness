@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://gp0k66mebgrm"]
+
+[ext_resource type="Texture2D" uid="uid://d20l10tt2bwm3" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Skeleton/Skeleton/Skeleton.png" id="1_ttlo4"]
+[ext_resource type="Script" uid="uid://dspoflxyqqss2" path="res://Entities/Enemies/Parent/Scripts/enemy.gd" id="1_yxp7e"]
+[ext_resource type="Script" uid="uid://uuh30rnky01s" path="res://Entities/GeneralNodes/Hurtbox/hurt_box.gd" id="2_fln2h"]
+[ext_resource type="Script" uid="uid://db7vws2spdhj" path="res://Entities/Enemies/Parent/Scripts/enemy_state_machine.gd" id="3_qt7sn"]
+[ext_resource type="Script" uid="uid://57lo4pnd65oi" path="res://Entities/GeneralNodes/Hitbox/hit_box.gd" id="3_yxp7e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lc5sn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_at0kr"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1279872010]
+script = ExtResource("1_yxp7e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1952738428]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1647969438]
+texture = ExtResource("1_ttlo4")
+hframes = 8
+vframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=524538015]
+position = Vector2(1, 1)
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_3gqd7")
+debug_color = Color(0.9021131, 0.000159024, 0.75901085, 0.41960785)
+
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=1710172540]
+script = ExtResource("3_qt7sn")
+
+[node name="Idle" type="Node" parent="EnemyStateMachine" unique_id=1046663604]
+
+[node name="Wander" type="Node" parent="EnemyStateMachine" unique_id=183492203]
+
+[node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=1060536353]
+
+[node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=674589490]
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=589800988]
+script = ExtResource("2_fln2h")
+metadata/_custom_type_script = "uid://uuh30rnky01s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1262331641]
+position = Vector2(12, -1)
+shape = SubResource("CircleShape2D_lc5sn")
+debug_color = Color(0.972549, 0, 0, 0.41960785)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1417642936]
+script = ExtResource("3_yxp7e")
+metadata/_custom_type_script = "uid://57lo4pnd65oi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=489028688]
+position = Vector2(1.9999999, 0)
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_at0kr")

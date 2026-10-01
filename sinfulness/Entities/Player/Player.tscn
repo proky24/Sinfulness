@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dckhruhfv0dxj" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Long_05.wav" id="10_tor14"]
 [ext_resource type="AudioStream" uid="uid://dq6nl8xgc3jfy" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_03.wav" id="12_264qk"]
 [ext_resource type="AudioStream" uid="uid://6uoyveoco8ik" path="res://Assets/Other SFX/Spells/Firebuff 1.wav" id="13_adphd"]
-[ext_resource type="Script" uid="uid://dn4loqtigc646" path="res://Entities/Player/camera_2d.gd" id="13_tor14"]
+[ext_resource type="Script" uid="uid://dn4loqtigc646" path="res://Entities/Player/Scripts/camera_2d.gd" id="13_tor14"]
 [ext_resource type="AudioStream" uid="uid://6br3b71gme5a" path="res://Assets/Other SFX/Spells/Ice Throw 1.wav" id="14_71nre"]
 [ext_resource type="Texture2D" uid="uid://cycjqiyfnsxca" path="res://Assets/Corrupted Abiilities Anim/Rage Overflow/Dark VFX 4 (48x56).png" id="14_iigad"]
 [ext_resource type="AudioStream" uid="uid://cd810vr1rgojp" path="res://Assets/Other SFX/Spells/Fireball 2.wav" id="15_dep70"]
@@ -26,8 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="24_mgqku"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_at0kr"]
 
 [sub_resource type="Animation" id="Animation_oxjk5"]
 loop_mode = 1
@@ -560,6 +558,8 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ixse"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_at0kr"]
+
 [node name="Player" type="CharacterBody2D" unique_id=2097391364]
 y_sort_enabled = true
 collision_mask = 16
@@ -567,7 +567,7 @@ motion_mode = 1
 script = ExtResource("1_5emw0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1940413948]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.65, 0.65)
 shape = SubResource("CircleShape2D_3gqd7")
 debug_color = Color(0.95603126, 0, 0.54265445, 0.41960785)
 
@@ -575,13 +575,6 @@ debug_color = Color(0.95603126, 0, 0.54265445, 0.41960785)
 texture = ExtResource("2_5emw0")
 hframes = 11
 vframes = 8
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1247016745]
-visible = false
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=27164585]
-shape = SubResource("CircleShape2D_at0kr")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1240051841]
 script = ExtResource("3_oxjk5")
@@ -658,6 +651,7 @@ texture = ExtResource("16_vi7k6")
 hframes = 13
 
 [node name="Interactions" type="Node2D" parent="." unique_id=633762763]
+visible = false
 script = ExtResource("22_l2mqv")
 
 [node name="HurtBox" parent="Interactions" unique_id=704887434 instance=ExtResource("22_l80rc")]
