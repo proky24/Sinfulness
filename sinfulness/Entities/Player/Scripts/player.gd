@@ -1,7 +1,5 @@
 class_name Player extends CharacterBody2D
 
-const Sunrise = preload("res://Assets/Purrified Abilities Anim/sunrise_ability.tscn")
-
 var direction: Vector2 = Vector2.ZERO
 var cardinal_dir: Vector2 = Vector2.DOWN
 var speed: float = 75.0
