@@ -421,6 +421,22 @@ tracks/4/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_mgqku"]
+resource_name = "hurt"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [66, 67, 68, 69]
+}
+
 [sub_resource type="Animation" id="Animation_yv3ts"]
 resource_name = "idle"
 loop_mode = 1
@@ -550,6 +566,7 @@ _data = {
 &"corrupt_first_ability": SubResource("Animation_adphd"),
 &"corrupt_second_ability": SubResource("Animation_r50l2"),
 &"corrupt_third_ability": SubResource("Animation_71nre"),
+&"hurt": SubResource("Animation_mgqku"),
 &"idle": SubResource("Animation_yv3ts"),
 &"purrfied_first_ability": SubResource("Animation_fs2fe"),
 &"purrfied_third_ability": SubResource("Animation_yvrt2"),
@@ -651,7 +668,6 @@ texture = ExtResource("16_vi7k6")
 hframes = 13
 
 [node name="Interactions" type="Node2D" parent="." unique_id=633762763]
-visible = false
 script = ExtResource("22_l2mqv")
 
 [node name="HurtBox" parent="Interactions" unique_id=704887434 instance=ExtResource("22_l80rc")]

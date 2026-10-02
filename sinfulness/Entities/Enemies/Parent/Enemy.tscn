@@ -2,20 +2,191 @@
 
 [ext_resource type="Texture2D" uid="uid://d20l10tt2bwm3" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Skeleton/Skeleton/Skeleton.png" id="1_ttlo4"]
 [ext_resource type="Script" uid="uid://dspoflxyqqss2" path="res://Entities/Enemies/Parent/Scripts/enemy.gd" id="1_yxp7e"]
-[ext_resource type="Script" uid="uid://uuh30rnky01s" path="res://Entities/GeneralNodes/Hurtbox/hurt_box.gd" id="2_fln2h"]
 [ext_resource type="Script" uid="uid://db7vws2spdhj" path="res://Entities/Enemies/Parent/Scripts/enemy_state_machine.gd" id="3_qt7sn"]
-[ext_resource type="Script" uid="uid://57lo4pnd65oi" path="res://Entities/GeneralNodes/Hitbox/hit_box.gd" id="3_yxp7e"]
+[ext_resource type="Script" uid="uid://ct8p3at0vny5q" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_idle.gd" id="4_msyos"]
+[ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="4_qt7sn"]
+[ext_resource type="PackedScene" uid="uid://b62k27aai08u6" path="res://Entities/GeneralNodes/Hurtbox/HurtBox.tscn" id="5_msyos"]
+[ext_resource type="Script" uid="uid://box0u18p675p3" path="res://Entities/Enemies/Parent/enemy_state_wander.gd" id="5_ruuuf"]
+
+[sub_resource type="Animation" id="Animation_qt7sn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_17sge"]
+resource_name = "attack_1"
+length = 0.56666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21]
+}
+
+[sub_resource type="Animation" id="Animation_nxlde"]
+resource_name = "attack_2"
+length = 0.6333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30]
+}
+
+[sub_resource type="Animation" id="Animation_o6yvo"]
+resource_name = "block"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51]
+}
+
+[sub_resource type="Animation" id="Animation_0eiph"]
+resource_name = "destroy"
+length = 0.6666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [56, 57, 58, 59]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.46666667, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aumgy"]
+resource_name = "hurt"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51]
+}
+
+[sub_resource type="Animation" id="Animation_msyos"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_ruuuf"]
+resource_name = "wander"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ruuuf"]
+_data = {
+&"RESET": SubResource("Animation_qt7sn"),
+&"attack_1": SubResource("Animation_17sge"),
+&"attack_2": SubResource("Animation_nxlde"),
+&"block": SubResource("Animation_o6yvo"),
+&"destroy": SubResource("Animation_0eiph"),
+&"hurt": SubResource("Animation_aumgy"),
+&"idle": SubResource("Animation_msyos"),
+&"wander": SubResource("Animation_ruuuf")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lc5sn"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ixse"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_at0kr"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0x4nn"]
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1279872010]
+y_sort_enabled = true
+collision_layer = 256
+collision_mask = 16
 script = ExtResource("1_yxp7e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1952738428]
+libraries/ = SubResource("AnimationLibrary_ruuuf")
+autoplay = &"idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1647969438]
 texture = ExtResource("1_ttlo4")
@@ -31,28 +202,29 @@ debug_color = Color(0.9021131, 0.000159024, 0.75901085, 0.41960785)
 [node name="EnemyStateMachine" type="Node" parent="." unique_id=1710172540]
 script = ExtResource("3_qt7sn")
 
-[node name="Idle" type="Node" parent="EnemyStateMachine" unique_id=1046663604]
+[node name="Idle" type="Node" parent="EnemyStateMachine" unique_id=1046663604 node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("4_msyos")
+after_idle_state = NodePath("../Wander")
 
-[node name="Wander" type="Node" parent="EnemyStateMachine" unique_id=183492203]
+[node name="Wander" type="Node" parent="EnemyStateMachine" unique_id=183492203 node_paths=PackedStringArray("next_state")]
+script = ExtResource("5_ruuuf")
+next_state = NodePath("../Idle")
 
 [node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=1060536353]
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=674589490]
 
-[node name="HurtBox" type="Area2D" parent="." unique_id=589800988]
-script = ExtResource("2_fln2h")
-metadata/_custom_type_script = "uid://uuh30rnky01s"
+[node name="HitBox" parent="." unique_id=1245106054 instance=ExtResource("4_qt7sn")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1262331641]
-position = Vector2(12, -1)
-shape = SubResource("CircleShape2D_lc5sn")
-debug_color = Color(0.972549, 0, 0, 0.41960785)
-
-[node name="HitBox" type="Area2D" parent="." unique_id=1417642936]
-script = ExtResource("3_yxp7e")
-metadata/_custom_type_script = "uid://57lo4pnd65oi"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=489028688]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=804746716]
 position = Vector2(1.9999999, 0)
-scale = Vector2(0.7, 0.7)
-shape = SubResource("CircleShape2D_at0kr")
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CircleShape2D_4ixse")
+
+[node name="HurtBox" parent="." unique_id=704887434 instance=ExtResource("5_msyos")]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=750891088]
+position = Vector2(10, 0)
+shape = SubResource("CircleShape2D_0x4nn")
+debug_color = Color(0.9647059, 0, 0, 0.41960785)

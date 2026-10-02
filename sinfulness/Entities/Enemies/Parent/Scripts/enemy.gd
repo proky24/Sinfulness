@@ -3,7 +3,7 @@ class_name Enemy extends CharacterBody2D
 signal dir_changed(new_dir: Vector2)
 signal enemy_damaged()
 
-@export var hp: int = 5
+@export var hp: int = 1
 
 var direction: Vector2 = Vector2.ZERO
 var cardinal_dir: Vector2 = Vector2.DOWN
@@ -14,10 +14,12 @@ const dir4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hurt_box: HurtBox = $HurtBox
+@onready var hit_box: HitBox = $HitBox
 @onready var enemy_state_machine: Node = $EnemyStateMachine
 
 func _ready() -> void:
 	enemy_state_machine.initialize(self)
+	player = GlobalPlayerManager.player
 	pass
 
 func _process(_delta: float) -> void:

@@ -18,6 +18,7 @@ var hp: int = 10:
 signal dir_changed( new_dir: Vector2 )
 
 func _ready() -> void:
+	GlobalPlayerManager.player = self
 	state_machine.initialize(self)
 	PlayerHud.player = self
 	

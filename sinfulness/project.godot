@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalLevelManager="*uid://ctf2alot040me"
 PlayerHud="*uid://brdv1a17vqhig"
+GlobalPlayerManager="*uid://c86bsdnyueakf"
 
 [display]
 
