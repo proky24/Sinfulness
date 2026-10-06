@@ -581,6 +581,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" unique_id=2097391364]
 y_sort_enabled = true
+scale = Vector2(0.8, 0.8)
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_5emw0")

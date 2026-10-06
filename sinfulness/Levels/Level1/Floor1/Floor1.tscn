@@ -94,5 +94,5 @@ position = Vector2(474, 191)
 position = Vector2(208, 136)
 
 [node name="Area2D" parent="." unique_id=1980919562 instance=ExtResource("8_7i20b")]
-position = Vector2(256, 191)
-scale = Vector2(-0.73522085, 0.7939471)
+position = Vector2(232, 231)
+scale = Vector2(-0.17847972, 0.7122137)

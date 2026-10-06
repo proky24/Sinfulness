@@ -11,7 +11,7 @@ func _ready() -> void:
 	pass
 
 func _slow_player(_a: Area2D) -> void:
-	_player.velocity = _player.direction * decelerate_speed
+	_player.position.y += 5
 	pass
 
 func _fasten_player(_a: Area2D) -> void:
