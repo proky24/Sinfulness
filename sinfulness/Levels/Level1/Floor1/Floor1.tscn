@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bo44noxegr6k5" path="res://Levels/TilesSetsNodes/Floor1_bounds.gd" id="3_xfiyx"]
 [ext_resource type="PackedScene" uid="uid://cm5v7vvnvomdd" path="res://Entities/GeneralNodes/Props/Create.tscn" id="6_5b6dc"]
 [ext_resource type="PackedScene" uid="uid://gp0k66mebgrm" path="res://Entities/Enemies/Parent/Enemy.tscn" id="7_6h2y8"]
+[ext_resource type="PackedScene" uid="uid://cgo5ah3jpfuit" path="res://Levels/TilesSetsNodes/StairIllusion.tscn" id="8_7i20b"]
 
 [node name="Floor1" type="Node2D" unique_id=1169444605]
 y_sort_enabled = true
@@ -77,9 +78,6 @@ enabled = false
 [node name="CharacterBody2D" parent="." unique_id=2097391364 instance=ExtResource("1_e56qq")]
 position = Vector2(301, 181)
 
-[node name="Create" parent="." unique_id=2023025915 instance=ExtResource("6_5b6dc")]
-position = Vector2(207, 171)
-
 [node name="Create2" parent="." unique_id=1443861933 instance=ExtResource("6_5b6dc")]
 position = Vector2(278, 257)
 
@@ -94,3 +92,7 @@ position = Vector2(474, 191)
 
 [node name="Enemy" parent="." unique_id=1279872010 instance=ExtResource("7_6h2y8")]
 position = Vector2(208, 136)
+
+[node name="Area2D" parent="." unique_id=1980919562 instance=ExtResource("8_7i20b")]
+position = Vector2(256, 191)
+scale = Vector2(-0.73522085, 0.7939471)

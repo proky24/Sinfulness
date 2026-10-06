@@ -40,6 +40,9 @@ func process(_delta: float) -> EnemyState:
 	return null
 
 func physics_process(_delta: float) -> EnemyState:
+	if enemy.is_on_wall():
+		_timer = 0
+		return next_state
 	return null
 
 func _handle_input(event: InputEvent) -> EnemyState:

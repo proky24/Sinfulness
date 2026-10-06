@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cgo5ah3jpfuit"]
+
+[ext_resource type="Script" uid="uid://bye4tdl7ids8g" path="res://Levels/TilesSetsNodes/stair_illusion.gd" id="1_fq51h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqd7"]
+
+[node name="Area2D" type="Area2D" unique_id=1980919562]
+monitorable = false
+script = ExtResource("1_fq51h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009319131]
+shape = SubResource("RectangleShape2D_3gqd7")
+debug_color = Color(0.65184295, 0.51932055, 3.85046e-07, 0.41960785)

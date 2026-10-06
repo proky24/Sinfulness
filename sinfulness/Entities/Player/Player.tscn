@@ -577,6 +577,8 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_at0kr"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lc5sn"]
+
 [node name="Player" type="CharacterBody2D" unique_id=2097391364]
 y_sort_enabled = true
 collision_mask = 16
@@ -686,3 +688,9 @@ collision_layer = 2
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_at0kr")
 debug_color = Color(0.6530085, 0.5187216, 7.70092e-07, 0.41960785)
+
+[node name="StairHelper" type="Area2D" parent="Interactions" unique_id=363492201]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/StairHelper" unique_id=22905586]
+shape = SubResource("CircleShape2D_lc5sn")
+debug_color = Color(0, 0.63904554, 0.37463668, 0.41960785)
