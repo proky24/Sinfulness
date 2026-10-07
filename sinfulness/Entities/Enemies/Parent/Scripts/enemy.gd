@@ -2,13 +2,15 @@ class_name Enemy extends CharacterBody2D
 
 signal dir_changed(new_dir: Vector2)
 signal enemy_damaged()
+signal enemy_destroyed()
 
-@export var hp: int = 1
+@export var hp: int = 3
 
 var direction: Vector2 = Vector2.ZERO
 var cardinal_dir: Vector2 = Vector2.DOWN
 var player: Player
 var invulnerable: bool = false
+
 const dir4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -21,7 +23,7 @@ func _ready() -> void:
 	enemy_state_machine.initialize(self)
 	player = GlobalPlayerManager.player
 	
-	#hit_box.Damaged.connect(_take_damage)
+	hit_box.Damaged.connect(_take_damage)
 	pass
 
 func _process(_delta: float) -> void:
@@ -52,6 +54,13 @@ func update_animation(state : String) -> void:
 	animation_player.play(state)
 	pass
 
-#func _take_damage(_damage: int) -> void:
-	#queue_free()
-	#pass
+func _take_damage(_damage: int) -> void:
+	if invulnerable == true:
+		return
+	
+	hp -= _damage
+	if hp < 0:
+		enemy_destroyed.emit()
+	else:
+		enemy_damaged.emit()
+	pass

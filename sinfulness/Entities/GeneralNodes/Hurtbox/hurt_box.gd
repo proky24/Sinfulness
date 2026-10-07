@@ -1,11 +1,19 @@
 class_name HurtBox extends Area2D
 
 @export var damage: int = 1
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
 	area_entered.connect(_area_entered)
 	pass
 
+func _process(delta: float) -> void:
+	if monitoring:
+		collision_shape_2d.visible = true
+	else:
+		collision_shape_2d.visible = false
+		
+	pass
 
 func _area_entered(a : Area2D) -> void:
 	if a is HitBox:

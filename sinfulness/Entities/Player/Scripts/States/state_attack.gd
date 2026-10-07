@@ -47,7 +47,6 @@ func enter() -> void:
 	elif attack_combo == 3:
 		hurt_box_timer = 0.45
 	await get_tree().create_timer(hurt_box_timer).timeout
-	hurt_box.monitoring = true
 	
 	pass
 

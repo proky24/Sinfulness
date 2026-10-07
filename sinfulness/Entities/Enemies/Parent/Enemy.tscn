@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://ct8p3at0vny5q" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_idle.gd" id="4_msyos"]
 [ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="4_qt7sn"]
 [ext_resource type="PackedScene" uid="uid://b62k27aai08u6" path="res://Entities/GeneralNodes/Hurtbox/HurtBox.tscn" id="5_msyos"]
-[ext_resource type="Script" uid="uid://box0u18p675p3" path="res://Entities/Enemies/Parent/enemy_state_wander.gd" id="5_ruuuf"]
+[ext_resource type="Script" uid="uid://box0u18p675p3" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_wander.gd" id="5_ruuuf"]
+[ext_resource type="Script" uid="uid://djk80mra1mcs3" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_stun.gd" id="6_17sge"]
+[ext_resource type="Script" uid="uid://db6va51qcgvei" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_destroy.gd" id="6_nxlde"]
 
 [sub_resource type="Animation" id="Animation_qt7sn"]
 length = 0.001
@@ -96,7 +98,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [56, 57, 58, 59]
+"values": [49, 57, 58, 59]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -109,22 +111,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_aumgy"]
-resource_name = "hurt"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [48, 49, 50, 51]
 }
 
 [sub_resource type="Animation" id="Animation_msyos"]
@@ -141,6 +127,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_aumgy"]
+resource_name = "stun"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51]
 }
 
 [sub_resource type="Animation" id="Animation_ruuuf"]
@@ -167,8 +169,8 @@ _data = {
 &"attack_2": SubResource("Animation_nxlde"),
 &"block": SubResource("Animation_o6yvo"),
 &"destroy": SubResource("Animation_0eiph"),
-&"hurt": SubResource("Animation_aumgy"),
 &"idle": SubResource("Animation_msyos"),
+&"stun": SubResource("Animation_aumgy"),
 &"wander": SubResource("Animation_ruuuf")
 }
 
@@ -214,6 +216,11 @@ next_state = NodePath("../Idle")
 [node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=1060536353]
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=674589490]
+script = ExtResource("6_nxlde")
+
+[node name="Stun" type="Node" parent="EnemyStateMachine" unique_id=1239961943 node_paths=PackedStringArray("next_state")]
+script = ExtResource("6_17sge")
+next_state = NodePath("../Idle")
 
 [node name="HitBox" parent="." unique_id=1245106054 instance=ExtResource("4_qt7sn")]
 
