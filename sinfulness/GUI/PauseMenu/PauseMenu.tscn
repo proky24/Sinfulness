@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://s07dllea4cju"]
+
+[ext_resource type="Texture2D" uid="uid://du2nd2cvgce6k" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Spellbook_Opening.png" id="1_p5snf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at0kr"]
+atlas = ExtResource("1_p5snf")
+region = Rect2(0, 0, 256, 240)
+filter_clip = true
+
+[sub_resource type="Animation" id="Animation_bqkqi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 256, 240)]
+}
+
+[sub_resource type="Animation" id="Animation_38l0w"]
+resource_name = "opening_menu"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture:region")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.066666655, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.39999998, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 256, 240), Rect2(256, 0, 256, 240), Rect2(512, 0, 256, 240), Rect2(768, 0, 256, 240), Rect2(1024, 0, 256, 240), Rect2(1280, 0, 256, 240), Rect2(1536, 0, 256, 240), Rect2(1792, 0, 256, 240)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0h0yj"]
+_data = {
+&"RESET": SubResource("Animation_bqkqi"),
+&"opening_menu": SubResource("Animation_38l0w")
+}
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1511985595]
+process_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1621216683]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25490198, 0.25490198, 0.25490198, 0.6666667)
+
+[node name="Control" type="Control" parent="." unique_id=907851756]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=815395121]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_right = 100.0
+offset_bottom = 240.0
+grow_horizontal = 2
+scale = Vector2(1.2, 1.2)
+texture = SubResource("AtlasTexture_at0kr")
+stretch_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=970416392]
+libraries/ = SubResource("AnimationLibrary_0h0yj")
+autoplay = &"opening_menu"
