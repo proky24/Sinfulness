@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://s07dllea4cju"]
 
+[ext_resource type="Script" uid="uid://dyl3gti1rnu43" path="res://GUI/PauseMenu/pause_menu.gd" id="1_884dw"]
 [ext_resource type="Texture2D" uid="uid://du2nd2cvgce6k" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Spellbook_Opening.png" id="1_p5snf"]
 [ext_resource type="Texture2D" uid="uid://dk54t6eqeixuu" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab01_Right_Normal.png" id="2_28r7d"]
 [ext_resource type="Texture2D" uid="uid://cbk7im2ul35fr" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_09_Outline.png" id="3_3qs17"]
@@ -190,7 +191,7 @@ tracks/13/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_38l0w"]
-resource_name = "opening_menu"
+resource_name = "open_menu"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -364,11 +365,12 @@ tracks/13/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0h0yj"]
 _data = {
 &"RESET": SubResource("Animation_bqkqi"),
-&"opening_menu": SubResource("Animation_38l0w")
+&"open_menu": SubResource("Animation_38l0w")
 }
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1511985595]
 process_mode = 3
+script = ExtResource("1_884dw")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1621216683]
 anchors_preset = 15
@@ -414,8 +416,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 195.0
 offset_top = 236.0
-offset_right = 235.0
-offset_bottom = 276.0
+offset_right = 227.0
+offset_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_ds4fu")
@@ -550,6 +552,7 @@ offset_right = 23.0
 offset_bottom = 23.0
 texture = ExtResource("7_xnbxo")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=970416392]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=970416392]
+root_node = NodePath("../Control")
 libraries/ = SubResource("AnimationLibrary_0h0yj")
-autoplay = &"opening_menu"
+autoplay = &"open_menu"
