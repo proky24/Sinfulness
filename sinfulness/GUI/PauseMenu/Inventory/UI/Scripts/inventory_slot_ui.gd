@@ -13,9 +13,9 @@ var slot_data: SlotData = null
 
 
 func _ready() -> void:
-	mouse_entered.connect(_on_mouse_entered)
 	focus_entered.connect(_on_focus_entered)
 	pressed.connect(_on_pressed)
+	mouse_entered.connect(_on_mouse_entered)
 
 
 ## Shows [param data]. When [param data] is null the slot is empty and shows [param placeholder] faded.
