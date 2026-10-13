@@ -67,8 +67,11 @@ func show_pause_menu() -> void:
     get_tree().paused = true
     visible = true
     _state = MenuState.OPENING
+    _active_tab = _tabs[0]
     animation_player.speed_scale = MENU_SPEED
     animation_player.play(OPEN_ANIMATION)
+
+    
 
 
 func _input(event: InputEvent) -> void:
@@ -143,6 +146,7 @@ func _go_back() -> void:
 func _on_animation_finished(animation_name: StringName) -> void:
     if animation_name == OPEN_ANIMATION and _state == MenuState.OPENING:
         _enter_tab_select(_tabs[0])
+        _show_page()
     elif animation_name == PAGE_TURN_ANIMATION and _state == MenuState.PAGE_TURN:
         _show_page()
 
