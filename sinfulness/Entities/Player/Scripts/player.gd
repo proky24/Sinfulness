@@ -26,7 +26,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	direction = Vector2(
 		Input.get_axis("left", "right"),
-		Input.get_axis("forward", "backwords")
+		Input.get_axis("forward", "backwards")
 	).normalized()
 	
 	pass

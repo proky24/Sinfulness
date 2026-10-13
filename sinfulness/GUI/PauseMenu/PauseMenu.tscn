@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://2ddys8evcf7" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab03_Bottom_Normal.png" id="8_ds4fu"]
 [ext_resource type="Texture2D" uid="uid://3ap4a3aodkoy" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_15_Outline.png" id="8_xnbxo"]
 [ext_resource type="Texture2D" uid="uid://7t3my8imeggk" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_19_Outline.png" id="9_y2eog"]
+[ext_resource type="Texture2D" uid="uid://dxitjyl5dfetv" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_02_Empty.png" id="14_xnbxo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_at0kr"]
 atlas = ExtResource("1_p5snf")
@@ -415,9 +416,12 @@ stretch_mode = 3
 
 [node name="Tabs" type="Control" parent="Control" unique_id=717952025]
 visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SettingsTab" type="TextureRect" parent="Control/Tabs" unique_id=2140991286]
 layout_mode = 1
@@ -426,10 +430,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 195.0
-offset_top = 236.0
-offset_right = 227.0
-offset_bottom = 268.0
+offset_left = -105.0
+offset_top = 76.0
+offset_right = -73.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_ds4fu")
@@ -456,10 +460,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 330.0
-offset_top = 229.0
-offset_right = 362.0
-offset_bottom = 261.0
+offset_left = 30.0
+offset_top = 69.0
+offset_right = 62.0
+offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_88irb")
@@ -479,10 +483,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 418.0
-offset_top = 94.0
-offset_right = 450.0
-offset_bottom = 126.0
+offset_left = 118.0
+offset_top = -66.0
+offset_right = 150.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_28r7d")
@@ -502,10 +506,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 418.0
-offset_top = 122.0
-offset_right = 450.0
-offset_bottom = 154.0
+offset_left = 118.0
+offset_top = -38.0
+offset_right = 150.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_28r7d")
@@ -525,10 +529,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 418.0
-offset_top = 122.0
-offset_right = 450.0
-offset_bottom = 154.0
+offset_left = 118.0
+offset_top = -38.0
+offset_right = 150.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_c75hv")
@@ -548,10 +552,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 418.0
-offset_top = 150.0
-offset_right = 450.0
-offset_bottom = 182.0
+offset_left = 118.0
+offset_top = -10.0
+offset_right = 150.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_884dw")
@@ -563,6 +567,33 @@ offset_top = 7.0
 offset_right = 23.0
 offset_bottom = 23.0
 texture = ExtResource("7_xnbxo")
+
+[node name="ContentofTab" type="Control" parent="Control/Tabs" unique_id=1686141780]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Tabs/ContentofTab" unique_id=1960457269]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -69.0
+offset_right = -16.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Tabs/ContentofTab/VBoxContainer" unique_id=1501155919]
+layout_mode = 2
+texture = ExtResource("14_xnbxo")
+stretch_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=970416392]
 root_node = NodePath("../Control")
