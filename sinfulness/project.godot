@@ -21,6 +21,7 @@ GlobalLevelManager="*uid://ctf2alot040me"
 PlayerHud="*uid://brdv1a17vqhig"
 GlobalPlayerManager="*uid://c86bsdnyueakf"
 PauseMenu="*uid://s07dllea4cju"
+MCPRuntimeServer="*res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd"
 
 [display]
 
@@ -29,6 +30,10 @@ window/size/viewport_height=360
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_mcp_toolkit/plugin.cfg")
 
 [input]
 
