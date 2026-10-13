@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://4y6w6hs8l3th"]
+
+[ext_resource type="Script" uid="uid://c4okabqh2ru4j" path="res://GUI/PauseMenu/Inventory/UI/Scripts/items_page.gd" id="1_xj8f7"]
+[ext_resource type="PackedScene" uid="uid://s2uiwebr53j2" path="res://GUI/PauseMenu/Inventory/UI/ItemDescriptionPanel.tscn" id="2_j3vx6"]
+[ext_resource type="Script" uid="uid://ktc2d6djyxox" path="res://GUI/PauseMenu/Inventory/UI/Scripts/item_grid.gd" id="3_a7flf"]
+[ext_resource type="PackedScene" uid="uid://dbrv8ul7ri8w" path="res://GUI/PauseMenu/Inventory/UI/InventorySlotUI.tscn" id="4_b242m"]
+
+[node name="InventoryPage" type="Control" unique_id=1685774764]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 240.0
+mouse_filter = 2
+script = ExtResource("1_xj8f7")
+description_scene = ExtResource("2_j3vx6")
+description_empty_text = "Choose an item to read about it."
+
+[node name="LeftPage" type="Control" parent="." unique_id=759745958]
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 92.0
+offset_right = 114.0
+offset_bottom = 210.0
+mouse_filter = 2
+
+[node name="Column" type="VBoxContainer" parent="LeftPage" unique_id=897903034]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="LeftPage/Column" unique_id=2121707357]
+layout_mode = 2
+theme_type_variation = &"PageTitle"
+text = "Items"
+
+[node name="ItemGrid" type="GridContainer" parent="LeftPage/Column" unique_id=1012451417]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+script = ExtResource("3_a7flf")
+slot_scene = ExtResource("4_b242m")
+category_flags = 24
+
+[node name="RightPage" type="Control" parent="." unique_id=919802790]
+anchors_preset = 0
+offset_left = 142.0
+offset_top = 92.0
+offset_right = 228.0
+offset_bottom = 210.0
+mouse_filter = 2
+
+[node name="DescriptionHolder" type="Control" parent="RightPage" unique_id=222582393]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2

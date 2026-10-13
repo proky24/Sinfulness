@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dbrv8ul7ri8w"]
+
+[ext_resource type="Script" uid="uid://b6dv23eirt780" path="res://GUI/PauseMenu/Inventory/UI/Scripts/inventory_slot_ui.gd" id="1_h0xlh"]
+
+[node name="InventorySlotUI" type="Button" unique_id=1005938569]
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+theme_type_variation = &"InventorySlot"
+script = ExtResource("1_h0xlh")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=253786107]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 18.0
+offset_bottom = 18.0
+mouse_filter = 2
+stretch_mode = 3
+
+[node name="Quantity" type="Label" parent="." unique_id=1891868427]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 19.0
+offset_bottom = 20.0
+theme_type_variation = &"SlotQuantity"
+horizontal_alignment = 2
+vertical_alignment = 2

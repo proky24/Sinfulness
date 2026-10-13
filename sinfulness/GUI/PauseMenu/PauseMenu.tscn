@@ -3,21 +3,37 @@
 [ext_resource type="Script" uid="uid://dyl3gti1rnu43" path="res://GUI/PauseMenu/pause_menu.gd" id="1_884dw"]
 [ext_resource type="Texture2D" uid="uid://du2nd2cvgce6k" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Spellbook_Opening.png" id="1_p5snf"]
 [ext_resource type="Texture2D" uid="uid://dk54t6eqeixuu" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab01_Right_Normal.png" id="2_28r7d"]
+[ext_resource type="Texture2D" uid="uid://bkso28xdkmmi3" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Spellbook_NextPage.png" id="2_dlid3"]
 [ext_resource type="Texture2D" uid="uid://cbk7im2ul35fr" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_09_Outline.png" id="3_3qs17"]
 [ext_resource type="Texture2D" uid="uid://dtqv1vuehgm5b" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab07_Bottom_Normal.png" id="4_88irb"]
 [ext_resource type="Texture2D" uid="uid://b1wb2wj42evtd" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab02_Right_Normal.png" id="4_c75hv"]
 [ext_resource type="Texture2D" uid="uid://dqrtrpunrja52" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_17_Outline.png" id="5_88irb"]
 [ext_resource type="Texture2D" uid="uid://bb08fng2xxtqi" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_22_Outline.png" id="5_884dw"]
+[ext_resource type="Script" uid="uid://c0npqk1yqbyho" path="res://GUI/PauseMenu/Scripts/book_tab.gd" id="5_o8ys6"]
 [ext_resource type="Texture2D" uid="uid://cdxtcpufon5gs" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab05_Right_Normal.png" id="6_884dw"]
+[ext_resource type="Texture2D" uid="uid://byixmhcnlfvrg" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab01_Right_Selected.png" id="6_y2pxb"]
+[ext_resource type="PackedScene" uid="uid://f1u1cvn7herx" path="res://GUI/PauseMenu/Inventory/UI/LoadoutPage.tscn" id="7_voa2h"]
 [ext_resource type="Texture2D" uid="uid://d3p4e2xf173f0" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_13_Outline.png" id="7_xnbxo"]
 [ext_resource type="Texture2D" uid="uid://2ddys8evcf7" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab03_Bottom_Normal.png" id="8_ds4fu"]
 [ext_resource type="Texture2D" uid="uid://3ap4a3aodkoy" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_15_Outline.png" id="8_xnbxo"]
+[ext_resource type="PackedScene" uid="uid://4y6w6hs8l3th" path="res://GUI/PauseMenu/Inventory/UI/InventoryPage.tscn" id="9_awdl5"]
 [ext_resource type="Texture2D" uid="uid://7t3my8imeggk" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_19_Outline.png" id="9_y2eog"]
-[ext_resource type="Texture2D" uid="uid://dxitjyl5dfetv" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_02_Empty.png" id="14_xnbxo"]
+[ext_resource type="Texture2D" uid="uid://bqqbvhxkh4we1" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab02_Right_Selected.png" id="12_ak32l"]
+[ext_resource type="PackedScene" uid="uid://d2a621b4ga5xj" path="res://GUI/PauseMenu/Inventory/UI/PotionsPage.tscn" id="13_ove67"]
+[ext_resource type="Texture2D" uid="uid://cwu823br7xe6p" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab05_Right_Selected.png" id="16_x1cfi"]
+[ext_resource type="Texture2D" uid="uid://0djvr2ami2pk" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab07_Bottom_Selected.png" id="19_loqhv"]
+[ext_resource type="Texture2D" uid="uid://c7uytq2blqoi7" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab03_Bottom_Selected.png" id="22_b4nkx"]
+[ext_resource type="Theme" uid="uid://bijs0xpj6f8rg" path="res://GUI/PauseMenu/Inventory/UI/inventory_theme.tres" id="24_m2sgo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_at0kr"]
 atlas = ExtResource("1_p5snf")
 region = Rect2(0, 0, 256, 240)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlid3"]
+atlas = ExtResource("2_dlid3")
+region = Rect2(0, 0, 256, 176)
+margin = Rect2(0, 64, 0, 64)
 filter_clip = true
 
 [sub_resource type="Animation" id="Animation_bqkqi"]
@@ -414,6 +430,19 @@ scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_at0kr")
 stretch_mode = 3
 
+[node name="PageTurn" type="TextureRect" parent="Control" unique_id=320939884]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_right = 100.0
+offset_bottom = 240.0
+scale = Vector2(1.2, 1.2)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_dlid3")
+stretch_mode = 3
+
 [node name="Tabs" type="Control" parent="Control" unique_id=717952025]
 visible = false
 layout_mode = 1
@@ -422,59 +451,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="SettingsTab" type="TextureRect" parent="Control/Tabs" unique_id=2140991286]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = 76.0
-offset_right = -73.0
-offset_bottom = 108.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_ds4fu")
-
-[node name="TextureRect" type="TextureRect" parent="Control/Tabs/SettingsTab" unique_id=531186580]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -6.0
-offset_right = 8.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_y2eog")
-
-[node name="SaveTab" type="TextureRect" parent="Control/Tabs" unique_id=56703465]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 30.0
-offset_top = 69.0
-offset_right = 62.0
-offset_bottom = 101.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_88irb")
-
-[node name="TextureRect" type="TextureRect" parent="Control/Tabs/SaveTab" unique_id=1399754967]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 7.0
-offset_right = 24.0
-offset_bottom = 23.0
-texture = ExtResource("5_884dw")
 
 [node name="LoadoutTab" type="TextureRect" parent="Control/Tabs" unique_id=1407021115]
 layout_mode = 1
@@ -490,6 +466,9 @@ offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_28r7d")
+script = ExtResource("5_o8ys6")
+selected_texture = ExtResource("6_y2pxb")
+page_scene = ExtResource("7_voa2h")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Tabs/LoadoutTab" unique_id=1984436566]
 layout_mode = 0
@@ -513,6 +492,9 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_28r7d")
+script = ExtResource("5_o8ys6")
+selected_texture = ExtResource("6_y2pxb")
+page_scene = ExtResource("9_awdl5")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Tabs/InventoryTab" unique_id=1853831453]
 layout_mode = 0
@@ -536,6 +518,9 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_c75hv")
+script = ExtResource("5_o8ys6")
+selected_texture = ExtResource("12_ak32l")
+page_scene = ExtResource("13_ove67")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Tabs/PotionsTab" unique_id=1475024826]
 layout_mode = 0
@@ -559,6 +544,8 @@ offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_884dw")
+script = ExtResource("5_o8ys6")
+selected_texture = ExtResource("16_x1cfi")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Tabs/AbilitiesTab" unique_id=1830483383]
 layout_mode = 0
@@ -568,32 +555,76 @@ offset_right = 23.0
 offset_bottom = 23.0
 texture = ExtResource("7_xnbxo")
 
-[node name="ContentofTab" type="Control" parent="Control/Tabs" unique_id=1686141780]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Tabs/ContentofTab" unique_id=1960457269]
+[node name="SaveTab" type="TextureRect" parent="Control/Tabs" unique_id=56703465]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -69.0
-offset_right = -16.0
-offset_bottom = 67.0
+offset_left = 30.0
+offset_top = 69.0
+offset_right = 62.0
+offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("4_88irb")
+script = ExtResource("5_o8ys6")
+selected_texture = ExtResource("19_loqhv")
 
-[node name="TextureRect" type="TextureRect" parent="Control/Tabs/ContentofTab/VBoxContainer" unique_id=1501155919]
-layout_mode = 2
-texture = ExtResource("14_xnbxo")
-stretch_mode = 2
+[node name="TextureRect" type="TextureRect" parent="Control/Tabs/SaveTab" unique_id=1399754967]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 24.0
+offset_bottom = 23.0
+texture = ExtResource("5_884dw")
+
+[node name="SettingsTab" type="TextureRect" parent="Control/Tabs" unique_id=2140991286]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = 76.0
+offset_right = -73.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ds4fu")
+script = ExtResource("5_o8ys6")
+selected_texture = ExtResource("22_b4nkx")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Tabs/SettingsTab" unique_id=531186580]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -6.0
+offset_right = 8.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_y2eog")
+
+[node name="ContentofTab" type="Control" parent="Control/Tabs" unique_id=1686141780]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_right = 100.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+mouse_filter = 2
+theme = ExtResource("24_m2sgo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=970416392]
 root_node = NodePath("../Control")

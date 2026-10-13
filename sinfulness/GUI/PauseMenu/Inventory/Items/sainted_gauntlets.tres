@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ArmorData" format=3]
+
+[ext_resource type="Script" path="res://GUI/PauseMenu/Inventory/Scripts/armor_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_01_Gloves.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sainted_gauntlets"
+name = "Sainted Gauntlets"
+description = "Light blessed gauntlets. Placeholder stats."
+texture = ExtResource("2_texture")
+slot = 2
+armor_set = 0
+health = 5.0
+durability = 2.0
+corruption_durability = 3.0
+stance = 3.0
+dash_distance_modifier = -0.02
+attack_speed_modifier = 0.02

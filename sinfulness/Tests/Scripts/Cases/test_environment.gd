@@ -18,9 +18,6 @@ func test_autoload_reachable() -> void:
 
 
 func test_global_inventory_registered() -> void:
-	if get_autoload("GlobalInventory") == null:
-		skip("GlobalInventory is created in Phase 1")
-		return
 	assert_not_null(get_autoload("GlobalInventory"))
 
 

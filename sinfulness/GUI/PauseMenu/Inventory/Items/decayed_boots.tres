@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ArmorData" format=3]
+
+[ext_resource type="Script" path="res://GUI/PauseMenu/Inventory/Scripts/armor_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_01_Footwear.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"decayed_boots"
+name = "Decayed Boots"
+description = "Worn boots that never tire. Placeholder stats."
+texture = ExtResource("2_texture")
+slot = 3
+armor_set = 1
+damage = 2.0
+durability = 1.0
+disgrace = 2.0
+corruption_gain = 0.05
+stance = 2.0
+dash_distance_modifier = 0.05
+attack_speed_modifier = 0.0

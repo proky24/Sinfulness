@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://d2a621b4ga5xj"]
+
+[ext_resource type="Script" uid="uid://c4okabqh2ru4j" path="res://GUI/PauseMenu/Inventory/UI/Scripts/items_page.gd" id="1_dbq1f"]
+[ext_resource type="PackedScene" uid="uid://s2uiwebr53j2" path="res://GUI/PauseMenu/Inventory/UI/ItemDescriptionPanel.tscn" id="2_0yart"]
+[ext_resource type="Script" uid="uid://ktc2d6djyxox" path="res://GUI/PauseMenu/Inventory/UI/Scripts/item_grid.gd" id="3_gvkuw"]
+[ext_resource type="PackedScene" uid="uid://dbrv8ul7ri8w" path="res://GUI/PauseMenu/Inventory/UI/InventorySlotUI.tscn" id="4_lkrdg"]
+
+[node name="PotionsPage" type="Control" unique_id=1831702264]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 240.0
+mouse_filter = 2
+script = ExtResource("1_dbq1f")
+description_scene = ExtResource("2_0yart")
+description_empty_text = "Choose a potion or material."
+
+[node name="LeftPage" type="Control" parent="." unique_id=970427191]
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 92.0
+offset_right = 114.0
+offset_bottom = 210.0
+mouse_filter = 2
+
+[node name="Column" type="VBoxContainer" parent="LeftPage" unique_id=1515291104]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="PotionsTitle" type="Label" parent="LeftPage/Column" unique_id=795355554]
+layout_mode = 2
+theme_type_variation = &"PageTitle"
+text = "Potions"
+
+[node name="PotionGrid" type="GridContainer" parent="LeftPage/Column" unique_id=1238497007]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+script = ExtResource("3_gvkuw")
+slot_scene = ExtResource("4_lkrdg")
+category_flags = 1
+
+[node name="MaterialsTitle" type="Label" parent="LeftPage/Column" unique_id=1871016497]
+layout_mode = 2
+theme_type_variation = &"PageTitle"
+text = "Materials"
+
+[node name="MaterialGrid" type="GridContainer" parent="LeftPage/Column" unique_id=1902309711]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+script = ExtResource("3_gvkuw")
+slot_scene = ExtResource("4_lkrdg")
+category_flags = 2
+
+[node name="RightPage" type="Control" parent="." unique_id=759906004]
+anchors_preset = 0
+offset_left = 142.0
+offset_top = 92.0
+offset_right = 228.0
+offset_bottom = 210.0
+mouse_filter = 2
+
+[node name="Column" type="VBoxContainer" parent="RightPage" unique_id=1480085172]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="DescriptionHolder" type="Control" parent="RightPage/Column" unique_id=362174533]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AlchemyArea" type="Control" parent="RightPage/Column" unique_id=529731593]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Reserved for the alchemy UI"
+mouse_filter = 2

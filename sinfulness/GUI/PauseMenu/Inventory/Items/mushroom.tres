@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ceu3agdtvvgbw"]
+[gd_resource type="Resource" script_class="MaterialData" format=3 uid="uid://ceu3agdtvvgbw"]
 
-[ext_resource type="Script" uid="uid://beeq62mgvcfmg" path="res://GUI/PauseMenu/Inventory/Scripts/item_data.gd" id="1_yy3b0"]
+[ext_resource type="Script" uid="uid://decqemx2tbrwl" path="res://GUI/PauseMenu/Inventory/Scripts/material_data.gd" id="1_yy3b0"]
 [ext_resource type="Texture2D" uid="uid://580tk7dq5l2u" path="res://Assets/Edible_Mushrooms/items/Aspen.png" id="2_w0dqp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c10do"]
@@ -8,6 +8,9 @@ atlas = ExtResource("2_w0dqp")
 
 [resource]
 script = ExtResource("1_yy3b0")
-name = "Muhsroom"
+id = &"aspen_mushroom"
+name = "Aspen Mushroom"
+description = "A common mushroom used in potions."
 texture = SubResource("AtlasTexture_c10do")
+max_stack = 99
 metadata/_custom_type_script = "uid://beeq62mgvcfmg"

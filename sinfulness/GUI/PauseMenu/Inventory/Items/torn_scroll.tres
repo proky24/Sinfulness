@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LoreData" format=3]
+
+[ext_resource type="Script" path="res://GUI/PauseMenu/Inventory/Scripts/lore_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_11.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"torn_scroll"
+name = "Torn Scroll"
+description = "A scroll with half of its text missing."
+texture = ExtResource("2_texture")
+text = "Placeholder lore text. The first king sealed the gate and gave the key to the dead."

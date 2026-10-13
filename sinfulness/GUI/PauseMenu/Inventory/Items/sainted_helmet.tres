@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ArmorData" format=3]
+
+[ext_resource type="Script" path="res://GUI/PauseMenu/Inventory/Scripts/armor_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_01_Headgear.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sainted_helmet"
+name = "Sainted Helmet"
+description = "Blessed steel. Placeholder stats."
+texture = ExtResource("2_texture")
+slot = 0
+armor_set = 0
+health = 10.0
+durability = 4.0
+corruption_durability = 4.0
+stance = 6.0
+dash_distance_modifier = -0.05
+attack_speed_modifier = -0.03

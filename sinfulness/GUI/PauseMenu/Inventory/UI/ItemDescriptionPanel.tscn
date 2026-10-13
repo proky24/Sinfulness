@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://s2uiwebr53j2"]
+
+[ext_resource type="Script" uid="uid://bko064froi35n" path="res://GUI/PauseMenu/Inventory/UI/Scripts/item_description_panel.gd" id="1_rv4gp"]
+
+[node name="ItemDescriptionPanel" type="VBoxContainer" unique_id=246118752]
+offset_right = 86.0
+offset_bottom = 118.0
+mouse_filter = 2
+theme_override_constants/separation = 4
+script = ExtResource("1_rv4gp")
+
+[node name="Header" type="HBoxContainer" parent="." unique_id=159911080]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Icon" type="TextureRect" parent="Header" unique_id=242949007]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+stretch_mode = 3
+
+[node name="Name" type="Label" parent="Header" unique_id=786319783]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ItemName"
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+
+[node name="Description" type="Label" parent="." unique_id=1946530258]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+autowrap_mode = 3
+clip_text = true

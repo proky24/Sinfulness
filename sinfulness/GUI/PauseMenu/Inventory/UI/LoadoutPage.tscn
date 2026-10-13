@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://f1u1cvn7herx"]
+
+[ext_resource type="Script" uid="uid://du5kwiwyqfft1" path="res://GUI/PauseMenu/Inventory/UI/Scripts/loadout_page.gd" id="1_0jjpo"]
+[ext_resource type="PackedScene" uid="uid://dbrv8ul7ri8w" path="res://GUI/PauseMenu/Inventory/UI/InventorySlotUI.tscn" id="2_cewn3"]
+[ext_resource type="Texture2D" uid="uid://d2b2b3d1mkobx" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_01_Headgear.png" id="3_rdqbt"]
+[ext_resource type="Texture2D" uid="uid://b0ssjtu372flu" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_01_Armor.png" id="4_qaf3l"]
+[ext_resource type="Texture2D" uid="uid://bp8b573ub64sd" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_01_Gloves.png" id="5_oyx85"]
+[ext_resource type="Texture2D" uid="uid://chx2f5kbutdob" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_01_Footwear.png" id="6_l5w0w"]
+[ext_resource type="PackedScene" uid="uid://s2uiwebr53j2" path="res://GUI/PauseMenu/Inventory/UI/ItemDescriptionPanel.tscn" id="7_fadii"]
+[ext_resource type="Script" uid="uid://ktc2d6djyxox" path="res://GUI/PauseMenu/Inventory/UI/Scripts/item_grid.gd" id="8_t6y7s"]
+
+[node name="LoadoutPage" type="Control" unique_id=1253085616]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 240.0
+mouse_filter = 2
+script = ExtResource("1_0jjpo")
+slot_scene = ExtResource("2_cewn3")
+helmet_placeholder = ExtResource("3_rdqbt")
+chestplate_placeholder = ExtResource("4_qaf3l")
+gauntlets_placeholder = ExtResource("5_oyx85")
+boots_placeholder = ExtResource("6_l5w0w")
+description_scene = ExtResource("7_fadii")
+description_empty_text = "Nothing equipped."
+
+[node name="LeftPage" type="Control" parent="." unique_id=925334292]
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 92.0
+offset_right = 114.0
+offset_bottom = 210.0
+mouse_filter = 2
+
+[node name="Column" type="VBoxContainer" parent="LeftPage" unique_id=867714036]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="LeftPage/Column" unique_id=891100855]
+layout_mode = 2
+theme_type_variation = &"PageTitle"
+text = "Equipped"
+
+[node name="SlotList" type="VBoxContainer" parent="LeftPage/Column" unique_id=1246951588]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="RightPage" type="Control" parent="." unique_id=1354636041]
+anchors_preset = 0
+offset_left = 142.0
+offset_top = 92.0
+offset_right = 228.0
+offset_bottom = 210.0
+mouse_filter = 2
+
+[node name="Column" type="VBoxContainer" parent="RightPage" unique_id=753747349]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="OwnedTitle" type="Label" parent="RightPage/Column" unique_id=1974185286]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"PageTitle"
+text = "Helmet"
+
+[node name="OwnedGrid" type="GridContainer" parent="RightPage/Column" unique_id=464703948]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+script = ExtResource("8_t6y7s")
+slot_scene = ExtResource("2_cewn3")
+category_flags = 4
+empty_text = "None owned"
+
+[node name="DescriptionHolder" type="Control" parent="RightPage/Column" unique_id=864530476]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2

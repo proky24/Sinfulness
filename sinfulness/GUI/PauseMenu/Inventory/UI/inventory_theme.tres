@@ -1,0 +1,42 @@
+[gd_resource type="Theme" format=3 uid="uid://bijs0xpj6f8rg"]
+
+[ext_resource type="FontFile" uid="uid://bl1pap6k8rrij" path="res://Assets/UI pack/Fonts/FantasyRPGtext (size 8).ttf" id="1_text_font"]
+[ext_resource type="FontFile" uid="uid://bnt0xff6cuafc" path="res://Assets/UI pack/Fonts/FantasyRPGtitle (size 11).ttf" id="2_title_font"]
+[ext_resource type="Texture2D" uid="uid://delo56vv4ilpf" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_01_Empty.png" id="3_slot_normal"]
+[ext_resource type="Texture2D" uid="uid://dewhi5243l302" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_03_Empty.png" id="4_slot_focus"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBox_slot_normal"]
+texture = ExtResource("3_slot_normal")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBox_slot_focus"]
+texture = ExtResource("4_slot_focus")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[resource]
+default_font = ExtResource("1_text_font")
+default_font_size = 8
+InventorySlot/base_type = &"Button"
+InventorySlot/styles/disabled = SubResource("StyleBox_slot_normal")
+InventorySlot/styles/focus = SubResource("StyleBox_slot_focus")
+InventorySlot/styles/hover = SubResource("StyleBox_slot_normal")
+InventorySlot/styles/normal = SubResource("StyleBox_slot_normal")
+InventorySlot/styles/pressed = SubResource("StyleBox_slot_focus")
+Label/colors/font_color = Color(0.29, 0.16, 0.12, 1)
+ItemName/base_type = &"Label"
+ItemName/colors/font_color = Color(0.5, 0.13, 0.1, 1)
+PageTitle/base_type = &"Label"
+PageTitle/colors/font_color = Color(0.5, 0.13, 0.1, 1)
+PageTitle/font_sizes/font_size = 11
+PageTitle/fonts/font = ExtResource("2_title_font")
+SlotQuantity/base_type = &"Label"
+SlotQuantity/colors/font_color = Color(1, 1, 1, 1)
+SlotQuantity/colors/font_shadow_color = Color(0.2, 0.1, 0.08, 1)
+SlotQuantity/constants/shadow_offset_x = 1
+SlotQuantity/constants/shadow_offset_y = 1

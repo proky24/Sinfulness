@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bfw1ypwou6w2s"]
+[gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://bfw1ypwou6w2s"]
 
-[ext_resource type="Script" uid="uid://beeq62mgvcfmg" path="res://GUI/PauseMenu/Inventory/Scripts/item_data.gd" id="1_rsrqd"]
+[ext_resource type="Script" uid="uid://f4eql5jyxugf" path="res://GUI/PauseMenu/Inventory/Scripts/potion_data.gd" id="1_rsrqd"]
 [ext_resource type="Texture2D" uid="uid://da23de5x5wgb4" path="res://Assets/Potions/items/item_02.png" id="2_1bfrn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0pqj"]
@@ -8,6 +8,11 @@ atlas = ExtResource("2_1bfrn")
 
 [resource]
 script = ExtResource("1_rsrqd")
-name = "Potion"
+stat_changed = 1
+amount = 5.0
+id = &"berserk_potion"
+name = "Berserk Potion"
+description = "Raises damage for a while."
 texture = SubResource("AtlasTexture_p0pqj")
+max_stack = 5
 metadata/_custom_type_script = "uid://beeq62mgvcfmg"

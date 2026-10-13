@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://yrj7redgsjji"]
+
+[ext_resource type="Script" uid="uid://bnvg8mvup0nib" path="res://Levels/00_Global/GlobalInventory.gd" id="1_0li5x"]
+[ext_resource type="Resource" uid="uid://4tdlxruyugqp" path="res://GUI/PauseMenu/Inventory/starting_inventory.tres" id="2_52umd"]
+
+[node name="GlobalInventory" type="Node" unique_id=360901302]
+script = ExtResource("1_0li5x")
+starting_inventory = ExtResource("2_52umd")

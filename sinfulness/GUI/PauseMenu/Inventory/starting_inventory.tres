@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="InventoryData" format=3 uid="uid://4tdlxruyugqp"]
+
+[ext_resource type="Script" uid="uid://mka63puyx8nr" path="res://GUI/PauseMenu/Inventory/Scripts/inventory_data.gd" id="1_inventory"]
+[ext_resource type="Script" uid="uid://cxt74l36h260n" path="res://GUI/PauseMenu/Inventory/Scripts/slot_data.gd" id="2_slot"]
+[ext_resource type="Resource" uid="uid://bfw1ypwou6w2s" path="res://GUI/PauseMenu/Inventory/Items/potion.tres" id="3_berserk"]
+[ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/maturation_potion.tres" id="4_maturation"]
+[ext_resource type="Resource" uid="uid://ceu3agdtvvgbw" path="res://GUI/PauseMenu/Inventory/Items/mushroom.tres" id="5_aspen"]
+[ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/chanterelle.tres" id="6_chanterelle"]
+[ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/torn_scroll.tres" id="7_scroll"]
+[ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/rusty_key.tres" id="8_key"]
+[ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/sainted_helmet.tres" id="9_helmet"]
+[ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/decayed_chestplate.tres" id="10_chestplate"]
+[ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/sainted_gauntlets.tres" id="11_gauntlets"]
+[ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/decayed_boots.tres" id="12_boots"]
+
+[sub_resource type="Resource" id="Slot_berserk"]
+script = ExtResource("2_slot")
+item_data = ExtResource("3_berserk")
+quantity = 3
+
+[sub_resource type="Resource" id="Slot_maturation"]
+script = ExtResource("2_slot")
+item_data = ExtResource("4_maturation")
+quantity = 5
+
+[sub_resource type="Resource" id="Slot_aspen"]
+script = ExtResource("2_slot")
+item_data = ExtResource("5_aspen")
+quantity = 12
+
+[sub_resource type="Resource" id="Slot_chanterelle"]
+script = ExtResource("2_slot")
+item_data = ExtResource("6_chanterelle")
+quantity = 99
+
+[sub_resource type="Resource" id="Slot_scroll"]
+script = ExtResource("2_slot")
+item_data = ExtResource("7_scroll")
+quantity = 1
+
+[sub_resource type="Resource" id="Slot_key"]
+script = ExtResource("2_slot")
+item_data = ExtResource("8_key")
+quantity = 1
+
+[sub_resource type="Resource" id="Slot_helmet"]
+script = ExtResource("2_slot")
+item_data = ExtResource("9_helmet")
+quantity = 1
+
+[sub_resource type="Resource" id="Slot_chestplate"]
+script = ExtResource("2_slot")
+item_data = ExtResource("10_chestplate")
+quantity = 1
+
+[sub_resource type="Resource" id="Slot_gauntlets"]
+script = ExtResource("2_slot")
+item_data = ExtResource("11_gauntlets")
+quantity = 1
+
+[sub_resource type="Resource" id="Slot_boots"]
+script = ExtResource("2_slot")
+item_data = ExtResource("12_boots")
+quantity = 1
+
+[resource]
+script = ExtResource("1_inventory")
+slots = Array[ExtResource("2_slot")]([SubResource("Slot_berserk"), SubResource("Slot_maturation"), SubResource("Slot_aspen"), SubResource("Slot_chanterelle"), SubResource("Slot_scroll"), SubResource("Slot_key"), SubResource("Slot_helmet"), SubResource("Slot_chestplate"), SubResource("Slot_gauntlets"), SubResource("Slot_boots")])
