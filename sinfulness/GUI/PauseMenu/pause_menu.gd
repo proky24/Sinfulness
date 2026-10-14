@@ -35,6 +35,10 @@ var _tabs: Array[BookTab] = []
 var _active_tab: BookTab = null
 var _page: BookPage = null
 var _last_focus: Control = null
+## Tab whose page was open last; the menu reopens on it. Kept for the game session, not saved.
+var _last_tab: BookTab = null
+## tab_page of the page currently shown; decides the direction of the next page turn.
+var _current_tab_page: int = 0
 
 
 func _ready() -> void:
@@ -43,6 +47,7 @@ func _ready() -> void:
             var tab: BookTab = child
             tab.tab_chosen.connect(_on_tab_chosen)
             _tabs.append(tab)
+    _last_tab = _tabs[0]
     _add_page_turn_animation()
     animation_player.animation_finished.connect(_on_animation_finished)
     get_viewport().gui_focus_changed.connect(_on_focus_changed)
@@ -59,6 +64,7 @@ func hide_pause_menu() -> void:
     _set_tabs_interactive(false)
     animation_player.stop(true)
     page_turn.visible = false
+    page_turn.flip_h = false
     _last_focus = null
 
 
@@ -67,7 +73,8 @@ func show_pause_menu() -> void:
     get_tree().paused = true
     visible = true
     _state = MenuState.OPENING
-    _active_tab = _tabs[0]
+    _set_active_tab(_last_tab)
+    _current_tab_page = _last_tab.tab_page
     animation_player.speed_scale = MENU_SPEED
     animation_player.play(OPEN_ANIMATION)
 
@@ -111,16 +118,25 @@ func _enter_tab_select(focus_tab: BookTab) -> void:
 func _on_tab_chosen(tab: BookTab) -> void:
     if _state != MenuState.TAB_SELECT:
         return
-    _state = MenuState.PAGE_TURN
     _set_active_tab(tab)
+    _last_tab = tab
     _clear_page()
     _set_tabs_interactive(false)
+    if tab.tab_page == _current_tab_page:
+        # Same page (also re-choosing the open tab): no page turn, rebuild it right away.
+        _show_page()
+        return
+    _state = MenuState.PAGE_TURN
+    # Turning back to a lower page plays the same frames mirrored, so the page turns the other way.
+    page_turn.flip_h = tab.tab_page < _current_tab_page
+    _current_tab_page = tab.tab_page
     animation_player.speed_scale = MENU_SPEED
     animation_player.play(PAGE_TURN_ANIMATION)
 
 
 func _show_page() -> void:
     page_turn.visible = false
+    page_turn.flip_h = false
     if _active_tab.page_scene != null:
         _page = _active_tab.page_scene.instantiate() as BookPage
         content.add_child(_page)
@@ -132,6 +148,8 @@ func _show_page() -> void:
         _enter_tab_select(_active_tab)
         return
     _state = MenuState.CONTENT
+    # Tabs are only reachable from TAB_SELECT; otherwise focus could wander from the page onto them.
+    _set_tabs_interactive(false)
     first_focus.grab_focus()
 
 
@@ -145,7 +163,6 @@ func _go_back() -> void:
 
 func _on_animation_finished(animation_name: StringName) -> void:
     if animation_name == OPEN_ANIMATION and _state == MenuState.OPENING:
-        _enter_tab_select(_tabs[0])
         _show_page()
     elif animation_name == PAGE_TURN_ANIMATION and _state == MenuState.PAGE_TURN:
         _show_page()

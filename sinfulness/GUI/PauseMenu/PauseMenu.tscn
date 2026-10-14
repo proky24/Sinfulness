@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://3ap4a3aodkoy" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_15_Outline.png" id="8_xnbxo"]
 [ext_resource type="PackedScene" uid="uid://4y6w6hs8l3th" path="res://GUI/PauseMenu/Inventory/UI/InventoryPage.tscn" id="9_awdl5"]
 [ext_resource type="Texture2D" uid="uid://7t3my8imeggk" path="res://Assets/UI pack/Individual files/1x/Mini icons/Icon_19_Outline.png" id="9_y2eog"]
+[ext_resource type="Texture2D" uid="uid://bwxxn1rwucewa" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab04_Right_Normal.png" id="9_y2pxb"]
+[ext_resource type="Texture2D" uid="uid://duaxyvece4rwj" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab04_Right_Selected.png" id="10_voa2h"]
 [ext_resource type="Texture2D" uid="uid://bqqbvhxkh4we1" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab02_Right_Selected.png" id="12_ak32l"]
 [ext_resource type="PackedScene" uid="uid://d2a621b4ga5xj" path="res://GUI/PauseMenu/Inventory/UI/PotionsPage.tscn" id="13_ove67"]
 [ext_resource type="Texture2D" uid="uid://cwu823br7xe6p" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab05_Right_Selected.png" id="16_x1cfi"]
@@ -491,10 +493,11 @@ offset_right = 150.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_28r7d")
+texture = ExtResource("9_y2pxb")
 script = ExtResource("5_o8ys6")
-selected_texture = ExtResource("6_y2pxb")
+selected_texture = ExtResource("10_voa2h")
 page_scene = ExtResource("9_awdl5")
+tab_page = 1
 
 [node name="TextureRect" type="TextureRect" parent="Control/Tabs/InventoryTab" unique_id=1853831453]
 layout_mode = 0
@@ -521,6 +524,7 @@ texture = ExtResource("4_c75hv")
 script = ExtResource("5_o8ys6")
 selected_texture = ExtResource("12_ak32l")
 page_scene = ExtResource("13_ove67")
+tab_page = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/Tabs/PotionsTab" unique_id=1475024826]
 layout_mode = 0
@@ -546,6 +550,7 @@ grow_vertical = 2
 texture = ExtResource("6_884dw")
 script = ExtResource("5_o8ys6")
 selected_texture = ExtResource("16_x1cfi")
+tab_page = 3
 
 [node name="TextureRect" type="TextureRect" parent="Control/Tabs/AbilitiesTab" unique_id=1830483383]
 layout_mode = 0
@@ -571,6 +576,7 @@ grow_vertical = 2
 texture = ExtResource("4_88irb")
 script = ExtResource("5_o8ys6")
 selected_texture = ExtResource("19_loqhv")
+tab_page = 4
 
 [node name="TextureRect" type="TextureRect" parent="Control/Tabs/SaveTab" unique_id=1399754967]
 layout_mode = 0
@@ -596,6 +602,7 @@ grow_vertical = 2
 texture = ExtResource("8_ds4fu")
 script = ExtResource("5_o8ys6")
 selected_texture = ExtResource("22_b4nkx")
+tab_page = 5
 
 [node name="TextureRect" type="TextureRect" parent="Control/Tabs/SettingsTab" unique_id=531186580]
 layout_mode = 1

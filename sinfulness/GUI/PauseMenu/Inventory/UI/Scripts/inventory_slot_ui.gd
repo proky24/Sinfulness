@@ -8,6 +8,7 @@ signal slot_chosen(slot_ui: InventorySlotUI)
 
 @onready var _icon: TextureRect = $Icon
 @onready var _quantity: Label = $Quantity
+@onready var _equipped_mark: TextureRect = $EquippedMark
 
 var slot_data: SlotData = null
 
@@ -29,6 +30,11 @@ func set_slot(data: SlotData, placeholder: Texture2D = null) -> void:
 
 func get_item() -> ItemData:
 	return slot_data.item_data if slot_data != null else null
+
+
+## Shows or hides the small mark in the corner that tells the piece is equipped.
+func set_equipped(equipped: bool) -> void:
+	_equipped_mark.visible = equipped
 
 
 func set_interactive(enabled: bool) -> void:
