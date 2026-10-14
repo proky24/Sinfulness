@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://cqhsh6cyut7ho"]
+
+[ext_resource type="Script" uid="uid://f4eql5jyxugf" path="res://GUI/PauseMenu/Inventory/Scripts/potion_data.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dg056fxl6dvmd" path="res://Assets/Potions/items/item_08.png" id="2_vr32y"]
+
+[resource]
+script = ExtResource("1_script")
+stat_changed = 6
+amount = -10.0
+duration_seconds = 0.0
+id = &"decayed_potion"
+name = "Decayed Potion"
+description = "Signiticantly boosts corruption
+"
+texture = ExtResource("2_vr32y")
+max_stack = 7

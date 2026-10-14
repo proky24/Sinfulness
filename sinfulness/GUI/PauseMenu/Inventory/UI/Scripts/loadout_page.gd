@@ -38,7 +38,7 @@ const PERCENT_STATS: Array[StringName] = [&"corruption_gain", &"dash_distance_mo
 ## Shown under the owned pieces in stage 2; %s is the name of the equipped piece.
 @export var equipped_text: String = "Equipped: %s"
 ## Shown under the owned pieces in stage 2 when the slot is empty.
-@export var nothing_equipped_text: String = "Nothing equipped."
+@export var nothing_equipped_text: String = ""
 ## Gap between wrapped lines of the description, smaller than the theme's so the stats fit.
 @export var description_line_spacing: int = 1
 

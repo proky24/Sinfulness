@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bi1ethxgsj4e2"]
+
+[ext_resource type="Script" uid="uid://cm0y2s4g57o75" path="res://GUI/PauseMenu/Inventory/Items/Item_Pick_up/item_pick_up.gd" id="1_kjlr1"]
+[ext_resource type="AudioStream" uid="uid://bi3xidjnkqyw2" path="res://Assets/UI SFX/Mono/wav (HD)/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.wav" id="3_jiesu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
+
+[node name="ItemPickup" type="Node2D" unique_id=571728565]
+script = ExtResource("1_kjlr1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1067471623]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1431327044]
+shape = SubResource("CircleShape2D_3gqd7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2133735162]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=869795207]
+stream = ExtResource("3_jiesu")

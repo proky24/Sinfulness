@@ -1,14 +1,10 @@
-[gd_resource type="Resource" script_class="ArmorData" format=3]
+[gd_resource type="Resource" script_class="ArmorData" format=3 uid="uid://b0hbw6fhcv3oj"]
 
-[ext_resource type="Script" path="res://GUI/PauseMenu/Inventory/Scripts/armor_data.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_01_Armor.png" id="2_texture"]
+[ext_resource type="Script" uid="uid://7heu5gaxo6n2" path="res://GUI/PauseMenu/Inventory/Scripts/armor_data.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b0ssjtu372flu" path="res://Assets/UI pack/Individual files/1x/Item slots/Slot_01_Armor.png" id="2_texture"]
 
 [resource]
 script = ExtResource("1_script")
-id = &"decayed_chestplate"
-name = "Decayed Chestplate"
-description = "Rotten plate that feeds on its wearer. Placeholder stats."
-texture = ExtResource("2_texture")
 slot = 1
 armor_set = 1
 damage = 6.0
@@ -18,3 +14,7 @@ corruption_gain = 0.15
 stance = 10.0
 dash_distance_modifier = -0.1
 attack_speed_modifier = -0.05
+id = &"decayed_chestplate"
+name = "Decayed Chestplate"
+description = "Rotten plate that feeds on its wearer. Placeholder stats."
+texture = ExtResource("2_texture")
