@@ -738,10 +738,10 @@ scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_at0kr")
 debug_color = Color(0.6530085, 0.5187216, 7.70092e-07, 0.41960785)
 
-[node name="Area2D" type="Area2D" parent="Interactions" unique_id=361912501]
+[node name="PickingUP_Opening" type="Area2D" parent="Interactions" unique_id=361912501]
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Area2D" unique_id=1598329985]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PickingUP_Opening" unique_id=1598329985]
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_3gqd7")
 debug_color = Color(0, 0.6454719, 0.26601353, 0.41960785)
