@@ -86,7 +86,7 @@ tile_map_data = PackedByteArray("AAAHAAQAAAACABoAAAAHAAUAAAACABsAAAAMAAQAAAADABo
 enabled = false
 
 [node name="CharacterBody2D" parent="." unique_id=2097391364 instance=ExtResource("1_e56qq")]
-position = Vector2(301, 181)
+position = Vector2(192, 192)
 
 [node name="Create2" parent="." unique_id=1443861933 instance=ExtResource("6_5b6dc")]
 position = Vector2(278, 257)
@@ -105,5 +105,20 @@ position = Vector2(208, 136)
 
 [node name="ItemPickup" parent="." unique_id=571728565 instance=ExtResource("8_iqr6k")]
 position = Vector2(207, 183)
+scale = Vector2(0.5, 0.5)
+item_data = SubResource("Resource_jiesu")
+
+[node name="ItemPickup2" parent="." unique_id=1108542061 instance=ExtResource("8_iqr6k")]
+position = Vector2(169, 158)
+scale = Vector2(0.5, 0.5)
+item_data = SubResource("Resource_jiesu")
+
+[node name="ItemPickup3" parent="." unique_id=960557615 instance=ExtResource("8_iqr6k")]
+position = Vector2(216, 158)
+scale = Vector2(0.5, 0.5)
+item_data = SubResource("Resource_jiesu")
+
+[node name="ItemPickup4" parent="." unique_id=1680835754 instance=ExtResource("8_iqr6k")]
+position = Vector2(172, 178)
 scale = Vector2(0.5, 0.5)
 item_data = SubResource("Resource_jiesu")

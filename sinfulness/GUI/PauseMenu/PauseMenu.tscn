@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://0djvr2ami2pk" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab07_Bottom_Selected.png" id="19_loqhv"]
 [ext_resource type="Texture2D" uid="uid://c7uytq2blqoi7" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab03_Bottom_Selected.png" id="22_b4nkx"]
 [ext_resource type="Theme" uid="uid://bijs0xpj6f8rg" path="res://GUI/PauseMenu/Inventory/UI/inventory_theme.tres" id="24_m2sgo"]
+[ext_resource type="AudioStream" uid="uid://c8xkb463pf4jd" path="res://Assets/UI SFX/PauseMenuSFX/book-closing.wav" id="27_awdl5"]
+[ext_resource type="AudioStream" uid="uid://5mu55v6xtrvf" path="res://Assets/UI SFX/PauseMenuSFX/book-opening.wav" id="27_voa2h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_at0kr"]
 atlas = ExtResource("1_p5snf")
@@ -220,6 +222,217 @@ tracks/14/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Tabs/SettingsTab:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ak32l"]
+resource_name = "close_menu"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book:texture:region")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.066666655, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.40350556, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(1792, 0, 256, 240), Rect2(1536, 0, 256, 240), Rect2(1280, 0, 256, 240), Rect2(1024, 0, 256, 240), Rect2(768, 0, 256, 240), Rect2(512, 0, 256, 240), Rect2(256, 0, 256, 240), Rect2(0, 0, 256, 240)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tabs:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tabs/SettingsTab:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(215, 256), Vector2(215, 240)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tabs/LoadoutTab:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.13333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(438, 114), Vector2(422, 114)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tabs/PotionsTab:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.13333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(438, 170), Vector2(422, 142)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Tabs/AbilitiesTab:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.13333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, -1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Tabs/PotionsTab:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.13333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, -1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Tabs/LoadoutTab:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.13333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, -1]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Tabs/SettingsTab:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, -1]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Tabs/AbilitiesTab:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.13333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(438, 198), Vector2(422, 170)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Tabs/InventoryTab:z_index")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.13333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, -1]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Tabs/InventoryTab:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.13333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(438, 142), Vector2(422, 142)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Tabs/SaveTab:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.13333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(350, 249), Vector2(350, 233)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Tabs/SaveTab:z_index")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.13333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, -1]
+}
+tracks/14/type = "audio"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../AnimationPlayer/AudioStreamPlayer2D")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("27_awdl5")
+}],
+"times": PackedFloat32Array(0.26666668)
+}
+tracks/14/use_blend = true
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Tabs/SettingsTab:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_38l0w"]
 resource_name = "open_menu"
@@ -392,10 +605,38 @@ tracks/13/keys = {
 "update": 0,
 "values": [-1, 0]
 }
+tracks/14/type = "audio"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../AnimationPlayer/AudioStreamPlayer2D")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.19981866,
+"stream": ExtResource("27_voa2h")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/14/use_blend = true
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Tabs/SettingsTab:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.46666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0h0yj"]
 _data = {
 &"RESET": SubResource("Animation_bqkqi"),
+&"close_menu": SubResource("Animation_ak32l"),
 &"open_menu": SubResource("Animation_38l0w")
 }
 
@@ -570,7 +811,7 @@ anchor_bottom = 0.5
 offset_left = 30.0
 offset_top = 69.0
 offset_right = 62.0
-offset_bottom = 101.0
+offset_bottom = 101.002014
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_88irb")
@@ -596,7 +837,7 @@ anchor_bottom = 0.5
 offset_left = -105.0
 offset_top = 76.0
 offset_right = -73.0
-offset_bottom = 108.0
+offset_bottom = 108.001465
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_ds4fu")
@@ -637,3 +878,5 @@ theme = ExtResource("24_m2sgo")
 root_node = NodePath("../Control")
 libraries/ = SubResource("AnimationLibrary_0h0yj")
 autoplay = &"open_menu"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimationPlayer" unique_id=851648468]

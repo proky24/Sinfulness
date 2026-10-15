@@ -10,6 +10,7 @@ enum MenuState { CLOSED, OPENING, TAB_SELECT, PAGE_TURN, CONTENT }
 const MENU_SPEED: float = 1.3
 const OPEN_ANIMATION: StringName = &"open_menu"
 const PAGE_TURN_ANIMATION: StringName = &"page_turn"
+const CLOSE_ANIMATION: StringName = &"close_menu"
 const PAGE_TURN_FRAMES: int = 8
 const PAGE_TURN_FRAME_TIME: float = 0.0667
 const PAGE_TURN_FRAME_SIZE: Vector2 = Vector2(256, 176)
@@ -27,8 +28,11 @@ const MOVE_TO_UI_ACTIONS: Dictionary[StringName, StringName] = {
 @onready var page_turn: TextureRect = $Control/PageTurn
 @onready var tabs_root: Control = $Control/Tabs
 @onready var content: Control = $Control/Tabs/ContentofTab
+@onready var audio_player: AudioStreamPlayer2D = $AnimationPlayer/AudioStreamPlayer2D
 
 var is_paused: bool = false
+
+var closing_menu_SFX: AudioStream = preload("res://Assets/UI SFX/PauseMenuSFX/book-closing.wav")
 
 var _state: MenuState = MenuState.CLOSED
 var _tabs: Array[BookTab] = []
@@ -85,6 +89,9 @@ func _input(event: InputEvent) -> void:
     if event.is_action_pressed("pause_menu"):
         get_viewport().set_input_as_handled()
         if is_paused:
+            _clear_page()
+            animation_player.play(CLOSE_ANIMATION)
+            await animation_player.animation_finished
             hide_pause_menu()
         else:
             show_pause_menu()

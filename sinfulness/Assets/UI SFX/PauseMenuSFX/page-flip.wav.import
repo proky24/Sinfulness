@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://kvr2ym8ww4n5"
+path="res://.godot/imported/page-flip.wav-72b67b38d2d86825abf2de529d029d74.sample"
+
+[deps]
+
+source_file="res://Assets/UI SFX/PauseMenuSFX/page-flip.wav"
+dest_files=["res://.godot/imported/page-flip.wav-72b67b38d2d86825abf2de529d029d74.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
