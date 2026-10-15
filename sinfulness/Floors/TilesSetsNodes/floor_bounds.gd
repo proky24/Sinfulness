@@ -5,12 +5,15 @@ class_name FloorBounds extends Node2D
 # Draw order: every TileMapLayer sits at (0, 0). Walls are split by how they
 # relate to the player (z_index 0, y-sorted by its position):
 # - Water, Floor, FloorDecoration and FloorShade use z_index -1 (always under).
-# - WallFaces and WallFacesDecoration hold the brick fronts of walls north of the
-#   floor, arches and niches. They use z_index 0 with y-sort and y_sort_origin 6,
-#   so in a room the player is in front of the bricks, and once the player walks
-#   into a door or niche the bricks beside it cover the sword and body.
-# - WallTops uses z_index 1 (always over): wall tops, side walls, walls south of
-#   the floor and the void. A sword pushed into a side wall disappears behind it.
+# - The brick front of a wall north of the floor is three rows. All its rows sort
+#   against the wall's bottom edge, so in a room the player is in front of the
+#   bricks and inside a door or niche the bricks and arch cover it:
+#   WallFaces = bottom row (y_sort_origin 8), WallFacesUpper and
+#   WallFacesDecoration = middle row (y_sort_origin 24), both z_index 0 with y-sort.
+#   The top row of the front sits on WallTops.
+# - WallTops uses z_index 1 (always over): wall tops, top rows of brick fronts,
+#   side walls, walls south of the floor and the void. A sword pushed into a side
+#   wall disappears behind it.
 # - ArchTops uses z_index 1 with collision off: the wall top above each door, so
 #   the player walks under it.
 # Side walls are never y-sorted: with per-cell sorting the wall cell beside the
