@@ -573,6 +573,12 @@ texture = ExtResource("1_sros7")
 14:27/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.8991642, 8, -2.9974408, 8, 1.2284594, -8, 1.1301823)
 15:27/0 = 0
 15:27/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.8991642, 8, -2.9974408, 8, 1.2284594, -8, 1.1301823)
+4:25/0 = 0
+4:25/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 5.6509113, -0.2456913, 3.1939936, -0.9336281, 6.928509, -4.2655315, 6.5288715)
+4:24/0 = 0
+5:24/0 = 0
+5:25/0 = 0
+5:25/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 5.6509113, 1.4250126, 3.2922707, 1.4250126, 5.9457417, 3.2922707, 6.437126)
 
 [sub_resource type="TileSet" id="TileSet_r1gac"]
 physics_layer_0/collision_layer = 16
