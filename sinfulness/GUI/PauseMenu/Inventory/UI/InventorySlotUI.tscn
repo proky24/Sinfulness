@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6dv23eirt780" path="res://GUI/PauseMenu/Inventory/UI/Scripts/inventory_slot_ui.gd" id="1_h0xlh"]
 [ext_resource type="Texture2D" uid="uid://b8nfhfeiqok1c" path="res://Assets/UI pack/Individual files/1x/Checkboxes/Checkbox_02A_Bullet.png" id="2_kn6dg"]
+[ext_resource type="AudioStream" uid="uid://dkhvwd8dgfga6" path="res://Assets/UI SFX/Mono/wav (HD)/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="3_kt5av"]
 
 [node name="InventorySlotUI" type="Button" unique_id=1005938569]
 custom_minimum_size = Vector2(20, 20)
@@ -37,3 +38,6 @@ offset_right = 11.0
 offset_bottom = 11.0
 mouse_filter = 2
 texture = ExtResource("2_kn6dg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1834980091]
+stream = ExtResource("3_kt5av")

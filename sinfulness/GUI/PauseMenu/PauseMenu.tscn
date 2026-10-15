@@ -27,7 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://c7uytq2blqoi7" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Tab03_Bottom_Selected.png" id="22_b4nkx"]
 [ext_resource type="Theme" uid="uid://bijs0xpj6f8rg" path="res://GUI/PauseMenu/Inventory/UI/inventory_theme.tres" id="24_m2sgo"]
 [ext_resource type="AudioStream" uid="uid://c8xkb463pf4jd" path="res://Assets/UI SFX/PauseMenuSFX/book-closing.wav" id="27_awdl5"]
+[ext_resource type="AudioStream" uid="uid://dkhvwd8dgfga6" path="res://Assets/UI SFX/Mono/wav (HD)/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="27_ove67"]
 [ext_resource type="AudioStream" uid="uid://5mu55v6xtrvf" path="res://Assets/UI SFX/PauseMenuSFX/book-opening.wav" id="27_voa2h"]
+[ext_resource type="AudioStream" uid="uid://kvr2ym8ww4n5" path="res://Assets/UI SFX/PauseMenuSFX/page-flip.wav" id="29_ak32l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_at0kr"]
 atlas = ExtResource("1_p5snf")
@@ -874,9 +876,15 @@ scale = Vector2(1.2, 1.2)
 mouse_filter = 2
 theme = ExtResource("24_m2sgo")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/Tabs" unique_id=1571574066]
+stream = ExtResource("27_ove67")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=970416392]
 root_node = NodePath("../Control")
 libraries/ = SubResource("AnimationLibrary_0h0yj")
 autoplay = &"open_menu"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimationPlayer" unique_id=851648468]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=509760161]
+stream = ExtResource("29_ak32l")

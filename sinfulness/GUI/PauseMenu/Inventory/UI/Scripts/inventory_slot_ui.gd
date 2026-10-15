@@ -9,6 +9,7 @@ signal slot_chosen(slot_ui: InventorySlotUI)
 @onready var _icon: TextureRect = $Icon
 @onready var _quantity: Label = $Quantity
 @onready var _equipped_mark: TextureRect = $EquippedMark
+@onready var _audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var slot_data: SlotData = null
 
@@ -53,3 +54,4 @@ func _on_focus_entered() -> void:
 
 func _on_pressed() -> void:
 	slot_chosen.emit(self)
+	_audio_player.play()

@@ -28,11 +28,12 @@ const MOVE_TO_UI_ACTIONS: Dictionary[StringName, StringName] = {
 @onready var page_turn: TextureRect = $Control/PageTurn
 @onready var tabs_root: Control = $Control/Tabs
 @onready var content: Control = $Control/Tabs/ContentofTab
-@onready var audio_player: AudioStreamPlayer2D = $AnimationPlayer/AudioStreamPlayer2D
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var is_paused: bool = false
 
-var closing_menu_SFX: AudioStream = preload("res://Assets/UI SFX/PauseMenuSFX/book-closing.wav")
+var menu_back_SFX: AudioStream = preload("res://Assets/UI SFX/Mono/wav (HD)/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav")
+var page_flip_SFX: AudioStream = preload("res://Assets/UI SFX/PauseMenuSFX/page-flip.wav")
 
 var _state: MenuState = MenuState.CLOSED
 var _tabs: Array[BookTab] = []
@@ -101,6 +102,8 @@ func _input(event: InputEvent) -> void:
     if event.is_action_pressed("menu_back"):
         get_viewport().set_input_as_handled()
         _go_back()
+        audio_player.stream = menu_back_SFX
+        audio_player.play()
         return
     if _state == MenuState.OPENING or _state == MenuState.PAGE_TURN:
         if not event is InputEventMouseMotion:
@@ -139,6 +142,8 @@ func _on_tab_chosen(tab: BookTab) -> void:
     _current_tab_page = tab.tab_page
     animation_player.speed_scale = MENU_SPEED
     animation_player.play(PAGE_TURN_ANIMATION)
+    audio_player.stream = page_flip_SFX
+    audio_player.play(1.0)
 
 
 func _show_page() -> void:

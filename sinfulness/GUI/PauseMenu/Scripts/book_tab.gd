@@ -8,6 +8,8 @@ signal tab_chosen(tab: BookTab)
 @export var page_scene: PackedScene
 @export var tab_page: int = 0
 
+@onready var audio_player = $"../AudioStreamPlayer2D"
+
 var _normal_texture: Texture2D
 var _is_active: bool = false
 
