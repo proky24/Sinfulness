@@ -6,7 +6,7 @@ signal changed_inventory
 @export var slots: Array[ SlotData ]
 
 
-## Adds up to [param quantity] of [param item]. Returns how many did NOT fit.
+## Adds up to [param quantity] of [param item]. Returns how many did NOT fit (0 = everything was added).
 func add_item(item: ItemData, quantity: int = 1) -> int:
 	if item == null or quantity <= 0:
 		return maxi(quantity, 0)

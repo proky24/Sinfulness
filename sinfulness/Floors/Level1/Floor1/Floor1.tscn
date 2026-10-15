@@ -105,4 +105,5 @@ position = Vector2(208, 136)
 
 [node name="ItemPickup" parent="." unique_id=571728565 instance=ExtResource("8_iqr6k")]
 position = Vector2(207, 183)
+scale = Vector2(0.5, 0.5)
 item_data = SubResource("Resource_jiesu")

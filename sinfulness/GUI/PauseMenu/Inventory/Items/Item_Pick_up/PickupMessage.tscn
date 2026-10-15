@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cv5eou7qdfng5"]
+
+[ext_resource type="Script" uid="uid://d4j1iaeaewm1u" path="res://GUI/PauseMenu/Inventory/Items/Item_Pick_up/pickup_message.gd" id="1_8kplx"]
+[ext_resource type="Theme" uid="uid://bijs0xpj6f8rg" path="res://GUI/PauseMenu/Inventory/UI/inventory_theme.tres" id="2_vhay4"]
+
+[node name="PickupMessage" type="Node2D" unique_id=692974032]
+z_index = 100
+script = ExtResource("1_8kplx")
+
+[node name="Label" type="Label" parent="." unique_id=204017977]
+offset_right = 25.0
+offset_bottom = 9.0
+theme = ExtResource("2_vhay4")
+theme_type_variation = &"SlotQuantity"
+text = "Item x1"
+horizontal_alignment = 1
+vertical_alignment = 1
