@@ -344,8 +344,13 @@ func _reload_scene(params: Dictionary) -> Dictionary:
 	if missing != null:
 		return missing
 	var scene_path: String = str(params["scene_path"])
-	if not (scene_path in EditorInterface.get_open_scenes()):
-		return MCPToolkitError.fail("NOT_FOUND", "%s is not open in the editor" % scene_path, "Open it with scene_open instead.")
+	var open_scenes: PackedStringArray = EditorInterface.get_open_scenes()
+	var is_open: bool = false
+	for open_path: String in open_scenes:
+		if open_path == scene_path or (open_path.begins_with("uid://") and ResourceUID.ensure_path(open_path) == scene_path):
+			is_open = true
+	if not is_open:
+		return MCPToolkitError.fail("NOT_FOUND", "%s is not open in the editor (open: %s)" % [scene_path, ", ".join(open_scenes)], "Open it with scene_open instead.")
 	EditorInterface.reload_scene_from_path(scene_path)
 	return MCPToolkitSuccess.ok({"reloaded": scene_path})
 

@@ -1,33 +1,37 @@
 [gd_scene format=3 uid="uid://cm5v7vvnvomdd"]
 
 [ext_resource type="Texture2D" uid="uid://cgu4am86j2v0o" path="res://Assets/Dungeon TileSet/Create.png" id="1_a835k"]
-[ext_resource type="Script" uid="uid://cx0eiummo1an3" path="res://Entities/GeneralNodes/Props/create.gd" id="1_m3x6n"]
+[ext_resource type="Script" uid="uid://cx0eiummo1an3" path="res://Entities/GeneralNodes/Props/prop.gd" id="1_m3x6n"]
 [ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="2_sanpw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqd7"]
-size = Vector2(11, 7)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yowoa"]
+size = Vector2(8, 5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_at0kr"]
-size = Vector2(11, 6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtny1"]
+size = Vector2(11, 16)
 
-[node name="Create" type="Node2D" unique_id=1443861933]
+[node name="Prop" type="Node2D" unique_id=1443861933]
 y_sort_enabled = true
 script = ExtResource("1_m3x6n")
+texture = ExtResource("1_a835k")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=277694149]
 texture = ExtResource("1_a835k")
+centered = false
+offset = Vector2(-8, -19)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1557526657]
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1311485492]
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_3gqd7")
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_yowoa")
 
 [node name="HitBox" parent="." unique_id=1245106054 instance=ExtResource("2_sanpw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1021323050]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_at0kr")
+position = Vector2(0.5, -8)
+shape = SubResource("RectangleShape2D_vtny1")
+disabled = true
 debug_color = Color(0.9661533, 0, 0.4852562, 0.41960785)

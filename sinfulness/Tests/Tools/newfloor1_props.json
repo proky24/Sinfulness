@@ -1,0 +1,115 @@
+{
+  "textures_dir": "res://Entities/GeneralNodes/Props/Textures",
+  "groups": [
+    {"name": "R1_Props", "props": [
+      {"variant": "cluster_crates_3", "x": 78, "y": 686},
+      {"variant": "barrel_light", "x": 97, "y": 686},
+      {"variant": "vase_brown_medium", "x": 108, "y": 686},
+      {"variant": "crate_tall_dark", "x": 73, "y": 590},
+      {"variant": "vase_blue_large", "x": 72, "y": 597},
+      {"variant": "cluster_vases_2_small", "x": 86, "y": 590},
+      {"variant": "crate_small_light", "x": 186, "y": 551},
+      {"variant": "barrel_dark", "x": 216, "y": 686}
+    ]},
+    {"name": "R2_Props", "props": [
+      {"variant": "cluster_crates_3", "x": 414, "y": 298},
+      {"variant": "barrel_light", "x": 408, "y": 305},
+      {"variant": "vase_blue_medium", "x": 418, "y": 304},
+      {"variant": "vase_blue_large", "x": 504, "y": 295},
+      {"variant": "cluster_barrel_crate_vase", "x": 658, "y": 297},
+      {"variant": "crate_tall_dark", "x": 662, "y": 304},
+      {"variant": "barrel_dark", "x": 662, "y": 311},
+      {"variant": "crate_tall_light", "x": 329, "y": 360},
+      {"variant": "cluster_vases_2_tall", "x": 344, "y": 360},
+      {"variant": "barrel_light", "x": 329, "y": 424},
+      {"variant": "cluster_crates_2", "x": 414, "y": 542},
+      {"variant": "vase_brown_small", "x": 428, "y": 542},
+      {"variant": "cluster_vases_3", "x": 581, "y": 542},
+      {"variant": "crate_medium_dark", "x": 567, "y": 542},
+      {"variant": "barrel_dark", "x": 554, "y": 542},
+      {"variant": "crate_small_light", "x": 586, "y": 534},
+      {"variant": "cluster_barrel_crate", "x": 606, "y": 478},
+      {"variant": "barrel_light", "x": 488, "y": 408},
+      {"variant": "vase_brown_large", "x": 500, "y": 408}
+    ]},
+    {"name": "R3_Props", "props": [
+      {"variant": "cluster_vases_2_small", "x": 744, "y": 359},
+      {"variant": "barrel_dark", "x": 744, "y": 366},
+      {"variant": "cluster_crates_stack", "x": 745, "y": 574},
+      {"variant": "vase_blue_large", "x": 758, "y": 574},
+      {"variant": "crate_small_light", "x": 742, "y": 567},
+      {"variant": "barrel_light", "x": 839, "y": 480},
+      {"variant": "vase_brown_large", "x": 840, "y": 486},
+      {"variant": "vase_blue_medium", "x": 828, "y": 480},
+      {"variant": "vase_brown_medium", "x": 741, "y": 504}
+    ]},
+    {"name": "R4_Props", "props": [
+      {"variant": "crate_tall_dark", "x": 745, "y": 88},
+      {"variant": "barrel_light", "x": 744, "y": 95},
+      {"variant": "cluster_crates_2", "x": 827, "y": 89},
+      {"variant": "cluster_barrel_crate", "x": 746, "y": 238},
+      {"variant": "vase_brown_large", "x": 761, "y": 238},
+      {"variant": "vase_blue_small", "x": 769, "y": 238},
+      {"variant": "crate_medium_dark", "x": 743, "y": 230}
+    ]},
+    {"name": "R5_Props", "props": [
+      {"variant": "cluster_crates_stack", "x": 73, "y": 138},
+      {"variant": "barrel_dark", "x": 73, "y": 145},
+      {"variant": "vase_brown_small", "x": 84, "y": 138},
+      {"variant": "cluster_crates_2", "x": 163, "y": 105},
+      {"variant": "crate_small_dark", "x": 148, "y": 103},
+      {"variant": "cluster_crate_barrel_vases", "x": 224, "y": 254},
+      {"variant": "barrel_light", "x": 204, "y": 254},
+      {"variant": "crate_medium_dark", "x": 232, "y": 245},
+      {"variant": "cluster_vases_3", "x": 229, "y": 168},
+      {"variant": "crate_tall_dark", "x": 73, "y": 254},
+      {"variant": "vase_blue_medium", "x": 85, "y": 254},
+      {"variant": "gold_pile_double", "x": 190, "y": 248, "flat": true, "solid": false}
+    ]},
+    {"name": "R6_Props", "props": [
+      {"variant": "cluster_barrel_crate", "x": 363, "y": 89},
+      {"variant": "vase_blue_large", "x": 378, "y": 89},
+      {"variant": "barrel_dark", "x": 361, "y": 96},
+      {"variant": "crate_tall_light", "x": 441, "y": 88},
+      {"variant": "vase_brown_medium", "x": 452, "y": 87},
+      {"variant": "crate_medium_dark", "x": 500, "y": 87},
+      {"variant": "cluster_crates_2", "x": 579, "y": 89},
+      {"variant": "vase_blue_small", "x": 565, "y": 87}
+    ]},
+    {"name": "R7_Props", "props": [
+      {"variant": "cluster_crates_3", "x": 750, "y": 650},
+      {"variant": "barrel_dark", "x": 769, "y": 650},
+      {"variant": "crate_small_dark", "x": 742, "y": 656},
+      {"variant": "crate_medium_light", "x": 856, "y": 647},
+      {"variant": "vase_brown_medium", "x": 857, "y": 653},
+      {"variant": "cluster_crate_barrel_vases", "x": 912, "y": 734},
+      {"variant": "crate_tall_light", "x": 891, "y": 734},
+      {"variant": "barrel_light", "x": 877, "y": 734},
+      {"variant": "cluster_vases_2_tall", "x": 919, "y": 696},
+      {"variant": "vase_blue_large", "x": 742, "y": 734},
+      {"variant": "vase_brown_small", "x": 750, "y": 734},
+      {"variant": "gold_pile_triple", "x": 860, "y": 728, "flat": true, "solid": false},
+      {"variant": "gold_pile_medium", "x": 800, "y": 700, "flat": true, "solid": false},
+      {"variant": "gold_pile_small", "x": 770, "y": 724, "flat": true, "solid": false}
+    ]},
+    {"name": "R8_Props", "props": [
+      {"variant": "cluster_barrel_crate_vase", "x": 430, "y": 633},
+      {"variant": "crate_tall_dark", "x": 534, "y": 632},
+      {"variant": "vase_blue_medium", "x": 537, "y": 638},
+      {"variant": "cluster_vases_3", "x": 426, "y": 718},
+      {"variant": "crate_medium_dark", "x": 441, "y": 718},
+      {"variant": "barrel_dark", "x": 535, "y": 718},
+      {"variant": "crate_small_light", "x": 523, "y": 718},
+      {"variant": "gold_pile_double_big", "x": 480, "y": 700, "flat": true, "solid": false},
+      {"variant": "gold_pile_large", "x": 500, "y": 712, "flat": true, "solid": false}
+    ]},
+    {"name": "Shields", "props": [
+      {"variant": "shield_a", "x": 216, "y": 609, "solid": false, "lift": 18},
+      {"variant": "shield_b", "x": 216, "y": 161, "solid": false, "lift": 18},
+      {"variant": "shield_a", "x": 488, "y": 81, "solid": false, "lift": 18},
+      {"variant": "shield_b", "x": 360, "y": 353, "solid": false, "lift": 18},
+      {"variant": "shield_a", "x": 888, "y": 689, "solid": false, "lift": 18},
+      {"variant": "shield_b", "x": 856, "y": 81, "solid": false, "lift": 18}
+    ]}
+  ]
+}

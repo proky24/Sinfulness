@@ -2,6 +2,8 @@
 
 Context for the next Claude Code session. The task was `Tests/PRDs/PRD_NewFloor1.md` (PRD 4): build a clean, tile-only first floor in `res://Floors/Level1/Floor1/NewFloor1.tscn`. **All five phases are done and verified.** This file records what exists, why it is built this way, how to change it, and what is still open.
 
+**Update 2026-10-19:** PRD 5 (`Tests/PRDs/PRD_NewFloor1_Props.md`) decorated the floor with 92 props. All four phases are done and verified; see §12.
+
 ## 1. How the user wants to work
 
 - Work in phases. After each one, stop and give a short report with screenshots, then wait for the user's OK.
@@ -10,7 +12,8 @@ Context for the next Claude Code session. The task was `Tests/PRDs/PRD_NewFloor1
 - **No Git commands at all**, not even read-only ones like `git diff`.
 - Ask instead of guessing. Don't touch `Floor1.tscn`, `Floor1_bounds.gd` or the shared tile scenes (`Floors/TilesSetsNodes/*.tscn`) without approval.
   - The user edits `FloorWallTile` themselves. This session they added a new arch at **4–5:24–25** and removed its collision triangles.
-- Keep objects out of `NewFloor1`: no crates, torches, doors, enemies or player. They will be separate scenes later.
+- Keep objects out of `NewFloor1`: no torches, doors, chests, enemies or player. They will be separate scenes later.
+  - Exception since PRD 5: `Prop` instances under the `Props` node (§12), placed only from the plan file.
   - The user sometimes adds a Player to NewFloor1 for quick tests. Check the file on disk before testing, and ask before removing it.
 - Code conventions (Notion "Project structure"): typed variables, `class_name` in CamelCase, public `func update_x()` / private `func _update_x()`.
 - **Notion:** page "Sinfulness" (`379f4675-ea8f-808d-97a9-d3fa80343d85`), callout **"Svět – postup"** at the end of the page.
@@ -21,7 +24,7 @@ Context for the next Claude Code session. The task was `Tests/PRDs/PRD_NewFloor1
 
 | File | What |
 |---|---|
-| `Floors/Level1/Floor1/NewFloor1.tscn` | The floor. Root `NewFloor1` (Node2D, y-sort on, script `FloorBounds`, `bounds_layer` = WallTops) + 9 TileMapLayers. Tile data only, no objects. |
+| `Floors/Level1/Floor1/NewFloor1.tscn` | The floor. Root `NewFloor1` (Node2D, y-sort on, script `FloorBounds`, `bounds_layer` = WallTops) + 9 TileMapLayers, then the `Props` node (§12). |
 | `Floors/TilesSetsNodes/floor_bounds.gd` | `class_name FloorBounds extends Node2D`. Sends `[top-left, bottom-right]` in pixels from `bounds_layer` (used rect × `tile_set.tile_size` + layer position) to `GlobalLevelManager.change_tilemap_bounds()`. Warns and sends nothing if the layer is empty. The header comment documents the draw order. |
 | `Floors/00_Global/GlobalLevelManager.gd` | Fixed: `tilemap_bounds_changed.emit(bounds)` (it used to emit without the argument). |
 | `Entities/Player/Scripts/camera_2d.gd` | Fixed: `update_limits()` returns early if `bounds.size() < 2`. |
@@ -208,6 +211,61 @@ All layers are at (0, 0), scale 1. Tree order is as listed. The Player has z 0 a
 
 - **Check visually:** in a Phase 5 close-up, the opening of the entrance-room door (x8–9, y32–33) looked dark. The painted map confirms the new arch (4–5:24–25) is there, as at the other doors. Find out why it looks dark (ArchTops above it? something drawn behind the opening?).
 - The user still has to decide what to do with the old `Floor1.tscn`.
-- Objects for later, as separate scenes: torches in the 8 niches, wooden doors in the 5 arches, a trigger on the stairwell or stairs, enemies, a player spawn marker.
+- Objects for later, as separate scenes: torches in the 8 niches, wooden doors in the 5 arches, interactive chests, a trigger on the stairwell or stairs, enemies, a player spawn marker.
+  - The props plan keeps the niches, the tile below them and the doors clear for these (§12 keep-clear zones).
+- Props: turning on `breakable` (it exists, nothing sets it yet; `take_damage` just frees the prop).
+- Pre-existing bug seen while testing props: every attack logs `Signal 'timeout' is already connected to ... player_hud.gd::dissapear`.
 - Recommended tileset fixes (§9) await the user's approval.
 - Random generation is still undecided (Notion callout "Dungeon Gen / Design").
+
+## 12. Props (PRD 5)
+
+**Scene structure:**
+- `NewFloor1/Props` (Node2D, y-sort, at (0, 0), after all tile layers) holds `R1_Props` … `R8_Props` and `Shields` (all y-sorted Node2D). They contain only instances of `res://Entities/GeneralNodes/Props/Prop.tscn`.
+- 92 instances: R1 8, R2 19, R3 9, R4 7, R5 11 + 1 gold, R6 8, R7 11 + 3 gold, R8 7 + 2 gold, 6 shields.
+- The saved `.tscn` holds only position, texture and flags per prop: no `[sub_resource`, no `tile_set =`.
+
+**Prop scene (`Prop.tscn`, `prop.gd`, `class_name Prop`):**
+- Children: `Sprite2D`, `StaticBody2D` (layer 16) with `CollisionShape2D`, `HitBox` instance with `CollisionShape2D`.
+- **Origin = foot:** the bottom of the lowest fully opaque pixel row, centred on the opaque pixels. The baked semi-transparent shadow hangs below. The sprite is drawn upward (`centered = false`, offset from the texture).
+- **Footprint** (StaticBody shape): opaque width − 3 by opaque height / 4 (5–8 px), ending at the origin. `collision_size` overrides it.
+- The shapes are created in `_ready()`, so each instance has its own. Instance children are not editable, so the tool script's changes are never saved into the floor.
+- Exports: `texture`, `collision_size`, `solid` (true), `breakable` (false: hit shape disabled, `Damaged` not connected), `flat` (gold: sprite z −1, no collision), `lift` (raises sprite and hit box, for shields). Setters update the editor at once.
+- Old `Floor1.tscn` instances Prop.tscn 4 times with the default `Create.png`. They now draw from the base (accepted by the user).
+
+**Variants:** 31 `AtlasTexture` files in `Entities/GeneralNodes/Props/Textures/` (`atlas` = Objects.png, `filter_clip` on):
+- 6 crates (tall / small / medium × light / dark), 2 barrels, 6 vases (blue / brown × large / medium / small);
+- 3 vase clusters, 6 crate / barrel clusters;
+- 2 shields, 6 gold piles.
+- Excluded: chests, keys, lever, ladders, hatch / grate, wall staircase.
+
+**Pipeline (never place props by hand):**
+1. `Tests/Tools/prop_textures.ps1 [-Write] [-Preview png]`: the region table. It checks that no region contains neighbour pixels or cuts an object, writes the `.tres` files and renders the preview sheet.
+2. `Tests/Tools/newfloor1_props.json`: **the placement source of truth** (groups → variant, x, y, flags).
+3. `Tests/Tools/newfloor1_props_check.ps1 [-Image png]`: reads the plan, `layout.txt` and the layer maps (run `newfloor1_maps.ps1` first). It must print `problems: 0`. It checks:
+   - footprint on its own room's floor;
+   - sprite not on keep-clear cells (doors ±1 column for 2 rows both sides, niche + tile below ±1, side entries, corridors, gate, R4 platform / stairs, pool strip, test start) or under a wall top;
+   - overlaps, and gaps of 4–14 px unless another prop fills them;
+   - flood fill with radius 6.5 from (136, 616), with and without props (lost areas of up to 2 cells count as closed nooks);
+   - density, gold and shields, no cluster repeated in a room, shield wall rules.
+4. With NewFloor1 open: `sinprops_place {file: "res://Tests/Tools/newfloor1_props.json", parent_path: "Props", clear_first: true}`.
+   - This is the eager tool in `addons/sinfulness_mcp_tools/prop_tools.gd`, with one undo step.
+   - Then `editor_save_scene`, grep the `.tscn`, and `sintiles_reload_scene`.
+
+**Draw-order rules:**
+- Floor props sort at their foot: the player is behind when above the base and in front when below (verified).
+- Gold: `flat` puts the sprite at z −1, so it is always under the player.
+- **Shields:** origin at **x = cell centre, y = r·16 + 1**, `lift` 18, where r is the room's top floor row. The sprite then covers the middle brick row (r−2).
+  - PRD 5's formula (r−1)·16 + 9 hid the shield behind the bricks. TileMapLayer sorts each cell from its **centre**, so the brick fronts (origins 8 / 24) sort at r·16, the wall's bottom edge.
+  - Shields must sit on plain brick (2:5 below, 2:4 middle, no crack), not on side walls, and not within 2 tiles of a door, niche or gate. The checker enforces this.
+
+**Verified in Phase 4** (FloorTest, keyboard walk through all rooms and corridors):
+- All handoff stops still hold: corridor 380.1, R2 356.4, R6 84.4, niche 70.6, platform edge 843.8, stairs top 91.1, pool strip 843.8, R7 729.4, R8 713.4, R2 west wall 324.2, R5 100.4.
+- Footprints block: barrel stop 467.4, crate stop 109.6.
+- Attacking a prop does nothing.
+
+**Tooling notes:**
+- `script_check` reports false errors for `@onready var x = $Node`. Verify by opening the scene and reading `editor_get_console`.
+- No `editor_screenshot` tool reaches the client. For a full-floor picture, run FloorTest and set the camera `top_level`, limits off and zoom 0.468 via `execute_code`.
+- The layer-map JSON legends have keys that differ only in case. Parse them with `JavaScriptSerializer`, not `ConvertFrom-Json`.
+- In PowerShell `$x` and `$X` are the same variable. Don't name parameters like loop variables.

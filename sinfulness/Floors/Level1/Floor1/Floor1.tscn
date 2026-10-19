@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cwyk1jdhu4fy6" path="res://Floors/TilesSetsNodes/DecorativeFloorTile.tscn" id="2_x62nr"]
 [ext_resource type="PackedScene" uid="uid://bp0telx6odmbt" path="res://Floors/TilesSetsNodes/DecorativeWallsTile.tscn" id="3_7mx1g"]
 [ext_resource type="Script" uid="uid://bo44noxegr6k5" path="res://Floors/TilesSetsNodes/Floor1_bounds.gd" id="3_xfiyx"]
-[ext_resource type="PackedScene" uid="uid://cm5v7vvnvomdd" path="res://Entities/GeneralNodes/Props/Create.tscn" id="6_5b6dc"]
+[ext_resource type="PackedScene" uid="uid://cm5v7vvnvomdd" path="res://Entities/GeneralNodes/Props/Prop.tscn" id="6_5b6dc"]
 [ext_resource type="PackedScene" uid="uid://gp0k66mebgrm" path="res://Entities/Enemies/Parent/Enemy.tscn" id="7_6h2y8"]
 [ext_resource type="PackedScene" uid="uid://bi1ethxgsj4e2" path="res://GUI/PauseMenu/Inventory/Items/Item_Pick_up/ItemPickup.tscn" id="8_iqr6k"]
 [ext_resource type="Script" uid="uid://decqemx2tbrwl" path="res://GUI/PauseMenu/Inventory/Scripts/material_data.gd" id="9_mse3k"]
