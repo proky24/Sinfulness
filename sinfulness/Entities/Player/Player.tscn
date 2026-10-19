@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://6br3b71gme5a" path="res://Assets/Other SFX/Spells/Ice Throw 1.wav" id="14_71nre"]
 [ext_resource type="Texture2D" uid="uid://cycjqiyfnsxca" path="res://Assets/Corrupted Abiilities Anim/Rage Overflow/Dark VFX 4 (48x56).png" id="14_iigad"]
 [ext_resource type="AudioStream" uid="uid://cd810vr1rgojp" path="res://Assets/Other SFX/Spells/Fireball 2.wav" id="15_dep70"]
+[ext_resource type="AudioStream" uid="uid://bcn0j77jvvyc8" path="res://Assets/Other SFX/Footsteps/Stone/Stone Run 2.wav" id="16_80tt4"]
 [ext_resource type="Texture2D" uid="uid://cwc13shjjfxot" path="res://Assets/Purrified Abilities Anim/Cleanse/Holy VFX 02.png" id="16_becua"]
 [ext_resource type="Texture2D" uid="uid://c0vmtvmtd8wv" path="res://Assets/Corrupted Abiilities Anim/Taste your own Hate/Dark VFX 12 (48x48).png" id="16_vi7k6"]
 [ext_resource type="Texture2D" uid="uid://dmb0y4tx5gaxi" path="res://Assets/Purrified Abilities Anim/Gods Soldier/Holy VFX 03(64x80).png" id="18_dep70"]
@@ -26,6 +27,16 @@
 [ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="24_mgqku"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
+
+[sub_resource type="Gradient" id="Gradient_80tt4"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3gqd7"]
+gradient = SubResource("Gradient_80tt4")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [sub_resource type="Animation" id="Animation_oxjk5"]
 loop_mode = 1
@@ -603,6 +614,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [11, 12, 13, 14, 15, 16, 17]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.35,
+"start_offset": 0.0,
+"stream": ExtResource("16_80tt4")
+}, {
+"end_offset": 0.35,
+"start_offset": 0.0,
+"stream": ExtResource("16_80tt4")
+}],
+"times": PackedFloat32Array(0.06666667, 0.43333334)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bgrr3"]
 _data = {
@@ -644,6 +674,11 @@ texture = ExtResource("2_5emw0")
 hframes = 11
 vframes = 8
 
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=748950480]
+color = Color(1, 0.9490196, 0.6, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_3gqd7")
+
 [node name="StateMachine" type="Node" parent="." unique_id=1240051841]
 script = ExtResource("3_oxjk5")
 
@@ -680,7 +715,7 @@ volume_db = -5.0
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=481471833]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 limit_smoothed = true
 script = ExtResource("13_tor14")
 
