@@ -28,16 +28,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
 
-[sub_resource type="Gradient" id="Gradient_80tt4"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3gqd7"]
-gradient = SubResource("Gradient_80tt4")
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-
 [sub_resource type="Animation" id="Animation_oxjk5"]
 loop_mode = 1
 tracks/0/type = "value"
@@ -673,11 +663,6 @@ debug_color = Color(0.95603126, 0, 0.54265445, 0.41960785)
 texture = ExtResource("2_5emw0")
 hframes = 11
 vframes = 8
-
-[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=748950480]
-color = Color(1, 0.9490196, 0.6, 1)
-energy = 1.2
-texture = SubResource("GradientTexture2D_3gqd7")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1240051841]
 script = ExtResource("3_oxjk5")
