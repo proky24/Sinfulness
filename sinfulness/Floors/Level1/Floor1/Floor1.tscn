@@ -536,6 +536,5 @@ color = Color(0.7960701, 0.78171605, 0.92770946, 1)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="WorldEnvironment" unique_id=1804918050]
 position = Vector2(515, 400)
 amount = 200
-visibility_rect = Rect2(-100, -100, 10000000, 10000000)
-local_coords = true
+visibility_rect = Rect2(-500, -400, 10000000, 10000000)
 process_material = SubResource("ParticleProcessMaterial_at0kr")
