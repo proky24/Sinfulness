@@ -37,8 +37,8 @@
 [ext_resource type="Texture2D" path="res://Entities/GeneralNodes/Props/Textures/gold_pile_large.tres" id="35_if7mc"]
 [ext_resource type="Texture2D" path="res://Entities/GeneralNodes/Props/Textures/shield_a.tres" id="36_moylp"]
 [ext_resource type="Texture2D" path="res://Entities/GeneralNodes/Props/Textures/shield_b.tres" id="37_mi0gn"]
-[ext_resource type="PackedScene" uid="uid://bs8r353d6afkh" path="res://Entities/Player/Player.tscn" id="38_jqjhe"]
 [ext_resource type="PackedScene" uid="uid://cnymahc1u2rfk" path="res://Entities/GeneralNodes/Props/Torches/TorchSmall.tscn" id="38_omdow"]
+[ext_resource type="PackedScene" uid="uid://bs8r353d6afkh" path="res://Entities/Player/Player.tscn" id="39_yqbf4"]
 
 [sub_resource type="Environment" id="Environment_3gqd7"]
 background_mode = 3
@@ -524,9 +524,6 @@ position = Vector2(488, 263)
 z_index = 1
 position = Vector2(439, 263)
 
-[node name="Player" parent="." unique_id=2097391364 instance=ExtResource("38_jqjhe")]
-position = Vector2(516, 397)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=363812160]
 environment = SubResource("Environment_3gqd7")
 
@@ -538,3 +535,6 @@ position = Vector2(515, 400)
 amount = 200
 visibility_rect = Rect2(-500, -400, 10000000, 10000000)
 process_material = SubResource("ParticleProcessMaterial_at0kr")
+
+[node name="Player" parent="." unique_id=2097391364 instance=ExtResource("39_yqbf4")]
+position = Vector2(470, 322)

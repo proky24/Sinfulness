@@ -50,6 +50,7 @@ static var _opaque_cache: Dictionary = {}
 		lift = value
 		update_prop()
 
+
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var footprint: CollisionShape2D = $StaticBody2D/CollisionShape2D
 @onready var hit_box: HitBox = $HitBox

@@ -4,7 +4,6 @@ class_name StateIdle extends State
 @onready var walk: StateWalk = $"../Walk"
 @onready var attack: StateAttack = $"../Attack"
 @onready var block: StateBlock = $"../Block"
-@onready var taste_your_own_hate: Sprite2D = $"../../AbilitiesSpriteHolder/Corrupted/TasteYourOwnHate"
 
 func enter() -> void:
 	player.update_animation("idle")

@@ -8,6 +8,7 @@ class_name StateAttack extends State
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var audio_stream_player: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 @onready var hurt_box: HurtBox = $"../../Interactions/HurtBox"
+@onready var camera: PlayerCamera = $"../../Camera2D"
 
 @export var decalerate_speed: int = 10
 
@@ -17,6 +18,10 @@ var attacking: bool = false
 var attack_combo: int = 1:
 	set(value):
 		attack_combo = clampi(value, 1, 3)
+
+func _ready() -> void:
+	attack_combo_timer.timeout.connect(camera.end_attack)
+	pass
 
 func enter() -> void:
 	PlayerHud.appear()
@@ -36,6 +41,7 @@ func enter() -> void:
 	attack_combo_timer.start()
 	attack_combo_timer.timeout.connect(attack_combo_timeout)
 	player.velocity = Vector2.ZERO
+	camera.start_attack(player.cardinal_dir)
 	
 	player.update_animation("attack_" + str(attack_combo))
 	

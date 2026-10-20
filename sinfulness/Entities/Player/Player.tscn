@@ -715,8 +715,8 @@ volume_db = -5.0
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=481471833]
-zoom = Vector2(2, 2)
-limit_smoothed = true
+zoom = Vector2(1.8, 1.8)
+process_callback = 0
 script = ExtResource("13_tor14")
 
 [node name="AbilitiesSpriteHolder" type="Node" parent="." unique_id=1409022462]
