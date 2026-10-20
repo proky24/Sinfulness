@@ -676,7 +676,7 @@ vframes = 8
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=748950480]
 color = Color(1, 0.9490196, 0.6, 1)
-energy = 1.5
+energy = 1.2
 texture = SubResource("GradientTexture2D_3gqd7")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1240051841]
