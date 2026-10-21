@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dasxwy6cyn3qb" path="res://Assets/UI pack/Individual files/1x/Resource orbs/DecoratedFrame1_Left.png" id="5_wmevh"]
 
 [node name="PlayerHud" type="CanvasLayer" unique_id=253674237]
+scale = Vector2(1.2, 1.2)
+transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
 script = ExtResource("1_vbnnc")
 
 [node name="Control" type="Control" parent="." unique_id=940313962]

@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://cnymahc1u2rfk"]
 
+[ext_resource type="Script" uid="uid://u48xau0ls3fx" path="res://Entities/GeneralNodes/Props/Torches/torch.gd" id="1_c8e6u"]
 [ext_resource type="Texture2D" uid="uid://br3mea3gurc2c" path="res://Assets/Dungeon TileSet/torch_small_sheet.png" id="1_dgr6x"]
+[ext_resource type="Script" uid="uid://dlf5jkeyt2e7s" path="res://Entities/GeneralNodes/Props/Torches/torch_flicker.gd" id="2_c5l3n"]
+[ext_resource type="Theme" uid="uid://bijs0xpj6f8rg" path="res://GUI/PauseMenu/Inventory/UI/inventory_theme.tres" id="4_yx50g"]
 
-[sub_resource type="Gradient" id="Gradient_80tt4"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_dqtr8"]
+offsets = PackedFloat32Array(0.12153518, 0.2835821, 0.53944564, 0.7356077, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.87208563, 0.8693133, 0.45584095, 1, 0.74029255, 0.29362747, 0.13626337, 1, 0.24008787, 0.022735965, 0.043376036, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c5l3n"]
-gradient = SubResource("Gradient_80tt4")
+gradient = SubResource("Gradient_dqtr8")
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.9, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [sub_resource type="Animation" id="Animation_c8e6u"]
 length = 0.001
@@ -74,8 +78,11 @@ _data = {
 &"torch_lit": SubResource("Animation_dqtr8")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
+
 [node name="TorchSmall" type="Node2D" unique_id=557044752]
 y_sort_enabled = true
+script = ExtResource("1_c8e6u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=41185123]
 texture = ExtResource("1_dgr6x")
@@ -86,7 +93,40 @@ color = Color(0.98000807, 0.9717125, 0.3432214, 1)
 energy = 3.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_c5l3n")
+script = ExtResource("2_c5l3n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1070028393]
 libraries/ = SubResource("AnimationLibrary_86tew")
 autoplay = &"torch_lit"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=541225272]
+position = Vector2(1, 6)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1236594362]
+shape = SubResource("CircleShape2D_3gqd7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1977614931]
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=598656396]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_3gqd7")
+debug_color = Color(0.23966143, 0.62439764, 0.36894798, 0.41960785)
+
+[node name="Label" type="Label" parent="Area2D" unique_id=24181439]
+visible = false
+z_index = 20
+offset_left = -19.0
+offset_top = -43.0
+offset_right = 21.0
+offset_bottom = -20.0
+theme = ExtResource("4_yx50g")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "[F]"
+horizontal_alignment = 1
+vertical_alignment = 1

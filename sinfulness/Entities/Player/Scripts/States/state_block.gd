@@ -6,6 +6,7 @@ class_name StateBlock extends State
 @onready var block: StateBlock = $"."
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var block_timer: Timer = $BlockTimer
+@onready var camera: PlayerCamera = $"../../Camera2D"
 
 @export var decalerate_speed: int = 10
 
@@ -22,7 +23,9 @@ func enter() -> void:
 	
 	player.update_animation("block")
 	blocking = true
-	
+	camera.start_attack(player.cardinal_dir)
+	block_timer.timeout.connect(camera.end_attack)
+
 	animation_player.animation_finished.connect(disable_blocking)
 	pass
 
@@ -45,12 +48,12 @@ func process(delta: float) -> State:
 			return walk
 	return null
 
-func disable_blocking(a: String) -> void:
+func disable_blocking(_a: String) -> void:
 	blocking = false
 	pass
 
-func physics_process(delta: float) -> State:
+func physics_process(_delta: float) -> State:
 	return null
 
-func _handle_input(event: InputEvent) -> State:
+func _handle_input(_event: InputEvent) -> State:
 	return null

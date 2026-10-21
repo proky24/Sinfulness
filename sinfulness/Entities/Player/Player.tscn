@@ -768,6 +768,8 @@ shape = SubResource("CircleShape2D_at0kr")
 debug_color = Color(0.6530085, 0.5187216, 7.70092e-07, 0.41960785)
 
 [node name="PickingUP_Opening" type="Area2D" parent="Interactions" unique_id=361912501]
+collision_layer = 4
+collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PickingUP_Opening" unique_id=1598329985]

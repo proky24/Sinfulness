@@ -14,4 +14,8 @@ func update_dir( new_dir: Vector2 ) -> void:
 			rotation_degrees = 90
 		Vector2.RIGHT:
 			rotation_degrees = -90
+		Vector2.DOWN:
+			rotation_degrees = 0
+		Vector2.UP:
+			rotation_degrees = 180
 	pass
