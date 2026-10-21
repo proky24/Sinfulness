@@ -84,6 +84,7 @@ hframes = 6
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=814929839]
 color = Color(0.98000807, 0.9717125, 0.3432214, 1)
 energy = 3.5
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_c5l3n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1070028393]

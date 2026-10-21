@@ -101,9 +101,10 @@ func _input(event: InputEvent) -> void:
         return
     if event.is_action_pressed("menu_back"):
         get_viewport().set_input_as_handled()
-        _go_back()
         audio_player.stream = menu_back_SFX
+        audio_player.pitch_scale = randf_range(0.8, 1.1)
         audio_player.play()
+        _go_back()
         return
     if _state == MenuState.OPENING or _state == MenuState.PAGE_TURN:
         if not event is InputEventMouseMotion:
@@ -144,7 +145,8 @@ func _on_tab_chosen(tab: BookTab) -> void:
     animation_player.play(PAGE_TURN_ANIMATION)
     audio_player.stream = page_flip_SFX
     audio_player.play(1.0)
-
+    await get_tree().create_timer(0.7).timeout
+    audio_player.stop()
 
 func _show_page() -> void:
     page_turn.visible = false

@@ -54,4 +54,5 @@ func _on_focus_entered() -> void:
 
 func _on_pressed() -> void:
 	slot_chosen.emit(self)
+	_audio_player.pitch_scale = randf_range(0.8, 1.1)
 	_audio_player.play()
