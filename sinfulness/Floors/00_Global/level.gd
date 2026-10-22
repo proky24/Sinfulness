@@ -1,4 +1,4 @@
-class_name FloorBounds extends Node2D
+class_name Level extends Node2D
 
 # Root script of a handmade floor. Sends the floor's pixel bounds to the camera.
 #
@@ -21,22 +21,22 @@ class_name FloorBounds extends Node2D
 
 @export var bounds_layer: TileMapLayer
 
-
 func _ready() -> void:
-	GlobalLevelManager.change_tilemap_bounds(get_floor_bounds())
-	pass
+    GlobalPlayerManager.set_as_parent(self)
+    GlobalLevelManager.change_tilemap_bounds(get_floor_bounds())
+    pass
 
 
 func get_floor_bounds() -> Array[Vector2]:
-	var bounds: Array[Vector2] = []
-	if bounds_layer == null or bounds_layer.tile_set == null:
-		push_warning("FloorBounds: bounds_layer is not set")
-		return bounds
-	var used_rect: Rect2i = bounds_layer.get_used_rect()
-	if not used_rect.has_area():
-		push_warning("FloorBounds: bounds_layer has no tiles")
-		return bounds
-	var tile_size: Vector2 = Vector2(bounds_layer.tile_set.tile_size)
-	bounds.append(bounds_layer.position + Vector2(used_rect.position) * tile_size)
-	bounds.append(bounds_layer.position + Vector2(used_rect.end) * tile_size)
-	return bounds
+    var bounds: Array[Vector2] = []
+    if bounds_layer == null or bounds_layer.tile_set == null:
+        push_warning("FloorBounds: bounds_layer is not set")
+        return bounds
+    var used_rect: Rect2i = bounds_layer.get_used_rect()
+    if not used_rect.has_area():
+        push_warning("FloorBounds: bounds_layer has no tiles")
+        return bounds
+    var tile_size: Vector2 = Vector2(bounds_layer.tile_set.tile_size)
+    bounds.append(bounds_layer.position + Vector2(used_rect.position) * tile_size)
+    bounds.append(bounds_layer.position + Vector2(used_rect.end) * tile_size)
+    return bounds

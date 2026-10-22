@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://f3lrpt0y6v4f"]
+
+[ext_resource type="Script" uid="uid://bucouw5qek5e0" path="res://Floors/PlayerSpawn/player_spawn.gd" id="1_amgqq"]
+[ext_resource type="Texture2D" uid="uid://bmlvgt7n45kvi" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Knight/Knight/Knight.png" id="1_ghtpq"]
+
+[node name="PlayerSpawn" type="Node2D" unique_id=434352752]
+script = ExtResource("1_amgqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=647251757]
+modulate = Color(0.47823423, 0.7011965, 0.18686604, 1)
+texture = ExtResource("1_ghtpq")
+hframes = 11
+vframes = 8

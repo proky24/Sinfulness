@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cim4ru4msnvox"]
 
-[ext_resource type="Script" uid="uid://bqm5i3jjfhwxh" path="res://Floors/TilesSetsNodes/floor_bounds.gd" id="1_bounds"]
+[ext_resource type="Script" uid="uid://bjj3uai6sjuce" path="res://Floors/00_Global/level.gd" id="1_8prfk"]
 [ext_resource type="PackedScene" uid="uid://b75lt7anhvwdi" path="res://Floors/TilesSetsNodes/WaterTile.tscn" id="2_water"]
 [ext_resource type="PackedScene" uid="uid://bp0l14mf66hpg" path="res://Floors/TilesSetsNodes/FloorWallTile.tscn" id="3_floorwall"]
 [ext_resource type="PackedScene" uid="uid://cwyk1jdhu4fy6" path="res://Floors/TilesSetsNodes/DecorativeFloorTile.tscn" id="4_decofloor"]
@@ -39,7 +39,7 @@
 [ext_resource type="Texture2D" path="res://Entities/GeneralNodes/Props/Textures/shield_b.tres" id="37_mi0gn"]
 [ext_resource type="PackedScene" uid="uid://cnymahc1u2rfk" path="res://Entities/GeneralNodes/Props/Torches/Torch.tscn" id="38_omdow"]
 [ext_resource type="Texture2D" uid="uid://co8vy54kybvde" path="res://Assets/Dungeon TileSet/torch_extra_sheet.png" id="39_8prfk"]
-[ext_resource type="PackedScene" uid="uid://bs8r353d6afkh" path="res://Entities/Player/Player.tscn" id="39_yqbf4"]
+[ext_resource type="PackedScene" uid="uid://f3lrpt0y6v4f" path="res://Floors/PlayerSpawn/PlayerSpawn.tscn" id="40_8prfk"]
 
 [sub_resource type="Environment" id="Environment_3gqd7"]
 background_mode = 3
@@ -58,7 +58,7 @@ gravity = Vector3(0, 35, 0)
 
 [node name="NewFloor1" type="Node2D" unique_id=1098254011 node_paths=PackedStringArray("bounds_layer")]
 y_sort_enabled = true
-script = ExtResource("1_bounds")
+script = ExtResource("1_8prfk")
 bounds_layer = NodePath("WallTops")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=363812160]
@@ -600,5 +600,5 @@ _scale = Vector2(1.2, 1.2)
 _energy = 1.1
 campfire = true
 
-[node name="Player" parent="." unique_id=2097391364 instance=ExtResource("39_yqbf4")]
-position = Vector2(801, 671)
+[node name="PlayerSpawn" parent="." unique_id=434352752 instance=ExtResource("40_8prfk")]
+position = Vector2(513, 113)
