@@ -55,7 +55,6 @@ func set_dir() -> bool:
 	elif cardinal_dir == Vector2.RIGHT:
 		sprite.scale.x = 1
 	return true
-	pass
 
 #func animation_direction() -> string:
 	#if cardinal_dir == Vector2.DOWN:
@@ -68,6 +67,6 @@ func update_animation(state : String) -> void:
 	animation_player.play(state)
 	pass
 	
-func take_damage(dmg: int) -> void:
+func take_damage(_dmg: int) -> void:
 	
 	pass

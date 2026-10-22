@@ -15,11 +15,11 @@ func exit() -> void:
 func init() -> void:
 	pass
 
-func process(delta: float) -> State:
+func process(_delta: float) -> State:
 	return null
 
-func physics_process(delta: float) -> State:
+func physics_process(_delta: float) -> State:
 	return null
 
-func _handle_input(event: InputEvent) -> State:
+func _handle_input(_event: InputEvent) -> State:
 	return null

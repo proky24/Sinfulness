@@ -7,7 +7,7 @@ func _ready() -> void:
 	area_entered.connect(_area_entered)
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if monitoring:
 		collision_shape_2d.visible = true
 	else:

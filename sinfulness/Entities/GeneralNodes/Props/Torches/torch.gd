@@ -6,20 +6,27 @@ extends Node2D
 @export var campfire: bool = false
 
 @onready var sprite_node: Sprite2D = $Sprite2D
+@onready var collision_shape: CollisionShape2D = $StaticBody2D/CollisionShape2D
 @onready var area: Area2D = $Area2D
 @onready var label: Label = $Area2D/Label
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var label_tween: Tween
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	audio_player.pitch_scale = randf_range(0.7, 1.1)
 	if sprite != null:
 		sprite_node.texture = sprite
 	if campfire == true:
 		area.monitoring = true
+		collision_shape.disabled = false
 		area.area_entered.connect(_on_area_entered)
 		area.area_exited.connect(_on_area_exited)
+	else:
+		audio_player.max_distance = 100
+		audio_player.volume_db = -30
 	pass # Replace with function body.
 
 func _on_area_entered(_a: Area2D) -> void:

@@ -78,7 +78,7 @@ func process(delta: float) -> State:
 			return walk
 	return null
 
-func disable_attacking(a: String) -> void:
+func disable_attacking(_a: String) -> void:
 	attacking = false
 	pass
 
