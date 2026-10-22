@@ -18,7 +18,7 @@ const TORCH_LIT_SFX: AudioStream = preload("res://Assets/Other SFX/Torch/Light T
 const TORCH_LOOP_SFX: AudioStream = preload("res://Assets/Other SFX/Torch/Torch Loop.wav")
 
 var label_tween: Tween
-
+var lit: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -56,11 +56,14 @@ func _on_area_exited(_a: Area2D) -> void:
 	label_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	label_tween.tween_property(label, "modulate:a", 0.0, 0.3)
 	label_tween.tween_callback(label.hide)
+	GlobalPlayerManager.interact_pressed.disconnect(_on_interact_pressed)
 
 func _on_interact_pressed() -> void:
-	_play_ignition_effects()
-	await get_tree().create_timer(0.5).timeout
-	_play_loop_effects()
+	if lit == false:
+		lit = true
+		_play_ignition_effects()
+		await get_tree().create_timer(0.5).timeout
+		_play_loop_effects()
 
 func _play_ignition_effects() -> void:
 	_play_sound(TORCH_LIT_SFX, 0)
