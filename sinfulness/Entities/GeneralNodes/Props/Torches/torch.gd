@@ -16,6 +16,7 @@ extends Node2D
 
 const TORCH_LIT_SFX: AudioStream = preload("res://Assets/Other SFX/Torch/Light Torch 1.wav")
 const TORCH_LOOP_SFX: AudioStream = preload("res://Assets/Other SFX/Torch/Torch Loop.wav")
+const CAMPFIREUI: PackedScene = preload("res://GUI/Campfire/CampfireUI.tscn")
 
 var label_tween: Tween
 var lit: bool = false
@@ -64,6 +65,8 @@ func _on_interact_pressed() -> void:
 		_play_ignition_effects()
 		await get_tree().create_timer(0.5).timeout
 		_play_loop_effects()
+	var root = get_tree().get_root()
+	root.add_child(CAMPFIREUI.instantiate())
 
 func _play_ignition_effects() -> void:
 	_play_sound(TORCH_LIT_SFX, 0)

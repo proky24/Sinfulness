@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d0aov2xfn6dtx"]
+
+[ext_resource type="Texture2D" uid="uid://bubeojlcldxkv" path="res://Assets/UI pack/Individual files/1x/Cursors/Command_Attack.png" id="1_qy44b"]
+
+[node name="CampfireUI" type="CanvasLayer" unique_id=566568173]
+
+[node name="Control" type="Control" parent="." unique_id=1728568552]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=696307306]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 135.0
+offset_right = 334.0
+offset_bottom = 175.0
+texture = ExtResource("1_qy44b")
