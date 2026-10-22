@@ -545,6 +545,10 @@ position = Vector2(702, 391)
 z_index = 1
 position = Vector2(857, 327)
 
+[node name="Torch17" parent="Props/Torches" unique_id=1857130587 instance=ExtResource("38_omdow")]
+z_index = 1
+position = Vector2(807, 327)
+
 [node name="Torch5" parent="Props/Torches" unique_id=811170570 instance=ExtResource("38_omdow")]
 z_index = 1
 position = Vector2(791, 615)
@@ -597,8 +601,8 @@ position = Vector2(876, 53)
 position = Vector2(494, 414)
 sprite = ExtResource("39_8prfk")
 _scale = Vector2(1.2, 1.2)
-_energy = 1.1
+_energy = 1.5
 campfire = true
 
 [node name="PlayerSpawn" parent="." unique_id=434352752 instance=ExtResource("40_8prfk")]
-position = Vector2(785, 101)
+position = Vector2(566, 334)

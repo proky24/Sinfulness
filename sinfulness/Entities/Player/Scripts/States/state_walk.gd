@@ -33,4 +33,6 @@ func _handle_input(event: InputEvent) -> State:
 		return attack
 	elif event.is_action_pressed("block"):
 		return block
+	elif event.is_action_pressed("interact"):
+		GlobalPlayerManager.interact_pressed.emit()
 	return walk

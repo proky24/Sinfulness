@@ -5,6 +5,8 @@ const PLAYER_SCENE: PackedScene = preload("res://Entities/Player/Player.tscn")
 var player: Player
 var player_spawned: bool = false   
 
+signal interact_pressed
+
 func _ready() -> void:
     add_player_instance()
     await get_tree().create_timer(0.3).timeout
