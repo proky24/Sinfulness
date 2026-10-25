@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://cnymahc1u2rfk" path="res://Entities/GeneralNodes/Props/Torches/Torch.tscn" id="38_omdow"]
 [ext_resource type="Texture2D" uid="uid://co8vy54kybvde" path="res://Assets/Dungeon TileSet/torch_extra_sheet.png" id="39_8prfk"]
 [ext_resource type="PackedScene" uid="uid://f3lrpt0y6v4f" path="res://Floors/PlayerSpawn/PlayerSpawn.tscn" id="40_8prfk"]
+[ext_resource type="PackedScene" uid="uid://gp0k66mebgrm" path="res://Entities/Enemies/Parent/Enemy.tscn" id="41_0v3fh"]
 
 [sub_resource type="Environment" id="Environment_3gqd7"]
 background_mode = 3
@@ -607,3 +608,6 @@ campfire = true
 
 [node name="PlayerSpawn" parent="." unique_id=434352752 instance=ExtResource("40_8prfk")]
 position = Vector2(566, 334)
+
+[node name="Enemy" parent="." unique_id=1279872010 instance=ExtResource("41_0v3fh")]
+position = Vector2(475, 350)

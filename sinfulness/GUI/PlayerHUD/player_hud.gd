@@ -62,4 +62,5 @@ func update_hp(damage: int) -> void:
 	if new_hp <= 10:
 		print("you died")
 		get_tree().reload_current_scene()
+		hp_bar.value = 90
 	pass
