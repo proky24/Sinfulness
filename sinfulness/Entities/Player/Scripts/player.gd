@@ -13,6 +13,7 @@ var hp: int = 10:
 @onready var hit_box: HitBox = $Interactions/HitBox
 @onready var hurt_box: HurtBox = $Interactions/HurtBox
 
+
 signal dir_changed( new_dir: Vector2 )
 
 func _ready() -> void:

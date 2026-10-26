@@ -11,6 +11,9 @@ class_name Stats extends Resource
 @export var base_disgrace: float = 0.0
 @export var experience: float = 0.0: set = _on_experience_set
 
+
+
+@export_group("Entity type")
 enum EntityType { PLAYER, ENEMY }
 @export var entity_type: EntityType = EntityType.PLAYER
 
@@ -43,6 +46,7 @@ func _init() -> void:
         base_faith = 0.0
         base_disgrace = 0.0
     setup_stats.call_deferred()
+
     pass
 
 var current_max_health: float = base_max_health

@@ -17,8 +17,6 @@ func _ready() -> void:
 	timer.timeout.connect(dissapear)
 	sections = control.get_children()
 
-	
-	#timer.start()
 	pass # Replace with function body.
 
 func appear() -> void:
