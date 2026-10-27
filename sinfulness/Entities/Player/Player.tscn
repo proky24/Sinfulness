@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8npee4c8r1rr" path="res://Entities/Player/Scripts/player.gd" id="1_5emw0"]
 [ext_resource type="Texture2D" uid="uid://bmlvgt7n45kvi" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Knight/Knight/Knight.png" id="2_5emw0"]
+[ext_resource type="Script" uid="uid://caj77ar5gb3y6" path="res://Entities/StatSystem/Scripts/player_stats.gd" id="2_tepoh"]
 [ext_resource type="Script" uid="uid://j8s7oot3rtny" path="res://Entities/Player/Scripts/state_machine.gd" id="3_oxjk5"]
 [ext_resource type="Script" uid="uid://db0c7qgv7c3kt" path="res://Entities/Player/Scripts/States/state_idle.gd" id="4_yv3ts"]
 [ext_resource type="Script" uid="uid://cxs2vr3jw4fn6" path="res://Entities/Player/Scripts/States/state_walk.gd" id="5_bgrr3"]
@@ -25,6 +26,10 @@
 [ext_resource type="Script" uid="uid://lv2s08u3vadg" path="res://Entities/Player/interactionshost.gd" id="22_l2mqv"]
 [ext_resource type="PackedScene" uid="uid://b62k27aai08u6" path="res://Entities/GeneralNodes/Hurtbox/HurtBox.tscn" id="22_l80rc"]
 [ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="24_mgqku"]
+
+[sub_resource type="Resource" id="Resource_2ca0a"]
+script = ExtResource("2_tepoh")
+metadata/_custom_type_script = "uid://caj77ar5gb3y6"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
 
@@ -662,6 +667,7 @@ y_sort_enabled = true
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_5emw0")
+player_stats = SubResource("Resource_2ca0a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1940413948]
 scale = Vector2(0.65, 0.65)
