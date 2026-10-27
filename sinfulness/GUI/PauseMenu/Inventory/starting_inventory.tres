@@ -5,64 +5,94 @@
 [ext_resource type="Resource" uid="uid://bfw1ypwou6w2s" path="res://GUI/PauseMenu/Inventory/Items/potion.tres" id="3_berserk"]
 [ext_resource type="Resource" uid="uid://cqhsh6cyut7ho" path="res://GUI/PauseMenu/Inventory/Items/decayed_potion.tres" id="4_ow7tv"]
 [ext_resource type="Resource" uid="uid://ceu3agdtvvgbw" path="res://GUI/PauseMenu/Inventory/Items/mushroom.tres" id="5_aspen"]
+[ext_resource type="Resource" uid="uid://bqtifov34rhah" path="res://GUI/PauseMenu/Inventory/Items/fortune_teller_potion.tres" id="5_ojfly"]
 [ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/chanterelle.tres" id="6_chanterelle"]
+[ext_resource type="Resource" uid="uid://r0webysp5tmw" path="res://GUI/PauseMenu/Inventory/Items/turtle_potion.tres" id="6_v23j5"]
+[ext_resource type="Resource" uid="uid://bb8nl57rpbept" path="res://GUI/PauseMenu/Inventory/Items/vigor_potion.tres" id="7_rheqi"]
 [ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/torn_scroll.tres" id="7_scroll"]
+[ext_resource type="Resource" uid="uid://di4lvmpq7wfq1" path="res://GUI/PauseMenu/Inventory/Items/saint_potion.tres" id="8_fvb52"]
 [ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/rusty_key.tres" id="8_key"]
+[ext_resource type="Resource" uid="uid://e7oqxexga7sv" path="res://GUI/PauseMenu/Inventory/Items/mana_potion.tres" id="9_elcqd"]
 [ext_resource type="Resource" path="res://GUI/PauseMenu/Inventory/Items/sainted_helmet.tres" id="9_helmet"]
 [ext_resource type="Resource" uid="uid://b0hbw6fhcv3oj" path="res://GUI/PauseMenu/Inventory/Items/decayed_chestplate.tres" id="10_chestplate"]
 [ext_resource type="Resource" uid="uid://h5f7aqk5f4h3" path="res://GUI/PauseMenu/Inventory/Items/sainted_gauntlets.tres" id="11_gauntlets"]
 [ext_resource type="Resource" uid="uid://cja2kb3vbgigy" path="res://GUI/PauseMenu/Inventory/Items/decayed_boots.tres" id="12_boots"]
 
-[sub_resource type="Resource" id="Slot_berserk"]
+[sub_resource type="Resource" id="Resource_www52"]
 script = ExtResource("2_slot")
 item_data = ExtResource("3_berserk")
 quantity = 3
 
-[sub_resource type="Resource" id="Slot_maturation"]
+[sub_resource type="Resource" id="Resource_kx4pq"]
 script = ExtResource("2_slot")
 item_data = ExtResource("4_ow7tv")
-quantity = 9
+quantity = 5
 
-[sub_resource type="Resource" id="Slot_aspen"]
+[sub_resource type="Resource" id="Resource_5ceqc"]
+script = ExtResource("2_slot")
+item_data = ExtResource("5_ojfly")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_2ri86"]
+script = ExtResource("2_slot")
+item_data = ExtResource("6_v23j5")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_mqeu1"]
+script = ExtResource("2_slot")
+item_data = ExtResource("7_rheqi")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_e1fxo"]
+script = ExtResource("2_slot")
+item_data = ExtResource("8_fvb52")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_7f0dc"]
+script = ExtResource("2_slot")
+item_data = ExtResource("9_elcqd")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_ow0mv"]
 script = ExtResource("2_slot")
 item_data = ExtResource("5_aspen")
 quantity = 12
 
-[sub_resource type="Resource" id="Slot_chanterelle"]
+[sub_resource type="Resource" id="Resource_pfa8x"]
 script = ExtResource("2_slot")
 item_data = ExtResource("6_chanterelle")
 quantity = 99
 
-[sub_resource type="Resource" id="Slot_scroll"]
+[sub_resource type="Resource" id="Resource_155ka"]
 script = ExtResource("2_slot")
 item_data = ExtResource("7_scroll")
 quantity = 1
 
-[sub_resource type="Resource" id="Slot_key"]
+[sub_resource type="Resource" id="Resource_mip40"]
 script = ExtResource("2_slot")
 item_data = ExtResource("8_key")
 quantity = 1
 
-[sub_resource type="Resource" id="Slot_helmet"]
+[sub_resource type="Resource" id="Resource_5dyfy"]
 script = ExtResource("2_slot")
 item_data = ExtResource("9_helmet")
 quantity = 1
 
-[sub_resource type="Resource" id="Slot_chestplate"]
+[sub_resource type="Resource" id="Resource_qdvtm"]
 script = ExtResource("2_slot")
 item_data = ExtResource("10_chestplate")
 quantity = 1
 
-[sub_resource type="Resource" id="Slot_gauntlets"]
+[sub_resource type="Resource" id="Resource_1i3di"]
 script = ExtResource("2_slot")
 item_data = ExtResource("11_gauntlets")
 quantity = 1
 
-[sub_resource type="Resource" id="Slot_boots"]
+[sub_resource type="Resource" id="Resource_7pmtq"]
 script = ExtResource("2_slot")
 item_data = ExtResource("12_boots")
 quantity = 1
 
 [resource]
 script = ExtResource("1_inventory")
-slots = Array[ExtResource("2_slot")]([SubResource("Slot_berserk"), SubResource("Slot_maturation"), SubResource("Slot_aspen"), SubResource("Slot_chanterelle"), SubResource("Slot_scroll"), SubResource("Slot_key"), SubResource("Slot_helmet"), SubResource("Slot_chestplate"), SubResource("Slot_gauntlets"), SubResource("Slot_boots")])
+slots = Array[ExtResource("2_slot")]([SubResource("Resource_www52"), SubResource("Resource_kx4pq"), SubResource("Resource_5ceqc"), SubResource("Resource_2ri86"), SubResource("Resource_mqeu1"), SubResource("Resource_e1fxo"), SubResource("Resource_7f0dc"), SubResource("Resource_ow0mv"), SubResource("Resource_pfa8x"), SubResource("Resource_155ka"), SubResource("Resource_mip40"), SubResource("Resource_5dyfy"), SubResource("Resource_qdvtm"), SubResource("Resource_1i3di"), SubResource("Resource_7pmtq")])

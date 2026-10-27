@@ -1,6 +1,7 @@
 class_name HitBox extends Area2D
+## Receives damage. The owner connects Damaged and sets hit.applied when damage was taken.
 
-signal Damaged( damage: int )
+signal Damaged( hit: HitData )
 
-func take_damage( damage: int ):
-	Damaged.emit( damage )
+func take_damage( hit: HitData ) -> void:
+	Damaged.emit( hit )

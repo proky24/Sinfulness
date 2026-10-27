@@ -8,13 +8,14 @@ var animation_finished: bool = true
 var _direction: Vector2
 
 func _ready() -> void:
-	pass 
+	pass
 
 func enter() -> void:
-	_direction = enemy.global_position.direction_to(enemy.player.global_position)
+	# Pushed away from the player and slowed down, like the stun state.
+	_direction = -enemy.global_position.direction_to(enemy.player.global_position)
 	enemy.set_direction(_direction)
-	enemy.velocity = _direction * decelerate_speed
-	
+	enemy.velocity = _direction * knockback_speed
+
 	enemy.update_animation(anim_name)
 	enemy.animation_player.animation_finished.connect(_on_animation_finished)
 	pass
@@ -27,19 +28,16 @@ func init() -> void:
 	pass
 
 func process(_delta: float) -> EnemyState:
-	enemy.velocity = _direction * decelerate_speed * _delta
+	enemy.velocity -= enemy.velocity * decelerate_speed * _delta
 	return null
 
 func physics_process(_delta: float) -> EnemyState:
-	return null
-
-func _handle_input(event: InputEvent) -> EnemyState:
 	return null
 
 func _on_enemy_destroyed() -> void:
 	state_machine.change_state(self)
 	pass
 
-func _on_animation_finished() -> void:
-	queue_free()
+func _on_animation_finished(_anim_name: StringName) -> void:
+	enemy.queue_free()
 	pass

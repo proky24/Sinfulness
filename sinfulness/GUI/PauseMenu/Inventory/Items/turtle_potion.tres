@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://r0webysp5tmw"]
+
+[ext_resource type="Script" uid="uid://cudyaw8qj71d0" path="res://Entities/StatSystem/Scripts/stat_buff.gd" id="1_7cft0"]
+[ext_resource type="Script" uid="uid://f4eql5jyxugf" path="res://GUI/PauseMenu/Inventory/Scripts/potion_data.gd" id="2_syhge"]
+[ext_resource type="Texture2D" uid="uid://daqxtfl3gi120" path="res://Assets/Potions/items/item_34.png" id="3_v484e"]
+
+[sub_resource type="Resource" id="Resource_6c5a2"]
+script = ExtResource("1_7cft0")
+stat = 3
+amount = 25.0
+
+[resource]
+script = ExtResource("2_syhge")
+buffs = Array[ExtResource("1_7cft0")]([SubResource("Resource_6c5a2")])
+id = &"turtle_potion"
+name = "Turtle Potion"
+description = "Raises durability for a while."
+texture = ExtResource("3_v484e")
+max_stack = 5

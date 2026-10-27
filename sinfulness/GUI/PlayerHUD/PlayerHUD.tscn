@@ -7,6 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://ct3dttbevpxuv" path="res://Assets/UI pack/Individual files/1x/Resource orbs/Orb_MP.png" id="4_wmevh"]
 [ext_resource type="Texture2D" uid="uid://dasxwy6cyn3qb" path="res://Assets/UI pack/Individual files/1x/Resource orbs/DecoratedFrame1_Left.png" id="5_wmevh"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbnnc"]
+atlas = ExtResource("2_vma1f")
+region = Rect2(0, 5, 48, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpd42"]
+atlas = ExtResource("4_wmevh")
+region = Rect2(0, 5, 48, 38)
+
 [node name="PlayerHud" type="CanvasLayer" unique_id=253674237]
 scale = Vector2(1.2, 1.2)
 transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
@@ -30,7 +38,8 @@ offset_bottom = 64.0
 value = 90.0
 fill_mode = 3
 texture_under = ExtResource("1_xitr1")
-texture_progress = ExtResource("2_vma1f")
+texture_progress = SubResource("AtlasTexture_vbnnc")
+texture_progress_offset = Vector2(0, 5)
 
 [node name="TextureRect" type="TextureRect" parent="Control/Node" unique_id=342009330]
 offset_right = 80.0
@@ -53,7 +62,8 @@ scale = Vector2(0.75, 0.75)
 value = 100.0
 fill_mode = 3
 texture_under = ExtResource("1_xitr1")
-texture_progress = ExtResource("4_wmevh")
+texture_progress = SubResource("AtlasTexture_kpd42")
+texture_progress_offset = Vector2(0, 5)
 
 [node name="TextureRect2" type="TextureRect" parent="Control/Node2" unique_id=24327881]
 anchors_preset = 4

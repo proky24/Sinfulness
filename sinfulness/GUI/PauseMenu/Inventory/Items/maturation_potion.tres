@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="PotionData" format=3]
+[gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://mi654wesy6e0"]
 
-[ext_resource type="Script" path="res://GUI/PauseMenu/Inventory/Scripts/potion_data.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://Assets/Potions/items/item_19.png" id="2_texture"]
+[ext_resource type="Script" uid="uid://cudyaw8qj71d0" path="res://Entities/StatSystem/Scripts/stat_buff.gd" id="1_7drku"]
+[ext_resource type="Script" uid="uid://f4eql5jyxugf" path="res://GUI/PauseMenu/Inventory/Scripts/potion_data.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dwkt0hhcstmqn" path="res://Assets/Potions/items/item_19.png" id="2_texture"]
 
 [resource]
 script = ExtResource("1_script")
+duration_seconds = 0.0
+corruption_amount = -10.0
 id = &"maturation_potion"
 name = "Maturation Potion"
 description = "Instantly lowers gathered corruption."
 texture = ExtResource("2_texture")
 max_stack = 5
-stat_changed = 7
-amount = -10.0
-duration_seconds = 0.0

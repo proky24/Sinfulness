@@ -1,139 +1,198 @@
 class_name Stats extends Resource
+## Stats shared by the player and enemies. Use PlayerStats or EnemyStats, not Stats itself.
+##
+## Always work on a runtime copy (duplicate(true)) and call setup() once.
+## Final value = (base + get_stat_bonus() + ADD buffs) × MULTIPLY buffs, never below 0.
+## Subclasses override _get_base_value(), _get_points(), get_stat_bonus() and get_crit_chance().
 
-@export_group("Base Stats")
-@export var base_max_health: float = 90.0
-@export var base_max_corruption: float = 100.0
-@export var base_durability: float = 5.0
-@export var base_corruption_durability: float = 5.0
-@export var base_damage: float = 10.0
-@export var base_luck: float = 0.0
-@export var base_faith: float = 0.0
-@export var base_disgrace: float = 0.0
-@export var experience: float = 0.0: set = _on_experience_set
+signal health_changed(health: float, max_health: float)
+## Emitted once when health reaches 0.
+signal health_depleted
+signal damaged(amount: float, is_crit: bool)
+signal stats_changed
 
-
-
-@export_group("Entity type")
-enum EntityType { PLAYER, ENEMY }
-@export var entity_type: EntityType = EntityType.PLAYER
-
-enum BuffableStats {
-    MAX_HEALTH, 
-    DURABILITY, 
-    CORRUPTION_DURABILITY, 
-    DAMAGE, 
-    LUCK, 
-    FAITH, 
-    DISGRACE
+enum Stat {
+	MAX_HEALTH,
+	MAX_MANA,
+	DAMAGE,
+	DURABILITY,
+	CORRUPTION_DURABILITY,
+	LUCK,
+	FAITH,
+	DISGRACE,
+	STANCE,
+	DASH_DISTANCE,
+	ATTACK_SPEED,
+	CORRUPTION_GAIN,
 }
 
-#const STAT_CURVES: Dictionary[BuffableStats, Curve] = {
-#    BuffableStats.MAX_HEALTH: preload("res://Entities/StatSystem/Curves/max_health_curve.tres"),
-#    BuffableStats.DURABILITY: preload("res://Entities/StatSystem/Curves/durability_curve.tres"),
-#    BuffableStats.CORRUPTION_DURABILITY: preload("res://Entities/StatSystem/Curves/corruption_durability_curve.tres"),
-#    BuffableStats.DAMAGE: preload("res://Entities/StatSystem/Curves/damage_curve.tres"),
-#    BuffableStats.LUCK: preload("res://Entities/StatSystem/Curves/luck_curve.tres"),
-#    BuffableStats.FAITH: preload("res://Entities/StatSystem/Curves/faith_curve.tres"),
-#    BuffableStats.DISGRACE: preload("res://Entities/StatSystem/Curves/disgrace_curve.tres")
-#}
+@export_group("Base stats")
+@export var base_max_health: float = 90.0
+@export var base_damage: float = 10.0
+@export var base_durability: float = 5.0
 
-signal health_changed(new_health: float, current_max_health: float)
-signal health_depleted
+@export_group("Combat")
+## Durability equal to this value halves incoming damage.
+@export var durability_scale: float = 100.0
+@export_range(0.0, 1.0) var crit_chance: float = 0.0
+@export var crit_multiplier: float = 1.5
 
-func _init() -> void:
-    if entity_type == EntityType.ENEMY:
-        base_corruption_durability = 0.0
-        base_faith = 0.0
-        base_disgrace = 0.0
-    setup_stats.call_deferred()
+var health: float = 0.0
 
-    pass
+var _buffs: Array[StatBuff] = []
+var _values: Dictionary[Stat, float] = {}
+var _depleted: bool = false
 
-var current_max_health: float = base_max_health
-var current_durability: float = base_durability
-var current_corruption_durability: float = base_corruption_durability
-var current_damage: float = base_damage
-var current_luck: float = base_luck
-var current_faith: float = base_faith
-var current_disgrace: float = base_disgrace
-var current_corruption: float = 0.0
 
-var health: float = 90.0: set = _on_health_set
-var level: int = 1: 
-    get(): return floor(max(1.0, sqrt(experience / level_xp_needed) + 0.5))
-var level_xp_needed: float = 100.0
+## Computes every stat and fills health. Call once on the runtime copy.
+func setup() -> void:
+	recalculate()
+	_depleted = false
+	_set_health(get_stat(Stat.MAX_HEALTH))
 
-var stat_buffs: Array[StatBuff]
 
-func add_buff(buff: StatBuff) -> void:
-    stat_buffs.append(buff)
-    recalculate_stats.call_deferred()
-    pass
+func get_stat(stat: Stat) -> float:
+	return _values.get(stat, 0.0)
 
-func remove_buff(buff: StatBuff) -> void:
-    stat_buffs.erase(buff)
-    recalculate_stats.call_deferred()
-    pass
 
-func _on_health_set(value: float) -> void:
-    health = clampf(value, 0.0, current_max_health)
-    health_changed.emit(health, current_max_health)
+## Adds copies of [param buffs] under [param source]. Earlier buffs from the same source are replaced.
+func add_buffs(buffs: Array[StatBuff], source: StringName) -> void:
+	_erase_buffs(source)
+	for buff: StatBuff in buffs:
+		if buff == null:
+			continue
+		var copy: StatBuff = buff.duplicate() as StatBuff
+		copy.source = source
+		_buffs.append(copy)
+	recalculate()
 
-    if health <= 0.0:
-        health_depleted.emit()
-        pass
 
-func _on_experience_set(value: float) -> void:
-    var old_level: int = level
-    experience = value
+## Removes every buff from [param source].
+func remove_buffs(source: StringName) -> void:
+	if _erase_buffs(source):
+		recalculate()
 
-    if old_level != level:
-        recalculate_stats()
-    pass
 
-func setup_stats() -> void:
-    current_max_health = base_max_health
-    current_durability = base_durability
-    current_corruption_durability = base_corruption_durability
-    current_damage = base_damage
-    current_luck = base_luck
-    current_faith = base_faith
-    current_disgrace = base_disgrace
-    current_corruption = 0.0
+func has_buffs(source: StringName) -> bool:
+	for buff: StatBuff in _buffs:
+		if buff.source == source:
+			return true
+	return false
 
-func recalculate_stats() -> void:
-    var stat_multipliers: Dictionary = {} #Amount to multiply included stats by
-    var stat_addends: Dictionary = {} #Amount to add to included stats
 
-    for buff in stat_buffs:
-        var stat_name: String = BuffableStats.keys()[buff.stat].to_lower()
-        match buff.buff_type:
-            StatBuff.BuffType.ADD:
-                if not stat_addends.has(stat_name):
-                    stat_addends[stat_name] = 0.0
-                stat_addends[stat_name] += buff.buff_amount
-            StatBuff.BuffType.MULTIPLY:
-                if not stat_multipliers.has(stat_name):
-                    stat_multipliers[stat_name] = 1.0
-                stat_multipliers[stat_name] *= buff.buff_amount
+## Recomputes every stat from base values, points and buffs. A max health change keeps the missing amount.
+func recalculate() -> void:
+	var old_values: Dictionary = _values.duplicate()
+	var addends: Dictionary[Stat, float] = {}
+	var multipliers: Dictionary[Stat, float] = {}
+	for buff: StatBuff in _buffs:
+		match buff.buff_type:
+			StatBuff.BuffType.ADD:
+				addends[buff.stat] = addends.get(buff.stat, 0.0) + buff.amount
+			StatBuff.BuffType.MULTIPLY:
+				multipliers[buff.stat] = multipliers.get(buff.stat, 1.0) * buff.amount
+	for stat: Stat in Stat.values():
+		var value: float = _get_base_value(stat) + get_stat_bonus(stat, _get_points(stat)) + addends.get(stat, 0.0)
+		_values[stat] = maxf(value * multipliers.get(stat, 1.0), 0.0)
+	if not old_values.is_empty():
+		_keep_missing_amounts(old_values)
+	stats_changed.emit()
 
-                if stat_multipliers[stat_name] < 0.0:
-                    stat_multipliers[stat_name] = 0.0
-    
-    #var stat_starting_pos: float = (float(level / 100.0)) - 0.1
-    #current_max_health = base_max_health * STAT_CURVES[BuffableStats.MAX_HEALTH].sample(stat_starting_pos)
-    #current_durability = base_durability * STAT_CURVES[BuffableStats.DURABILITY].sample(stat_starting_pos)
-    #current_corruption_durability = base_corruption_durability * STAT_CURVES[BuffableStats.CORRUPTION_DURABILITY].sample(stat_starting_pos)
-    #current_damage = base_damage * STAT_CURVES[BuffableStats.DAMAGE].sample(stat_starting_pos)
-    #current_luck = base_luck * STAT_CURVES[BuffableStats.LUCK].sample(stat_starting_pos)
-    #current_faith = base_faith * STAT_CURVES[BuffableStats.FAITH].sample(stat_starting_pos)
-    #current_disgrace = base_disgrace * STAT_CURVES[BuffableStats.DISGRACE].sample(stat_starting_pos)
 
-    for stat_name in stat_multipliers:
-        var curr_property_name: String = str("current_" + stat_name)
-        set(curr_property_name, get(curr_property_name) * stat_multipliers[stat_name])
+## Rolls a crit and returns a hit worth this entity's damage × [param multiplier].
+func create_hit(multiplier: float, source_position: Vector2) -> HitData:
+	var is_crit: bool = randf() < get_crit_chance()
+	var amount: float = get_stat(Stat.DAMAGE) * multiplier
+	if is_crit:
+		amount *= crit_multiplier
+	return HitData.new(amount, is_crit, _get_hit_corruption(), source_position)
 
-    for stat_name in stat_addends:
-        var curr_property_name: String = str("current_" + stat_name)
-        set(curr_property_name, get(curr_property_name) + stat_addends[stat_name])
-    pass
+
+## Applies [param hit] reduced by durability. Returns the damage taken and sets hit.applied.
+func take_damage(hit: HitData) -> float:
+	if hit == null or is_dead() or hit.amount <= 0.0:
+		return 0.0
+	var taken: float = _reduce_by(hit.amount, get_stat(Stat.DURABILITY))
+	hit.applied = true
+	damaged.emit(taken, hit.is_crit)
+	_set_health(health - taken)
+	return taken
+
+
+func heal(amount: float) -> void:
+	if amount <= 0.0 or is_dead():
+		return
+	_set_health(health + amount)
+
+
+func is_dead() -> bool:
+	return health <= 0.0
+
+
+## Chance 0..1 that a hit is a crit.
+func get_crit_chance() -> float:
+	return clampf(crit_chance, 0.0, 1.0)
+
+
+## Bonus [param stat] gets from [param _points] level-up points. Linear: the only place for soft caps later.
+func get_stat_bonus(_stat: Stat, _points: int) -> float:
+	return 0.0
+
+
+# -- Virtual -------------------------------------------------------------------
+
+
+func _get_base_value(stat: Stat) -> float:
+	match stat:
+		Stat.MAX_HEALTH:
+			return base_max_health
+		Stat.DAMAGE:
+			return base_damage
+		Stat.DURABILITY:
+			return base_durability
+	return 0.0
+
+
+func _get_points(_stat: Stat) -> int:
+	return 0
+
+
+func _get_hit_corruption() -> float:
+	return 0.0
+
+
+## Called after recalculate() when the stats existed before. Keeps health's missing amount, never below 1.
+func _keep_missing_amounts(old_values: Dictionary) -> void:
+	var max_health: float = get_stat(Stat.MAX_HEALTH)
+	var change: float = max_health - float(old_values.get(Stat.MAX_HEALTH, 0.0))
+	if is_zero_approx(change) or is_dead():
+		return
+	_set_health(maxf(health + change, minf(1.0, max_health)))
+
+
+# -- Private -------------------------------------------------------------------
+
+
+## [param amount] × durability_scale / (durability_scale + resistance). 100 resistance halves it.
+func _reduce_by(amount: float, resistance: float) -> float:
+	if durability_scale <= 0.0:
+		return amount
+	return amount * durability_scale / (durability_scale + maxf(resistance, 0.0))
+
+
+func _set_health(value: float) -> void:
+	var max_health: float = get_stat(Stat.MAX_HEALTH)
+	health = clampf(value, 0.0, max_health)
+	health_changed.emit(health, max_health)
+	if health <= 0.0 and not _depleted:
+		_depleted = true
+		health_depleted.emit()
+
+
+func _erase_buffs(source: StringName) -> bool:
+	var erased: bool = false
+	for i: int in range(_buffs.size() - 1, -1, -1):
+		if _buffs[i].source == source:
+			_buffs.remove_at(i)
+			erased = true
+	return erased

@@ -73,7 +73,7 @@ func update_prop() -> void:
 	_update_hit_box(opaque)
 
 
-func take_damage(_damage: int) -> void:
+func take_damage(_hit: HitData) -> void:
 	queue_free()
 
 

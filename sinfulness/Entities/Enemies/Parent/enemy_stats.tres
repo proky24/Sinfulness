@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://cfyhi0ypkme37"]
+
+[ext_resource type="Script" uid="uid://b1cy3xxe2mwic" path="res://Entities/StatSystem/Scripts/enemy_stats.gd" id="1_5i3i1"]
+
+[resource]
+script = ExtResource("1_5i3i1")
+base_max_health = 30.0
+base_damage = 8.0
+base_durability = 0.0

@@ -55,6 +55,9 @@ lifetime_randomness = 0.4
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(510, 370, 1)
+angle_min = 1.0728835e-05
+angle_max = 45.00001
+spread = 80.0
 gravity = Vector3(0, 35, 0)
 color = Color(0.20871013, 0.20871016, 0.20871013, 1)
 

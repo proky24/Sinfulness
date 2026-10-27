@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://di4lvmpq7wfq1"]
+
+[ext_resource type="Script" uid="uid://cudyaw8qj71d0" path="res://Entities/StatSystem/Scripts/stat_buff.gd" id="1_8sjis"]
+[ext_resource type="Script" uid="uid://f4eql5jyxugf" path="res://GUI/PauseMenu/Inventory/Scripts/potion_data.gd" id="2_02i48"]
+[ext_resource type="Texture2D" uid="uid://bemt5vn7swrie" path="res://Assets/Potions/items/item_13.png" id="3_g1oq0"]
+
+[sub_resource type="Resource" id="Resource_wmll6"]
+script = ExtResource("1_8sjis")
+stat = 6
+amount = 5.0
+
+[resource]
+script = ExtResource("2_02i48")
+buffs = Array[ExtResource("1_8sjis")]([SubResource("Resource_wmll6")])
+id = &"saint_potion"
+name = "Saint Potion"
+description = "Raises faith for a while."
+texture = ExtResource("3_g1oq0")
+max_stack = 5

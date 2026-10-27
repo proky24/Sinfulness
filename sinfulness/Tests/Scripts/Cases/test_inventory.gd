@@ -67,9 +67,9 @@ func test_unique_items_refuse_second_copy() -> void:
 func test_get_slots_filters_by_category() -> void:
 	var inventory: InventoryData = (load(STARTING_INVENTORY_PATH) as InventoryData).duplicate(true)
 	assert_eq(inventory.get_slots([ItemData.Category.LORE, ItemData.Category.KEY]).size(), 2, "Inventory tab")
-	assert_eq(inventory.get_slots([ItemData.Category.POTION, ItemData.Category.MATERIAL]).size(), 4, "Potions tab")
+	assert_eq(inventory.get_slots([ItemData.Category.POTION, ItemData.Category.MATERIAL]).size(), 9, "Potions tab (7 potions, 2 materials)")
 	assert_eq(inventory.get_slots([ItemData.Category.ARMOR]).size(), 4, "Loadout tab")
-	assert_eq(inventory.get_slots().size(), 10, "no filter")
+	assert_eq(inventory.get_slots().size(), 15, "no filter")
 	for slot: SlotData in inventory.get_slots([ItemData.Category.POTION]):
 		assert_true(slot.item_data is PotionData)
 
@@ -161,6 +161,47 @@ func test_redrinking_refreshes_buff() -> void:
 	assert_true(after > before, "timer restarted (%.2f -> %.2f)" % [before, after])
 	assert_eq(after, berserk.duration_seconds, "refreshed, not stacked")
 	GlobalInventory.potion_cooldown_seconds = cooldown
+	_restore_global()
+
+
+func test_potion_buff_ends_with_its_timer() -> void:
+	await wait_seconds(0.3)  # let the previous test's cooldown run out
+	_reset_global(InventoryData.new())
+	var stats: PlayerStats = GlobalPlayerManager.player_stats
+	var cooldown: float = GlobalInventory.potion_cooldown_seconds
+	GlobalInventory.potion_cooldown_seconds = 0.0
+	var turtle: PotionData = (load(ITEMS_DIR + "turtle_potion.tres") as PotionData).duplicate()
+	turtle.duration_seconds = 0.3
+	var durability: float = stats.get_stat(Stats.Stat.DURABILITY)
+	GlobalInventory.add_item(turtle, 1)
+	assert_true(GlobalInventory.use_item(turtle))
+	assert_eq(stats.get_stat(Stats.Stat.DURABILITY), durability + 25.0, "Turtle +25 durability")
+	assert_true(stats.has_buffs(turtle.get_key()))
+	await wait_seconds(0.5)
+	assert_false(GlobalInventory.is_buff_active(turtle))
+	assert_false(stats.has_buffs(turtle.get_key()), "buff removed when the timer ends")
+	assert_eq(stats.get_stat(Stats.Stat.DURABILITY), durability)
+	GlobalInventory.potion_cooldown_seconds = cooldown
+	_restore_global()
+
+
+func test_armor_changes_stats_and_does_not_heal() -> void:
+	_reset_global(InventoryData.new())
+	var stats: PlayerStats = GlobalPlayerManager.player_stats
+	var max_health: float = stats.get_stat(Stats.Stat.MAX_HEALTH)
+	var durability: float = stats.get_stat(Stats.Stat.DURABILITY)
+	stats.take_damage(HitData.new(21.0))
+	var health: float = stats.health
+	GlobalInventory.add_item(helmet)
+	assert_true(GlobalInventory.equip_armor(helmet))
+	assert_eq(stats.get_stat(Stats.Stat.MAX_HEALTH), max_health + helmet.health, "helmet health")
+	assert_eq(stats.get_stat(Stats.Stat.DURABILITY), durability + helmet.durability, "helmet durability")
+	assert_eq(stats.health, health + helmet.health, "same missing amount")
+	assert_true(GlobalInventory.unequip_armor(ArmorData.Slot.HELMET))
+	assert_eq(stats.get_stat(Stats.Stat.MAX_HEALTH), max_health)
+	assert_eq(stats.health, health, "equip and unequip does not heal")
+	assert_false(stats.has_buffs(PlayerStats.EQUIPMENT_SOURCE))
+	stats.restore_all()
 	_restore_global()
 
 

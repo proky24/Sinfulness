@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d20l10tt2bwm3" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Skeleton/Skeleton/Skeleton.png" id="1_ttlo4"]
 [ext_resource type="Script" uid="uid://dspoflxyqqss2" path="res://Entities/Enemies/Parent/Scripts/enemy.gd" id="1_yxp7e"]
+[ext_resource type="Resource" uid="uid://cfyhi0ypkme37" path="res://Entities/Enemies/Parent/enemy_stats.tres" id="2_0eiph"]
 [ext_resource type="Script" uid="uid://db7vws2spdhj" path="res://Entities/Enemies/Parent/Scripts/enemy_state_machine.gd" id="3_qt7sn"]
 [ext_resource type="Script" uid="uid://ct8p3at0vny5q" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_idle.gd" id="4_msyos"]
 [ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="4_qt7sn"]
@@ -186,6 +187,7 @@ collision_layer = 256
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_yxp7e")
+stats = ExtResource("2_0eiph")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1952738428]
 libraries/ = SubResource("AnimationLibrary_ruuuf")

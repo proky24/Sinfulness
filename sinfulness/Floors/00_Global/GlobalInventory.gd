@@ -110,11 +110,11 @@ func get_cooldown_time_left() -> float:
 
 
 func is_buff_active(potion: PotionData) -> bool:
-	return _buff_timers.has(_get_item_key(potion))
+	return _buff_timers.has(potion.get_key())
 
 
 func get_buff_time_left(potion: PotionData) -> float:
-	var timer: Timer = _buff_timers.get(_get_item_key(potion))
+	var timer: Timer = _buff_timers.get(potion.get_key())
 	return timer.time_left if timer != null else 0.0
 
 
@@ -127,6 +127,7 @@ func set_equipped(data: EquippedData) -> void:
 		_equipped.changed_equipment.disconnect(_on_equipment_changed)
 	_equipped = data.duplicate(true) as EquippedData
 	_equipped.changed_equipment.connect(_on_equipment_changed)
+	_apply_equipment_to_stats()
 	equipment_changed.emit()
 
 
@@ -191,7 +192,7 @@ func _use(item: ItemData) -> bool:
 
 ## Starts the buff timer for [param potion], or restarts it if that potion is already active (no stacking).
 func _start_buff(potion: PotionData) -> void:
-	var key: StringName = _get_item_key(potion)
+	var key: StringName = potion.get_key()
 	var timer: Timer = _buff_timers.get(key)
 	if timer == null:
 		timer = Timer.new()
@@ -207,8 +208,8 @@ func _on_buff_timeout(key: StringName, potion: PotionData) -> void:
 	_buff_timers.erase(key)
 	if timer != null:
 		timer.queue_free()
-	# Stats system (not built yet): remove this potion's buff from the player here,
-	# or listen to potion_effect_ended.
+	if GlobalPlayerManager.player_stats != null:
+		GlobalPlayerManager.player_stats.remove_buffs(key)
 	print("[GlobalInventory] potion effect ended: %s" % potion.name)
 	potion_effect_ended.emit(potion)
 
@@ -221,7 +222,20 @@ func _on_inventory_changed() -> void:
 
 
 func _on_equipment_changed() -> void:
+	_apply_equipment_to_stats()
 	equipment_changed.emit()
+
+
+## Sends the worn pieces to the player's stats (rebuilds the "equipment" ADD buffs).
+func _apply_equipment_to_stats() -> void:
+	if GlobalPlayerManager.player_stats == null:
+		return
+	var pieces: Array[ArmorData] = []
+	for armor_slot: ArmorData.Slot in ArmorData.Slot.values():
+		var piece: ArmorData = _equipped.get_piece(armor_slot)
+		if piece != null:
+			pieces.append(piece)
+	GlobalPlayerManager.player_stats.apply_equipment(pieces)
 
 
 func _select_potion(potion: PotionData) -> void:
@@ -236,9 +250,3 @@ func _get_owned_potions() -> Array[PotionData]:
 	for slot: SlotData in get_slots([ItemData.Category.POTION]):
 		potions.append(slot.item_data as PotionData)
 	return potions
-
-
-func _get_item_key(item: ItemData) -> StringName:
-	if item.id != &"":
-		return item.id
-	return StringName(item.resource_path)

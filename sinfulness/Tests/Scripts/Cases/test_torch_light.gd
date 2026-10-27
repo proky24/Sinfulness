@@ -2,7 +2,7 @@ extends TestCase
 ## PRD 7: torch light is blocked by walls and doorway openings (FloorWallTile occlusion layer).
 
 const FLOOR_WALL_TILE_PATH: String = "res://Floors/TilesSetsNodes/FloorWallTile.tscn"
-const TORCH_PATH: String = "res://Entities/GeneralNodes/Props/Torches/TorchSmall.tscn"
+const TORCH_PATH: String = "res://Entities/GeneralNodes/Props/Torches/Torch.tscn"
 const ROUND_TRIP_PATH: String = "user://test_torch_light_tileset.tres"
 
 const ARCH_TILES: Array[Vector2i] = [Vector2i(4, 24), Vector2i(5, 24), Vector2i(4, 25), Vector2i(5, 25)]

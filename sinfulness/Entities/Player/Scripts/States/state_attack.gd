@@ -11,6 +11,8 @@ class_name StateAttack extends State
 @onready var camera: PlayerCamera = $"../../Camera2D"
 
 @export var decalerate_speed: int = 10
+## Damage multiplier of each combo hit (1st, 2nd, 3rd).
+@export var combo_damage_multipliers: Array[float] = [1.0, 1.1, 1.4]
 
 var hurt_box_timer: float = 0.15
 
@@ -43,6 +45,8 @@ func enter() -> void:
 	player.velocity = Vector2.ZERO
 	camera.start_attack(player.cardinal_dir)
 	
+	if attack_combo <= combo_damage_multipliers.size():
+		hurt_box.damage_multiplier = combo_damage_multipliers[attack_combo - 1]
 	player.update_animation("attack_" + str(attack_combo))
 	
 	attacking = true

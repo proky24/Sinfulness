@@ -1,12 +1,17 @@
 class_name PotionData extends ItemData
-## A potion. Drinking it gives a temporary buff, or an instant effect when duration_seconds is 0.
+## A potion. Instant amounts are applied on drinking; buffs last duration_seconds.
+## GlobalInventory removes the buffs when the potion's timer ends (both use get_key()).
 
-enum Stat { HEALTH, DAMAGE, DURABILITY, CORRUPTION_DURABILITY, LUCK, FAITH, DISGRACE, CORRUPTION }
-
-@export var stat_changed: Stat = Stat.HEALTH
-@export var amount: float = 0.0
-## Buff length in seconds (about 60 to 90). 0 means an instant effect, for example Maturation.
+## Stat buffs active for duration_seconds. Drinking again replaces them (no stacking).
+@export var buffs: Array[StatBuff] = []
+## Buff length in seconds (about 60 to 90). 0 means an instant potion, for example Maturation.
 @export var duration_seconds: float = 60.0
+
+@export_group("Instant")
+@export var heal_amount: float = 0.0
+@export var mana_amount: float = 0.0
+## Negative lowers corruption (Maturation).
+@export var corruption_amount: float = 0.0
 
 
 func _init() -> void:
@@ -18,11 +23,20 @@ func is_instant() -> bool:
 	return duration_seconds <= 0.0
 
 
+## Applies the instant amounts and the buffs to [param user].stats. Returns false when the user has no stats.
 ## GlobalInventory removes the potion, starts the cooldown and runs the buff timer.
-func use(_user: Node) -> bool:
-	# Stats system (not built yet):
-	# if is_instant():
-	# 	_user.stats.apply_instant(stat_changed, amount)   # e.g. Maturation lowers corruption
-	# else:
-	# 	_user.stats.add_buff(id, stat_changed, amount)    # removed on GlobalInventory.potion_effect_ended
+func use(user: Node) -> bool:
+	var stats: Stats = user.get("stats") as Stats if user != null else null
+	if stats == null:
+		return false
+	if heal_amount > 0.0:
+		stats.heal(heal_amount)
+	var player_stats: PlayerStats = stats as PlayerStats
+	if player_stats != null:
+		if mana_amount > 0.0:
+			player_stats.restore_mana(mana_amount)
+		if not is_zero_approx(corruption_amount):
+			player_stats.add_corruption(corruption_amount)
+	if not is_instant() and not buffs.is_empty():
+		stats.add_buffs(buffs, get_key())
 	return true

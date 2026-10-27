@@ -29,6 +29,14 @@ func is_same_item(other: ItemData) -> bool:
 	return id != &"" and id == other.id
 
 
+## Stable key of this item (the id, or the resource path when the id is empty).
+## Used for potion buff timers and as the buff source in Stats.
+func get_key() -> StringName:
+	if id != &"":
+		return id
+	return StringName(resource_path)
+
+
 ## Uses the item on [param user] (the player, can be null). Returns true when one item was consumed.
 func use(_user: Node) -> bool:
 	return false

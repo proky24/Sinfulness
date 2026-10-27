@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://e7oqxexga7sv"]
+
+[ext_resource type="Script" uid="uid://cudyaw8qj71d0" path="res://Entities/StatSystem/Scripts/stat_buff.gd" id="1_ellm2"]
+[ext_resource type="Script" uid="uid://f4eql5jyxugf" path="res://GUI/PauseMenu/Inventory/Scripts/potion_data.gd" id="2_bshnq"]
+[ext_resource type="Texture2D" uid="uid://dwfnyruiyecb0" path="res://Assets/Potions/items/item_27.png" id="3_vcsmf"]
+
+[resource]
+script = ExtResource("2_bshnq")
+duration_seconds = 0.0
+mana_amount = 30.0
+id = &"mana_potion"
+name = "Mana Potion"
+description = "Instantly restores mana."
+texture = ExtResource("3_vcsmf")
+max_stack = 5

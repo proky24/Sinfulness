@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://bqtifov34rhah"]
+
+[ext_resource type="Script" uid="uid://cudyaw8qj71d0" path="res://Entities/StatSystem/Scripts/stat_buff.gd" id="1_jityc"]
+[ext_resource type="Script" uid="uid://f4eql5jyxugf" path="res://GUI/PauseMenu/Inventory/Scripts/potion_data.gd" id="2_piha2"]
+[ext_resource type="Texture2D" uid="uid://3u45xb4yfncs" path="res://Assets/Potions/items/item_12.png" id="3_2p13r"]
+
+[sub_resource type="Resource" id="Resource_e0j5e"]
+script = ExtResource("1_jityc")
+stat = 5
+amount = 5.0
+
+[resource]
+script = ExtResource("2_piha2")
+buffs = Array[ExtResource("1_jityc")]([SubResource("Resource_e0j5e")])
+id = &"fortune_teller_potion"
+name = "Fortune-Teller Potion"
+description = "Raises luck for a while."
+texture = ExtResource("3_2p13r")
+max_stack = 5

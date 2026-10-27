@@ -1,16 +1,19 @@
 [gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://cqhsh6cyut7ho"]
 
+[ext_resource type="Script" uid="uid://cudyaw8qj71d0" path="res://Entities/StatSystem/Scripts/stat_buff.gd" id="1_cwhis"]
 [ext_resource type="Script" uid="uid://f4eql5jyxugf" path="res://GUI/PauseMenu/Inventory/Scripts/potion_data.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://dg056fxl6dvmd" path="res://Assets/Potions/items/item_08.png" id="2_vr32y"]
 
+[sub_resource type="Resource" id="Resource_jypou"]
+script = ExtResource("1_cwhis")
+stat = 7
+amount = 5.0
+
 [resource]
 script = ExtResource("1_script")
-stat_changed = 6
-amount = -10.0
-duration_seconds = 0.0
+buffs = Array[ExtResource("1_cwhis")]([SubResource("Resource_jypou")])
 id = &"decayed_potion"
 name = "Decayed Potion"
-description = "Signiticantly boosts corruption
-"
+description = "Raises disgrace for a while."
 texture = ExtResource("2_vr32y")
-max_stack = 7
+max_stack = 5

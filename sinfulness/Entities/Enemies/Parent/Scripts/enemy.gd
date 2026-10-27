@@ -4,7 +4,8 @@ signal dir_changed(new_dir: Vector2)
 signal enemy_damaged()
 signal enemy_destroyed()
 
-@export var hp: int = 3
+## Template. Each enemy works on its own copy, so enemies sharing a .tres do not share health.
+@export var stats: EnemyStats
 
 var direction: Vector2 = Vector2.ZERO
 var cardinal_dir: Vector2 = Vector2.DOWN
@@ -20,9 +21,15 @@ const dir4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 @onready var enemy_state_machine: Node = $EnemyStateMachine
 
 func _ready() -> void:
+	if stats == null:
+		push_warning("Enemy %s has no stats, using EnemyStats defaults" % name)
+		stats = EnemyStats.new()
+	stats = stats.duplicate(true) as EnemyStats
+	stats.setup()
+	hurt_box.source_stats = stats
 	enemy_state_machine.initialize(self)
 	player = GlobalPlayerManager.player
-	
+
 	hit_box.Damaged.connect(_take_damage)
 	pass
 
@@ -54,12 +61,14 @@ func update_animation(state : String) -> void:
 	animation_player.play(state)
 	pass
 
-func _take_damage(_damage: int) -> void:
-	if invulnerable == true:
+## Hits during the stun or after death are ignored and leave hit.applied false (no mana).
+func _take_damage(hit: HitData) -> void:
+	if invulnerable == true or stats.is_dead():
 		return
-	
-	hp -= _damage
-	if hp < 0:
+
+	stats.take_damage(hit)
+	if stats.is_dead():
+		GlobalPlayerManager.player_stats.add_orbs(stats.orb_reward)
 		enemy_destroyed.emit()
 	else:
 		enemy_damaged.emit()
