@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://chqyadkg7qwoy" path="res://Assets/Potions/items/item_48.png" id="8_pkvmb"]
 [ext_resource type="Script" uid="uid://cw7nvqlrh6xlm" path="res://GUI/PlayerHUD/displayed_potion.gd" id="9_rh4ct"]
 [ext_resource type="Theme" uid="uid://bijs0xpj6f8rg" path="res://GUI/PauseMenu/Inventory/UI/inventory_theme.tres" id="10_3duxl"]
+[ext_resource type="Texture2D" uid="uid://klykftwdqoec" path="res://Assets/UI pack/Individual files/1x/Buttons/Button_04A_Normal.png" id="11_j8c5h"]
+[ext_resource type="Script" uid="uid://b71feexp41mw4" path="res://GUI/PlayerHUD/orbs_shower.gd" id="12_kee4l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vbnnc"]
 atlas = ExtResource("2_vma1f")
@@ -58,9 +60,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 97.0
-offset_top = -151.0
+offset_top = -152.0
 offset_right = 145.0
-offset_bottom = -103.0
+offset_bottom = -104.0
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 value = 100.0
@@ -74,9 +76,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 73.0
-offset_top = -163.0
+offset_top = -164.0
 offset_right = 153.0
-offset_bottom = -83.0
+offset_bottom = -84.0
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_wmevh")
@@ -89,9 +91,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -165.0
-offset_top = 17.0
+offset_top = 16.0
 offset_right = -117.0
-offset_bottom = 65.0
+offset_bottom = 64.0
 grow_horizontal = 0
 texture = ExtResource("7_3duxl")
 
@@ -118,6 +120,38 @@ offset_bottom = 10.833332
 theme = ExtResource("10_3duxl")
 theme_override_font_sizes/font_size = 14
 text = "1"
+
+[node name="Node4" type="Node" parent="Control" unique_id=1665065313]
+
+[node name="OrbsShower" type="TextureRect" parent="Control/Node4" unique_id=1082607006]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -100.0
+offset_right = 96.0
+offset_bottom = -84.0
+grow_vertical = 0
+texture = ExtResource("11_j8c5h")
+script = ExtResource("12_kee4l")
+
+[node name="Label" type="Label" parent="Control/Node4/OrbsShower" unique_id=1661201693]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_3duxl")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=1422412083]
 one_shot = true
