@@ -23,6 +23,7 @@ GlobalPlayerManager="*uid://c86bsdnyueakf"
 PauseMenu="*uid://s07dllea4cju"
 MCPRuntimeServer="*res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd"
 GlobalInventory="*uid://yrj7redgsjji"
+FpsShower="*uid://42f24v2cfnl8"
 
 [display]
 
@@ -32,6 +33,7 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=2
 
 [editor_plugins]
 

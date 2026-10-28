@@ -3,7 +3,7 @@ extends Node
 ##
 ## The pause-menu tabs only filter this inventory by category. The game always works on
 ## runtime copies, so the .tres files in the project are never changed while playing.
-## Buff and cooldown timers are child Timers, so they pause together with the tree.
+## Buff timers are child Timers, so they pause together with the tree.
 
 signal inventory_changed
 signal equipment_changed
@@ -13,8 +13,6 @@ signal selected_potion_changed(potion: PotionData)
 
 @export var starting_inventory: InventoryData
 @export var starting_equipment: EquippedData
-## Seconds between two potions.
-@export var potion_cooldown_seconds: float = 3.0
 
 ## True during a boss fight: armor cannot be changed. Cleared by notify_player_died().
 var loadout_locked: bool:
@@ -25,14 +23,10 @@ var _inventory: InventoryData
 var _equipped: EquippedData
 var _boss_fight_active: bool = false
 var _selected_potion: PotionData = null
-var _cooldown_timer: Timer
 var _buff_timers: Dictionary[StringName, Timer] = {}
 
 
 func _ready() -> void:
-	_cooldown_timer = Timer.new()
-	_cooldown_timer.one_shot = true
-	add_child(_cooldown_timer)
 	set_inventory(starting_inventory if starting_inventory != null else InventoryData.new())
 	set_equipped(starting_equipment if starting_equipment != null else EquippedData.new())
 
@@ -101,14 +95,6 @@ func get_selected_potion() -> PotionData:
 	return _selected_potion
 
 
-func is_potion_on_cooldown() -> bool:
-	return not _cooldown_timer.is_stopped()
-
-
-func get_cooldown_time_left() -> float:
-	return _cooldown_timer.time_left
-
-
 func is_buff_active(potion: PotionData) -> bool:
 	return _buff_timers.has(potion.get_key())
 
@@ -167,7 +153,6 @@ func set_boss_fight_active(active: bool) -> void:
 func notify_player_died() -> void:
 	_boss_fight_active = false
 
-
 # -- Private -------------------------------------------------------------------
 
 
@@ -175,22 +160,20 @@ func _use(item: ItemData) -> bool:
 	if item == null or get_count(item) <= 0:
 		return false
 	var potion: PotionData = item as PotionData
-	if potion != null and is_potion_on_cooldown():
+	if potion != null and not potion.is_instant() and is_buff_active(potion):
 		return false
 	if not item.use(GlobalPlayerManager.player):
 		return false
 	_inventory.remove_item(item, 1)
 	if potion != null:
-		if potion_cooldown_seconds > 0.0:
-			_cooldown_timer.start(potion_cooldown_seconds)
 		if not potion.is_instant():
 			_start_buff(potion)
-		print("[GlobalInventory] potion used: %s" % potion.name)
+		#print("[GlobalInventory] potion used: %s" % potion.name)
 		potion_used.emit(potion)
+		pass
 	return true
 
 
-## Starts the buff timer for [param potion], or restarts it if that potion is already active (no stacking).
 func _start_buff(potion: PotionData) -> void:
 	var key: StringName = potion.get_key()
 	var timer: Timer = _buff_timers.get(key)

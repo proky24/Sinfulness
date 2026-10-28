@@ -24,8 +24,8 @@ func is_instant() -> bool:
 
 
 ## Applies the instant amounts and the buffs to [param user].stats. Returns false when the user has no stats.
-## GlobalInventory removes the potion, starts the cooldown and runs the buff timer.
 func use(user: Node) -> bool:
+	print("[PotionData] using potion: %s" % name)
 	var stats: Stats = user.get("stats") as Stats if user != null else null
 	if stats == null:
 		return false

@@ -6,13 +6,13 @@ extends CanvasLayer
 @onready var control: Control = $Control
 @onready var hp_bar: TextureProgressBar = $Control/Node/HPBar
 @onready var mana_bar: TextureProgressBar = $Control/Node2/ManaBar
+@onready var displayed_potion: TextureRect = $Control/Node3/TextureRect/DisplayedPotion
 
 @export var dissapear_time: float = 4.0
 ## Seconds a bar takes to slide to a new value.
 @export var bar_tween_time: float = 0.5
 
 var player : Player = null
-
 var sections = null
 
 var _stats: PlayerStats = null
@@ -25,6 +25,7 @@ func _ready() -> void:
 	timer.timeout.connect(dissapear)
 	sections = control.get_children()
 
+	displayed_potion.potion_cycled.connect(appear)
 	pass # Replace with function body.
 
 ## Follows [param stats]: health and mana bars, and appears when the player is damaged.
@@ -42,6 +43,7 @@ func bind_stats(stats: PlayerStats) -> void:
 	pass
 
 func appear() -> void:
+	timer.start()
 	var tween = create_tween()
 	for s in sections.size():
 		for c in sections[s].get_children():
@@ -51,6 +53,7 @@ func appear() -> void:
 			for c in sections[s].get_children():
 				c.visible = true
 	)
+
 
 func dissapear() -> void:
 	var tween = create_tween()

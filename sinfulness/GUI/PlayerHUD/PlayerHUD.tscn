@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cvj73rdckwvhj" path="res://Assets/UI pack/Individual files/1x/Resource orbs/DecoratedFrame2_Left.png" id="3_wmevh"]
 [ext_resource type="Texture2D" uid="uid://ct3dttbevpxuv" path="res://Assets/UI pack/Individual files/1x/Resource orbs/Orb_MP.png" id="4_wmevh"]
 [ext_resource type="Texture2D" uid="uid://dasxwy6cyn3qb" path="res://Assets/UI pack/Individual files/1x/Resource orbs/DecoratedFrame1_Left.png" id="5_wmevh"]
+[ext_resource type="Texture2D" uid="uid://bdelir6sk3dqe" path="res://Assets/UI pack/Individual files/1x/Background boxes/BGbox_06A.png" id="7_3duxl"]
+[ext_resource type="Texture2D" uid="uid://chqyadkg7qwoy" path="res://Assets/Potions/items/item_48.png" id="8_pkvmb"]
+[ext_resource type="Script" uid="uid://cw7nvqlrh6xlm" path="res://GUI/PlayerHUD/displayed_potion.gd" id="9_rh4ct"]
+[ext_resource type="Theme" uid="uid://bijs0xpj6f8rg" path="res://GUI/PauseMenu/Inventory/UI/inventory_theme.tres" id="10_3duxl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vbnnc"]
 atlas = ExtResource("2_vma1f")
@@ -35,7 +39,7 @@ offset_left = 32.0
 offset_top = 16.0
 offset_right = 80.0
 offset_bottom = 64.0
-value = 90.0
+value = 100.0
 fill_mode = 3
 texture_under = ExtResource("1_xitr1")
 texture_progress = SubResource("AtlasTexture_vbnnc")
@@ -77,6 +81,43 @@ grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_wmevh")
 stretch_mode = 2
+
+[node name="Node3" type="Node" parent="Control" unique_id=201570919]
+
+[node name="TextureRect" type="TextureRect" parent="Control/Node3" unique_id=270180982]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -165.0
+offset_top = 17.0
+offset_right = -117.0
+offset_bottom = 65.0
+grow_horizontal = 0
+texture = ExtResource("7_3duxl")
+
+[node name="DisplayedPotion" type="TextureRect" parent="Control/Node3/TextureRect" unique_id=1977920293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_pkvmb")
+script = ExtResource("9_rh4ct")
+
+[node name="Label" type="Label" parent="Control/Node3/TextureRect/DisplayedPotion" unique_id=1173762414]
+layout_mode = 1
+offset_left = -1.0000101
+offset_top = -12.166668
+offset_right = 38.99999
+offset_bottom = 10.833332
+theme = ExtResource("10_3duxl")
+theme_override_font_sizes/font_size = 14
+text = "1"
 
 [node name="Timer" type="Timer" parent="." unique_id=1422412083]
 one_shot = true

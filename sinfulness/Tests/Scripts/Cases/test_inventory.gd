@@ -122,45 +122,47 @@ func test_equipped_armor_counts_as_owned() -> void:
 
 func test_potion_use_cooldown_and_boss_lock() -> void:
 	_reset_global(InventoryData.new())
-	var cooldown: float = GlobalInventory.potion_cooldown_seconds
-	GlobalInventory.potion_cooldown_seconds = 0.2
-	GlobalInventory.add_item(berserk, 2)
-	GlobalInventory.add_item(maturation, 1)
-	assert_eq(GlobalInventory.get_selected_potion(), berserk, "first owned potion is selected")
+	var short_berserk: PotionData = berserk.duplicate()
+	short_berserk.duration_seconds = 0.2
+	GlobalInventory.add_item(short_berserk, 2)
+	GlobalInventory.add_item(maturation, 2)
+	assert_eq(GlobalInventory.get_selected_potion(), short_berserk, "first owned potion is selected")
 
 	assert_true(GlobalInventory.use_selected_potion())
-	assert_eq(GlobalInventory.get_count(berserk), 1)
-	assert_true(GlobalInventory.is_buff_active(berserk))
-	assert_false(GlobalInventory.use_selected_potion(), "cooldown blocks a second drink")
+	assert_eq(GlobalInventory.get_count(short_berserk), 1)
+	assert_true(GlobalInventory.is_buff_active(short_berserk))
+	assert_false(GlobalInventory.use_selected_potion(), "an active potion cannot be drunk again")
+	assert_eq(GlobalInventory.get_count(short_berserk), 1, "no bottle wasted")
+	assert_true(GlobalInventory.use_item(maturation), "a different potion can be drunk right away")
 	await wait_seconds(0.3)
 
 	GlobalInventory.set_boss_fight_active(true)
 	assert_true(GlobalInventory.loadout_locked)
-	assert_false(GlobalInventory.use_item(berserk), "menu drinking blocked in boss fight")
+	assert_false(GlobalInventory.use_item(short_berserk), "menu drinking blocked in boss fight")
 	assert_true(GlobalInventory.use_selected_potion(), "quick key still works in boss fight")
 	assert_eq(GlobalInventory.get_selected_potion(), maturation, "selection moves on when berserk runs out")
 	GlobalInventory.notify_player_died()
 	assert_false(GlobalInventory.loadout_locked)
 
 	assert_eq(GlobalInventory.cycle_potion(), maturation, "only one potion type left")
-	GlobalInventory.potion_cooldown_seconds = cooldown
+	await wait_seconds(0.3)  # let the berserk buff end before the next test
 	_restore_global()
 
 
-func test_redrinking_refreshes_buff() -> void:
-	await wait_seconds(0.3)  # let the previous test's cooldown run out
+func test_active_potion_is_not_drunk_again() -> void:
 	_reset_global(InventoryData.new())
-	var cooldown: float = GlobalInventory.potion_cooldown_seconds
-	GlobalInventory.potion_cooldown_seconds = 0.0
-	GlobalInventory.add_item(berserk, 2)
-	GlobalInventory.use_item(berserk)
-	await wait_seconds(0.3)
-	var before: float = GlobalInventory.get_buff_time_left(berserk)
-	GlobalInventory.use_item(berserk)
-	var after: float = GlobalInventory.get_buff_time_left(berserk)
-	assert_true(after > before, "timer restarted (%.2f -> %.2f)" % [before, after])
-	assert_eq(after, berserk.duration_seconds, "refreshed, not stacked")
-	GlobalInventory.potion_cooldown_seconds = cooldown
+	var short_berserk: PotionData = berserk.duplicate()
+	short_berserk.duration_seconds = 0.3
+	GlobalInventory.add_item(short_berserk, 2)
+	assert_true(GlobalInventory.use_item(short_berserk))
+	await wait_seconds(0.1)
+	var before: float = GlobalInventory.get_buff_time_left(short_berserk)
+	assert_false(GlobalInventory.use_item(short_berserk), "refused while active")
+	assert_eq(GlobalInventory.get_count(short_berserk), 1, "no bottle wasted")
+	assert_true(GlobalInventory.get_buff_time_left(short_berserk) <= before, "timer not restarted")
+	await wait_seconds(0.4)
+	assert_true(GlobalInventory.use_item(short_berserk), "can drink again after it ends")
+	await wait_seconds(0.4)  # let the buff end before the next test
 	_restore_global()
 
 
@@ -168,8 +170,6 @@ func test_potion_buff_ends_with_its_timer() -> void:
 	await wait_seconds(0.3)  # let the previous test's cooldown run out
 	_reset_global(InventoryData.new())
 	var stats: PlayerStats = GlobalPlayerManager.player_stats
-	var cooldown: float = GlobalInventory.potion_cooldown_seconds
-	GlobalInventory.potion_cooldown_seconds = 0.0
 	var turtle: PotionData = (load(ITEMS_DIR + "turtle_potion.tres") as PotionData).duplicate()
 	turtle.duration_seconds = 0.3
 	var durability: float = stats.get_stat(Stats.Stat.DURABILITY)
@@ -181,7 +181,6 @@ func test_potion_buff_ends_with_its_timer() -> void:
 	assert_false(GlobalInventory.is_buff_active(turtle))
 	assert_false(stats.has_buffs(turtle.get_key()), "buff removed when the timer ends")
 	assert_eq(stats.get_stat(Stats.Stat.DURABILITY), durability)
-	GlobalInventory.potion_cooldown_seconds = cooldown
 	_restore_global()
 
 

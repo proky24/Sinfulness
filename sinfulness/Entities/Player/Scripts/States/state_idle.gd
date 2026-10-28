@@ -32,7 +32,7 @@ func _handle_input(event: InputEvent) -> State:
 		return block
 	elif event.is_action_pressed("take_dmg"):
 		player.hit_box.take_damage(HitData.new(15.0))
-		GlobalPlayerManager.player_stats.spend_mana(10.0)
+		GlobalPlayerManager.player_stats.spend_mana(30.0)
 	elif event.is_action_pressed("interact"):
 		GlobalPlayerManager.interact_pressed.emit()
 	return idle
