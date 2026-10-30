@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://d0aov2xfn6dtx"]
 
-[ext_resource type="Texture2D" uid="uid://bubeojlcldxkv" path="res://Assets/UI pack/Individual files/1x/Cursors/Command_Attack.png" id="1_qy44b"]
+[ext_resource type="Theme" uid="uid://bijs0xpj6f8rg" path="res://GUI/PauseMenu/Inventory/UI/inventory_theme.tres" id="1_qy44b"]
 
 [node name="CampfireUI" type="CanvasLayer" unique_id=566568173]
 
+[node name="CanvasModulate" type="ColorRect" parent="." unique_id=1090565108]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.46666667, 0.4117647, 0.72156864, 0.078431375)
+
 [node name="Control" type="Control" parent="." unique_id=1728568552]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,11 +20,78 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=696307306]
-visible = false
-layout_mode = 0
-offset_left = 294.0
-offset_top = 135.0
-offset_right = 334.0
-offset_bottom = 175.0
-texture = ExtResource("1_qy44b")
+[node name="HBoxContainer" type="VBoxContainer" parent="Control" unique_id=675576797]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 153.0
+offset_top = -43.0
+offset_right = 227.0
+offset_bottom = 44.0
+grow_vertical = 2
+
+[node name="Node" type="Node" parent="Control/HBoxContainer" unique_id=1949819753]
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/Node" unique_id=507707851]
+offset_left = 153.0
+offset_top = 137.0
+offset_right = 227.0
+offset_bottom = 146.0
+theme = ExtResource("1_qy44b")
+text = "Health"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/Node" unique_id=1137549228]
+offset_left = 153.0
+offset_top = 150.0
+offset_right = 227.0
+offset_bottom = 159.0
+theme = ExtResource("1_qy44b")
+text = "Damage"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/Node" unique_id=341838505]
+offset_left = 153.0
+offset_top = 163.0
+offset_right = 227.0
+offset_bottom = 172.0
+theme = ExtResource("1_qy44b")
+text = "Durability"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/Node" unique_id=1367929946]
+offset_left = 153.0
+offset_top = 176.0
+offset_right = 227.0
+offset_bottom = 185.0
+theme = ExtResource("1_qy44b")
+text = "Corruption Durability"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Control/HBoxContainer/Node" unique_id=1531778308]
+offset_left = 153.0
+offset_top = 189.0
+offset_right = 227.0
+offset_bottom = 198.0
+theme = ExtResource("1_qy44b")
+text = "Luck"
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Control/HBoxContainer/Node" unique_id=821674837]
+offset_left = 153.0
+offset_top = 202.0
+offset_right = 227.0
+offset_bottom = 211.0
+theme = ExtResource("1_qy44b")
+text = "Faith"
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Control/HBoxContainer/Node" unique_id=431076989]
+offset_left = 153.0
+offset_top = 215.0
+offset_right = 227.0
+offset_bottom = 224.0
+theme = ExtResource("1_qy44b")
+text = "Disgrace"
+vertical_alignment = 1

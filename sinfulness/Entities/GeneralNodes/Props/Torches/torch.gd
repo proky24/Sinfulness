@@ -20,6 +20,8 @@ const CAMPFIREUI: PackedScene = preload("res://GUI/Campfire/CampfireUI.tscn")
 
 var label_tween: Tween
 var lit: bool = false
+var campfire_ui_shown: bool = false
+var campfire_ui: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -65,8 +67,14 @@ func _on_interact_pressed() -> void:
 		_play_ignition_effects()
 		await get_tree().create_timer(0.5).timeout
 		_play_loop_effects()
-	var root = get_tree().get_root()
-	root.add_child(CAMPFIREUI.instantiate())
+	if campfire_ui_shown == false:
+		campfire_ui = CAMPFIREUI.instantiate()
+		get_tree().current_scene.add_child(campfire_ui)
+		campfire_ui_shown = true
+	else:
+		campfire_ui.queue_free()
+		campfire_ui_shown = false
+
 
 func _play_ignition_effects() -> void:
 	_play_sound(TORCH_LIT_SFX, 0)

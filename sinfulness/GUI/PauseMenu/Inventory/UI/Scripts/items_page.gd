@@ -36,7 +36,7 @@ func _on_slot_focused(slot_ui: InventorySlotUI) -> void:
 func _on_slot_chosen(slot_ui: InventorySlotUI) -> void:
 	var potion: PotionData = slot_ui.get_item() as PotionData
 	var grid: ItemGrid = slot_ui.get_parent() as ItemGrid
-	if potion == null or grid == null or not GlobalInventory.use_item(potion):
+	if potion == null or grid == null: #or not GlobalInventory.use_item(potion)
 		return
 	# Deferred: the slot's pressed signal is still running and fill() frees the slot.
 	_refill_after_use.call_deferred(grid, slot_ui.get_index())
