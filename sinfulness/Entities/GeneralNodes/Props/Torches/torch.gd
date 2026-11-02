@@ -71,10 +71,11 @@ func _on_interact_pressed() -> void:
 		campfire_ui = CAMPFIREUI.instantiate()
 		get_tree().current_scene.add_child(campfire_ui)
 		campfire_ui_shown = true
-	else:
-		campfire_ui.queue_free()
-		campfire_ui_shown = false
 
+		PauseMenu.process_mode = Node.PROCESS_MODE_INHERIT
+		get_tree().paused = true
+	else:
+		campfire_ui_shown = false
 
 func _play_ignition_effects() -> void:
 	_play_sound(TORCH_LIT_SFX, 0)

@@ -36,12 +36,3 @@ func _handle_input(event: InputEvent) -> State:
 	elif event.is_action_pressed("interact"):
 		GlobalPlayerManager.interact_pressed.emit()
 	return idle
-
-#func shoot_radial(origin: Vector2, count: int) -> void:
-			#for i in count:
-				#var angle := (TAU / count) * i
-				#var dir := Vector2.RIGHT.rotated(angle)
-				#var arrow := player.Sunrise.instantiate()
-				#arrow.direction = dir
-				#arrow.position = origin
-				#get_tree().current_scene.add_child(arrow)

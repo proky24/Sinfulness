@@ -18,7 +18,6 @@ func _ready() -> void:
 	player_spawned = true
 	pass
    
-
 func add_player_instance() -> void:
 	player = PLAYER_SCENE.instantiate() as Player
 	add_child(player)
