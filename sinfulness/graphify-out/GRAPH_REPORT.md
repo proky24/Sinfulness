@@ -1,17 +1,17 @@
-# Graph Report - sinfulness  (2026-11-02)
+# Graph Report - sinfulness  (2026-11-03)
 
 ## Corpus Check
-- 41 files · ~77,104 words
+- 43 files · ~84,288 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 2872 file(s) not represented in the graph (top: .import 2304, .gd 194, .uid 193)
+- Unclassified: 2875 file(s) not represented in the graph (top: .import 2304, .gd 195, .uid 194)
 
 ## Summary
-- 425 nodes · 403 edges · 35 communities (28 shown, 7 thin omitted)
+- 474 nodes · 450 edges · 37 communities (31 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cc0dc726`
+- Built from commit: `597973f2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,18 +47,20 @@
 - type-coercion.md
 - CLAUDE.md
 - .claude/CLAUDE.md
+- PRD: CampfireUI level-up screen. Layout, hierarchy and theme pass
+- PRD: CampfireUI level-up screen. Layout, hierarchy and theme pass
 
 ## God Nodes (most connected - your core abstractions)
 1. `Extensions (supported)` - 23 edges
 2. `NewFloor1 – session handoff (2026-10-15)` - 13 edges
-3. `PRD: Inventory System for Sinfulness (Godot 4.7.2)` - 11 edges
-4. `PRD: Stat System for Sinfulness (Godot 4.7.2)` - 11 edges
-5. `Attributions (godot-mcp-toolkit)` - 11 edges
-6. `C# extensions` - 11 edges
-7. `PRD 4: NewFloor1, a clean tile-only floor (Sinfulness, Godot 4.7.2)` - 10 edges
-8. `Godot Version Compatibility` - 10 edges
-9. `PRD 2: Loadout tab stage 2, two-way page flip, last-used tab (Sinfulness, Godot 4.7.2)` - 9 edges
-10. `PRD 5: NewFloor1 props, decorating the floor (Sinfulness, Godot 4.7.2)` - 9 edges
+3. `PRD: CampfireUI level-up screen. Layout, hierarchy and theme pass` - 12 edges
+4. `PRD: CampfireUI level-up screen. Layout, hierarchy and theme pass` - 12 edges
+5. `PRD: Inventory System for Sinfulness (Godot 4.7.2)` - 11 edges
+6. `PRD: Stat System for Sinfulness (Godot 4.7.2)` - 11 edges
+7. `Attributions (godot-mcp-toolkit)` - 11 edges
+8. `C# extensions` - 11 edges
+9. `PRD 4: NewFloor1, a clean tile-only floor (Sinfulness, Godot 4.7.2)` - 10 edges
+10. `Godot Version Compatibility` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -66,7 +68,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (35 total, 7 thin omitted)
+## Communities (37 total, 6 thin omitted)
 
 ### Community 0 - "Extensions (supported)"
 Cohesion: 0.07
@@ -180,22 +182,34 @@ Nodes (4): C#, Exporting your game (extension scripts in builds), For a clean st
 Cohesion: 0.40
 Nodes (4): GODOT_MCP_CONFIG_VERSION, cmd, godot-mcp-toolkit, @npgamedev/godot-mcp-server
 
+### Community 30 - "CLAUDE.md"
+Cohesion: 0.29
+Nodes (5): 1. Think Before Coding, 2. Simplicity First, 3. Surgical Changes, 4. Goal-Driven Execution, graphify
+
+### Community 35 - "PRD: CampfireUI level-up screen. Layout, hierarchy and theme pass"
+Cohesion: 0.09
+Nodes (21): 0. How to use this document (Claude Code), 10. Decisions made, and open questions, 1. Goal and non-goals, 2. Current state (findings), 3.1 Visual direction (decided), 3.2 Wireframe (640×360 viewport; not to scale), 3.3 Art scale: integer only, never `scale`, 3.4 Page content areas (measured from the Spellbook PNG) (+13 more)
+
+### Community 36 - "PRD: CampfireUI level-up screen. Layout, hierarchy and theme pass"
+Cohesion: 0.09
+Nodes (21): 0. How to use this document (Claude Code), 10. Decisions made, and open questions, 1. Goal and non-goals, 2. Current state (findings), 3.1 Visual direction (decided), 3.2 Wireframe (640×360 viewport; not to scale), 3.3 Art scale: integer only, never `scale`, 3.4 Page content areas (measured from the Spellbook PNG) (+13 more)
+
 ## Knowledge Gaps
 - **3 isolated node(s):** `cmd`, `@npgamedev/godot-mcp-server`, `GODOT_MCP_CONFIG_VERSION`
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 349 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 388 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Extending the MCP Toolkit` connect `Extensions (supported)` to `Multi-Instance / Multiplayer Setup`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **What connects `cmd`, `@npgamedev/godot-mcp-server`, `GODOT_MCP_CONFIG_VERSION` to the rest of the system?**
   _3 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Extensions (supported)` be split into smaller, more focused modules?**
   _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
 - **Why does `Advanced Configuration` connect `Advanced Configuration` to `Multi-Instance / Multiplayer Setup`?**
-  _High betweenness centrality (0.026) - this node is a cross-community bridge._
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Should `Multi-Instance / Multiplayer Setup` be split into smaller, more focused modules?**
   _Cohesion score 0.09666666666666666 - nodes in this community are weakly interconnected._
 - **Should `mcp-extension-creator/SKILL.md` be split into smaller, more focused modules?**

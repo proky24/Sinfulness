@@ -1,0 +1,87 @@
+[gd_resource type="Theme" format=3 uid="uid://enh6boxsyx7c"]
+
+[ext_resource type="FontFile" uid="uid://bl1pap6k8rrij" path="res://Assets/UI pack/Fonts/FantasyRPGtext (size 8).ttf" id="1_text_font"]
+[ext_resource type="FontFile" uid="uid://bnt0xff6cuafc" path="res://Assets/UI pack/Fonts/FantasyRPGtitle (size 11).ttf" id="2_title_font"]
+[ext_resource type="Texture2D" uid="uid://cjyfrmian753d" path="res://Assets/UI pack/Individual files/1x/Buttons/Button_06A_Normal.png" id="3_btn_normal"]
+[ext_resource type="Texture2D" uid="uid://rxy3b7eyy1bo" path="res://Assets/UI pack/Individual files/1x/Buttons/Button_06A_Pressed.png" id="4_btn_pressed"]
+[ext_resource type="Texture2D" uid="uid://bipabmps3guqq" path="res://Assets/UI pack/Individual files/1x/Buttons/Button_06A_Selected.png" id="5_btn_selected"]
+[ext_resource type="Texture2D" uid="uid://klykftwdqoec" path="res://Assets/UI pack/Individual files/1x/Buttons/Button_04A_Normal.png" id="6_btn_disabled"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBox_btn_disabled"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+texture = ExtResource("6_btn_disabled")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBox_btn_selected"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+texture = ExtResource("5_btn_selected")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBox_btn_normal"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_btn_normal")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBox_btn_pressed"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_btn_pressed")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+
+[resource]
+default_font = ExtResource("1_text_font")
+default_font_size = 8
+BannerTitle/base_type = &"Label"
+BannerTitle/colors/font_color = Color(0.29, 0.16, 0.12, 1)
+BannerTitle/font_sizes/font_size = 11
+BannerTitle/fonts/font = ExtResource("2_title_font")
+BookPages/base_type = &"HBoxContainer"
+BookPages/constants/separation = 40
+Button/colors/font_color = Color(0.9529412, 0.8862745, 0.7490196, 1)
+Button/colors/font_disabled_color = Color(0.9529412, 0.8862745, 0.7490196, 0.5)
+Button/colors/font_focus_color = Color(0.9529412, 0.8862745, 0.7490196, 1)
+Button/colors/font_hover_color = Color(0.9529412, 0.8862745, 0.7490196, 1)
+Button/colors/font_hover_pressed_color = Color(0.9529412, 0.8862745, 0.7490196, 1)
+Button/colors/font_pressed_color = Color(0.9529412, 0.8862745, 0.7490196, 1)
+Button/styles/disabled = SubResource("StyleBox_btn_disabled")
+Button/styles/focus = SubResource("StyleBox_btn_selected")
+Button/styles/hover = SubResource("StyleBox_btn_selected")
+Button/styles/normal = SubResource("StyleBox_btn_normal")
+Button/styles/pressed = SubResource("StyleBox_btn_pressed")
+Label/colors/font_color = Color(0.29, 0.16, 0.12, 1)
+PageMargin/base_type = &"MarginContainer"
+PageMargin/constants/margin_bottom = 6
+PageMargin/constants/margin_left = 6
+PageMargin/constants/margin_right = 6
+PageMargin/constants/margin_top = 6
+PageTitle/base_type = &"Label"
+PageTitle/colors/font_color = Color(0.5, 0.13, 0.1, 1)
+PageTitle/font_sizes/font_size = 11
+PageTitle/fonts/font = ExtResource("2_title_font")
+StatValue/base_type = &"Label"
+StatValue/colors/font_color = Color(0.5, 0.13, 0.1, 1)
+UpgradeList/base_type = &"VBoxContainer"
+UpgradeList/constants/separation = 4

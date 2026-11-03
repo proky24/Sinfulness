@@ -67,6 +67,11 @@ func dissapear() -> void:
 	)
 	pass
 
+func hide_instant() -> void:
+	for s in sections.size():
+		for c in sections[s].get_children():
+			c.visible = false
+
 ## Starts (or restarts) the hide timer.
 func inactive() -> void:
 	timer.start()
