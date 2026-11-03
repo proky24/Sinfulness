@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b0gjedctofean" path="res://GUI/Campfire/campfire_ui.gd" id="1_ogq0a"]
 [ext_resource type="Theme" uid="uid://enh6boxsyx7c" path="res://GUI/Campfire/campfire_theme.tres" id="2_oylmv"]
-[ext_resource type="Texture2D" uid="uid://73tq808c15xc" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Spellbook.png" id="3_elqal"]
-[ext_resource type="Texture2D" uid="uid://cxqle1sb7ofnh" path="res://Assets/UI pack/Individual files/1x/Dividers/Divider_10.png" id="4_ogq0a"]
 [ext_resource type="Texture2D" uid="uid://cdtqg7mnwxjq2" path="res://Assets/UI pack/Individual files/1x/Title banners/BannerMedium_02C.png" id="5_oylmv"]
+[ext_resource type="Texture2D" uid="uid://du2nd2cvgce6k" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Spellbook_Opening.png" id="6_elqal"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mpko"]
+atlas = ExtResource("6_elqal")
+region = Rect2(0, 0, 256, 240)
+filter_clip = true
 
 [node name="CampfireUI" type="CanvasLayer" unique_id=566568173]
 process_mode = 3
@@ -27,515 +31,528 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_oylmv")
 
-[node name="Book" type="TextureRect" parent="Root" unique_id=1978189450]
+[node name="Book" type="TextureRect" parent="Root" unique_id=2033128133]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -160.0
-offset_right = 256.0
-offset_bottom = 160.0
+offset_left = -156.0
+offset_right = 100.0
+offset_bottom = 240.0
+grow_horizontal = 2
+scale = Vector2(1.2, 1.2)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_6mpko")
+stretch_mode = 3
+
+[node name="Content" type="Control" parent="Root" unique_id=1121197040]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_right = 100.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_elqal")
-expand_mode = 1
+scale = Vector2(1.2, 1.2)
+mouse_filter = 2
 
-[node name="Pages" type="HBoxContainer" parent="Root/Book" unique_id=1764552364]
+[node name="LeftPage" type="Control" parent="Root/Content" unique_id=1567576280]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 92.0
+offset_right = 114.0
+offset_bottom = 210.0
+mouse_filter = 2
+
+[node name="LeftColumn" type="VBoxContainer" parent="Root/Content/LeftPage" unique_id=1056807543]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 52.0
-offset_top = 20.0
-offset_right = -52.0
-offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"BookPages"
+theme_type_variation = &"PageColumn"
 
-[node name="LeftPage" type="MarginContainer" parent="Root/Book/Pages" unique_id=1768187204]
+[node name="OrbsSummary" type="VBoxContainer" parent="Root/Content/LeftPage/LeftColumn" unique_id=1292166934]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"PageMargin"
+theme_type_variation = &"PageList"
 
-[node name="LeftColumn" type="VBoxContainer" parent="Root/Book/Pages/LeftPage" unique_id=1056807543]
+[node name="TrueOrbsRow" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/OrbsSummary" unique_id=866405129]
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="OrbsSummary" type="VBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn" unique_id=1292166934]
-layout_mode = 2
-
-[node name="TrueOrbsRow" type="HBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn/OrbsSummary" unique_id=866405129]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/OrbsSummary/TrueOrbsRow" unique_id=473390422]
+[node name="Name" type="Label" parent="Root/Content/LeftPage/LeftColumn/OrbsSummary/TrueOrbsRow" unique_id=473390422]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "True Orbs"
 
-[node name="TrueOrbsValue" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/OrbsSummary/TrueOrbsRow" unique_id=275381745]
+[node name="TrueOrbsValue" type="Label" parent="Root/Content/LeftPage/LeftColumn/OrbsSummary/TrueOrbsRow" unique_id=275381745]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "999"
 horizontal_alignment = 2
 
-[node name="OrbsNeededRow" type="HBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn/OrbsSummary" unique_id=226424509]
+[node name="OrbsNeededRow" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/OrbsSummary" unique_id=226424509]
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/OrbsSummary/OrbsNeededRow" unique_id=1660494927]
+[node name="Name" type="Label" parent="Root/Content/LeftPage/LeftColumn/OrbsSummary/OrbsNeededRow" unique_id=1660494927]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Needed for level"
 
-[node name="OrbsNeededValue" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/OrbsSummary/OrbsNeededRow" unique_id=299028361]
+[node name="OrbsNeededValue" type="Label" parent="Root/Content/LeftPage/LeftColumn/OrbsSummary/OrbsNeededRow" unique_id=299028361]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "67"
 horizontal_alignment = 2
 
-[node name="OrbsDivider" type="TextureRect" parent="Root/Book/Pages/LeftPage/LeftColumn" unique_id=874288080]
-custom_minimum_size = Vector2(48, 12)
+[node name="UpgradeRows" type="VBoxContainer" parent="Root/Content/LeftPage/LeftColumn" unique_id=1517420588]
 layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("4_ogq0a")
-expand_mode = 1
-stretch_mode = 3
+theme_type_variation = &"PageList"
 
-[node name="UpgradeRows" type="VBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn" unique_id=1517420588]
-layout_mode = 2
-theme_type_variation = &"UpgradeList"
-
-[node name="Row_Health" type="HBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows" unique_id=147059956]
+[node name="Row_Health" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=147059956]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=47895433]
+[node name="Name" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=47895433]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Health"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=1506624292]
-custom_minimum_size = Vector2(16, 16)
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=1506624292]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = "<"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=302104740]
-custom_minimum_size = Vector2(22, 0)
+[node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=302104740]
+custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=1994941277]
-custom_minimum_size = Vector2(16, 16)
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=1994941277]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = ">"
 
-[node name="Row_Mana" type="HBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows" unique_id=1184270918]
+[node name="Row_Mana" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=1184270918]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=961700735]
+[node name="Name" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=961700735]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Mana"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=1064478301]
-custom_minimum_size = Vector2(16, 16)
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=1064478301]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = "<"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=2082695599]
-custom_minimum_size = Vector2(22, 0)
+[node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=2082695599]
+custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=1186600098]
-custom_minimum_size = Vector2(16, 16)
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=1186600098]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = ">"
 
-[node name="Row_Damage" type="HBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows" unique_id=1023604180]
+[node name="Row_Damage" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=1023604180]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=1036975932]
+[node name="Name" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=1036975932]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Damage"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=1825741509]
-custom_minimum_size = Vector2(16, 16)
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=1825741509]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = "<"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=1272378903]
-custom_minimum_size = Vector2(22, 0)
+[node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=1272378903]
+custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=997530800]
-custom_minimum_size = Vector2(16, 16)
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=997530800]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = ">"
 
-[node name="Row_Durability" type="HBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows" unique_id=841006302]
+[node name="Row_Durability" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=841006302]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=422962737]
+[node name="Name" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=422962737]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Durability"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1098923858]
-custom_minimum_size = Vector2(16, 16)
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1098923858]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = "<"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1293086242]
-custom_minimum_size = Vector2(22, 0)
+[node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1293086242]
+custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1247095380]
-custom_minimum_size = Vector2(16, 16)
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1247095380]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = ">"
 
-[node name="Row_Luck" type="HBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows" unique_id=357852839]
+[node name="Row_Luck" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=357852839]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=1758946464]
+[node name="Name" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=1758946464]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Luck"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=459190805]
-custom_minimum_size = Vector2(16, 16)
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=459190805]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = "<"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=1930740843]
-custom_minimum_size = Vector2(22, 0)
+[node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=1930740843]
+custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=566852872]
-custom_minimum_size = Vector2(16, 16)
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=566852872]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = ">"
 
-[node name="Row_Faith" type="HBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows" unique_id=1065614751]
+[node name="Row_Faith" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=1065614751]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=673732862]
+[node name="Name" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=673732862]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Faith"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=2032816459]
-custom_minimum_size = Vector2(16, 16)
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=2032816459]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = "<"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=158959937]
-custom_minimum_size = Vector2(22, 0)
+[node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=158959937]
+custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=1372175046]
-custom_minimum_size = Vector2(16, 16)
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=1372175046]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = ">"
 
-[node name="Row_Disgrace" type="HBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows" unique_id=565732043]
+[node name="Row_Disgrace" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=565732043]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=1188740035]
+[node name="Name" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=1188740035]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Disgrace"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=306430286]
-custom_minimum_size = Vector2(16, 16)
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=306430286]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = "<"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=22044722]
-custom_minimum_size = Vector2(22, 0)
+[node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=22044722]
+custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=196123207]
-custom_minimum_size = Vector2(16, 16)
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=196123207]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = ">"
 
-[node name="Row_CorruptionDurability" type="HBoxContainer" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows" unique_id=1478367571]
+[node name="Row_CorruptionDurability" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=1478367571]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=1694765687]
+[node name="Name" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=1694765687]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Corruption durability"
+text = "Corr. Durab."
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=1732933652]
-custom_minimum_size = Vector2(16, 16)
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=1732933652]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = "<"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=379514209]
-custom_minimum_size = Vector2(22, 0)
+[node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=379514209]
+custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Book/Pages/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=221399631]
-custom_minimum_size = Vector2(16, 16)
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=221399631]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+theme_type_variation = &"SpinButton"
 text = ">"
 
-[node name="RightPage" type="MarginContainer" parent="Root/Book/Pages" unique_id=949161919]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"PageMargin"
+[node name="RightPage" type="Control" parent="Root/Content" unique_id=255926168]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 142.0
+offset_top = 92.0
+offset_right = 228.0
+offset_bottom = 210.0
+mouse_filter = 2
 
-[node name="RightColumn" type="VBoxContainer" parent="Root/Book/Pages/RightPage" unique_id=541082800]
-layout_mode = 2
+[node name="RightColumn" type="VBoxContainer" parent="Root/Content/RightPage" unique_id=541082800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PageColumn"
 
-[node name="BaseStatsSection" type="VBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn" unique_id=39639358]
+[node name="BaseStatsSection" type="VBoxContainer" parent="Root/Content/RightPage/RightColumn" unique_id=39639358]
 layout_mode = 2
+theme_type_variation = &"PageList"
 
-[node name="Title" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection" unique_id=332437288]
+[node name="Title" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection" unique_id=332437288]
 layout_mode = 2
-theme_type_variation = &"PageTitle"
+theme_type_variation = &"PageSection"
 text = "Base Stats"
 
-[node name="Divider" type="TextureRect" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection" unique_id=97016999]
-custom_minimum_size = Vector2(48, 12)
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("4_ogq0a")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="Stat_Health" type="HBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection" unique_id=278576908]
+[node name="Stat_Health" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/BaseStatsSection" unique_id=278576908]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection/Stat_Health" unique_id=1389339528]
+[node name="Name" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Health" unique_id=1389339528]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Health"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection/Stat_Health" unique_id=636034923]
+[node name="Value" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Health" unique_id=636034923]
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
 
-[node name="Stat_Mana" type="HBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection" unique_id=1446617726]
+[node name="Stat_Mana" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/BaseStatsSection" unique_id=1446617726]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection/Stat_Mana" unique_id=820185451]
+[node name="Name" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Mana" unique_id=820185451]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Mana"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection/Stat_Mana" unique_id=856111492]
+[node name="Value" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Mana" unique_id=856111492]
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
 
-[node name="Stat_Damage" type="HBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection" unique_id=1756103011]
+[node name="Stat_Damage" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/BaseStatsSection" unique_id=1756103011]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection/Stat_Damage" unique_id=1326765579]
+[node name="Name" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Damage" unique_id=1326765579]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Damage"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection/Stat_Damage" unique_id=721712395]
+[node name="Value" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Damage" unique_id=721712395]
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
 
-[node name="Stat_Durability" type="HBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection" unique_id=781674643]
+[node name="Stat_Durability" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/BaseStatsSection" unique_id=781674643]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection/Stat_Durability" unique_id=1459862035]
+[node name="Name" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Durability" unique_id=1459862035]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Durability"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection/Stat_Durability" unique_id=270804212]
+[node name="Value" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Durability" unique_id=270804212]
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
 
-[node name="Stat_Luck" type="HBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection" unique_id=2131976345]
+[node name="Stat_Luck" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/BaseStatsSection" unique_id=2131976345]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection/Stat_Luck" unique_id=1434856569]
+[node name="Name" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Luck" unique_id=1434856569]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Luck"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/BaseStatsSection/Stat_Luck" unique_id=330675446]
+[node name="Value" type="Label" parent="Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Luck" unique_id=330675446]
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
 
-[node name="AbilityStatsSection" type="VBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn" unique_id=128884216]
+[node name="AbilityStatsSection" type="VBoxContainer" parent="Root/Content/RightPage/RightColumn" unique_id=128884216]
 layout_mode = 2
+theme_type_variation = &"PageList"
 
-[node name="Title" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/AbilityStatsSection" unique_id=1627513028]
+[node name="Title" type="Label" parent="Root/Content/RightPage/RightColumn/AbilityStatsSection" unique_id=1627513028]
 layout_mode = 2
-theme_type_variation = &"PageTitle"
+theme_type_variation = &"PageSection"
 text = "Ability Stats"
 
-[node name="Divider" type="TextureRect" parent="Root/Book/Pages/RightPage/RightColumn/AbilityStatsSection" unique_id=576011655]
-custom_minimum_size = Vector2(48, 12)
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("4_ogq0a")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="Stat_Faith" type="HBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn/AbilityStatsSection" unique_id=535246432]
+[node name="Stat_Faith" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/AbilityStatsSection" unique_id=535246432]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/AbilityStatsSection/Stat_Faith" unique_id=629170737]
+[node name="Name" type="Label" parent="Root/Content/RightPage/RightColumn/AbilityStatsSection/Stat_Faith" unique_id=629170737]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Faith"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/AbilityStatsSection/Stat_Faith" unique_id=1993391383]
+[node name="Value" type="Label" parent="Root/Content/RightPage/RightColumn/AbilityStatsSection/Stat_Faith" unique_id=1993391383]
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
 
-[node name="Stat_Disgrace" type="HBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn/AbilityStatsSection" unique_id=691653185]
+[node name="Stat_Disgrace" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/AbilityStatsSection" unique_id=691653185]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/AbilityStatsSection/Stat_Disgrace" unique_id=862171590]
+[node name="Name" type="Label" parent="Root/Content/RightPage/RightColumn/AbilityStatsSection/Stat_Disgrace" unique_id=862171590]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Disgrace"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/AbilityStatsSection/Stat_Disgrace" unique_id=477140888]
+[node name="Value" type="Label" parent="Root/Content/RightPage/RightColumn/AbilityStatsSection/Stat_Disgrace" unique_id=477140888]
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
 
-[node name="CorruptionStatsSection" type="VBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn" unique_id=319563566]
+[node name="CorruptionStatsSection" type="VBoxContainer" parent="Root/Content/RightPage/RightColumn" unique_id=319563566]
 layout_mode = 2
+theme_type_variation = &"PageList"
 
-[node name="Title" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/CorruptionStatsSection" unique_id=2114534586]
+[node name="Title" type="Label" parent="Root/Content/RightPage/RightColumn/CorruptionStatsSection" unique_id=2114534586]
 layout_mode = 2
-theme_type_variation = &"PageTitle"
+theme_type_variation = &"PageSection"
 text = "Corruption Stats"
 
-[node name="Divider" type="TextureRect" parent="Root/Book/Pages/RightPage/RightColumn/CorruptionStatsSection" unique_id=1966868287]
-custom_minimum_size = Vector2(48, 12)
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("4_ogq0a")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="Stat_CorruptionDurability" type="HBoxContainer" parent="Root/Book/Pages/RightPage/RightColumn/CorruptionStatsSection" unique_id=1188060722]
+[node name="Stat_CorruptionDurability" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/CorruptionStatsSection" unique_id=1188060722]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"PageRow"
 
-[node name="Name" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/CorruptionStatsSection/Stat_CorruptionDurability" unique_id=428862584]
+[node name="Name" type="Label" parent="Root/Content/RightPage/RightColumn/CorruptionStatsSection/Stat_CorruptionDurability" unique_id=428862584]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Corruption Durability"
+text = "Durability"
 
-[node name="Value" type="Label" parent="Root/Book/Pages/RightPage/RightColumn/CorruptionStatsSection/Stat_CorruptionDurability" unique_id=791338577]
+[node name="Value" type="Label" parent="Root/Content/RightPage/RightColumn/CorruptionStatsSection/Stat_CorruptionDurability" unique_id=791338577]
 layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
 
-[node name="Spacer" type="Control" parent="Root/Book/Pages/RightPage/RightColumn" unique_id=1694031791]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-
-[node name="ConfirmButton" type="Button" parent="Root/Book/Pages/RightPage/RightColumn" unique_id=1834342501]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(64, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Confirm"
-
-[node name="HeaderBanner" type="NinePatchRect" parent="Root" unique_id=1412959633]
+[node name="HeaderBanner" type="NinePatchRect" parent="Root/Content" unique_id=1412959633]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -48.0
-offset_top = 4.0
+offset_top = 44.0
 offset_right = 48.0
-offset_bottom = 36.0
+offset_bottom = 76.0
 grow_horizontal = 2
 texture = ExtResource("5_oylmv")
 patch_margin_left = 12
 patch_margin_right = 12
 
-[node name="LevelLabel" type="Label" parent="Root/HeaderBanner" unique_id=1929948698]
+[node name="LevelLabel" type="Label" parent="Root/Content/HeaderBanner" unique_id=1929948698]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -548,3 +565,23 @@ theme_type_variation = &"BannerTitle"
 text = "LEVEL 9"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="Root/Content" unique_id=1834342501]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 246.0
+offset_right = 32.0
+offset_bottom = 262.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "Confirm"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1242160852]
+root_node = NodePath("../Root")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimationPlayer" unique_id=146700365]

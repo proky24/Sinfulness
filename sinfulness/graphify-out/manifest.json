@@ -14248,5 +14248,11 @@
     "seen": 1793725148.5878735,
     "ast_hash": "8bcaaa25e4a4b6f5271f73efee9290d1",
     "semantic_hash": ""
+  },
+  "Tests/PRDs/PRD_CampfireUI_BookStyle.md": {
+    "mtime": 1793725927.6963854,
+    "seen": 1793727014.9066591,
+    "ast_hash": "434522237698d33517cf5c6a7152397a",
+    "semantic_hash": ""
   }
 }

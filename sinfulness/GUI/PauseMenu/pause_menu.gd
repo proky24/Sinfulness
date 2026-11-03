@@ -37,6 +37,7 @@ var page_flip_SFX: AudioStream = preload("res://Assets/UI SFX/PauseMenuSFX/page-
 
 var _state: MenuState = MenuState.CLOSED
 var _tabs: Array[BookTab] = []
+var _tabs_interactive: bool = false
 var _active_tab: BookTab = null
 var _page: BookPage = null
 var _last_focus: Control = null
@@ -87,7 +88,7 @@ func show_pause_menu() -> void:
 
 
 func _input(event: InputEvent) -> void:
-    if event.is_action_pressed("pause_menu"):
+    if event.is_action_pressed("pause_menu") or event.is_action_pressed("menu_back") and _tabs_interactive == true:
         get_viewport().set_input_as_handled()
         if is_paused:
             _clear_page()
@@ -186,6 +187,7 @@ func _on_animation_finished(animation_name: StringName) -> void:
 
 
 func _set_tabs_interactive(enabled: bool) -> void:
+    _tabs_interactive = enabled
     for tab: BookTab in _tabs:
         tab.set_interactive(enabled)
 

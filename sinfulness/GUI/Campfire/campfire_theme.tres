@@ -51,6 +51,61 @@ texture_margin_top = 4.0
 texture_margin_right = 5.0
 texture_margin_bottom = 4.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0w6g"]
+content_margin_left = 3.0
+content_margin_top = 0.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("6_btn_disabled")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvl75"]
+content_margin_left = 3.0
+content_margin_top = 0.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("5_btn_selected")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_42oys"]
+content_margin_left = 3.0
+content_margin_top = 0.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("5_btn_selected")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_338hp"]
+content_margin_left = 3.0
+content_margin_top = 0.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_btn_normal")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rxkwt"]
+content_margin_left = 3.0
+content_margin_top = 0.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_btn_pressed")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+
 [resource]
 default_font = ExtResource("1_text_font")
 default_font_size = 8
@@ -58,8 +113,6 @@ BannerTitle/base_type = &"Label"
 BannerTitle/colors/font_color = Color(0.29, 0.16, 0.12, 1)
 BannerTitle/font_sizes/font_size = 11
 BannerTitle/fonts/font = ExtResource("2_title_font")
-BookPages/base_type = &"HBoxContainer"
-BookPages/constants/separation = 40
 Button/colors/font_color = Color(0.9529412, 0.8862745, 0.7490196, 1)
 Button/colors/font_disabled_color = Color(0.9529412, 0.8862745, 0.7490196, 0.5)
 Button/colors/font_focus_color = Color(0.9529412, 0.8862745, 0.7490196, 1)
@@ -72,16 +125,23 @@ Button/styles/hover = SubResource("StyleBox_btn_selected")
 Button/styles/normal = SubResource("StyleBox_btn_normal")
 Button/styles/pressed = SubResource("StyleBox_btn_pressed")
 Label/colors/font_color = Color(0.29, 0.16, 0.12, 1)
-PageMargin/base_type = &"MarginContainer"
-PageMargin/constants/margin_bottom = 6
-PageMargin/constants/margin_left = 6
-PageMargin/constants/margin_right = 6
-PageMargin/constants/margin_top = 6
+PageColumn/base_type = &"VBoxContainer"
+PageColumn/constants/separation = 2
+PageList/base_type = &"VBoxContainer"
+PageList/constants/separation = 1
+PageRow/base_type = &"HBoxContainer"
+PageRow/constants/separation = 1
+PageSection/base_type = &"Label"
+PageSection/colors/font_color = Color(0.5, 0.13, 0.1, 1)
 PageTitle/base_type = &"Label"
 PageTitle/colors/font_color = Color(0.5, 0.13, 0.1, 1)
 PageTitle/font_sizes/font_size = 11
 PageTitle/fonts/font = ExtResource("2_title_font")
+SpinButton/base_type = &"Button"
+SpinButton/styles/disabled = SubResource("StyleBoxTexture_j0w6g")
+SpinButton/styles/focus = SubResource("StyleBoxTexture_qvl75")
+SpinButton/styles/hover = SubResource("StyleBoxTexture_42oys")
+SpinButton/styles/normal = SubResource("StyleBoxTexture_338hp")
+SpinButton/styles/pressed = SubResource("StyleBoxTexture_rxkwt")
 StatValue/base_type = &"Label"
 StatValue/colors/font_color = Color(0.5, 0.13, 0.1, 1)
-UpgradeList/base_type = &"VBoxContainer"
-UpgradeList/constants/separation = 4

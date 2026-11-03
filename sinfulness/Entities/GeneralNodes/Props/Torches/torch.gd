@@ -72,13 +72,17 @@ func _on_interact_pressed() -> void:
 		PlayerHud.hide_instant()
 		
 		campfire_ui = CAMPFIREUI.instantiate()
+		campfire_ui.tree_exited.connect(_on_campfire_ui_closed)
 		get_tree().current_scene.add_child(campfire_ui)
 		campfire_ui_shown = true
 
 		PauseMenu.process_mode = Node.PROCESS_MODE_INHERIT
 		get_tree().paused = true
-	else:
-		campfire_ui_shown = false
+
+## CampfireUI frees itself after its close animation; the next interact opens it again.
+func _on_campfire_ui_closed() -> void:
+	campfire_ui_shown = false
+	campfire_ui = null
 
 func _play_ignition_effects() -> void:
 	_play_sound(TORCH_LIT_SFX, 0)
