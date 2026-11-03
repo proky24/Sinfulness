@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0gjedctofean" path="res://GUI/Campfire/campfire_ui.gd" id="1_ogq0a"]
 [ext_resource type="Theme" uid="uid://enh6boxsyx7c" path="res://GUI/Campfire/campfire_theme.tres" id="2_oylmv"]
+[ext_resource type="Script" uid="uid://dnu23nkpgfb4a" path="res://GUI/Campfire/stat_row.gd" id="4_oylmv"]
 [ext_resource type="Texture2D" uid="uid://cdtqg7mnwxjq2" path="res://Assets/UI pack/Individual files/1x/Title banners/BannerMedium_02C.png" id="5_oylmv"]
 [ext_resource type="Texture2D" uid="uid://du2nd2cvgce6k" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Spellbook_Opening.png" id="6_elqal"]
 
@@ -94,7 +95,6 @@ text = "True Orbs"
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"StatValue"
-text = "999"
 horizontal_alignment = 2
 
 [node name="OrbsNeededRow" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/OrbsSummary" unique_id=226424509]
@@ -110,7 +110,6 @@ text = "Needed for level"
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"StatValue"
-text = "67"
 horizontal_alignment = 2
 
 [node name="UpgradeRows" type="VBoxContainer" parent="Root/Content/LeftPage/LeftColumn" unique_id=1517420588]
@@ -384,6 +383,7 @@ grow_vertical = 2
 theme_type_variation = &"PageColumn"
 
 [node name="BaseStatsSection" type="VBoxContainer" parent="Root/Content/RightPage/RightColumn" unique_id=39639358]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"PageList"
 
@@ -407,6 +407,7 @@ layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
+script = ExtResource("4_oylmv")
 
 [node name="Stat_Mana" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/BaseStatsSection" unique_id=1446617726]
 unique_name_in_owner = true
@@ -423,6 +424,8 @@ layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
+script = ExtResource("4_oylmv")
+stat = 1
 
 [node name="Stat_Damage" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/BaseStatsSection" unique_id=1756103011]
 unique_name_in_owner = true
@@ -439,6 +442,8 @@ layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
+script = ExtResource("4_oylmv")
+stat = 2
 
 [node name="Stat_Durability" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/BaseStatsSection" unique_id=781674643]
 unique_name_in_owner = true
@@ -455,6 +460,8 @@ layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
+script = ExtResource("4_oylmv")
+stat = 3
 
 [node name="Stat_Luck" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/BaseStatsSection" unique_id=2131976345]
 unique_name_in_owner = true
@@ -471,8 +478,11 @@ layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
+script = ExtResource("4_oylmv")
+stat = 5
 
 [node name="AbilityStatsSection" type="VBoxContainer" parent="Root/Content/RightPage/RightColumn" unique_id=128884216]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"PageList"
 
@@ -496,6 +506,8 @@ layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
+script = ExtResource("4_oylmv")
+stat = 6
 
 [node name="Stat_Disgrace" type="HBoxContainer" parent="Root/Content/RightPage/RightColumn/AbilityStatsSection" unique_id=691653185]
 unique_name_in_owner = true
@@ -512,8 +524,11 @@ layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
+script = ExtResource("4_oylmv")
+stat = 7
 
 [node name="CorruptionStatsSection" type="VBoxContainer" parent="Root/Content/RightPage/RightColumn" unique_id=319563566]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"PageList"
 
@@ -537,6 +552,8 @@ layout_mode = 2
 theme_type_variation = &"StatValue"
 text = "100"
 horizontal_alignment = 2
+script = ExtResource("4_oylmv")
+stat = 4
 
 [node name="HeaderBanner" type="NinePatchRect" parent="Root/Content" unique_id=1412959633]
 layout_mode = 1

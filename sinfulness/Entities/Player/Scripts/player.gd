@@ -90,6 +90,7 @@ func _on_hit_landed(_target: HitBox, _hit: HitData) -> void:
 	pass
 
 func _on_health_depleted() -> void:
+	await get_tree().create_timer(0.6).timeout
 	_die.call_deferred()
 	pass
 
