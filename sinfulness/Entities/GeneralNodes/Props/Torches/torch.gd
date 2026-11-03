@@ -68,6 +68,7 @@ func _on_interact_pressed() -> void:
 		await get_tree().create_timer(0.5).timeout
 		_play_loop_effects()
 	if campfire_ui_shown == false:
+		PauseMenu.hide_pause_menu()
 		campfire_ui = CAMPFIREUI.instantiate()
 		get_tree().current_scene.add_child(campfire_ui)
 		campfire_ui_shown = true
