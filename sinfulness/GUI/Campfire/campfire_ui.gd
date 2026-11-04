@@ -7,6 +7,8 @@ extends CanvasLayer
 
 enum ScreenState { OPENING, OPEN, CLOSING }
 
+signal closing()
+
 ## Same value as MENU_SPEED in pause_menu.gd, so both books animate at the same speed.
 const ANIMATION_SPEED: float = 1.3
 const OPEN_ANIMATION: StringName = &"open_menu"
@@ -40,6 +42,7 @@ const CLOSE_SOUND: AudioStream = preload("res://Assets/UI SFX/PauseMenuSFX/book-
 var _state: ScreenState = ScreenState.OPENING
 var global_player_manager: GlobalPlayerManager = null
 var _player_stats: PlayerStats = null
+var confirmed: bool = false
 
 func _ready() -> void:
 	_add_animation_library()
@@ -57,6 +60,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not (event.is_action_pressed("interact") or event.is_action_pressed("menu_back") or event.is_action_pressed("pause_menu")):
+		closing.emit()
 		return
 	get_viewport().set_input_as_handled()
 	if _state != ScreenState.OPEN:

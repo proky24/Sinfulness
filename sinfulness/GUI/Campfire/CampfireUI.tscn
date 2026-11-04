@@ -129,13 +129,14 @@ size_flags_horizontal = 3
 text = "Health"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=1506624292 node_paths=PackedStringArray("value_label")]
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=1506624292 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
 text = "<"
 script = ExtResource("4_6mpko")
 value_label = NodePath("../Value")
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=302104740]
 custom_minimum_size = Vector2(14, 0)
@@ -145,7 +146,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=1994941277 node_paths=PackedStringArray("value_label")]
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Health" unique_id=1994941277 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -153,6 +154,7 @@ text = ">"
 script = ExtResource("4_6mpko")
 value_label = NodePath("../Value")
 operation = true
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Row_Mana" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=1184270918]
 unique_name_in_owner = true
@@ -165,7 +167,7 @@ size_flags_horizontal = 3
 text = "Mana"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=1064478301 node_paths=PackedStringArray("value_label")]
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=1064478301 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -173,6 +175,7 @@ text = "<"
 script = ExtResource("4_6mpko")
 stat = 1
 value_label = NodePath("../Value")
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=2082695599]
 custom_minimum_size = Vector2(14, 0)
@@ -182,7 +185,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=1186600098 node_paths=PackedStringArray("value_label")]
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Mana" unique_id=1186600098 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -191,6 +194,7 @@ script = ExtResource("4_6mpko")
 stat = 1
 value_label = NodePath("../Value")
 operation = true
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Row_Damage" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=1023604180]
 unique_name_in_owner = true
@@ -203,7 +207,7 @@ size_flags_horizontal = 3
 text = "Damage"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=1825741509 node_paths=PackedStringArray("value_label")]
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=1825741509 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -211,6 +215,7 @@ text = "<"
 script = ExtResource("4_6mpko")
 stat = 2
 value_label = NodePath("../Value")
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=1272378903]
 custom_minimum_size = Vector2(14, 0)
@@ -220,7 +225,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=997530800 node_paths=PackedStringArray("value_label")]
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Damage" unique_id=997530800 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -229,6 +234,7 @@ script = ExtResource("4_6mpko")
 stat = 2
 value_label = NodePath("../Value")
 operation = true
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Row_Durability" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=841006302]
 unique_name_in_owner = true
@@ -241,7 +247,7 @@ size_flags_horizontal = 3
 text = "Durability"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1098923858 node_paths=PackedStringArray("value_label")]
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1098923858 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -249,6 +255,7 @@ text = "<"
 script = ExtResource("4_6mpko")
 stat = 3
 value_label = NodePath("../Value")
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1293086242]
 custom_minimum_size = Vector2(14, 0)
@@ -258,7 +265,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1247095380 node_paths=PackedStringArray("value_label")]
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Durability" unique_id=1247095380 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -267,6 +274,7 @@ script = ExtResource("4_6mpko")
 stat = 3
 value_label = NodePath("../Value")
 operation = true
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Row_Luck" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=357852839]
 unique_name_in_owner = true
@@ -279,7 +287,7 @@ size_flags_horizontal = 3
 text = "Luck"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=459190805 node_paths=PackedStringArray("value_label")]
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=459190805 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -287,6 +295,7 @@ text = "<"
 script = ExtResource("4_6mpko")
 stat = 5
 value_label = NodePath("../Value")
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=1930740843]
 custom_minimum_size = Vector2(14, 0)
@@ -296,7 +305,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=566852872 node_paths=PackedStringArray("value_label")]
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Luck" unique_id=566852872 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -305,6 +314,7 @@ script = ExtResource("4_6mpko")
 stat = 5
 value_label = NodePath("../Value")
 operation = true
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Row_Faith" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=1065614751]
 unique_name_in_owner = true
@@ -317,7 +327,7 @@ size_flags_horizontal = 3
 text = "Faith"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=2032816459 node_paths=PackedStringArray("value_label")]
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=2032816459 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -325,6 +335,7 @@ text = "<"
 script = ExtResource("4_6mpko")
 stat = 6
 value_label = NodePath("../Value")
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=158959937]
 custom_minimum_size = Vector2(14, 0)
@@ -334,7 +345,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=1372175046 node_paths=PackedStringArray("value_label")]
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Faith" unique_id=1372175046 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -343,6 +354,7 @@ script = ExtResource("4_6mpko")
 stat = 6
 value_label = NodePath("../Value")
 operation = true
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Row_Disgrace" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=565732043]
 unique_name_in_owner = true
@@ -355,7 +367,7 @@ size_flags_horizontal = 3
 text = "Disgrace"
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=306430286 node_paths=PackedStringArray("value_label")]
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=306430286 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -363,6 +375,7 @@ text = "<"
 script = ExtResource("4_6mpko")
 stat = 7
 value_label = NodePath("../Value")
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=22044722]
 custom_minimum_size = Vector2(14, 0)
@@ -372,7 +385,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=196123207 node_paths=PackedStringArray("value_label")]
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_Disgrace" unique_id=196123207 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -381,6 +394,7 @@ script = ExtResource("4_6mpko")
 stat = 7
 value_label = NodePath("../Value")
 operation = true
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Row_CorruptionDurability" type="HBoxContainer" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows" unique_id=1478367571]
 unique_name_in_owner = true
@@ -393,7 +407,7 @@ size_flags_horizontal = 3
 text = "Corr. Durab."
 vertical_alignment = 1
 
-[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=1732933652 node_paths=PackedStringArray("value_label")]
+[node name="Minus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=1732933652 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -401,6 +415,7 @@ text = "<"
 script = ExtResource("4_6mpko")
 stat = 4
 value_label = NodePath("../Value")
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="Value" type="Label" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=379514209]
 custom_minimum_size = Vector2(14, 0)
@@ -410,7 +425,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=221399631 node_paths=PackedStringArray("value_label")]
+[node name="Plus" type="Button" parent="Root/Content/LeftPage/LeftColumn/UpgradeRows/Row_CorruptionDurability" unique_id=221399631 node_paths=PackedStringArray("value_label", "campfire_ui")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_type_variation = &"SpinButton"
@@ -419,6 +434,7 @@ script = ExtResource("4_6mpko")
 stat = 4
 value_label = NodePath("../Value")
 operation = true
+campfire_ui = NodePath("../../../../../../..")
 
 [node name="RightPage" type="Control" parent="Root/Content" unique_id=255926168]
 layout_mode = 1

@@ -106,6 +106,7 @@ func level_up(stat: Stat, amount: int) -> bool:
 		var refund: int = roundi(level_cost_base * pow(get_level() - 1, level_cost_exponent))
 		orbs += refund
 	points[stat] = _get_points(stat) + amount
+	print(str(points[stat]) + " points in " + str(stat))
 	recalculate()
 	orbs_changed.emit(orbs)
 	leveled_up.emit(stat, get_stat_level(stat))
@@ -117,6 +118,12 @@ func add_orbs(amount: int) -> void:
 		return
 	orbs += amount
 	orbs_changed.emit(orbs)
+
+func remove_points(stat: Stat, amount: int) -> void:
+	if amount <= 0:
+		return
+	points[stat] = _get_points(stat) - amount
+	recalculate()
 
 
 ## Spends [param amount] mana. Returns false and spends nothing when there is not enough.
