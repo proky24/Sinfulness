@@ -106,7 +106,8 @@ func level_up(stat: Stat, amount: int) -> bool:
 		var refund: int = roundi(level_cost_base * pow(get_level() - 1, level_cost_exponent))
 		orbs += refund
 	points[stat] = _get_points(stat) + amount
-	print(str(points[stat]) + " points in " + str(stat))
+	print(str(amount) + "level func")
+	print("points: " + str(points))
 	recalculate()
 	orbs_changed.emit(orbs)
 	leveled_up.emit(stat, get_stat_level(stat))
@@ -114,15 +115,13 @@ func level_up(stat: Stat, amount: int) -> bool:
 	return true
 
 func add_orbs(amount: int) -> void:
-	if amount <= 0:
-		return
 	orbs += amount
+	print("orbs: " + str(orbs) + " amount: " + str(amount))
 	orbs_changed.emit(orbs)
 
 func remove_points(stat: Stat, amount: int) -> void:
-	if amount <= 0:
-		return
-	points[stat] = _get_points(stat) - amount
+	points[stat] = _get_points(stat) + amount
+	print("points: " + str(points) + " amount: " + str(amount))
 	recalculate()
 
 
