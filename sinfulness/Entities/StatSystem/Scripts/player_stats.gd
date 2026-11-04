@@ -8,6 +8,7 @@ signal mana_changed(mana: float, max_mana: float)
 signal corruption_changed(corruption: float, max_corruption: float)
 signal orbs_changed(orbs: int)
 signal leveled_up(stat: Stats.Stat, new_level: int)
+signal level_up_cost_changed(new_cost: int)
 
 const LEVELABLE_STATS: Array[Stat] = [
 	Stat.MAX_HEALTH,
@@ -86,7 +87,9 @@ func get_stat_level(stat: Stat) -> int:
 
 ## Orbs needed for the next level.
 func get_level_up_cost() -> int:
-	return roundi(level_cost_base * pow(get_level(), level_cost_exponent))
+	var cost: int = roundi(level_cost_base * pow(get_level(), level_cost_exponent))
+	level_up_cost_changed.emit(cost)
+	return cost
 
 
 func can_level_up() -> bool:
@@ -94,16 +97,20 @@ func can_level_up() -> bool:
 
 
 ## Spends orbs and adds one point to [param stat]. Only LEVELABLE_STATS. Returns true on success.
-func level_up(stat: Stat) -> bool:
-	if not stat in LEVELABLE_STATS or not can_level_up():
+func level_up(stat: Stat, amount: int) -> bool:
+	if not stat in LEVELABLE_STATS:
 		return false
-	orbs -= get_level_up_cost()
-	points[stat] = _get_points(stat) + 1
+	if amount > 0:
+		orbs -= get_level_up_cost()
+	else:
+		var refund: int = roundi(level_cost_base * pow(get_level() - 1, level_cost_exponent))
+		orbs += refund
+	points[stat] = _get_points(stat) + amount
 	recalculate()
 	orbs_changed.emit(orbs)
 	leveled_up.emit(stat, get_stat_level(stat))
+	level_up_cost_changed.emit(get_level_up_cost())
 	return true
-
 
 func add_orbs(amount: int) -> void:
 	if amount <= 0:

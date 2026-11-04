@@ -36,20 +36,10 @@ const CLOSE_SOUND: AudioStream = preload("res://Assets/UI SFX/PauseMenuSFX/book-
 ## Orbs and orbs needed
 @onready var orbs_value: Label = $Root/Content/LeftPage/LeftColumn/OrbsSummary/TrueOrbsRow/TrueOrbsValue
 @onready var orbs_needed_value: Label = $Root/Content/LeftPage/LeftColumn/OrbsSummary/OrbsNeededRow/OrbsNeededValue
-## Base stats
-@onready var stat_heatlh: HBoxContainer = $Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Health
-@onready var stat_mana: HBoxContainer = $Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Mana
-@onready var stat_damage: HBoxContainer = $Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Damage
-@onready var stat_durability: HBoxContainer = $Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Durability
-@onready var stat_luck: HBoxContainer = $Root/Content/RightPage/RightColumn/BaseStatsSection/Stat_Luck
-##abilties stats
-@onready var stat_faith: HBoxContainer = $Root/Content/RightPage/RightColumn/AbilityStatsSection/Stat_Faith
-@onready var stat_disgrace: HBoxContainer = $Root/Content/RightPage/RightColumn/AbilityStatsSection/Stat_Disgrace
-## Corruption durability 
-@onready var stat_corruption_durability: HBoxContainer = $Root/Content/RightPage/RightColumn/CorruptionStatsSection/Stat_CorruptionDurability
 
 var _state: ScreenState = ScreenState.OPENING
-var global_player_manager : Node = null
+var global_player_manager: GlobalPlayerManager = null
+var _player_stats: PlayerStats = null
 
 func _ready() -> void:
 	_add_animation_library()
@@ -60,7 +50,10 @@ func _ready() -> void:
 	animation_player.play(OPEN_ANIMATION)
 
 	global_player_manager = get_node("/root/GlobalPlayerManager")
-
+	_player_stats = global_player_manager.player_stats
+	_player_stats.orbs_changed.connect(_on_orbs_changed)
+	_player_stats.level_up_cost_changed.connect(_on_orbs_needed_changed)
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not (event.is_action_pressed("interact") or event.is_action_pressed("menu_back") or event.is_action_pressed("pause_menu")):
@@ -76,54 +69,23 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_animation_finished(animation_name: StringName) -> void:
 	if animation_name == OPEN_ANIMATION and _state == ScreenState.OPENING:
 		_state = ScreenState.OPEN
-		load_stats()
+		load_orbs()
 	elif animation_name == CLOSE_ANIMATION and _state == ScreenState.CLOSING:
 		PauseMenu.process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = false
 		queue_free()
 
-func load_stats() -> void:
-	var _player_stats: PlayerStats = global_player_manager.player_stats
+func load_orbs() -> void:
 	if _player_stats == null:
 		return
 	orbs_value.text = str(_player_stats.orbs)
 	orbs_needed_value.text = str(_player_stats.get_level_up_cost())
-	load_base_stats(_player_stats)
-	load_abilities_stats(_player_stats)
-	load_corruption_durability_stat(_player_stats)
 
-func load_base_stats(player_stats: PlayerStats) -> void:
-	for c in stat_heatlh.get_children():
-		if c is StatRow:
-			c.update_stat(player_stats)
-	for c in stat_mana.get_children():
-		if c is StatRow:
-			c.update_stat(player_stats)
-	for c in stat_damage.get_children():
-		if c is StatRow:
-			c.update_stat(player_stats)
-	for c in stat_durability.get_children():
-		if c is StatRow:
-			c.update_stat(player_stats)
-	for c in stat_luck.get_children():
-		if c is StatRow:
-			c.update_stat(player_stats)
+func _on_orbs_changed(orbs: int) -> void:
+	orbs_value.text = str(orbs)
 
-func load_abilities_stats(player_stats: PlayerStats) -> void:
-	for c in stat_faith.get_children():
-		if c is StatRow:
-			c.update_stat(player_stats)
-	for c in stat_disgrace.get_children():
-		if c is StatRow:
-			c.update_stat(player_stats)
-
-func load_corruption_durability_stat(player_stats: PlayerStats) -> void:
-	for c in stat_corruption_durability.get_children():
-		if c is StatRow:
-			c.update_stat(player_stats)
-
-
-	
+func _on_orbs_needed_changed(new_cost: int) -> void:
+	orbs_needed_value.text = str(new_cost)
 
 # -- Animations ----------------------------------------------------------------
 
