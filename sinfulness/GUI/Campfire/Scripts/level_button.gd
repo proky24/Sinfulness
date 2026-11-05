@@ -21,12 +21,13 @@ func _ready() -> void:
 
 	campfire_ui.closing.connect(_on_campfire_closing)
 
-
 func _on_campfire_closing() -> void:
-	if campfire_ui.confirmed == false :
+	if campfire_ui.confirmed == false and points > 0:
 		player_stats.add_orbs(spending_orbs)
-
-		player_stats.orbs_changed.emit(player_stats.orbs)
+		player_stats.remove_points(stat, points)
+		
+		spending_orbs = 0
+		points = 0
 
 func _on_pressed() -> void:
 	if operation:

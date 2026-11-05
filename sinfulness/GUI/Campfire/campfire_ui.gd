@@ -60,7 +60,6 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not (event.is_action_pressed("interact") or event.is_action_pressed("menu_back") or event.is_action_pressed("pause_menu")):
-		closing.emit()
 		return
 	get_viewport().set_input_as_handled()
 	if _state != ScreenState.OPEN:
@@ -68,6 +67,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	_state = ScreenState.CLOSING
 	content.visible = false
 	animation_player.play(CLOSE_ANIMATION)
+	closing.emit()
 
 
 func _on_animation_finished(animation_name: StringName) -> void:

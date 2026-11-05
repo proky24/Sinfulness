@@ -61,7 +61,6 @@ var orbs: int = 0
 var mana: float = 0.0
 var corruption: float = 0.0
 
-
 ## Computes every stat and fills health and mana.
 func setup() -> void:
 	super.setup()
@@ -106,8 +105,6 @@ func level_up(stat: Stat, amount: int) -> bool:
 		var refund: int = roundi(level_cost_base * pow(get_level() - 1, level_cost_exponent))
 		orbs += refund
 	points[stat] = _get_points(stat) + amount
-	print(str(amount) + "level func")
-	print("points: " + str(points))
 	recalculate()
 	orbs_changed.emit(orbs)
 	leveled_up.emit(stat, get_stat_level(stat))
@@ -116,12 +113,11 @@ func level_up(stat: Stat, amount: int) -> bool:
 
 func add_orbs(amount: int) -> void:
 	orbs += amount
-	print("orbs: " + str(orbs) + " amount: " + str(amount))
 	orbs_changed.emit(orbs)
 
 func remove_points(stat: Stat, amount: int) -> void:
-	points[stat] = _get_points(stat) + amount
-	print("points: " + str(points) + " amount: " + str(amount))
+	points[stat] = _get_points(stat) - amount
+	get_level_up_cost()
 	recalculate()
 
 
