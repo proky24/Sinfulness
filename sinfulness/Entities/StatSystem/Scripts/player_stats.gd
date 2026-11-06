@@ -115,6 +115,10 @@ func add_orbs(amount: int) -> void:
 	orbs += amount
 	orbs_changed.emit(orbs)
 
+func set_orbs(amount: int) -> void:
+	orbs = amount
+	orbs_changed.emit(orbs)
+
 func remove_points(stat: Stat, amount: int) -> void:
 	points[stat] = _get_points(stat) - amount
 	get_level_up_cost()

@@ -11,9 +11,6 @@ class_name LevelButton extends Button
 var global_player_manager: GlobalPlayerManager = null
 var player_stats: PlayerStats = null
 
-var spending_orbs: int = 0
-var points: int = 0
-
 func _ready() -> void:
 	self.pressed.connect(_on_pressed)
 	global_player_manager = get_node("/root/GlobalPlayerManager")
@@ -22,26 +19,18 @@ func _ready() -> void:
 	campfire_ui.closing.connect(_on_campfire_closing)
 
 func _on_campfire_closing() -> void:
-	if campfire_ui.confirmed == false and points > 0:
-		player_stats.add_orbs(spending_orbs)
-		player_stats.remove_points(stat, points)
+	if campfire_ui.confirmed == false and int(value_label.text) > 0 and operation == false:
+		player_stats.remove_points(stat, int(value_label.text))
+		player_stats.set_orbs(campfire_ui.orbs_on_opening)
 		
-		spending_orbs = 0
-		points = 0
 
 func _on_pressed() -> void:
 	if operation:
 		if player_stats.can_level_up():
 			value_label.text = str(int(value_label.text) + 1)
-			spending_orbs += player_stats.get_level_up_cost()
 			player_stats.level_up(stat, 1)
 
-			points += 1
 	else:
 		if int(value_label.text) > 0:
 			value_label.text = str(int(value_label.text) - 1)
-			var refund: int = roundi(player_stats.level_cost_base * pow(player_stats.get_level() - 1, player_stats.level_cost_exponent))
-			spending_orbs -= refund
 			player_stats.level_up(stat, -1)
-
-			points -= 1

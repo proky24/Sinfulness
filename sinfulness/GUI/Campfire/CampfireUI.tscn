@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cdtqg7mnwxjq2" path="res://Assets/UI pack/Individual files/1x/Title banners/BannerMedium_02C.png" id="5_oylmv"]
 [ext_resource type="Script" uid="uid://cycga81r1d6xw" path="res://GUI/Campfire/Scripts/level_shower.gd" id="6_6mpko"]
 [ext_resource type="Texture2D" uid="uid://du2nd2cvgce6k" path="res://Assets/UI pack/Individual files/1x/Spellbook & Tabs/Spellbook_Opening.png" id="6_elqal"]
+[ext_resource type="Script" uid="uid://7fplv2h5fmnx" path="res://GUI/Campfire/Scripts/confirm_button.gd" id="8_7pfqw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6mpko"]
 atlas = ExtResource("6_elqal")
@@ -656,7 +657,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("6_6mpko")
 
-[node name="ConfirmButton" type="Button" parent="Root/Content" unique_id=1834342501]
+[node name="ConfirmButton" type="Button" parent="Root/Content" unique_id=1834342501 node_paths=PackedStringArray("campfire_ui")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 1
@@ -670,6 +671,8 @@ offset_bottom = 262.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 text = "Confirm"
+script = ExtResource("8_7pfqw")
+campfire_ui = NodePath("../../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1242160852]
 root_node = NodePath("../Root")

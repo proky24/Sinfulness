@@ -44,6 +44,8 @@ var global_player_manager: GlobalPlayerManager = null
 var _player_stats: PlayerStats = null
 var confirmed: bool = false
 
+var orbs_on_opening: int = 0
+
 func _ready() -> void:
 	_add_animation_library()
 	animation_player.animation_finished.connect(_on_animation_finished)
@@ -56,6 +58,8 @@ func _ready() -> void:
 	_player_stats = global_player_manager.player_stats
 	_player_stats.orbs_changed.connect(_on_orbs_changed)
 	_player_stats.level_up_cost_changed.connect(_on_orbs_needed_changed)
+
+	orbs_on_opening = _player_stats.orbs
 	
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -64,11 +68,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 	if _state != ScreenState.OPEN:
 		return
+	close()
+
+func close() -> void:
 	_state = ScreenState.CLOSING
 	content.visible = false
 	animation_player.play(CLOSE_ANIMATION)
 	closing.emit()
-
+	pass
 
 func _on_animation_finished(animation_name: StringName) -> void:
 	if animation_name == OPEN_ANIMATION and _state == ScreenState.OPENING:
