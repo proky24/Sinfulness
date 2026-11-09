@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://j8s7oot3rtny" path="res://Entities/Player/Scripts/state_machine.gd" id="3_oxjk5"]
 [ext_resource type="Script" uid="uid://db0c7qgv7c3kt" path="res://Entities/Player/Scripts/States/state_idle.gd" id="4_yv3ts"]
 [ext_resource type="Script" uid="uid://cxs2vr3jw4fn6" path="res://Entities/Player/Scripts/States/state_walk.gd" id="5_bgrr3"]
+[ext_resource type="Script" uid="uid://brb66bt1m11nx" path="res://Entities/Player/Scripts/States/state_ability.gd" id="5_tepoh"]
 [ext_resource type="Script" uid="uid://b8r1ty2mhxc0p" path="res://Entities/Player/Scripts/States/state_attack.gd" id="6_efe82"]
 [ext_resource type="AudioStream" uid="uid://c0uft223aqre5" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Long_04.wav" id="7_36do4"]
 [ext_resource type="Script" uid="uid://cu3ar6vyq16nb" path="res://Entities/Player/Scripts/States/state_block.gd" id="7_ejwh1"]
@@ -679,6 +680,9 @@ script = ExtResource("3_oxjk5")
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1072066924]
 script = ExtResource("4_yv3ts")
 
+[node name="Ability" type="Node" parent="StateMachine" unique_id=2064846786]
+script = ExtResource("5_tepoh")
+
 [node name="Walk" type="Node" parent="StateMachine" unique_id=1127821714]
 script = ExtResource("5_bgrr3")
 
@@ -718,12 +722,14 @@ script = ExtResource("13_tor14")
 [node name="Purrified" type="Node" parent="AbilitiesSpriteHolder" unique_id=617264082]
 
 [node name="Cleanse" type="Sprite2D" parent="AbilitiesSpriteHolder/Purrified" unique_id=1160387137]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, -12)
 texture = ExtResource("16_becua")
 hframes = 16
 
 [node name="GodsSoldier" type="Sprite2D" parent="AbilitiesSpriteHolder/Purrified" unique_id=690468217]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, -24)
 texture = ExtResource("18_dep70")
@@ -732,17 +738,20 @@ hframes = 25
 [node name="Corrupted" type="Node" parent="AbilitiesSpriteHolder" unique_id=1303502498]
 
 [node name="RageOverflow" type="Sprite2D" parent="AbilitiesSpriteHolder/Corrupted" unique_id=1641453578]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, -11)
 texture = ExtResource("14_iigad")
 hframes = 31
 
 [node name="MeetTheEnd" type="Sprite2D" parent="AbilitiesSpriteHolder/Corrupted" unique_id=1318497873]
+unique_name_in_owner = true
 visible = false
 texture = ExtResource("18_r50l2")
 hframes = 26
 
 [node name="TasteYourOwnHate" type="Sprite2D" parent="AbilitiesSpriteHolder/Corrupted" unique_id=579647625]
+unique_name_in_owner = true
 visible = false
 texture = ExtResource("16_vi7k6")
 hframes = 13

@@ -4,5 +4,4 @@
 
 [resource]
 script = ExtResource("1_wv0gl")
-base_max_mana = 15.0
-base_max_health = 25.0
+base_max_health = 100.0

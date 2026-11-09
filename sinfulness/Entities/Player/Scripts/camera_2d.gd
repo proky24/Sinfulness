@@ -79,8 +79,9 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	_update_zoom(delta)
-	if _shake_strength == 0:
-		_update_offset(delta)
+	if _shake_strength > 0:
+		return
+	_update_offset(delta)
 	pass
 
 
