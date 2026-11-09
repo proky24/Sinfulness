@@ -221,10 +221,13 @@ next_state = NodePath("../Idle")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=674589490]
 script = ExtResource("6_nxlde")
+player_camera_shake = 5.0
+stop_time_duration = 0.25
 hit_sfx = ExtResource("8_o6yvo")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" unique_id=1239961943 node_paths=PackedStringArray("next_state")]
 script = ExtResource("6_17sge")
+player_camera_shake = 1.0
 next_state = NodePath("../Idle")
 hit_sfx = ExtResource("9_aumgy")
 

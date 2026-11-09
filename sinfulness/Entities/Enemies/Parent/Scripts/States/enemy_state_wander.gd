@@ -44,6 +44,3 @@ func physics_process(_delta: float) -> EnemyState:
 		_timer = 0
 		return next_state
 	return null
-
-func _handle_input(event: InputEvent) -> EnemyState:
-	return null

@@ -57,9 +57,6 @@ func process(_delta: float) -> EnemyState:
 func physics_process(_delta: float) -> EnemyState:
 	return null
 
-func _handle_input(event: InputEvent) -> EnemyState:
-	return null
-
 func _on_enemy_damaged() -> void:
 	state_machine.change_state(self)
 	pass

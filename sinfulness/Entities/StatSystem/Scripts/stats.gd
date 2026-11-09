@@ -186,7 +186,6 @@ func _set_health(value: float) -> void:
 	health_changed.emit(health, max_health)
 	if health <= 0.0 and not _depleted:
 		_depleted = true
-		HitStopManager.stop_time()
 		health_depleted.emit()
 
 

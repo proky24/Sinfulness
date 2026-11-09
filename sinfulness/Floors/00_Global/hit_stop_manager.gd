@@ -1,7 +1,7 @@
 extends Node
 
-func stop_time() -> void:
+func stop_time(duration: float) -> void:
     Engine.time_scale = 0
-    await get_tree().create_timer(0.2, true, false, true).timeout
+    await get_tree().create_timer(duration, true, false, true).timeout
     Engine.time_scale = 1
     pass

@@ -4,6 +4,7 @@ class_name EnemyStateDestroy extends EnemyState
 @export var knockback_speed: float = 200.0
 @export var decelerate_speed: float = 10.0
 @export var player_camera_shake: float = 10.0
+@export var stop_time_duration: float = 1.0
 
 var animation_finished: bool = true
 var _direction: Vector2
@@ -17,11 +18,13 @@ func _ready() -> void:
 	pass
 
 func enter() -> void:
+	HitStopManager.stop_time(stop_time_duration)
 	GlobalPlayerManager.player.camera.trigger_shake(player_camera_shake)
 
 	audio_player.pitch_scale = randf_range(0.9, 1.1)
 	audio_player.stream = hit_sfx
 	audio_player.play()
+
 	# Pushed away from the player and slowed down, like the stun state.
 	_direction = -enemy.global_position.direction_to(enemy.player.global_position)
 	enemy.set_direction(_direction)
