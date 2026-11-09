@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://box0u18p675p3" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_wander.gd" id="5_ruuuf"]
 [ext_resource type="Script" uid="uid://djk80mra1mcs3" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_stun.gd" id="6_17sge"]
 [ext_resource type="Script" uid="uid://db6va51qcgvei" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_destroy.gd" id="6_nxlde"]
+[ext_resource type="AudioStream" uid="uid://ut721afdr3g8" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Powerful/Impact_Powerful_01.wav" id="8_o6yvo"]
+[ext_resource type="AudioStream" uid="uid://c47kdn5cwbluf" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_06.wav" id="9_aumgy"]
 
 [sub_resource type="Animation" id="Animation_qt7sn"]
 length = 0.001
@@ -219,10 +221,12 @@ next_state = NodePath("../Idle")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=674589490]
 script = ExtResource("6_nxlde")
+hit_sfx = ExtResource("8_o6yvo")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" unique_id=1239961943 node_paths=PackedStringArray("next_state")]
 script = ExtResource("6_17sge")
 next_state = NodePath("../Idle")
+hit_sfx = ExtResource("9_aumgy")
 
 [node name="HitBox" parent="." unique_id=1245106054 instance=ExtResource("4_qt7sn")]
 
@@ -238,3 +242,6 @@ monitoring = false
 position = Vector2(10, 0)
 shape = SubResource("CircleShape2D_0x4nn")
 debug_color = Color(0.9647059, 0, 0, 0.41960785)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1305776590]
+volume_db = -5.0

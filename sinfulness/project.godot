@@ -24,6 +24,7 @@ PauseMenu="*uid://s07dllea4cju"
 MCPRuntimeServer="*res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd"
 GlobalInventory="*uid://yrj7redgsjji"
 FpsShower="*uid://42f24v2cfnl8"
+HitStopManager="*uid://culwl1y4pg4sf"
 
 [display]
 

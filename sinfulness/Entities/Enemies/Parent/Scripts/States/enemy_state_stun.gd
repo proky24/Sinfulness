@@ -3,20 +3,33 @@ class_name EnemyStunState extends EnemyState
 @export var anim_name: String = "stun"
 @export var knockback_speed: float = 50.0
 @export var decelerate_speed: float = 10.0
+@export var player_camera_shake: float = 2.5
 
 @export_category("AI")
 @export var next_state: EnemyState
 
+@export_category("SFX")
+@export var hit_sfx: AudioStream
+
 var _direction: Vector2
 var animation_finished: bool = false
+
+@onready var audio_player: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
+
 
 func _ready() -> void:
 	pass 
 
 func enter() -> void:
+	audio_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_player.stream = hit_sfx
+	audio_player.play()
+
+	GlobalPlayerManager.player.camera.trigger_shake(player_camera_shake)
+
 	animation_finished = false
 	enemy.invulnerable = true
-	
+
 	_direction = -enemy.global_position.direction_to(enemy.player.global_position)
 	
 	enemy.set_direction(_direction)

@@ -13,7 +13,7 @@ var stats: PlayerStats:
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hit_box: HitBox = $Interactions/HitBox
 @onready var hurt_box: HurtBox = $Interactions/HurtBox
-
+@onready var camera: Camera2D = $Camera2D
 
 signal dir_changed( new_dir: Vector2 )
 

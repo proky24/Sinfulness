@@ -58,6 +58,10 @@ var _attack_dir: Vector2 = Vector2.ZERO
 var _combo_active: bool = false
 var _idle_time: float = 0.0
 
+## camera shake when impact vars
+var _shake_max: float = 10.0
+var _shake_fade: float = 10.0
+var _shake_strength: float = 0.0
 
 func _ready() -> void:
 	GlobalLevelManager.tilemap_bounds_changed.connect(update_limits)
@@ -66,10 +70,17 @@ func _ready() -> void:
 	zoom = Vector2(_zoom_value, _zoom_value)
 	pass
 
+func _process(delta: float) -> void:
+	if _shake_strength > 0:
+		_shake_strength = lerp(_shake_strength, 0.0, _shake_fade * delta)
+
+		offset = Vector2(randf_range(-_shake_strength, _shake_strength), randf_range(-_shake_strength, _shake_strength))
+	pass
 
 func _physics_process(delta: float) -> void:
 	_update_zoom(delta)
-	_update_offset(delta)
+	if _shake_strength == 0:
+		_update_offset(delta)
 	pass
 
 
@@ -96,6 +107,10 @@ func end_attack() -> void:
 	_combo_active = false
 	pass
 
+func trigger_shake(shake_max) -> void:
+	_shake_max = shake_max
+	_shake_strength = _shake_max
+	pass
 
 func _update_zoom(delta: float) -> void:
 	var target: float = attack_zoom if _combo_active else base_zoom
