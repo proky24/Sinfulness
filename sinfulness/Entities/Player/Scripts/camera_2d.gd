@@ -70,17 +70,8 @@ func _ready() -> void:
 	zoom = Vector2(_zoom_value, _zoom_value)
 	pass
 
-func _process(delta: float) -> void:
-	if _shake_strength > 0:
-		_shake_strength = lerp(_shake_strength, 0.0, _shake_fade * delta)
-
-		offset = Vector2(randf_range(-_shake_strength, _shake_strength), randf_range(-_shake_strength, _shake_strength))
-	pass
-
 func _physics_process(delta: float) -> void:
 	_update_zoom(delta)
-	if _shake_strength > 0:
-		return
 	_update_offset(delta)
 	pass
 
@@ -139,9 +130,20 @@ func _update_offset(delta: float) -> void:
 
 	var sharpness: float = look_ahead_sharpness if target.length() >= _screen_offset.length() else return_sharpness
 	_screen_offset = _screen_offset.lerp(target, _smooth_weight(sharpness, delta))
-	offset = _clamp_to_limits(_screen_offset * base_zoom / _zoom_value)
-	_screen_offset = offset * _zoom_value / base_zoom
+	var base_offset: Vector2 = _clamp_to_limits(_screen_offset * base_zoom / _zoom_value)
+	_screen_offset = base_offset * _zoom_value / base_zoom
+	# Shake is added on top and never stored, so it can't disturb the look-ahead.
+	offset = base_offset + _update_shake(delta)
 	pass
+
+
+func _update_shake(delta: float) -> Vector2:
+	if _shake_strength <= 0.0:
+		return Vector2.ZERO
+	_shake_strength = lerpf(_shake_strength, 0.0, _shake_fade * delta)
+	if _shake_strength < 0.1:
+		_shake_strength = 0.0
+	return Vector2(randf_range(-_shake_strength, _shake_strength), randf_range(-_shake_strength, _shake_strength))
 
 
 # Camera2D applies the offset after the limits, so without this the look-ahead
