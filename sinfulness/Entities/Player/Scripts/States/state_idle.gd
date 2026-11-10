@@ -31,12 +31,15 @@ func _handle_input(event: InputEvent) -> State:
 		return attack
 	elif event.is_action_pressed("block"):
 		return block
-	#elif event.is_action_pressed("switch_stance"):
+	elif event.is_action_pressed("switch_stance"):
 		if ability.stance == ability.Stances.PURRIFIED:
 			ability.stance = ability.Stances.CORRUPTED
 		else:
 			ability.stance = ability.Stances.PURRIFIED
 		return null
+	elif event.is_action_pressed("first_ability") or event.is_action_pressed("second_ability") or event.is_action_pressed("third_ability"):
+		ability.event = event.as_text()
+		return ability
 	elif event.is_action_pressed("take_dmg"):
 		player.hit_box.take_damage(HitData.new(15.0))
 		GlobalPlayerManager.player_stats.spend_mana(30.0)

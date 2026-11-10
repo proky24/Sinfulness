@@ -4,7 +4,6 @@
 
 [resource]
 script = ExtResource("1_5i3i1")
-orb_reward = 15000
 base_max_health = 30.0
 base_damage = 8.0
 base_durability = 0.0

@@ -14,6 +14,7 @@ var stats: PlayerStats:
 @onready var hit_box: HitBox = $Interactions/HitBox
 @onready var hurt_box: HurtBox = $Interactions/HurtBox
 @onready var camera: Camera2D = $Camera2D
+@onready var abilities_holder: Node2D = %AbilitiesSpriteHolder
 
 signal dir_changed( new_dir: Vector2 )
 
@@ -66,8 +67,10 @@ func set_dir() -> bool:
 	dir_changed.emit(cardinal_dir)
 	if cardinal_dir == Vector2.LEFT:
 		sprite.scale.x = -1
+		abilities_holder.scale.x = -1
 	elif cardinal_dir == Vector2.RIGHT:
 		sprite.scale.x = 1
+		abilities_holder.scale.x = 1
 	return true
 
 #func animation_direction() -> string:

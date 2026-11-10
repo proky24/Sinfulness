@@ -227,7 +227,7 @@ hit_sfx = ExtResource("8_o6yvo")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" unique_id=1239961943 node_paths=PackedStringArray("next_state")]
 script = ExtResource("6_17sge")
-player_camera_shake = 1.0
+player_camera_shake = 2.0
 next_state = NodePath("../Idle")
 hit_sfx = ExtResource("9_aumgy")
 
