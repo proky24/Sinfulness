@@ -23,6 +23,7 @@ func _ready() -> void:
 	pass 
 
 func enter() -> void:
+	PlayerHud.appear()
 	player.velocity = Vector2.ZERO
 
 	player.update_animation(event + "_" + str(stance))

@@ -41,6 +41,9 @@
 [ext_resource type="Texture2D" uid="uid://co8vy54kybvde" path="res://Assets/Dungeon TileSet/torch_extra_sheet.png" id="39_8prfk"]
 [ext_resource type="PackedScene" uid="uid://f3lrpt0y6v4f" path="res://Floors/PlayerSpawn/PlayerSpawn.tscn" id="40_8prfk"]
 [ext_resource type="PackedScene" uid="uid://gp0k66mebgrm" path="res://Entities/Enemies/Parent/Enemy.tscn" id="41_0v3fh"]
+[ext_resource type="PackedScene" uid="uid://bqla40c8en75b" path="res://Entities/Enemies/Bat/Bat.tscn" id="42_kbphs"]
+[ext_resource type="PackedScene" uid="uid://blw35pbivooqq" path="res://Entities/Enemies/ArmoredSkeleton/ArmoredSkeleton.tscn" id="43_jjekv"]
+[ext_resource type="PackedScene" uid="uid://b5nolq06816qc" path="res://Entities/Enemies/GreatswordSkeleton/GreatSwordSkeleton.tscn" id="44_bf3wx"]
 
 [sub_resource type="Environment" id="Environment_3gqd7"]
 background_mode = 3
@@ -617,3 +620,12 @@ position = Vector2(475, 350)
 
 [node name="Enemy2" parent="." unique_id=201371048 instance=ExtResource("41_0v3fh")]
 position = Vector2(414, 423)
+
+[node name="Enemy3" parent="." unique_id=358895280 instance=ExtResource("42_kbphs")]
+position = Vector2(504, 330)
+
+[node name="Enemy4" parent="." unique_id=557919011 instance=ExtResource("43_jjekv")]
+position = Vector2(424, 377)
+
+[node name="Enemy5" parent="." unique_id=2120887927 instance=ExtResource("44_bf3wx")]
+position = Vector2(457, 346)
