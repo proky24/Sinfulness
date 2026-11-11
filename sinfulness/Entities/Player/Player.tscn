@@ -780,32 +780,50 @@ script = ExtResource("4_yv3ts")
 [node name="Ability" type="Node" parent="StateMachine" unique_id=2064846786]
 script = ExtResource("5_tepoh")
 
-[node name="RageOverFlow" type="Node" parent="StateMachine/Ability" unique_id=1892060368]
+[node name="RageOverflow" type="Node" parent="StateMachine/Ability" unique_id=1892060368]
+unique_name_in_owner = true
 script = ExtResource("6_h03de")
 stance = 1
 slot = "Q"
+
+[node name="Timer" type="Timer" parent="StateMachine/Ability/RageOverflow" unique_id=842567014]
 
 [node name="MeetTheEnd" type="Node" parent="StateMachine/Ability" unique_id=1583836364]
+unique_name_in_owner = true
 script = ExtResource("6_h03de")
 stance = 1
 slot = "E"
 
+[node name="Timer" type="Timer" parent="StateMachine/Ability/MeetTheEnd" unique_id=59698738]
+
 [node name="TasteYourOwnHate" type="Node" parent="StateMachine/Ability" unique_id=2042120089]
+unique_name_in_owner = true
 script = ExtResource("6_h03de")
 stance = 1
 slot = "X"
 
+[node name="Timer" type="Timer" parent="StateMachine/Ability/TasteYourOwnHate" unique_id=1702366937]
+
 [node name="Cleanse" type="Node" parent="StateMachine/Ability" unique_id=533373522]
+unique_name_in_owner = true
 script = ExtResource("6_h03de")
 slot = "Q"
 
+[node name="Timer" type="Timer" parent="StateMachine/Ability/Cleanse" unique_id=281964525]
+
 [node name="Sunrise" type="Node" parent="StateMachine/Ability" unique_id=856221618]
+unique_name_in_owner = true
 script = ExtResource("6_h03de")
 slot = "E"
 
+[node name="Timer" type="Timer" parent="StateMachine/Ability/Sunrise" unique_id=764981634]
+
 [node name="GodsSoldier" type="Node" parent="StateMachine/Ability" unique_id=1317244577]
+unique_name_in_owner = true
 script = ExtResource("6_h03de")
 slot = "X"
+
+[node name="Timer" type="Timer" parent="StateMachine/Ability/GodsSoldier" unique_id=521881176]
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=1127821714]
 script = ExtResource("5_bgrr3")
@@ -846,14 +864,12 @@ unique_name_in_owner = true
 [node name="Purrified" type="Node2D" parent="AbilitiesSpriteHolder" unique_id=1148099161]
 
 [node name="Cleanse" type="Sprite2D" parent="AbilitiesSpriteHolder/Purrified" unique_id=1160387137]
-unique_name_in_owner = true
 visible = false
 position = Vector2(0, -12)
 texture = ExtResource("16_becua")
 hframes = 16
 
 [node name="GodsSoldier" type="Sprite2D" parent="AbilitiesSpriteHolder/Purrified" unique_id=690468217]
-unique_name_in_owner = true
 visible = false
 position = Vector2(0, -24)
 texture = ExtResource("18_dep70")
@@ -862,20 +878,17 @@ hframes = 25
 [node name="Corrupted" type="Node2D" parent="AbilitiesSpriteHolder" unique_id=25464644]
 
 [node name="RageOverflow" type="Sprite2D" parent="AbilitiesSpriteHolder/Corrupted" unique_id=1641453578]
-unique_name_in_owner = true
 visible = false
 position = Vector2(0, -11)
 texture = ExtResource("14_iigad")
 hframes = 31
 
 [node name="MeetTheEnd" type="Sprite2D" parent="AbilitiesSpriteHolder/Corrupted" unique_id=1318497873]
-unique_name_in_owner = true
 visible = false
 texture = ExtResource("18_r50l2")
 hframes = 26
 
 [node name="TasteYourOwnHate" type="Sprite2D" parent="AbilitiesSpriteHolder/Corrupted" unique_id=579647625]
-unique_name_in_owner = true
 visible = false
 texture = ExtResource("16_vi7k6")
 hframes = 13
