@@ -3,58 +3,58 @@ class_name StateAbility extends State
 @onready var idle: StateIdle = $"../Idle"
 @onready var walk: StateWalk = $"../Walk"
 
-## abilities sprites
-@onready var cleanse: Ability = %Cleanse
-@onready var gods_soldier: Ability = %GodsSoldier
-## corrupted abilities
-@onready var rage_overflow: Ability = %RageOverflow
-@onready var meet_the_end: Ability = %MeetTheEnd
-@onready var taste_your_own_hate: Ability = %TasteYourOwnHate
-
-@export_range(0, 1) var stance: int = 0
-@export var slot: String
-@export var mana_cost: float = 0
-@export var cooldown: float = 0
-@export var corruption_on_use: float = 0
-
 enum Stances {PURRIFIED, CORRUPTED}
+var stance: int = 0
 
 var event: String = ""
 var using_ability: bool = false
 
 var player_stats: PlayerStats = null
 
-func _ready() -> void:
-	stance = Stances.CORRUPTED
+var children: Array = []
+var ability_to_use: Ability
 
+func _ready() -> void:
 	player_stats = get_node("/root/GlobalPlayerManager").player_stats
+	children = get_children()
 	pass 
 
 func enter() -> void:
 	PlayerHud.appear()
 	player.velocity = Vector2.ZERO
 
-	player.update_animation(event + "_" + str(stance))
+	activate(ability_to_use)
+	ability_to_use = null
+
 	player.animation_player.animation_finished.connect(_on_ability_end)
 
 	using_ability = true
-
 	pass
 
-func _on_ability_end(a: String) -> void:
+func _on_ability_end(_a: String) -> void:
 	using_ability = false
 	pass
 
 func can_use(_ability: Ability) -> bool:
-	if player_stats.spend_mana(_ability.mana_cost) and _ability.timer.time_left == 0:
-		
-		pass
+	if player_stats.mana > _ability.mana_cost and _ability.timer.is_stopped():
+		if _ability.slot == "E" and _ability.stance == 1: # Meet The end
+			# find enemy nearby
+			pass
+		_ability.timer.start()
+		return true
 	return false
+
+func activate(_ability: Ability) -> void:
+	_ability.timer.start()
+	player.update_animation(event + "_" + str(stance))
+	_ability.get_power()
+
+	player_stats.spend_mana(_ability.mana_cost)
+	pass
 
 func exit() -> void:
 	player.animation_player.animation_finished.disconnect(_on_ability_end)
 
-	## player spend mana
 	pass
 
 func init() -> void:

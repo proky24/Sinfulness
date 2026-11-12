@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blw35pbivooqq"]
 
 [ext_resource type="Script" uid="uid://dspoflxyqqss2" path="res://Entities/Enemies/Parent/Scripts/enemy.gd" id="1_j6xgm"]
-[ext_resource type="Resource" uid="uid://cfyhi0ypkme37" path="res://Entities/Enemies/Parent/enemy_stats.tres" id="2_qvere"]
+[ext_resource type="Script" uid="uid://b1cy3xxe2mwic" path="res://Entities/StatSystem/Scripts/enemy_stats.gd" id="2_ai1ou"]
 [ext_resource type="Texture2D" uid="uid://lcqffuq0mx3y" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Armored Skeleton/Armored Skeleton/Armored Skeleton.png" id="3_ai1ou"]
 [ext_resource type="Script" uid="uid://db7vws2spdhj" path="res://Entities/Enemies/Parent/Scripts/enemy_state_machine.gd" id="4_xyys4"]
 [ext_resource type="Script" uid="uid://ct8p3at0vny5q" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_idle.gd" id="5_rugje"]
@@ -12,6 +12,13 @@
 [ext_resource type="AudioStream" uid="uid://c47kdn5cwbluf" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_06.wav" id="10_5cc5c"]
 [ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="11_wtpot"]
 [ext_resource type="PackedScene" uid="uid://b62k27aai08u6" path="res://Entities/GeneralNodes/Hurtbox/HurtBox.tscn" id="12_7rhvc"]
+
+[sub_resource type="Resource" id="Resource_ba2vk"]
+resource_local_to_scene = true
+script = ExtResource("2_ai1ou")
+orb_reward = 50
+base_max_health = 60.0
+base_damage = 16.0
 
 [sub_resource type="Animation" id="Animation_qt7sn"]
 length = 0.001
@@ -206,7 +213,7 @@ collision_layer = 256
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_j6xgm")
-stats = ExtResource("2_qvere")
+stats = SubResource("Resource_ba2vk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1952738428]
 libraries/ = SubResource("AnimationLibrary_ruuuf")

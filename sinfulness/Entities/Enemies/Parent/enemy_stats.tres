@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1cy3xxe2mwic" path="res://Entities/StatSystem/Scripts/enemy_stats.gd" id="1_5i3i1"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_5i3i1")
 base_max_health = 30.0
 base_damage = 8.0

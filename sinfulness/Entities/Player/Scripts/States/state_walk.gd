@@ -42,7 +42,12 @@ func _handle_input(event: InputEvent) -> State:
 		return null
 	elif event.is_action_pressed("first_ability") or event.is_action_pressed("second_ability") or event.is_action_pressed("third_ability"):
 		ability.event = event.as_text()
-		return ability
+		for c in ability.children:
+			if c.slot == ability.event and c.stance == ability.stance:
+				ability.ability_to_use = c
+		if ability.can_use(ability.ability_to_use):
+			return ability
+		return null
 	elif event.is_action_pressed("interact"):
 		GlobalPlayerManager.interact_pressed.emit()
 	return walk
