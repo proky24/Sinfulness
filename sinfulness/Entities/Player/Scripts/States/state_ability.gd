@@ -40,7 +40,6 @@ func can_use(_ability: Ability) -> bool:
 		if _ability.slot == "E" and _ability.stance == 1: # Meet The end
 			# find enemy nearby
 			pass
-		_ability.timer.start()
 		return true
 	return false
 
