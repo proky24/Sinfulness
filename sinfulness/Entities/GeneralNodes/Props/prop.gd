@@ -20,6 +20,8 @@ const _FOOTPRINT_MAX_HEIGHT: float = 8.0
 ## Opaque pixel bounds per texture, shared by all props.
 static var _opaque_cache: Dictionary = {}
 
+@onready var area_2d: Area2D = $Area2D
+
 @export var texture: Texture2D:
 	set(value):
 		texture = value
@@ -49,7 +51,14 @@ static var _opaque_cache: Dictionary = {}
 	set(value):
 		lift = value
 		update_prop()
-
+## Opening chests
+@export_category("Chest")
+@export var openable: bool = false:
+	set(value):
+		openable = value
+		update_prop()
+@export var item_data: ItemData: set = set_item_data
+@export var amount: int = 0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var footprint: CollisionShape2D = $StaticBody2D/CollisionShape2D
@@ -62,6 +71,9 @@ func _ready() -> void:
 	hit_shape.shape = RectangleShape2D.new()
 	update_prop()
 
+func set_item_data(value: ItemData) -> void:
+	item_data = value
+	pass
 
 ## Re-applies the texture and switches to the sprite and collision shapes.
 func update_prop() -> void:
@@ -71,11 +83,25 @@ func update_prop() -> void:
 	_update_sprite(opaque)
 	_update_footprint(opaque)
 	_update_hit_box(opaque)
+	if openable:
+		area_2d.area_entered.connect(_on_area_entered)
+		area_2d.area_exited.connect(_on_area_exited)
 
 
 func take_damage(_hit: HitData) -> void:
 	queue_free()
 
+func _on_interact_pressed(_a: Area2D) -> void:
+	
+	pass
+
+func _on_area_entered(_a: Area2D):
+	GlobalPlayerManager.interact_pressed.connect(_on_interact_pressed)
+	pass
+
+func _on_area_exited(_a: Area2D):
+	GlobalPlayerManager.interact_pressed.disconnect(_on_interact_pressed)
+	pass
 
 func _update_sprite(opaque: Rect2i) -> void:
 	sprite.texture = texture

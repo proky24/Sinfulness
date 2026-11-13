@@ -7,12 +7,17 @@
 [ext_resource type="Script" uid="uid://cxs2vr3jw4fn6" path="res://Entities/Player/Scripts/States/state_walk.gd" id="5_bgrr3"]
 [ext_resource type="Script" uid="uid://brb66bt1m11nx" path="res://Entities/Player/Scripts/States/state_ability.gd" id="5_tepoh"]
 [ext_resource type="Script" uid="uid://b8r1ty2mhxc0p" path="res://Entities/Player/Scripts/States/state_attack.gd" id="6_efe82"]
-[ext_resource type="Script" uid="uid://gsrvdbhtrvvk" path="res://Entities/Player/Scripts/Abilities/ability.gd" id="6_h03de"]
+[ext_resource type="Script" uid="uid://vxmom123fqjb" path="res://Entities/Player/Scripts/Abilities/Corrupted/first_corrupt.gd" id="6_gbla8"]
 [ext_resource type="AudioStream" uid="uid://c0uft223aqre5" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Long_04.wav" id="7_36do4"]
 [ext_resource type="Script" uid="uid://cu3ar6vyq16nb" path="res://Entities/Player/Scripts/States/state_block.gd" id="7_ejwh1"]
+[ext_resource type="Script" uid="uid://bln2gmd8s5t47" path="res://Entities/Player/Scripts/Abilities/Corrupted/second_corrupt.gd" id="7_vi0tq"]
+[ext_resource type="Script" uid="uid://c1l60wilfcy1l" path="res://Entities/Player/Scripts/Abilities/Corrupted/third_corrupt.gd" id="8_c5u7s"]
 [ext_resource type="AudioStream" uid="uid://hjw4wjgu7wcv" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Short_02.wav" id="8_ejwh1"]
 [ext_resource type="AudioStream" uid="uid://bf54ai8ewnf1g" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Short_03.wav" id="9_264qk"]
+[ext_resource type="Script" uid="uid://bye1q7gkwssiu" path="res://Entities/Player/Scripts/Abilities/Purrified/first_purr.gd" id="9_kcvdc"]
+[ext_resource type="Script" uid="uid://c74denn7k53lq" path="res://Entities/Player/Scripts/Abilities/Purrified/second_purr.gd" id="10_ow4hj"]
 [ext_resource type="AudioStream" uid="uid://dckhruhfv0dxj" path="res://Assets/Weapon SFX Pack/WAV/Sword/Sword_Swing_Long_05.wav" id="10_tor14"]
+[ext_resource type="Script" uid="uid://ct7cfuyp55a46" path="res://Entities/Player/Scripts/Abilities/Purrified/third_purr.gd" id="11_p4d7x"]
 [ext_resource type="AudioStream" uid="uid://dq6nl8xgc3jfy" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_03.wav" id="12_264qk"]
 [ext_resource type="AudioStream" uid="uid://6uoyveoco8ik" path="res://Assets/Other SFX/Spells/Firebuff 1.wav" id="13_adphd"]
 [ext_resource type="Script" uid="uid://dn4loqtigc646" path="res://Entities/Player/Scripts/camera_2d.gd" id="13_tor14"]
@@ -782,7 +787,7 @@ script = ExtResource("5_tepoh")
 
 [node name="RageOverflow" type="Node" parent="StateMachine/Ability" unique_id=1892060368]
 unique_name_in_owner = true
-script = ExtResource("6_h03de")
+script = ExtResource("6_gbla8")
 stance = 1
 slot = "Q"
 mana_cost = 5.0
@@ -793,7 +798,7 @@ one_shot = true
 
 [node name="MeetTheEnd" type="Node" parent="StateMachine/Ability" unique_id=1583836364]
 unique_name_in_owner = true
-script = ExtResource("6_h03de")
+script = ExtResource("7_vi0tq")
 stance = 1
 slot = "E"
 mana_cost = 10.0
@@ -805,7 +810,7 @@ one_shot = true
 
 [node name="TasteYourOwnHate" type="Node" parent="StateMachine/Ability" unique_id=2042120089]
 unique_name_in_owner = true
-script = ExtResource("6_h03de")
+script = ExtResource("8_c5u7s")
 stance = 1
 slot = "X"
 mana_cost = 50.0
@@ -817,30 +822,21 @@ one_shot = true
 
 [node name="Cleanse" type="Node" parent="StateMachine/Ability" unique_id=533373522]
 unique_name_in_owner = true
-script = ExtResource("6_h03de")
-slot = "Q"
-mana_cost = 10.0
-cooldown = 10.0
+script = ExtResource("9_kcvdc")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/Cleanse" unique_id=281964525]
 one_shot = true
 
 [node name="Sunrise" type="Node" parent="StateMachine/Ability" unique_id=856221618]
 unique_name_in_owner = true
-script = ExtResource("6_h03de")
-slot = "E"
-mana_cost = 25.0
-cooldown = 15.0
+script = ExtResource("10_ow4hj")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/Sunrise" unique_id=764981634]
 one_shot = true
 
 [node name="GodsSoldier" type="Node" parent="StateMachine/Ability" unique_id=1317244577]
 unique_name_in_owner = true
-script = ExtResource("6_h03de")
-slot = "X"
-mana_cost = 30.0
-cooldown = 30.0
+script = ExtResource("11_p4d7x")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/GodsSoldier" unique_id=521881176]
 one_shot = true

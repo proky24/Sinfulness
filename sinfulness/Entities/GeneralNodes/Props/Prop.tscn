@@ -10,10 +10,14 @@ size = Vector2(8, 5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtny1"]
 size = Vector2(11, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqd7"]
+size = Vector2(11, 16)
+
 [node name="Prop" type="Node2D" unique_id=1443861933]
 y_sort_enabled = true
 script = ExtResource("1_m3x6n")
 texture = ExtResource("1_a835k")
+amount = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=277694149]
 texture = ExtResource("1_a835k")
@@ -35,3 +39,13 @@ position = Vector2(0.5, -8)
 shape = SubResource("RectangleShape2D_vtny1")
 disabled = true
 debug_color = Color(0.9661533, 0, 0.4852562, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=563704006]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=273502607]
+position = Vector2(0.5, -8)
+shape = SubResource("RectangleShape2D_3gqd7")
+debug_color = Color(0.9684226, 0, 0.47103715, 0.41960785)
