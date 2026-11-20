@@ -16,7 +16,6 @@ var animation_finished: bool = false
 
 @onready var audio_player: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
 
-
 func _ready() -> void:
 	pass 
 

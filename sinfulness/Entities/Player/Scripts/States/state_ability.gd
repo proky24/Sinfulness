@@ -36,7 +36,7 @@ func _on_ability_end(_a: String) -> void:
 	pass
 
 func can_use(_ability: Ability) -> bool:
-	if player_stats.mana > _ability.mana_cost and _ability.timer.is_stopped():
+	if player_stats.mana >= _ability.mana_cost and _ability.timer.is_stopped():
 		if _ability.slot == "E" and _ability.stance == 1: # Meet The end
 			# find enemy nearby
 			pass
@@ -46,7 +46,7 @@ func can_use(_ability: Ability) -> bool:
 func activate(_ability: Ability) -> void:
 	_ability.timer.start()
 	player.update_animation(event + "_" + str(stance))
-	_ability.get_power()
+	_ability.trigger()
 
 	player_stats.spend_mana(_ability.mana_cost)
 	pass

@@ -785,18 +785,24 @@ script = ExtResource("4_yv3ts")
 [node name="Ability" type="Node" parent="StateMachine" unique_id=2064846786]
 script = ExtResource("5_tepoh")
 
-[node name="RageOverflow" type="Node" parent="StateMachine/Ability" unique_id=1892060368]
+[node name="RageOverflow" type="Node" parent="StateMachine/Ability" unique_id=1892060368 node_paths=PackedStringArray("ability_to_call")]
 unique_name_in_owner = true
 script = ExtResource("6_gbla8")
 stance = 1
 slot = "Q"
 mana_cost = 5.0
-cooldown = 5.0
+cooldown = 30.0
+corruption_on_use = 10.0
+ability_to_call = NodePath(".")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/RageOverflow" unique_id=842567014]
 one_shot = true
 
-[node name="MeetTheEnd" type="Node" parent="StateMachine/Ability" unique_id=1583836364]
+[node name="AbilitybuffsTimer" type="Timer" parent="StateMachine/Ability/RageOverflow" unique_id=1029810438]
+wait_time = 5.0
+one_shot = true
+
+[node name="MeetTheEnd" type="Node" parent="StateMachine/Ability" unique_id=1583836364 node_paths=PackedStringArray("ability_to_call")]
 unique_name_in_owner = true
 script = ExtResource("7_vi0tq")
 stance = 1
@@ -804,11 +810,12 @@ slot = "E"
 mana_cost = 10.0
 cooldown = 15.0
 corruption_on_use = 15.0
+ability_to_call = NodePath(".")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/MeetTheEnd" unique_id=59698738]
 one_shot = true
 
-[node name="TasteYourOwnHate" type="Node" parent="StateMachine/Ability" unique_id=2042120089]
+[node name="TasteYourOwnHate" type="Node" parent="StateMachine/Ability" unique_id=2042120089 node_paths=PackedStringArray("ability_to_call")]
 unique_name_in_owner = true
 script = ExtResource("8_c5u7s")
 stance = 1
@@ -816,27 +823,40 @@ slot = "X"
 mana_cost = 50.0
 cooldown = 25.0
 corruption_on_use = 20.0
+ability_to_call = NodePath(".")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/TasteYourOwnHate" unique_id=1702366937]
 one_shot = true
 
-[node name="Cleanse" type="Node" parent="StateMachine/Ability" unique_id=533373522]
+[node name="Cleanse" type="Node" parent="StateMachine/Ability" unique_id=533373522 node_paths=PackedStringArray("ability_to_call")]
 unique_name_in_owner = true
 script = ExtResource("9_kcvdc")
+slot = "Q"
+mana_cost = 5.0
+cooldown = 5.0
+ability_to_call = NodePath(".")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/Cleanse" unique_id=281964525]
 one_shot = true
 
-[node name="Sunrise" type="Node" parent="StateMachine/Ability" unique_id=856221618]
+[node name="Sunrise" type="Node" parent="StateMachine/Ability" unique_id=856221618 node_paths=PackedStringArray("ability_to_call")]
 unique_name_in_owner = true
 script = ExtResource("10_ow4hj")
+slot = "E"
+mana_cost = 15.0
+cooldown = 20.0
+ability_to_call = NodePath(".")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/Sunrise" unique_id=764981634]
 one_shot = true
 
-[node name="GodsSoldier" type="Node" parent="StateMachine/Ability" unique_id=1317244577]
+[node name="GodsSoldier" type="Node" parent="StateMachine/Ability" unique_id=1317244577 node_paths=PackedStringArray("ability_to_call")]
 unique_name_in_owner = true
 script = ExtResource("11_p4d7x")
+slot = "X"
+mana_cost = 30.0
+cooldown = 25.0
+ability_to_call = NodePath(".")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/GodsSoldier" unique_id=521881176]
 one_shot = true

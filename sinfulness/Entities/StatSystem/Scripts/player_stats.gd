@@ -59,7 +59,7 @@ const EQUIPMENT_SOURCE: StringName = &"equipment"
 var points: Dictionary[Stat, int] = {}
 var orbs: int = 0
 var mana: float = 0.0
-var corruption: float = 0.0
+var corruption: float = 50.0
 
 ## Computes every stat and fills health and mana.
 func setup() -> void:
