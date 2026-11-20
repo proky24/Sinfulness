@@ -2,7 +2,6 @@ class_name FirstCorrupt extends Ability
 ## Rage Overflow ability
 
 @onready var buffs_timer: Timer = $AbilityBuffsTimer
-@onready var ability_timer: Timer = $Timer
 @onready var attack_state: StateAttack = $"../../Attack"
 
 var add_corruption: float = 5.00
@@ -14,10 +13,11 @@ var reps: int = 0
 
 func _ready() -> void:
 	super()
-	ability_timer.timeout.connect(_on_timer_timeout)
+	buffs_timer.timeout.connect(_on_timer_timeout)
 	pass
 
 func trigger() -> void:
+	await get_tree().create_timer(buff_timer_latency).timeout
 	buffs_timer.start()
 
 	player.hurt_box.hit_landed.connect(_on_hit_landed)
@@ -46,5 +46,4 @@ func _on_timer_timeout() -> void:
 	reps = 0
 
 	attack_state.rage_overflow_dmg_mult = 1.00
-
 	pass
