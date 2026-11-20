@@ -8,7 +8,7 @@ class_name Ability extends Node
 @export var cooldown: float = 0
 @export var corruption_on_use: float = 0
 @export var ability_to_call: Node = null
-@export var buff_timer_latency: float = 0.0
+@export var ability_anim: float = 0.0
 
 var player_stats: PlayerStats = null
 var faith = null

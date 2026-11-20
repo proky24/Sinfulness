@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 var direction: Vector2 = Vector2.ZERO
 var cardinal_dir: Vector2 = Vector2.DOWN
 var speed: float = 75.0
+var invulnerable: bool = false
 ## The player's stats live in GlobalPlayerManager, so they survive scene reloads.
 var stats: PlayerStats:
 	get:
@@ -98,4 +99,14 @@ func _die() -> void:
 	stats.restore_all()
 	GlobalPlayerManager.player_spawned = false
 	get_tree().reload_current_scene()
+	pass
+
+func make_invulnerable(_duration: float = 1.00) -> void:
+	invulnerable = true
+	hit_box.monitorable = false
+
+	await get_tree().create_timer(_duration).timeout
+
+	invulnerable = false
+	hit_box.monitorable = true
 	pass

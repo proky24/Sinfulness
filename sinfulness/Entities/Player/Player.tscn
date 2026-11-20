@@ -466,7 +466,7 @@ tracks/2/path = NodePath("AbilitiesSpriteHolder/Corrupted/TasteYourOwnHate:frame
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.10000001, 0.16666667, 0.23333335, 0.36666667, 0.46666667, 0.53333324, 0.6333332, 0.73333323, 0.83333325, 0.9, 0.96666664),
+"times": PackedFloat32Array(0, 0.033333335, 0.10000001, 0.16666667, 0.23333335, 0.3667, 0.46666667, 0.53333324, 0.6333332, 0.73333323, 0.83333325, 0.9, 0.96666664),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -794,7 +794,6 @@ mana_cost = 5.0
 cooldown = 30.0
 corruption_on_use = 5.0
 ability_to_call = NodePath(".")
-buff_timer_latency = 1.0
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/RageOverflow" unique_id=842567014]
 one_shot = true
@@ -821,10 +820,11 @@ unique_name_in_owner = true
 script = ExtResource("8_c5u7s")
 stance = 1
 slot = "X"
-mana_cost = 50.0
-cooldown = 25.0
+mana_cost = 1.0
+cooldown = 1.0
 corruption_on_use = 20.0
 ability_to_call = NodePath(".")
+ability_anim = 0.367
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/TasteYourOwnHate" unique_id=1702366937]
 one_shot = true

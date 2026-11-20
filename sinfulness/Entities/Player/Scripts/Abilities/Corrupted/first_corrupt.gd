@@ -17,7 +17,7 @@ func _ready() -> void:
 	pass
 
 func trigger() -> void:
-	await get_tree().create_timer(buff_timer_latency).timeout
+	await get_tree().create_timer(ability_anim).timeout
 	buffs_timer.start()
 
 	player.hurt_box.hit_landed.connect(_on_hit_landed)
