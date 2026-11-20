@@ -73,13 +73,6 @@ func set_dir() -> bool:
 		abilities_holder.scale.x = 1
 	return true
 
-#func animation_direction() -> string:
-	#if cardinal_dir == Vector2.DOWN:
-		#return "down"
-	#elif cardinal_dir == Vector2.UP:
-		#return "up"
-	#pass
-
 func update_animation(state : String) -> void:
 	animation_player.play(state)
 	pass

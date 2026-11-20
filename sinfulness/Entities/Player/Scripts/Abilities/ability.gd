@@ -13,10 +13,14 @@ var player_stats: PlayerStats = null
 var faith = null
 var disgrace = null
 
+var player: Player
+
 func _ready() -> void:
 	timer.wait_time = cooldown
 	
 	player_stats = get_node("/root/GlobalPlayerManager").player_stats
+	player = get_node("/root/GlobalPlayerManager").player
+
 	faith = Stats.Stat.FAITH
 	disgrace = Stats.Stat.DISGRACE
 	pass

@@ -792,13 +792,13 @@ stance = 1
 slot = "Q"
 mana_cost = 5.0
 cooldown = 30.0
-corruption_on_use = 10.0
+corruption_on_use = 5.0
 ability_to_call = NodePath(".")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/RageOverflow" unique_id=842567014]
 one_shot = true
 
-[node name="AbilitybuffsTimer" type="Timer" parent="StateMachine/Ability/RageOverflow" unique_id=1029810438]
+[node name="AbilityBuffsTimer" type="Timer" parent="StateMachine/Ability/RageOverflow" unique_id=1029810438]
 wait_time = 5.0
 one_shot = true
 
