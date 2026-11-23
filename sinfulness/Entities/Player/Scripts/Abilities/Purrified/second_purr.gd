@@ -2,7 +2,7 @@ class_name SecondPurr extends Ability
 ## Sunrise Ability
 
 var sunrise_ability
-var degrees: int = 0
+var degrees: float = 0
 
 var reset_called: bool = false
 
@@ -17,7 +17,7 @@ func trigger() -> void:
 	for c in sunrise_ability:
 		if degrees < 360:
 			c.shoot(degrees)
-			degrees += 45
+			degrees += 30
 	pass
 
 func reset_degrees() -> void:

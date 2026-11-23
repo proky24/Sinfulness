@@ -858,13 +858,12 @@ ability_to_call = NodePath(".")
 [node name="Timer" type="Timer" parent="StateMachine/Ability/Cleanse" unique_id=281964525]
 one_shot = true
 
-[node name="Sunrise" type="Node" parent="StateMachine/Ability" unique_id=1054900404 node_paths=PackedStringArray("ability_to_call")]
+[node name="Sunrise" type="Node" parent="StateMachine/Ability" unique_id=1054900404]
 unique_name_in_owner = true
 script = ExtResource("10_ow4hj")
 slot = "E"
 mana_cost = 1.0
 cooldown = 1.0
-ability_to_call = NodePath("")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/Sunrise" unique_id=764981634]
 one_shot = true
@@ -905,6 +904,26 @@ visible = false
 z_index = 5
 
 [node name="SunriseAbility8" parent="StateMachine/Ability/Sunrise" unique_id=728217715 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility9" parent="StateMachine/Ability/Sunrise" unique_id=2007896636 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility10" parent="StateMachine/Ability/Sunrise" unique_id=183676868 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility11" parent="StateMachine/Ability/Sunrise" unique_id=1266066190 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility12" parent="StateMachine/Ability/Sunrise" unique_id=84940660 instance=ExtResource("33_vi0tq")]
 process_mode = 4
 visible = false
 z_index = 5
