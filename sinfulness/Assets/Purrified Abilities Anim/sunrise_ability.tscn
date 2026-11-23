@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dybkefk56u45u"]
 
 [ext_resource type="Texture2D" uid="uid://bobl5fps0y0rm" path="res://Assets/Purrified Abilities Anim/Sunrise/Holy VFX 01 Initial.png" id="1_4c5r4"]
-[ext_resource type="Script" uid="uid://cgv582coudcjq" path="res://Assets/Purrified Abilities Anim/sunrise_ability.gd" id="1_wkimx"]
+[ext_resource type="Script" uid="uid://dt2fhjd86px7h" path="res://Assets/Purrified Abilities Anim/sunrise_ability.gd" id="1_wkimx"]
 [ext_resource type="Texture2D" uid="uid://cy7uebirr13gp" path="res://Assets/Purrified Abilities Anim/Sunrise/Holy VFX 01 Repeatable.png" id="2_wkimx"]
 [ext_resource type="Texture2D" uid="uid://bugcokp4mwvuf" path="res://Assets/Purrified Abilities Anim/Sunrise/Holy VFX 01 Impact.png" id="3_4gy7i"]
+[ext_resource type="PackedScene" uid="uid://b62k27aai08u6" path="res://Entities/GeneralNodes/Hurtbox/HurtBox.tscn" id="4_wkimx"]
 
 [sub_resource type="Animation" id="Animation_anfp6"]
 length = 0.001
@@ -115,6 +116,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HurtBox:monitoring")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HurtBox:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_3ovq6"]
 resource_name = "shoot"
@@ -125,7 +150,7 @@ tracks/0/path = NodePath("Initial:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.04680751),
+"times": PackedFloat32Array(0, 0.033333335),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -164,7 +189,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.06666667),
 "transitions": PackedFloat32Array(1, 0.5),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(8, 0)]
+"values": [Vector2(0, 0), Vector2(24, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -176,7 +201,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.082562655, 0.115896, 0.14922935, 0.18256268, 0.21589601, 0.24922934, 0.28256267, 0.315896),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(16, 0), Vector2(24, 0), Vector2(30, 0), Vector2(36, 0), Vector2(42, 0), Vector2(48, 0), Vector2(54, 0), Vector2(58, 0)]
+"values": [Vector2(30, 0), Vector2(36, 0), Vector2(42, 0), Vector2(48, 0), Vector2(54, 0), Vector2(60, 0), Vector2(66, 0), Vector2(72, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -188,7 +213,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.3666667),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(64, 0)]
+"values": [Vector2(76, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -226,6 +251,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HurtBox:monitoring")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HurtBox:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(76, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fblha"]
 _data = {
@@ -233,7 +282,9 @@ _data = {
 &"shoot": SubResource("Animation_3ovq6")
 }
 
-[node name="SunriseAbility" type="Node2D" unique_id=906543248]
+[sub_resource type="CircleShape2D" id="CircleShape2D_at0kr"]
+
+[node name="SunriseAbility" type="Node2D" unique_id=906543248 groups=["Sunrise_ability"]]
 script = ExtResource("1_wkimx")
 
 [node name="Initial" type="Sprite2D" parent="." unique_id=221445789]
@@ -250,3 +301,9 @@ hframes = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1432317156]
 libraries/ = SubResource("AnimationLibrary_fblha")
+
+[node name="HurtBox" parent="." unique_id=704887434 instance=ExtResource("4_wkimx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=512303097]
+shape = SubResource("CircleShape2D_at0kr")
+debug_color = Color(0.98713857, 0, 0.32116017, 0.41960785)

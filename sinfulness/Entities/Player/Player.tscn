@@ -32,8 +32,25 @@
 [ext_resource type="Script" uid="uid://lv2s08u3vadg" path="res://Entities/Player/interactionshost.gd" id="22_l2mqv"]
 [ext_resource type="PackedScene" uid="uid://b62k27aai08u6" path="res://Entities/GeneralNodes/Hurtbox/HurtBox.tscn" id="22_l80rc"]
 [ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="24_mgqku"]
+[ext_resource type="PackedScene" uid="uid://dybkefk56u45u" path="res://Assets/Purrified Abilities Anim/sunrise_ability.tscn" id="33_vi0tq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
+
+[sub_resource type="Animation" id="Animation_vi0tq"]
+resource_name = "E_0"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [24, 23]
+}
 
 [sub_resource type="Animation" id="Animation_tepoh"]
 resource_name = "E_1"
@@ -729,6 +746,7 @@ tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bgrr3"]
 _data = {
+&"E_0": SubResource("Animation_vi0tq"),
 &"E_1": SubResource("Animation_tepoh"),
 &"Q_0": SubResource("Animation_fs2fe"),
 &"Q_1": SubResource("Animation_adphd"),
@@ -820,9 +838,9 @@ unique_name_in_owner = true
 script = ExtResource("8_c5u7s")
 stance = 1
 slot = "X"
-mana_cost = 1.0
-cooldown = 1.0
-corruption_on_use = 20.0
+mana_cost = 30.0
+cooldown = 35.0
+corruption_on_use = 30.0
 ability_to_call = NodePath(".")
 ability_anim = 0.367
 
@@ -840,16 +858,56 @@ ability_to_call = NodePath(".")
 [node name="Timer" type="Timer" parent="StateMachine/Ability/Cleanse" unique_id=281964525]
 one_shot = true
 
-[node name="Sunrise" type="Node" parent="StateMachine/Ability" unique_id=856221618 node_paths=PackedStringArray("ability_to_call")]
+[node name="Sunrise" type="Node" parent="StateMachine/Ability" unique_id=1054900404 node_paths=PackedStringArray("ability_to_call")]
 unique_name_in_owner = true
 script = ExtResource("10_ow4hj")
 slot = "E"
-mana_cost = 15.0
-cooldown = 20.0
-ability_to_call = NodePath(".")
+mana_cost = 1.0
+cooldown = 1.0
+ability_to_call = NodePath("")
 
 [node name="Timer" type="Timer" parent="StateMachine/Ability/Sunrise" unique_id=764981634]
 one_shot = true
+
+[node name="SunriseAbility" parent="StateMachine/Ability/Sunrise" unique_id=906543248 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility2" parent="StateMachine/Ability/Sunrise" unique_id=2127039947 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility3" parent="StateMachine/Ability/Sunrise" unique_id=2050357015 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility4" parent="StateMachine/Ability/Sunrise" unique_id=1054485011 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility5" parent="StateMachine/Ability/Sunrise" unique_id=1795624936 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility6" parent="StateMachine/Ability/Sunrise" unique_id=335942470 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility7" parent="StateMachine/Ability/Sunrise" unique_id=1669698260 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
+
+[node name="SunriseAbility8" parent="StateMachine/Ability/Sunrise" unique_id=728217715 instance=ExtResource("33_vi0tq")]
+process_mode = 4
+visible = false
+z_index = 5
 
 [node name="GodsSoldier" type="Node" parent="StateMachine/Ability" unique_id=1317244577 node_paths=PackedStringArray("ability_to_call")]
 unique_name_in_owner = true

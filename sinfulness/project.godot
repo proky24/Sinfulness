@@ -40,6 +40,10 @@ window/vsync/vsync_mode=2
 
 enabled=PackedStringArray("res://addons/godot_mcp_toolkit/plugin.cfg")
 
+[global_group]
+
+Enemy=""
+
 [input]
 
 forward={

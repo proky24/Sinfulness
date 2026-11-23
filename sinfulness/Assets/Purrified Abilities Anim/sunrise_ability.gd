@@ -1,13 +1,17 @@
-extends Node2D
+class_name Sunrise extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+var parent: Node
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animation_player.play("shoot")
-	pass # Replace with function body.
+    parent = get_parent()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func shoot(_degrees: int) -> void:
+    position = GlobalPlayerManager.player.global_position
+    visible = true
+    process_mode = Node.PROCESS_MODE_INHERIT
+
+    rotation_degrees = _degrees
+    animation_player.play("shoot")
+    pass
