@@ -143,6 +143,7 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id="Animation_3ovq6"]
 resource_name = "shoot"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -186,7 +187,7 @@ tracks/3/path = NodePath("Initial:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.06666667),
+"times": PackedFloat32Array(0, 0.0667),
 "transitions": PackedFloat32Array(1, 0.5),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(24, 0)]
@@ -198,7 +199,7 @@ tracks/4/path = NodePath("Arrow:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.082562655, 0.115896, 0.14922935, 0.18256268, 0.21589601, 0.24922934, 0.28256267, 0.315896),
+"times": PackedFloat32Array(0.0826, 0.115896, 0.1492, 0.18256268, 0.21589601, 0.24922934, 0.28256267, 0.315896),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(30, 0), Vector2(36, 0), Vector2(42, 0), Vector2(48, 0), Vector2(54, 0), Vector2(60, 0), Vector2(66, 0), Vector2(72, 0)]
@@ -258,7 +259,7 @@ tracks/9/path = NodePath("HurtBox:monitoring")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.36666667),
+"times": PackedFloat32Array(0, 0.0667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -270,10 +271,10 @@ tracks/10/path = NodePath("HurtBox:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0.36666667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.0826, 0.1159, 0.1492, 0.1826, 0.2159, 0.2492, 0.2826, 0.3159, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(76, 0)]
+"values": [Vector2(30, 0), Vector2(36, 0), Vector2(42, 0), Vector2(48, 0), Vector2(54, 0), Vector2(60, 0), Vector2(66, 0), Vector2(72, 0), Vector2(76, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fblha"]
