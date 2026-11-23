@@ -769,6 +769,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqd7"]
 size = Vector2(11, 12)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vi0tq"]
+
 [sub_resource type="Gradient" id="Gradient_80tt4"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
@@ -1036,6 +1038,17 @@ monitoring = false
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_3gqd7")
 debug_color = Color(0, 0.6454719, 0.26601353, 0.41960785)
+
+[node name="E_1Range" type="Area2D" parent="Interactions" unique_id=997126271]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/E_1Range" unique_id=210504613]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_vi0tq")
+debug_color = Color(0.6305959, 0.34636357, 1, 0.41960785)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1052491628]
 enabled = false
