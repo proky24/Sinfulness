@@ -28,12 +28,12 @@ func enter() -> void:
 	PlayerHud.appear()
 	player.velocity = Vector2.ZERO
 
-	activate(ability_to_use)
-	ability_to_use = null
-
 	if activate_e_1 == false:
 		player.animation_player.animation_finished.connect(_on_ability_end)
 	using_ability = true
+
+	activate(ability_to_use)
+	ability_to_use = null
 	pass
 
 func _on_ability_end(_a: String) -> void:
@@ -54,9 +54,11 @@ func can_use(_ability: Ability) -> bool:
 func activate(_ability: Ability) -> void:
 	_ability.timer.start()
 	if activate_e_1 == true:
-		in_range_for_e_1[0].effects_player.play("E_1")
-		in_range_for_e_1[0].effects_player.animation_finished.connect(_on_ability_end)
-		_ability.in_range = in_range_for_e_1
+		_ability.in_range = in_range_for_e_1.duplicate()
+
+		var target = _ability.in_range.find(_ability.get_nearest_enemy(player.global_position))
+		in_range_for_e_1[target].effects_player.play("E_1")
+		in_range_for_e_1[target].effects_player.animation_finished.connect(_on_ability_end, CONNECT_ONE_SHOT)
 	else:
 		player.update_animation(event + "_" + str(stance))
 	_ability.trigger()
@@ -65,7 +67,8 @@ func activate(_ability: Ability) -> void:
 	pass
 
 func exit() -> void:
-	player.animation_player.animation_finished.disconnect(_on_ability_end)
+	if player.animation_player.animation_finished.is_connected(_on_ability_end):
+		player.animation_player.animation_finished.disconnect(_on_ability_end)
 	pass
 
 func init() -> void:

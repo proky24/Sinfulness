@@ -128,6 +128,9 @@ func heal(amount: float) -> void:
 func is_dead() -> bool:
 	return health <= 0.0
 
+func kill() -> void:
+	_set_health(0)
+	pass
 
 ## Chance 0..1 that a hit is a crit.
 func get_crit_chance() -> float:

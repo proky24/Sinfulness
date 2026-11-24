@@ -245,7 +245,7 @@ tracks/3/path = NodePath("MeetTheEndHolder/Sprite2D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -276,6 +276,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeetTheEndHolder/Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x35dm"]
@@ -362,6 +374,7 @@ volume_db = -5.0
 [node name="MeetTheEndHolder" type="Node2D" parent="." unique_id=692610365]
 
 [node name="Sprite2D" type="Sprite2D" parent="MeetTheEndHolder" unique_id=1600928489]
+z_index = 100
 position = Vector2(0, -48)
 texture = ExtResource("14_x35dm")
 hframes = 26

@@ -74,3 +74,9 @@ func _take_damage(hit: HitData) -> void:
 	else:
 		enemy_damaged.emit()
 	pass
+
+func execute() -> void:
+	stats.kill()
+	GlobalPlayerManager.player_stats.add_orbs(stats.orb_reward)
+	enemy_destroyed.emit()
+	pass

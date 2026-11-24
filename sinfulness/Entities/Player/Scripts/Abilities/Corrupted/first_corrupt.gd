@@ -32,12 +32,10 @@ func _on_hit_landed(_target: HitBox, _hit: HitData) -> void:
 
 		var damage = player_stats.get_stat(Stats.Stat.DAMAGE)
 		damage_multiplier = damage * ((damage / (damage * damage_percentage[reps] )) / 2)
-		#damage_multiplier = damage_percentage[reps]
-
-		print(damage_multiplier)
 		attack_state.rage_overflow_dmg_mult = damage_multiplier
 
-		reps += 1
+		if reps < damage_percentage.size() - 1:
+			reps += 1
 	pass
 
 func _on_timer_timeout() -> void:
