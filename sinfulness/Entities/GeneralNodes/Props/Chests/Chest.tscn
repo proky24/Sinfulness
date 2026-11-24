@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://g40pu7thn37m"]
+
+[ext_resource type="PackedScene" uid="uid://cm5v7vvnvomdd" path="res://Entities/GeneralNodes/Props/Prop.tscn" id="1_x7ijx"]
+[ext_resource type="Script" uid="uid://du4stbl4eteb3" path="res://Entities/GeneralNodes/Props/Chests/chest.gd" id="2_46pdf"]
+[ext_resource type="Resource" uid="uid://ceu3agdtvvgbw" path="res://GUI/PauseMenu/Inventory/Items/mushroom.tres" id="3_14iev"]
+[ext_resource type="Texture2D" uid="uid://djgibfmo00by" path="res://Assets/Dungeon TileSet/chest_sheet.png" id="3_v1bc7"]
+[ext_resource type="AudioStream" uid="uid://bg3wuo6mcd22v" path="res://Assets/Other SFX/Doors Gates and Chests/Chest Close 2.wav" id="5_hpchl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1bc7"]
+size = Vector2(16, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14iev"]
+size = Vector2(19, 16)
+
+[sub_resource type="Animation" id="Animation_14iev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hpchl"]
+resource_name = "open_chest"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.45235524,
+"start_offset": 0.049035806,
+"stream": ExtResource("5_hpchl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cs4dc"]
+_data = {
+&"RESET": SubResource("Animation_14iev"),
+&"open_chest": SubResource("Animation_hpchl")
+}
+
+[node name="Prop" unique_id=1443861933 instance=ExtResource("1_x7ijx")]
+script = ExtResource("2_46pdf")
+texture = ExtResource("3_v1bc7")
+hframes = 5
+openable = true
+item_data = ExtResource("3_14iev")
+amount = 1
+
+[node name="Sprite2D" parent="." index="0" unique_id=277694149]
+texture = ExtResource("3_v1bc7")
+offset = Vector2(-16, -20)
+hframes = 5
+
+[node name="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(1557526657) index="0" unique_id=1311485492]
+shape = SubResource("RectangleShape2D_v1bc7")
+
+[node name="CollisionShape2D" parent="HitBox" parent_id_path=PackedInt32Array(1245106054) index="0" unique_id=1021323050]
+shape = SubResource("RectangleShape2D_14iev")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=1313419885]
+libraries/ = SubResource("AnimationLibrary_cs4dc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimationPlayer" index="0" unique_id=2033641829]

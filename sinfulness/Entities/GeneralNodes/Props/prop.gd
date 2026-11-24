@@ -51,6 +51,12 @@ static var _opaque_cache: Dictionary = {}
 	set(value):
 		lift = value
 		update_prop()
+## Frames in a horizontal sprite sheet (chests). Origin and shapes come from frame 0.
+@export_range(1, 32) var hframes: int = 1:
+	set(value):
+		hframes = value
+		update_prop()
+
 ## Opening chests
 @export_category("Chest")
 @export var openable: bool = false:
@@ -79,32 +85,17 @@ func set_item_data(value: ItemData) -> void:
 func update_prop() -> void:
 	if not is_node_ready():
 		return
-	var opaque: Rect2i = _get_opaque_rect(texture)
+	var opaque: Rect2i = _get_opaque_rect(texture, hframes)
 	_update_sprite(opaque)
 	_update_footprint(opaque)
 	_update_hit_box(opaque)
-	if openable:
-		area_2d.area_entered.connect(_on_area_entered)
-		area_2d.area_exited.connect(_on_area_exited)
-
 
 func take_damage(_hit: HitData) -> void:
 	queue_free()
 
-func _on_interact_pressed(_a: Area2D) -> void:
-	
-	pass
-
-func _on_area_entered(_a: Area2D):
-	GlobalPlayerManager.interact_pressed.connect(_on_interact_pressed)
-	pass
-
-func _on_area_exited(_a: Area2D):
-	GlobalPlayerManager.interact_pressed.disconnect(_on_interact_pressed)
-	pass
-
 func _update_sprite(opaque: Rect2i) -> void:
 	sprite.texture = texture
+	sprite.hframes = hframes
 	sprite.centered = false
 	sprite.offset = Vector2(-_get_centre_x(opaque), -opaque.end.y - lift)
 	sprite.z_index = -1 if flat else 0
@@ -140,17 +131,22 @@ func _get_centre_x(opaque: Rect2i) -> int:
 
 
 ## Bounds of the fully opaque pixels (alpha 1), i.e. the object without its baked shadow.
-func _get_opaque_rect(tex: Texture2D) -> Rect2i:
+## With frames > 1 only frame 0 (the leftmost cell) is scanned.
+func _get_opaque_rect(tex: Texture2D, frames: int = 1) -> Rect2i:
 	if tex == null:
 		return Rect2i()
-	if _opaque_cache.has(tex):
-		return _opaque_cache[tex]
-	var full := Rect2i(Vector2i.ZERO, Vector2i(tex.get_size()))
+	var key: Array = [tex, frames]
+	if _opaque_cache.has(key):
+		return _opaque_cache[key]
+	var frame_size := Vector2i(floori(tex.get_width() / float(frames)), tex.get_height())
+	var full := Rect2i(Vector2i.ZERO, frame_size)
 	var image: Image = tex.get_image()
 	if image == null or image.is_empty():
 		return full
 	if image.is_compressed():
 		image.decompress()
+	if frames > 1:
+		image = image.get_region(full)
 	var min_p := Vector2i(image.get_width(), image.get_height())
 	var max_p := Vector2i(-1, -1)
 	for y: int in image.get_height():
@@ -159,5 +155,5 @@ func _get_opaque_rect(tex: Texture2D) -> Rect2i:
 				min_p = min_p.min(Vector2i(x, y))
 				max_p = max_p.max(Vector2i(x, y))
 	var opaque: Rect2i = full if max_p.x < 0 else Rect2i(min_p, max_p - min_p + Vector2i.ONE)
-	_opaque_cache[tex] = opaque
+	_opaque_cache[key] = opaque
 	return opaque
