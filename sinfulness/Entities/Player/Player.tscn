@@ -835,6 +835,10 @@ ability_to_call = NodePath(".")
 [node name="Timer" type="Timer" parent="StateMachine/Ability/MeetTheEnd" unique_id=59698738]
 one_shot = true
 
+[node name="AbilityBuffsTimer" type="Timer" parent="StateMachine/Ability/MeetTheEnd" unique_id=117776428]
+wait_time = 10.0
+one_shot = true
+
 [node name="TasteYourOwnHate" type="Node" parent="StateMachine/Ability" unique_id=2042120089 node_paths=PackedStringArray("ability_to_call")]
 unique_name_in_owner = true
 script = ExtResource("8_c5u7s")

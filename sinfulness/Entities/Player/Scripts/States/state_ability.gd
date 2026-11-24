@@ -4,6 +4,7 @@ class_name StateAbility extends State
 @onready var walk: StateWalk = $"../Walk"
 @onready var e_1range: Area2D = %E_1Range
 var in_range_for_e_1: Array[Enemy]
+var activate_e_1: bool = false
 
 enum Stances {PURRIFIED, CORRUPTED}
 var stance: int = 0
@@ -30,8 +31,8 @@ func enter() -> void:
 	activate(ability_to_use)
 	ability_to_use = null
 
-	player.animation_player.animation_finished.connect(_on_ability_end)
-
+	if activate_e_1 == false:
+		player.animation_player.animation_finished.connect(_on_ability_end)
 	using_ability = true
 	pass
 
@@ -42,15 +43,22 @@ func _on_ability_end(_a: String) -> void:
 func can_use(_ability: Ability) -> bool:
 	if player_stats.mana >= _ability.mana_cost and _ability.timer.is_stopped():
 		if _ability.slot == "E" and _ability.stance == 1: # Meet The end
-			#if range_for_e_1 == true:
-				#return true
-			pass
+			if in_range_for_e_1.is_empty():
+				return false
+			else:
+				activate_e_1 = true
+				return true
 		return true
 	return false
 
 func activate(_ability: Ability) -> void:
 	_ability.timer.start()
-	player.update_animation(event + "_" + str(stance))
+	if activate_e_1 == true:
+		in_range_for_e_1[0].effects_player.play("E_1")
+		in_range_for_e_1[0].effects_player.animation_finished.connect(_on_ability_end)
+		_ability.in_range = in_range_for_e_1
+	else:
+		player.update_animation(event + "_" + str(stance))
 	_ability.trigger()
 
 	player_stats.spend_mana(_ability.mana_cost)
@@ -58,7 +66,6 @@ func activate(_ability: Ability) -> void:
 
 func exit() -> void:
 	player.animation_player.animation_finished.disconnect(_on_ability_end)
-
 	pass
 
 func init() -> void:
@@ -77,11 +84,9 @@ func physics_process(_delta: float) -> State:
 func _on_range_e_1_entered(a: Node2D) -> void:
 	if a is Enemy:
 		in_range_for_e_1.append(a)
-		print(str(in_range_for_e_1) + " added ")
 	pass
 
 func _on_range_e_1_exited(a: Node2D) -> void:
 	if a is Enemy and in_range_for_e_1.has(a):
 		in_range_for_e_1.erase(a)
-		print(str(in_range_for_e_1) + " deleted ")
 	pass

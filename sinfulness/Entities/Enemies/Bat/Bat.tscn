@@ -1,17 +1,8 @@
 [gd_scene format=3 uid="uid://bqla40c8en75b"]
 
-[ext_resource type="Script" uid="uid://dspoflxyqqss2" path="res://Entities/Enemies/Parent/Scripts/enemy.gd" id="1_x8q3x"]
+[ext_resource type="PackedScene" uid="uid://gp0k66mebgrm" path="res://Entities/Enemies/Parent/Enemy.tscn" id="1_parent"]
 [ext_resource type="Script" uid="uid://b1cy3xxe2mwic" path="res://Entities/StatSystem/Scripts/enemy_stats.gd" id="2_n2bx7"]
 [ext_resource type="Texture2D" uid="uid://bs8k2c16dcd2e" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Bat/Bat/Bat.png" id="3_n2bx7"]
-[ext_resource type="Script" uid="uid://db7vws2spdhj" path="res://Entities/Enemies/Parent/Scripts/enemy_state_machine.gd" id="4_mpf33"]
-[ext_resource type="Script" uid="uid://ct8p3at0vny5q" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_idle.gd" id="5_km1dn"]
-[ext_resource type="Script" uid="uid://box0u18p675p3" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_wander.gd" id="6_c5he7"]
-[ext_resource type="Script" uid="uid://db6va51qcgvei" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_destroy.gd" id="7_cbugr"]
-[ext_resource type="AudioStream" uid="uid://ut721afdr3g8" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Powerful/Impact_Powerful_01.wav" id="8_keuep"]
-[ext_resource type="Script" uid="uid://djk80mra1mcs3" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_stun.gd" id="9_6bdav"]
-[ext_resource type="AudioStream" uid="uid://c47kdn5cwbluf" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_06.wav" id="10_gie3t"]
-[ext_resource type="PackedScene" uid="uid://cbt7ioopjnm1u" path="res://Entities/GeneralNodes/Hitbox/HitBox.tscn" id="11_dujcw"]
-[ext_resource type="PackedScene" uid="uid://b62k27aai08u6" path="res://Entities/GeneralNodes/Hurtbox/HurtBox.tscn" id="12_v81n0"]
 
 [sub_resource type="Resource" id="Resource_0mq7j"]
 resource_local_to_scene = true
@@ -219,75 +210,16 @@ _data = {
 &"wander": SubResource("Animation_ruuuf")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3gqd7"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4ixse"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0x4nn"]
-
-[node name="Enemy" type="CharacterBody2D" unique_id=1279872010]
-y_sort_enabled = true
-collision_layer = 256
-collision_mask = 16
-motion_mode = 1
-script = ExtResource("1_x8q3x")
+[node name="Enemy" unique_id=1279872010 instance=ExtResource("1_parent")]
 stats = SubResource("Resource_0mq7j")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1952738428]
+[node name="AnimationPlayer" parent="." index="0" unique_id=1952738428]
 libraries/ = SubResource("AnimationLibrary_ruuuf")
-autoplay = &"idle"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1647969438]
+[node name="Sprite2D" parent="." index="2" unique_id=1647969438]
 texture = ExtResource("3_n2bx7")
 hframes = 7
 vframes = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=524538015]
-position = Vector2(1, 1)
-scale = Vector2(0.6, 0.6)
-shape = SubResource("CircleShape2D_3gqd7")
-debug_color = Color(0.9021131, 0.000159024, 0.75901085, 0.41960785)
-
-[node name="EnemyStateMachine" type="Node" parent="." unique_id=1710172540]
-script = ExtResource("4_mpf33")
-
-[node name="Idle" type="Node" parent="EnemyStateMachine" unique_id=1046663604 node_paths=PackedStringArray("after_idle_state")]
-script = ExtResource("5_km1dn")
-after_idle_state = NodePath("../Wander")
-
-[node name="Wander" type="Node" parent="EnemyStateMachine" unique_id=183492203 node_paths=PackedStringArray("next_state")]
-script = ExtResource("6_c5he7")
+[node name="Wander" parent="EnemyStateMachine" index="1" unique_id=183492203]
 wander_speed = 65
-next_state = NodePath("../Idle")
-
-[node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=1060536353]
-
-[node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=674589490]
-script = ExtResource("7_cbugr")
-player_camera_shake = 5.0
-stop_time_duration = 0.25
-hit_sfx = ExtResource("8_keuep")
-
-[node name="Stun" type="Node" parent="EnemyStateMachine" unique_id=1239961943 node_paths=PackedStringArray("next_state")]
-script = ExtResource("9_6bdav")
-player_camera_shake = 2.0
-next_state = NodePath("../Idle")
-hit_sfx = ExtResource("10_gie3t")
-
-[node name="HitBox" parent="." unique_id=1245106054 instance=ExtResource("11_dujcw")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=804746716]
-position = Vector2(1.9999999, 0)
-scale = Vector2(0.8, 0.8)
-shape = SubResource("CircleShape2D_4ixse")
-
-[node name="HurtBox" parent="." unique_id=704887434 instance=ExtResource("12_v81n0")]
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=750891088]
-position = Vector2(10, 0)
-shape = SubResource("CircleShape2D_0x4nn")
-debug_color = Color(0.9647059, 0, 0, 0.41960785)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1305776590]
-volume_db = -5.0

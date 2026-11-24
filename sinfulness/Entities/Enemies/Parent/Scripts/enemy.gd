@@ -15,6 +15,7 @@ var invulnerable: bool = false
 const dir4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var effects_player: AnimationPlayer = $EffectsPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var hit_box: HitBox = $HitBox
