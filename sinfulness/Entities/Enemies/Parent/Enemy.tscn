@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://ut721afdr3g8" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Powerful/Impact_Powerful_01.wav" id="8_o6yvo"]
 [ext_resource type="AudioStream" uid="uid://c47kdn5cwbluf" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_06.wav" id="9_aumgy"]
 [ext_resource type="Texture2D" uid="uid://qqiqxug0lrxd" path="res://Assets/Corrupted Abiilities Anim/Meet the End/Dark VFX10 (48x48).png" id="14_x35dm"]
+[ext_resource type="Script" uid="uid://clq6apnuvwp4g" path="res://Entities/Enemies/Parent/vision_area.gd" id="15_x35dm"]
 
 [sub_resource type="Animation" id="Animation_qt7sn"]
 length = 0.001
@@ -379,3 +380,11 @@ position = Vector2(0, -48)
 texture = ExtResource("14_x35dm")
 hframes = 26
 frame = 25
+
+[node name="Area2D" type="Area2D" parent="." unique_id=910848427]
+collision_layer = 0
+monitorable = false
+script = ExtResource("15_x35dm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1966485925]
+polygon = PackedVector2Array(-8, 0, 8, 0, 128, 128, -128, 128)

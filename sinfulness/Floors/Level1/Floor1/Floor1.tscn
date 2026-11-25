@@ -66,6 +66,14 @@ spread = 80.0
 gravity = Vector3(0, 35, 0)
 color = Color(0.20871013, 0.20871016, 0.20871013, 1)
 
+[sub_resource type="Resource" id="Resource_nx6x2"]
+resource_local_to_scene = true
+script = ExtResource("42_7imuu")
+orb_reward = 2000
+base_max_health = 30.0
+base_damage = 8.0
+base_durability = 0.0
+
 [sub_resource type="Resource" id="Resource_8cxbs"]
 resource_local_to_scene = true
 script = ExtResource("42_7imuu")
@@ -77,27 +85,19 @@ base_durability = 0.0
 [sub_resource type="Resource" id="Resource_tfmec"]
 resource_local_to_scene = true
 script = ExtResource("42_7imuu")
-orb_reward = 2000
-base_max_health = 30.0
-base_damage = 8.0
-base_durability = 0.0
-
-[sub_resource type="Resource" id="Resource_o8dmx"]
-resource_local_to_scene = true
-script = ExtResource("42_7imuu")
 orb_reward = 12
 base_max_health = 10.0
 base_damage = 5.0
 base_durability = 0.0
 
-[sub_resource type="Resource" id="Resource_26h4k"]
+[sub_resource type="Resource" id="Resource_o8dmx"]
 resource_local_to_scene = true
 script = ExtResource("42_7imuu")
 orb_reward = 50
 base_max_health = 60.0
 base_damage = 16.0
 
-[sub_resource type="Resource" id="Resource_yfacj"]
+[sub_resource type="Resource" id="Resource_26h4k"]
 resource_local_to_scene = true
 script = ExtResource("42_7imuu")
 orb_reward = 100
@@ -296,6 +296,9 @@ amount = 0
 
 [node name="Prop" parent="Props/R2_Props" unique_id=1718021173 instance=ExtResource("24_nx6x2")]
 position = Vector2(541, 474)
+
+[node name="Prop2" parent="Props/R2_Props" unique_id=2098831254 instance=ExtResource("24_nx6x2")]
+position = Vector2(512, 474)
 
 [node name="R3_Props" type="Node2D" parent="Props" unique_id=1877617842]
 y_sort_enabled = true
@@ -750,20 +753,20 @@ position = Vector2(566, 334)
 
 [node name="Enemy" parent="." unique_id=1279872010 instance=ExtResource("41_0v3fh")]
 position = Vector2(475, 350)
-stats = SubResource("Resource_8cxbs")
+stats = SubResource("Resource_nx6x2")
 
 [node name="Enemy2" parent="." unique_id=201371048 instance=ExtResource("41_0v3fh")]
 position = Vector2(414, 423)
-stats = SubResource("Resource_tfmec")
+stats = SubResource("Resource_8cxbs")
 
 [node name="Enemy3" parent="." unique_id=358895280 instance=ExtResource("42_kbphs")]
 position = Vector2(504, 330)
-stats = SubResource("Resource_o8dmx")
+stats = SubResource("Resource_tfmec")
 
 [node name="Enemy4" parent="." unique_id=557919011 instance=ExtResource("43_jjekv")]
 position = Vector2(424, 377)
-stats = SubResource("Resource_26h4k")
+stats = SubResource("Resource_o8dmx")
 
 [node name="Enemy5" parent="." unique_id=2120887927 instance=ExtResource("44_bf3wx")]
 position = Vector2(457, 346)
-stats = SubResource("Resource_yfacj")
+stats = SubResource("Resource_26h4k")

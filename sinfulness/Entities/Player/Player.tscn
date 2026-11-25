@@ -1054,6 +1054,7 @@ scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_vi0tq")
 debug_color = Color(0.6305959, 0.34636357, 1, 0.41960785)
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1052491628]
-enabled = false
+[node name="PointLight2D" type="PointLight2D" parent="Interactions" unique_id=1052491628]
+energy = 0.2
 texture = SubResource("GradientTexture2D_3gqd7")
+offset = Vector2(0, 12)
