@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://box0u18p675p3" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_wander.gd" id="5_ruuuf"]
 [ext_resource type="Script" uid="uid://djk80mra1mcs3" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_stun.gd" id="6_17sge"]
 [ext_resource type="Script" uid="uid://db6va51qcgvei" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_destroy.gd" id="6_nxlde"]
+[ext_resource type="Script" uid="uid://bcfo6m62qtr8l" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_chase.gd" id="8_4aq0h"]
 [ext_resource type="AudioStream" uid="uid://ut721afdr3g8" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Powerful/Impact_Powerful_01.wav" id="8_o6yvo"]
 [ext_resource type="AudioStream" uid="uid://c47kdn5cwbluf" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_06.wav" id="9_aumgy"]
 [ext_resource type="Texture2D" uid="uid://qqiqxug0lrxd" path="res://Assets/Corrupted Abiilities Anim/Meet the End/Dark VFX10 (48x48).png" id="14_x35dm"]
@@ -340,7 +341,11 @@ after_idle_state = NodePath("../Wander")
 script = ExtResource("5_ruuuf")
 next_state = NodePath("../Idle")
 
-[node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=1060536353]
+[node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=1060536353 node_paths=PackedStringArray("next_state", "vision_area")]
+script = ExtResource("8_4aq0h")
+chasing_time = 10
+next_state = NodePath("../Idle")
+vision_area = NodePath("../../Area2D")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=674589490]
 script = ExtResource("6_nxlde")

@@ -1,4 +1,4 @@
-class_name EnemyStunState extends EnemyState
+class_name EnemyStateStun extends EnemyState
 
 @export var anim_name: String = "stun"
 @export var knockback_speed: float = 50.0
