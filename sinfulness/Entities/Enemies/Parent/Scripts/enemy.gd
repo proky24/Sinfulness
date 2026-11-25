@@ -45,13 +45,19 @@ func set_direction(_new_dir: Vector2) -> bool:
 	direction = _new_dir
 	if direction == Vector2.ZERO:
 		return false
-	
-	if direction == cardinal_dir:
+
+	var new_dir: Vector2
+	if abs(direction.x) >= abs(direction.y):
+		new_dir = Vector2(sign(direction.x), 0)
+	else:
+		new_dir = Vector2(0, sign(direction.y))
+
+	if new_dir == cardinal_dir:
 		return false
-	
-	cardinal_dir = direction
+
+	cardinal_dir = new_dir
 	dir_changed.emit(cardinal_dir)
-	
+
 	if cardinal_dir == Vector2.LEFT:
 		sprite.scale.x = -1
 	elif cardinal_dir == Vector2.RIGHT:

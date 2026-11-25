@@ -27,7 +27,7 @@ func enter() -> void:
 
 	# Pushed away from the player and slowed down, like the stun state.
 	_direction = -enemy.global_position.direction_to(enemy.player.global_position)
-	enemy.set_direction(_direction)
+	enemy.set_direction(-_direction)
 	enemy.velocity = _direction * knockback_speed
 
 	enemy.update_animation(anim_name)

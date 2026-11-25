@@ -10,10 +10,10 @@ class_name EnemyStateChase extends EnemyState
 @export var vision_area: EnemyVision
 
 var can_see_player: bool = true
-var timer: int = 0
+var timer: float = 0
 var _direction: Vector2
 
-func _init() -> void:
+func init() -> void:
     if vision_area:
         vision_area.player_entered.connect(_on_player_entered)
         vision_area.player_exited.connect(_on_player_exited)

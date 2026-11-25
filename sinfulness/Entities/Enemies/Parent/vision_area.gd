@@ -4,8 +4,8 @@ signal player_entered()
 signal player_exited()
 
 func  _ready() -> void:
-    body_entered.connect(_on_body_entered)
-    body_exited.connect(_on_body_exited)
+    #body_entered.connect(_on_body_entered)
+    #body_exited.connect(_on_body_exited)
 
     var p = get_parent()
     if p is Enemy:
