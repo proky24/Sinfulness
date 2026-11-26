@@ -24,7 +24,6 @@ func enter() -> void:
 	
 	enemy.set_direction(_direction)
 	enemy.update_animation(anim_name)
-	
 	pass
 
 func exit() -> void:

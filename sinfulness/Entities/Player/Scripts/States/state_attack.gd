@@ -6,7 +6,6 @@ class_name StateAttack extends State
 @onready var attack_timer: Timer = $AttackTimer
 @onready var attack_combo_timer: Timer = $AttackComboTimer
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
-@onready var audio_stream_player: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 @onready var hurt_box: HurtBox = $"../../Interactions/HurtBox"
 @onready var camera: PlayerCamera = $"../../Camera2D"
 

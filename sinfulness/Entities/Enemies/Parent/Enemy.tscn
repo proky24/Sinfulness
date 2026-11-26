@@ -14,8 +14,10 @@
 [ext_resource type="Script" uid="uid://bcfo6m62qtr8l" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_chase.gd" id="8_4aq0h"]
 [ext_resource type="AudioStream" uid="uid://ut721afdr3g8" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Powerful/Impact_Powerful_01.wav" id="8_o6yvo"]
 [ext_resource type="AudioStream" uid="uid://c47kdn5cwbluf" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Dull/Impact_Dull_06.wav" id="9_aumgy"]
+[ext_resource type="Script" uid="uid://clygbldatc6lm" path="res://Entities/Enemies/Parent/Scripts/States/enemy_state_attack.gd" id="13_4ttph"]
 [ext_resource type="Texture2D" uid="uid://qqiqxug0lrxd" path="res://Assets/Corrupted Abiilities Anim/Meet the End/Dark VFX10 (48x48).png" id="14_x35dm"]
 [ext_resource type="Script" uid="uid://clq6apnuvwp4g" path="res://Entities/Enemies/Parent/vision_area.gd" id="15_x35dm"]
+[ext_resource type="Script" uid="uid://b14nd3vf0hhch" path="res://Entities/Enemies/Parent/attack_detect_area.gd" id="18_g3kv0"]
 
 [sub_resource type="Animation" id="Animation_qt7sn"]
 length = 0.001
@@ -345,7 +347,7 @@ next_state = NodePath("../Idle")
 script = ExtResource("8_4aq0h")
 chase_speed = 55.0
 next_state = NodePath("../Idle")
-vision_area = NodePath("../../Area2D")
+vision_area = NodePath("../../VisionArea")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=674589490]
 script = ExtResource("6_nxlde")
@@ -359,6 +361,15 @@ player_camera_shake = 2.0
 next_state = NodePath("../Idle")
 hit_sfx = ExtResource("9_aumgy")
 
+[node name="Attack" type="Node" parent="EnemyStateMachine" unique_id=1272616793]
+script = ExtResource("13_4ttph")
+
+[node name="AttackTimer" type="Timer" parent="EnemyStateMachine/Attack" unique_id=1931911769]
+one_shot = true
+
+[node name="AttackComboTimer" type="Timer" parent="EnemyStateMachine/Attack" unique_id=618793821]
+one_shot = true
+
 [node name="HitBox" parent="." unique_id=1245106054 instance=ExtResource("4_qt7sn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=804746716]
@@ -367,7 +378,6 @@ scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_4ixse")
 
 [node name="HurtBox" parent="." unique_id=704887434 instance=ExtResource("5_msyos")]
-monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=750891088]
 position = Vector2(10, 0)
@@ -386,10 +396,20 @@ texture = ExtResource("14_x35dm")
 hframes = 26
 frame = 25
 
-[node name="Area2D" type="Area2D" parent="." unique_id=910848427]
+[node name="VisionArea" type="Area2D" parent="." unique_id=910848427]
 collision_layer = 0
 monitorable = false
 script = ExtResource("15_x35dm")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1966485925]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea" unique_id=1966485925]
 polygon = PackedVector2Array(-8, 0, 8, 0, 64, 64, -64, 64)
+
+[node name="AttackDetectArea" type="Area2D" parent="." unique_id=1725885854]
+collision_layer = 0
+monitorable = false
+script = ExtResource("18_g3kv0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectArea" unique_id=1531719408]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_0x4nn")
+debug_color = Color(0.5756086, 0.33568993, 1, 0.41960785)

@@ -12,8 +12,6 @@ var cardinal_dir: Vector2 = Vector2.DOWN
 var player: Player
 var invulnerable: bool = false
 
-const dir4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var effects_player: AnimationPlayer = $EffectsPlayer
 @onready var sprite: Sprite2D = $Sprite2D
@@ -32,6 +30,9 @@ func _ready() -> void:
 	player = GlobalPlayerManager.player
 
 	hit_box.Damaged.connect(_take_damage)
+	
+	dir_changed.connect(update_hurtbox_dir)
+	update_hurtbox_dir(cardinal_dir)
 	pass
 
 func _process(_delta: float) -> void:
@@ -85,4 +86,8 @@ func execute() -> void:
 	stats.kill()
 	GlobalPlayerManager.player_stats.add_orbs(stats.orb_reward)
 	enemy_destroyed.emit()
+	pass
+
+func update_hurtbox_dir( new_dir: Vector2 ) -> void:
+	hurt_box.rotation = new_dir.angle()
 	pass
