@@ -45,10 +45,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_17sge"]
 resource_name = "attack_1"
-length = 0.56666666
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -61,10 +73,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [16, 17, 18, 19, 20, 21]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_nxlde"]
 resource_name = "attack_2"
-length = 0.6333333
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -76,6 +100,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [24, 25, 26, 27, 28, 29, 30]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.33333334, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_o6yvo"]
@@ -343,11 +379,12 @@ after_idle_state = NodePath("../Wander")
 script = ExtResource("5_ruuuf")
 next_state = NodePath("../Idle")
 
-[node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=1060536353 node_paths=PackedStringArray("next_state", "vision_area")]
+[node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=1060536353 node_paths=PackedStringArray("next_state", "vision_area", "attack_range")]
 script = ExtResource("8_4aq0h")
 chase_speed = 55.0
 next_state = NodePath("../Idle")
 vision_area = NodePath("../../VisionArea")
+attack_range = NodePath("../../AttackDetectArea")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=674589490]
 script = ExtResource("6_nxlde")
@@ -361,13 +398,16 @@ player_camera_shake = 2.0
 next_state = NodePath("../Idle")
 hit_sfx = ExtResource("9_aumgy")
 
-[node name="Attack" type="Node" parent="EnemyStateMachine" unique_id=1272616793]
+[node name="Attack" type="Node" parent="EnemyStateMachine" unique_id=1272616793 node_paths=PackedStringArray("attack_detect_area")]
 script = ExtResource("13_4ttph")
+attack_detect_area = NodePath("../../AttackDetectArea")
 
 [node name="AttackTimer" type="Timer" parent="EnemyStateMachine/Attack" unique_id=1931911769]
+wait_time = 0.3
 one_shot = true
 
 [node name="AttackComboTimer" type="Timer" parent="EnemyStateMachine/Attack" unique_id=618793821]
+wait_time = 1.2
 one_shot = true
 
 [node name="HitBox" parent="." unique_id=1245106054 instance=ExtResource("4_qt7sn")]
@@ -378,6 +418,7 @@ scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_4ixse")
 
 [node name="HurtBox" parent="." unique_id=704887434 instance=ExtResource("5_msyos")]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=750891088]
 position = Vector2(10, 0)

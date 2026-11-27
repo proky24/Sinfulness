@@ -12,6 +12,8 @@ var cardinal_dir: Vector2 = Vector2.DOWN
 var player: Player
 var invulnerable: bool = false
 
+const dir4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var effects_player: AnimationPlayer = $EffectsPlayer
 @onready var sprite: Sprite2D = $Sprite2D
@@ -30,7 +32,7 @@ func _ready() -> void:
 	player = GlobalPlayerManager.player
 
 	hit_box.Damaged.connect(_take_damage)
-	
+
 	dir_changed.connect(update_hurtbox_dir)
 	update_hurtbox_dir(cardinal_dir)
 	pass

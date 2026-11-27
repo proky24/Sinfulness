@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b1cy3xxe2mwic" path="res://Entities/StatSystem/Scripts/enemy_stats.gd" id="2_n2bx7"]
 [ext_resource type="Texture2D" uid="uid://bs8k2c16dcd2e" path="res://Assets/Tiny RPG Character Asset Pack 01 v2.0 -Full 22 Characters/Characters(100x100 split)/Bat/Bat/Bat.png" id="3_n2bx7"]
 
-[sub_resource type="Resource" id="Resource_0mq7j"]
+[sub_resource type="Resource" id="Resource_gbeos"]
 resource_local_to_scene = true
 script = ExtResource("2_n2bx7")
 orb_reward = 12
@@ -38,6 +38,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_17sge"]
 resource_name = "attack_1"
@@ -53,6 +65,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [7, 8, 9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_nxlde"]
@@ -70,37 +94,17 @@ tracks/0/keys = {
 "update": 1,
 "values": [14, 15, 16, 17, 18, 19, 20]
 }
-
-[sub_resource type="Animation" id="Animation_ddve7"]
-resource_name = "attack_3"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [48, 49, 50, 51, 52, 53, 54, 55]
-}
-
-[sub_resource type="Animation" id="Animation_o6yvo"]
-resource_name = "block"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [48, 49, 50, 51]
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_0eiph"]
@@ -163,22 +167,6 @@ tracks/0/keys = {
 "values": [21, 22, 23, 24]
 }
 
-[sub_resource type="Animation" id="Animation_ai1ou"]
-resource_name = "summon"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [60, 61, 62, 63, 64]
-}
-
 [sub_resource type="Animation" id="Animation_ruuuf"]
 resource_name = "wander"
 length = 0.5
@@ -201,17 +189,14 @@ _data = {
 &"RESET": SubResource("Animation_qt7sn"),
 &"attack_1": SubResource("Animation_17sge"),
 &"attack_2": SubResource("Animation_nxlde"),
-&"attack_3": SubResource("Animation_ddve7"),
-&"block": SubResource("Animation_o6yvo"),
 &"destroy": SubResource("Animation_0eiph"),
 &"idle": SubResource("Animation_msyos"),
 &"stun": SubResource("Animation_aumgy"),
-&"summon": SubResource("Animation_ai1ou"),
 &"wander": SubResource("Animation_ruuuf")
 }
 
 [node name="Enemy" unique_id=1279872010 instance=ExtResource("1_parent")]
-stats = SubResource("Resource_0mq7j")
+stats = SubResource("Resource_gbeos")
 
 [node name="AnimationPlayer" parent="." index="0" unique_id=1952738428]
 libraries/ = SubResource("AnimationLibrary_ruuuf")
@@ -221,5 +206,5 @@ texture = ExtResource("3_n2bx7")
 hframes = 7
 vframes = 5
 
-[node name="Wander" parent="EnemyStateMachine" index="1" unique_id=183492203]
+[node name="Wander" parent="EnemyStateMachine" parent_id_path=PackedInt32Array(1710172540) index="1" unique_id=183492203]
 wander_speed = 65

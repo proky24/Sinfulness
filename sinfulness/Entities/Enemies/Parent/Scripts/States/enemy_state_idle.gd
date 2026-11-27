@@ -8,7 +8,6 @@ class_name EnemyStateIdle extends EnemyState
 
 var _timer: float = 0.0
 
-
 func _ready() -> void:
 	pass 
 
@@ -35,5 +34,5 @@ func process(_delta: float) -> EnemyState:
 func physics_process(_delta: float) -> EnemyState:
 	return null
 
-func _handle_input(event: InputEvent) -> EnemyState:
+func _handle_input(_event: InputEvent) -> EnemyState:
 	return null
