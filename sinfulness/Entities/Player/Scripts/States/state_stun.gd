@@ -2,6 +2,7 @@ class_name StateStun extends State
 
 @onready var idle: StateIdle = $"../Idle"
 @onready var camera: PlayerCamera = $"../../Camera2D"
+@onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 
 @export var knockback_speed: float = 50
 @export var decelerate_speed: float = 10.0
@@ -33,6 +34,9 @@ func enter() -> void:
 
 	camera.trigger_shake(player_camera_shake)
 
+	audio.pitch_scale = randf_range(0.9, 1.1)
+	audio.stream = hit_sfx
+	audio.play()
 	player.update_animation("stun")
 	pass
 

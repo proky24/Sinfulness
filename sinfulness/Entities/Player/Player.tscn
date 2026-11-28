@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cwc13shjjfxot" path="res://Assets/Purrified Abilities Anim/Cleanse/Holy VFX 02.png" id="16_becua"]
 [ext_resource type="Script" uid="uid://bavqlr5xyjsyr" path="res://Entities/Player/Scripts/States/state_stun.gd" id="16_c5u7s"]
 [ext_resource type="Texture2D" uid="uid://c0vmtvmtd8wv" path="res://Assets/Corrupted Abiilities Anim/Taste your own Hate/Dark VFX 12 (48x48).png" id="16_vi7k6"]
+[ext_resource type="AudioStream" uid="uid://c45y2jhaa82h3" path="res://Assets/Weapon SFX Pack/WAV/IMPACTS/Metal/Impact_Clash_Light_08.wav" id="17_kcvdc"]
 [ext_resource type="Texture2D" uid="uid://dmb0y4tx5gaxi" path="res://Assets/Purrified Abilities Anim/Gods Soldier/Holy VFX 03(64x80).png" id="18_dep70"]
 [ext_resource type="Texture2D" uid="uid://qqiqxug0lrxd" path="res://Assets/Corrupted Abiilities Anim/Meet the End/Dark VFX10 (48x48).png" id="18_r50l2"]
 [ext_resource type="Script" uid="uid://lv2s08u3vadg" path="res://Entities/Player/interactionshost.gd" id="22_l2mqv"]
@@ -968,6 +969,9 @@ one_shot = true
 
 [node name="Stun" type="Node" parent="StateMachine" unique_id=1698330943]
 script = ExtResource("16_c5u7s")
+knockback_speed = null
+decelerate_speed = null
+hit_sfx = ExtResource("17_kcvdc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1413032252]
 libraries/ = SubResource("AnimationLibrary_bgrr3")
