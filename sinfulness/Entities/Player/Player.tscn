@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://cd810vr1rgojp" path="res://Assets/Other SFX/Spells/Fireball 2.wav" id="15_dep70"]
 [ext_resource type="AudioStream" uid="uid://bcn0j77jvvyc8" path="res://Assets/Other SFX/Footsteps/Stone/Stone Run 2.wav" id="16_80tt4"]
 [ext_resource type="Texture2D" uid="uid://cwc13shjjfxot" path="res://Assets/Purrified Abilities Anim/Cleanse/Holy VFX 02.png" id="16_becua"]
+[ext_resource type="Script" uid="uid://bavqlr5xyjsyr" path="res://Entities/Player/Scripts/States/state_stun.gd" id="16_c5u7s"]
 [ext_resource type="Texture2D" uid="uid://c0vmtvmtd8wv" path="res://Assets/Corrupted Abiilities Anim/Taste your own Hate/Dark VFX 12 (48x48).png" id="16_vi7k6"]
 [ext_resource type="Texture2D" uid="uid://dmb0y4tx5gaxi" path="res://Assets/Purrified Abilities Anim/Gods Soldier/Holy VFX 03(64x80).png" id="18_dep70"]
 [ext_resource type="Texture2D" uid="uid://qqiqxug0lrxd" path="res://Assets/Corrupted Abiilities Anim/Meet the End/Dark VFX10 (48x48).png" id="18_r50l2"]
@@ -676,22 +677,6 @@ tracks/1/keys = {
 }
 tracks/1/use_blend = true
 
-[sub_resource type="Animation" id="Animation_mgqku"]
-resource_name = "hurt"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [66, 67, 68, 69]
-}
-
 [sub_resource type="Animation" id="Animation_yv3ts"]
 resource_name = "idle"
 loop_mode = 1
@@ -706,6 +691,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_mgqku"]
+resource_name = "stun"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [66, 67, 68, 69]
 }
 
 [sub_resource type="Animation" id="Animation_5emw0"]
@@ -757,8 +758,8 @@ _data = {
 &"attack_2": SubResource("Animation_efe82"),
 &"attack_3": SubResource("Animation_175y7"),
 &"block": SubResource("Animation_36do4"),
-&"hurt": SubResource("Animation_mgqku"),
 &"idle": SubResource("Animation_yv3ts"),
+&"stun": SubResource("Animation_mgqku"),
 &"walk": SubResource("Animation_5emw0")
 }
 
@@ -964,6 +965,9 @@ script = ExtResource("7_ejwh1")
 
 [node name="BlockTimer" type="Timer" parent="StateMachine/Block" unique_id=1600165561]
 one_shot = true
+
+[node name="Stun" type="Node" parent="StateMachine" unique_id=1698330943]
+script = ExtResource("16_c5u7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1413032252]
 libraries/ = SubResource("AnimationLibrary_bgrr3")

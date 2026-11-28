@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://co8vy54kybvde" path="res://Assets/Dungeon TileSet/torch_extra_sheet.png" id="39_8prfk"]
 [ext_resource type="PackedScene" uid="uid://f3lrpt0y6v4f" path="res://Floors/PlayerSpawn/PlayerSpawn.tscn" id="40_8prfk"]
 [ext_resource type="Script" uid="uid://b1cy3xxe2mwic" path="res://Entities/StatSystem/Scripts/enemy_stats.gd" id="42_7imuu"]
+[ext_resource type="PackedScene" uid="uid://b5nolq06816qc" path="res://Entities/Enemies/GreatswordSkeleton/GreatSwordSkeleton.tscn" id="42_jjekv"]
 [ext_resource type="PackedScene" uid="uid://bqla40c8en75b" path="res://Entities/Enemies/Bat/Bat.tscn" id="42_kbphs"]
 
 [sub_resource type="Environment" id="Environment_3gqd7"]
@@ -63,7 +64,14 @@ spread = 80.0
 gravity = Vector3(0, 35, 0)
 color = Color(0.20871013, 0.20871016, 0.20871013, 1)
 
-[sub_resource type="Resource" id="Resource_jjekv"]
+[sub_resource type="Resource" id="Resource_bf3wx"]
+resource_local_to_scene = true
+script = ExtResource("42_7imuu")
+orb_reward = 100
+base_max_health = 120.0
+base_damage = 25.0
+
+[sub_resource type="Resource" id="Resource_7imuu"]
 resource_local_to_scene = true
 script = ExtResource("42_7imuu")
 orb_reward = 12
@@ -718,6 +726,10 @@ campfire = true
 [node name="PlayerSpawn" parent="." unique_id=434352752 instance=ExtResource("40_8prfk")]
 position = Vector2(566, 334)
 
-[node name="Enemy" parent="." unique_id=1279872010 instance=ExtResource("42_kbphs")]
-position = Vector2(459, 327)
-stats = SubResource("Resource_jjekv")
+[node name="Enemy2" parent="." unique_id=1279872010 instance=ExtResource("42_jjekv")]
+position = Vector2(558, 403)
+stats = SubResource("Resource_bf3wx")
+
+[node name="Enemy" parent="." unique_id=302399371 instance=ExtResource("42_kbphs")]
+position = Vector2(447, 327)
+stats = SubResource("Resource_7imuu")

@@ -72,7 +72,7 @@ tracks/1/path = NodePath("HurtBox:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.36666667, 0.8),
+"times": PackedFloat32Array(0.36666667, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -268,6 +268,9 @@ hframes = 12
 
 [node name="Wander" parent="EnemyStateMachine" parent_id_path=PackedInt32Array(1710172540) index="1" unique_id=183492203]
 wander_speed = 25
+
+[node name="Stun" parent="EnemyStateMachine" parent_id_path=PackedInt32Array(1710172540) index="4" unique_id=1239961943]
+player_camera_shake = 5.0
 
 [node name="AttackTimer" parent="EnemyStateMachine/Attack" parent_id_path=PackedInt32Array(1272616793) index="0" unique_id=1931911769]
 wait_time = 0.6

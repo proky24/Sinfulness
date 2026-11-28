@@ -16,7 +16,7 @@ var stats: PlayerStats:
 @onready var hurt_box: HurtBox = $Interactions/HurtBox
 @onready var camera: Camera2D = $Camera2D
 @onready var abilities_holder: Node2D = %AbilitiesSpriteHolder
-
+@onready var stun: StateStun = $"StateMachine/Stun"
 signal dir_changed( new_dir: Vector2 )
 
 func _ready() -> void:
@@ -103,7 +103,7 @@ func _die() -> void:
 
 func make_invulnerable(_duration: float = 1.00) -> void:
 	invulnerable = true
-	hit_box.monitorable = false
+	hit_box.set_deferred("monitorable", false)
 
 	await get_tree().create_timer(_duration).timeout
 

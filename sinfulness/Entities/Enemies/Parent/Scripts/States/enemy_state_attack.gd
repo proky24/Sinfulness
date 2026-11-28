@@ -21,7 +21,8 @@ var player_in_range: bool = false
 func init() -> void:
 	attack_detect_area.player_in_attack_range.connect(_on_player_in_range)
 	attack_detect_area.player_not_in_attack_range.connect(_on_player_not_in_range)
-
+	animation_player.animation_finished.connect(_disable_attacking)
+	attack_combo_timer.timeout.connect(_on_attack_combo_timer_end)
 	pass
 
 func _ready() -> void:
@@ -44,7 +45,6 @@ func enter() -> void:
 	else:
 		attack_combo = 0
 	attack_combo_timer.start()
-	attack_combo_timer.timeout.connect(_on_attack_combo_timer_end)
 
 	enemy.velocity = Vector2.ZERO
 
@@ -55,7 +55,6 @@ func enter() -> void:
 	else:
 		attack_combo = 1
 		enemy.update_animation("attack_" + str(attack_combo))
-	animation_player.animation_finished.connect(_disable_attacking)
 	pass
 
 func exit() -> void:
@@ -72,12 +71,10 @@ func process(_delta: float) -> EnemyState:
 
 func _on_attack_combo_timer_end() -> void:
 	attack_combo = 0
-	attack_combo_timer.timeout.disconnect(_on_attack_combo_timer_end)
 	pass
 
 func _disable_attacking(_a: String) -> void:
 	attacking = false
-	animation_player.animation_finished.disconnect(_disable_attacking)
 	pass
 
 func _on_player_in_range() -> void:
@@ -85,6 +82,7 @@ func _on_player_in_range() -> void:
 	if state_machine.curr_state is EnemyStateStun:
 		return
 	state_machine.change_state(self)
+	GlobalPlayerManager.player.stun.attacker = enemy
 	pass
 
 func _on_player_not_in_range() -> void:

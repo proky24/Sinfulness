@@ -13,10 +13,12 @@ class_name EnemyStateStun extends EnemyState
 
 var _direction: Vector2
 var animation_finished: bool = false
+var global_player_camera_shake: float
 
 @onready var audio_player: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
 
 func _ready() -> void:
+	global_player_camera_shake = player_camera_shake
 	pass 
 
 func enter() -> void:
